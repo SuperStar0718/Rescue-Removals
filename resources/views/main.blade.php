@@ -15,65 +15,66 @@
                     <p class="py-2" style="color: #8B8B8B; font-size: 20px;">The UK’s choice for delivery, removals, and transportation services.</p>
                     <img src="{{asset('images/RescueRemovals-logo.svg')}}" alt="rescue-removals-logo" class="w-100 py-2">
                 </div>                
-                <div class="col-md-5" style="margin-top: -66px; ">
+                <div class="col-md-5 options" style="margin-top: -66px; ">
                     <div class="align-items-center text-center">
                         <img src="{{asset('images/courier.png')}}" alt="courier" class="w-60"> 
                     </div>
-                    <div style="position:relative;">                    
+                    <div style="position:relative;" class = "categories">                    
                         <input type="text" id="moving-input" class="form-control form-control-lg" style="height: 60px" id="moving" placeholder="What are you moving?"> 
-                        <div class="mt-2 py-4 px-5" id="dropdown-frame" style="position: absolute; width: 130%; right:0px; background-color: white; border-radius: 0.5rem; border: 1px solid #353ea3;  display:none;">
+                        <div class="mt-2 py-4 px-5" id="dropdown-frame" style="position: absolute; width:700px; right:0px; background-color: white; border-radius: 0.5rem; border: 4px solid #353ea3;  display:none;">
+                        <i class=""></i>
                             <div class="row">
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-2 category">
                                     <div class="d-flex justify-content-start align-items-center text-center pointer" id="homes" onclick = "set_value('Home Removals')">
-                                        <img src="{{asset('images/Book/home.png')}}" alt="home-removals-logo" class="w-5">
+                                        <img src="{{asset('images/Book/home removals icon (1).png')}}" alt="home-removals-logo" class="w-5">
                                         <h6 class="pl-3 mb-0">Home Removals</h6>
                                     </div>                                
                                 </div>
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-2 category">
                                     <div class="d-flex justify-content-start align-items-center text-center pointer" id="man_van" onclick = "set_value('Man & Van')">
-                                        <img src="{{asset('images/Book/man&van.png')}}" alt="home-removals-logo" class="w-5">
+                                        <img src="{{asset('images/Book/man & van icon (1).png')}}" alt="home-removals-logo" class="w-5">
                                         <h6 class="pl-3 mb-0">Man & Van</h6>
                                     </div> 
                                 </div>
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-2 category">
                                     <div class="d-flex justify-content-start align-items-center text-center pointer" id="office" onclick = "set_value('Office Removals')">
-                                        <img src="{{asset('images/Book/office.png')}}" alt="home-removals-logo" class="w-5">
+                                        <img src="{{asset('images/Book/office icon (1).png')}}" alt="home-removals-logo" class="w-5">
                                         <h6 class="pl-3 mb-0">Office Removals</h6>
                                     </div> 
                                 </div>
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-2 category">
                                     <div class="d-flex justify-content-start align-items-center text-center pointer" id="motorbike" onclick = "set_value('Motorbikes')">
-                                        <img src="{{asset('images/Book/motorbikes.png')}}" alt="home-removals-logo" class="w-5  ">
+                                        <img src="{{asset('images/Book/motorbike icon (1).png')}}" alt="home-removals-logo" class="w-5  ">
                                         <h6 class="pl-3 mb-0">Motorbikes</h6>
                                     </div> 
                                 </div>
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-2 category">
                                     <div class="d-flex justify-content-start align-items-center text-center pointer" id="furniture" onclick = "set_value('Furniture & Appliances')">
-                                        <img src="{{asset('images/Book/furniture.png')}}" alt="home-removals-logo" class="w-5  ">
+                                        <img src="{{asset('images/Book/sofa icon (1).png')}}" alt="home-removals-logo" class="w-5  ">
                                         <h6 class="pl-3 mb-0">Furniture & Appliances</h6>
                                     </div> 
                                 </div>
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-2 category">
                                     <div class="d-flex justify-content-start align-items-center text-center pointer" id="european" onclick = "set_value('European moves')">
-                                        <img src="{{asset('images/Book/european.png')}}" alt="home-removals-logo" class="w-5  ">
+                                        <img src="{{asset('images/Book/european union icon.png')}}" alt="home-removals-logo" class="w-5  ">
                                         <h6 class="pl-3 mb-0">European moves</h6>
                                     </div> 
                                 </div>
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-2 category">
                                     <div class="d-flex justify-content-start align-items-center text-center pointer" id="waste" onclick = "set_value('Waste Removals')">
-                                        <img src="{{asset('images/Book/waste.png')}}" alt="home-removals-logo" class="w-5  ">
+                                        <img src="{{asset('images/Book/waste icon-ai (1).png')}}" alt="home-removals-logo" class="w-5  ">
                                         <h6 class="pl-3 mb-0">Waste Removals</h6>
                                     </div> 
                                 </div>
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-2 category">
                                     <div class="d-flex justify-content-start align-items-center text-center pointer" id="storage" onclick = "set_value('Storage')">
-                                        <img src="{{asset('images/Book/storage.png')}}" alt="home-removals-logo" class="w-5  ">
+                                        <img src="{{asset('images/Book/storage icon (1).png')}}" alt="home-removals-logo" class="w-5  ">
                                         <h6 class="pl-3 mb-0">Storage</h6>
                                     </div> 
                                 </div>
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-2 category">
                                     <div class="d-flex justify-content-start align-items-center text-center pointer" id="ebay" onclick = "set_value('eBay Deliveries')">
-                                        <img src="{{asset('images/Book/eBay.png')}}" alt="home-removals-logo" class="w-5  ">
+                                        <img src="{{asset('images/Book/ebay icon (1).png')}}" alt="home-removals-logo" class="w-5  ">
                                         <h6 class="pl-3 mb-0">eBay Deliveries</h6>
                                     </div> 
                                 </div>
@@ -81,16 +82,19 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-between  py-2">
-                        <input type="text" class="form-control form-control-lg mr-2" style="height: 60px" id="pickUp" placeholder="Pick Up Location">
+                        <input type="text" class="form-control form-control-lg mr-2" style="height: 60px" id="pac-input" placeholder="Pick Up Location">
                         <input type="text" class="form-control form-control-lg" style="height: 60px" id="dropOff" placeholder="Drop Off Location">
                     </div>
                     <div class="d-flex justify-content-between">
-                        <img src="{{asset('images/Trustpilot Logo.svg')}}" alt="courier" style="width: 120px;">
+                        <img src="{{asset('images/Trustpilot Logo-1.svg')}}" alt="courier" style="width: 120px;">
                         <a href="{{ url('/') }}" id="quote_url">
                             <button type="button" class="btn bg-primary-light text-white px-5 py-3" >
                                 <h5 class="mb-0">Get Quote Now</h5>
                             </button>
                         </a>                       
+                    </div>
+                    <div class = "warning">
+                        Already received a quote?
                     </div>
                 </div>
                 </div>
@@ -109,8 +113,8 @@
         </div>
         
         <div class="bg-primary-dark my-5">
-            <div class="container-content">                
-                <img src="{{asset('images/car.png')}}" class="w-100" alt="car">               
+            <div class="container-content py-5">                
+                <img src="{{asset('images/Blue Truck.png')}}" class="w-100 py-5" alt="car">               
                               
             </div>
         </div>
@@ -132,73 +136,73 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_home_removals') }}">
-                        <div class="position-relative" style="text-align: center">
+                        <div class="position-relative service_card" style="text-align: center">
                             <h4 class="position-absolute center-character text-white">Home Removals</h4>
-                            <img src="{{asset('images/Main/Image 1.png')}}" class="w-100" style="filter: brightness(0.6);">
+                            <img src="{{asset('images/Main/Image 1.png')}}" class="w-100 service" style="filter: brightness(0.6);">
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_storage') }}">
-                        <div class="position-relative" style="text-align: center">
+                        <div class="position-relative service_card" style="text-align: center">
                             <h4 class="position-absolute center-character text-white">Storage</h4>
-                            <img src="{{asset('images/Main/Image 2.png')}}" class="w-100" style="filter: brightness(0.6);">
+                            <img src="{{asset('images/Main/Image 2.png')}}" class="w-100 service" style="filter: brightness(0.6);">
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_furniture&appliance') }}">
-                        <div class="position-relative" style="text-align: center">
+                        <div class="position-relative service_card" style="text-align: center">
                             <h4 class="position-absolute center-character text-white">Furniture & Large Items Delivery</h4>
-                            <img src="{{asset('images/Main/Image 2.png')}}" class="w-100" style="filter: brightness(0.6);">
+                            <img src="{{asset('images/Main/Image 2.png')}}" class="w-100 service" style="filter: brightness(0.6);">
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_eBay_deliveries') }}">
-                        <div class="position-relative" style="text-align: center">
+                        <div class="position-relative service_card" style="text-align: center">
                             <h4 class="position-absolute center-character text-white">eBay Deliveries</h4>
-                            <img src="{{asset('images/Main/Image 4.png')}}" class="w-100" style="filter: brightness(0.6);">
+                            <img src="{{asset('images/Main/Image 4.png')}}" class="w-100 service" style="filter: brightness(0.6);">
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_man&van') }}">
-                        <div class="position-relative" style="text-align: center">
+                        <div class="position-relative service_card" style="text-align: center">
                             <h4 class="position-absolute center-character text-white">Man & Van Services</h4>
-                            <img src="{{asset('images/Main/Image 3.png')}}" class="w-100" style="filter: brightness(0.6);">
+                            <img src="{{asset('images/Main/Image 3.png')}}" class="w-100 service" style="filter: brightness(0.6);">
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_european_moves') }}">
-                        <div class="position-relative" style="text-align: center">
+                        <div class="position-relative service_card" style="text-align: center">
                             <h4 class="position-absolute center-character text-white">European Moves</h4>
-                            <img src="{{asset('images/Main/Image 1.png')}}" class="w-100" style="filter: brightness(0.6);">
+                            <img src="{{asset('images/Main/Image 1.png')}}" class="w-100 service" style="filter: brightness(0.6);">
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_motorbikes') }}">
-                        <div class="position-relative" style="text-align: center">
+                        <div class="position-relative service_card" style="text-align: center">
                             <h4 class="position-absolute center-character text-white">Motorbikes</h4>
-                            <img src="{{asset('images/Main/Image 4.png')}}" class="w-100" style="filter: brightness(0.6);">
+                            <img src="{{asset('images/Main/Image 4.png')}}" class="w-100 service" style="filter: brightness(0.6);">
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_waste_removals') }}">
-                        <div class="position-relative" style="text-align: center">
+                        <div class="position-relative service_card" style="text-align: center">
                             <h4 class="position-absolute center-character text-white">Waste Removals</h4>
-                            <img src="{{asset('images/Main/Image 3.png')}}" class="w-100" style="filter: brightness(0.6);">
+                            <img src="{{asset('images/Main/Image 3.png')}}" class="w-100 service" style="filter: brightness(0.6);">
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_storage') }}">
-                        <div class="position-relative" style="text-align: center">
+                        <div class="position-relative service_card" style="text-align: center">
                             <h4 class="position-absolute center-character text-white">Storage</h4>
-                            <img src="{{asset('images/Main/Image 1.png')}}" class="w-100" style="filter: brightness(0.6);">
+                            <img src="{{asset('images/Main/Image 1.png')}}" class="w-100 service" style="filter: brightness(0.6);">
                         </div>
                     </a>
                 </div>
@@ -208,12 +212,11 @@
     <!--------------- end section 3 --------------->
 
     <!--------------- section 4 --------------->
-    <div class="container-content mt-5" style="margin-bottom: -85px;">
+    <div class="container-content mt-5" style="margin-bottom: -120px;">
         <div class="moving-home bg-white position-relative p-5">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="d-flex justify-content-center">
-                        <div>
+            <div class="row book-now">
+                    <div class="d-flex justify-content-start">
+                        <div class="">
                             <h3  class="btn-text-primary-light">Ready to Move?</h3>
                             <p>
                                 Fill in our simple form and let
@@ -221,17 +224,16 @@
                             </p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-5">
                     <div class="text-center mt-1">
-                        <button type="button" class="btn bg-primary-light text-white rounded-pill px-5 py-3">
+                        <button type="button" class="btn bg-primary-light text-white px-5 py-3">
                             <h5 class="mb-0">Book Now</h5>
                         </button>
                     </div>
-                </div>
             </div>
         </div>
     </div>
+      <div id="map"></div>
+
     <!--------------- end section 4 --------------->
 @endsection
 
@@ -240,8 +242,61 @@
 @endsection
 
 @section('script')
+      <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOf6R2b522tP1OTC9xqqzP2o4zyyiF7b8&callback=initMap&libraries=places&v=weekly"
+        defer
+      ></script>
     <script>
-        $('#moving-input').focus(function() {
+    function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 40.749933, lng: -73.98633 },
+    zoom: 13,
+    mapTypeControl: false,
+  });
+  const card = document.getElementById("pac-card");
+  const input = document.getElementById("pac-input");
+  const biasInputElement = document.getElementById("use-location-bias");
+  const strictBoundsInputElement = document.getElementById("use-strict-bounds");
+  const options = {
+    fields: ["formatted_address", "geometry", "name"],
+    strictBounds: false,
+    types: ["establishment"],
+  };
+
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
+
+  const autocomplete = new google.maps.places.Autocomplete(input, options);
+
+  // Bind the map's bounds (viewport) property to the autocomplete object,
+  // so that the autocomplete requests use the current map bounds for the
+  // bounds option in the request.
+  autocomplete.bindTo("bounds", map);
+
+  const infowindow = new google.maps.InfoWindow();
+  const infowindowContent = document.getElementById("infowindow-content");
+
+  infowindow.setContent(infowindowContent);
+
+  const marker = new google.maps.Marker({
+    map,
+    anchorPoint: new google.maps.Point(0, -29),
+  });
+    }
+
+        $(document).ready(function(){
+            // Create a new Date object to get the current date and time
+            const today = new Date();
+
+            // Get the day of the week as a number (0: Sunday, 1: Monday, ..., 6: Saturday)
+            const dayOfWeekNumber = today.getDay();
+
+            var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).find(':first-child').css('color','yellow ')
+            console.log(text)
+
+        })
+
+
+        $('#moving-input').click(function() {
             $('#dropdown-frame').toggle()
         });
 
@@ -254,26 +309,43 @@
         function set_value(val) {
             $('#moving-input').val(val);
             $('#dropdown-frame').hide();
+            $(".options .warning").show();
             let quote_url = "{{ url('/') }}";
-            if(val === "Furniture & Appliances" || val === "Man & Van" || val === "eBay Deliveries")
+            if(val === "eBay Deliveries")
             {
-                quote_url = "{{ url('/furnitureappliance_manvan_eBaydeliveries/book1') }}";            
+                quote_url = "{{route('eBay')}}";            
+            }
+            else if(val === "Furniture & Appliances")
+            {
+                quote_url = "{{route('Furniture_Appliance')}}";            
+            }
+            else if(val === "Man & Van")
+            {
+                quote_url = "{{route('ManVan')}}";            
             }
             else if(val === "Office Removals")
             {
-                quote_url = "{{ url('/officeremovals/book1') }}";
+                quote_url = "{{ route('OfficeRemovals.hours_need') }}";
             }
             else if(val === "Home Removals")
             {
-                quote_url = "{{ url('/homeremovals/book1') }}";
+                quote_url = "{{ route('HomeRemovals.cart') }}";
             }
             else if(val === "Motorbikes")
             {
-                quote_url = "{{ url('/motorbikes/book1') }}";
+                quote_url = "{{ route('Motorbike.hours_need') }}";
             }
-            else if(val === "Waste Removals" || val === "European moves" || val === "Storage")
+            else if(val === "Waste Removals")
             {
-                quote_url = "{{ url('/wasteremovals_europeanmoves_storage/book1') }}";
+                quote_url = "{{ route('WasteRemovals') }}";
+            }
+            else if(val === "European moves")
+            {
+                quote_url = "{{ route('European_moves') }}";
+            }
+            else if(val === "Storage")
+            {
+                quote_url = "{{ route('Storage') }}";
             }
             else
             {
@@ -284,5 +356,6 @@
             console.log(quote_url);
 
         }
+        
     </script>   
 @endsection

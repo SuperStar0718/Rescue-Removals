@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="d-flex justify-content-center">
-                        <img src="{{asset('images/car.png')}}" class="w-100" alt="person">
+                        <img src="{{asset('images/Blue Truck.png')}}" class="w-100" alt="person">
                     </div>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center align-items-center py-5">
@@ -37,7 +37,7 @@
     <div class="bg-warning-light">
         <div class="container-content py-5">
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-5 left_image">
                     <img src="{{asset('images/Office Removals/office-removals-1.png')}}" class="w-100">
                 </div>
                 <div class="col-md-7">
@@ -120,7 +120,7 @@
     <!--------------- end section 3 --------------->
 
     <!--------------- section 4 --------------->
-    <div class="container-content mt-5" style="margin-bottom: -85px;">
+    <div class="container-content mt-5" style="margin-bottom: -120px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="row">
                 <div class="col-md-7">

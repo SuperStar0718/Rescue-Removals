@@ -35,12 +35,11 @@
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div class="container-content mt-5" style="margin-bottom: -85px;">
+    <div class="container-content mt-5" style="margin-bottom: -120px;">
         <div class="moving-home bg-white position-relative p-5">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="d-flex justify-content-center">
-                        <div>
+            <div class="row book-now">
+                    <div class="d-flex justify-content-start">
+                        <div class="">
                             <h3  class="btn-text-primary-light">Ready to Move?</h3>
                             <p>
                                 Fill in our simple form and let
@@ -48,16 +47,11 @@
                             </p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-5">
                     <div class="text-center mt-1">
-                        <a href="{{ url('/') }}">
-                            <button type="button" class="btn bg-primary-light text-white rounded-pill px-5 py-3">
-                                <h5 class="mb-0">Book Now</h5>
-                            </button>
-                        </a>
+                        <button type="button" class="btn bg-primary-light text-white px-5 py-3">
+                            <h5 class="mb-0">Book Now</h5>
+                        </button>
                     </div>
-                </div>
             </div>
         </div>
     </div>

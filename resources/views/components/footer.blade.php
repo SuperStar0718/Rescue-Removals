@@ -1,5 +1,5 @@
 <footer>        
-    <div class="bg-primary-light pt-5 pb-4">
+    <div class="bg-primary-light footer pb-4">
         <div class="container-content">
             <h1 class="text-center text-white mt-5">WE ARE OPEN 7 DAYS A WEEK</h1>
             <h1 class="text-center text-white mt-2">0208 090 6151</h1>
@@ -48,37 +48,37 @@
                 <div class="col-md-5">
                     <div class="d-flex justify-content-center justify-content-md-end">
                         <div class="d-flex flex-column align-items-end">
-                            <div class="mb-2" style="width: 200px;">
+                            <div class="mb-2 d-flex justify-content-end" style="width: 200px; ">
                                 <img src="{{asset('images/Trustpilot Logo.svg')}}" class="w-100">
                             </div>
-                            <div>
+                            <div class="weekday">
                                 <h4 class="text-white">HOURS OF OPERATION</h4>
                                 <div class="d-flex justify-content-between">                               
-                                    <h6 class="text-white mb-0">MONDAY</h6>
+                                    <h6 class=" mb-0">MONDAY</h6>
                                     <h6 class="text-white mb-0">08:00 - 20:00</h6>
                                 </div>    
                                 <div class="d-flex justify-content-between">                               
-                                    <h6 class="text-white mb-0">TUESDAY</h6>
+                                    <h6 class="mb-0">TUESDAY</h6>
                                     <h6 class="text-white mb-0">08:00 - 20:00</h6>
                                 </div>
                                 <div class="d-flex justify-content-between">                               
-                                    <h6 class="text-white mb-0">WEDNESDAY</h6>
+                                    <h6 class="mb-0">WEDNESDAY</h6>
                                     <h6 class="text-white mb-0">08:00 - 20:00</h6>
                                 </div>   
                                 <div class="d-flex justify-content-between">                               
-                                    <h6 class="text-white mb-0">THURSDAY</h6>
+                                    <h6 class="mb-0">THURSDAY</h6>
                                     <h6 class="text-white mb-0">08:00 - 20:00</h6>
                                 </div>   
                                 <div class="d-flex justify-content-between">                               
-                                    <h6 class="text-white mb-0">FRIDAY</h6>
+                                    <h6 class="mb-0">FRIDAY</h6>
                                     <h6 class="text-white mb-0">08:00 - 20:00</h6>
                                 </div>   
                                 <div class="d-flex justify-content-between">                               
-                                    <h6 class="text-white mb-0">SATURDAY</h6>
+                                    <h6 class=" mb-0">SATURDAY</h6>
                                     <h6 class="text-white mb-0">08:00 - 20:00</h6>
                                 </div>   
                                 <div class="d-flex justify-content-between">                               
-                                    <h6 class="text-white mb-0">SUNDAY</h6>
+                                    <h6 class="mb-0">SUNDAY</h6>
                                     <h6 class="text-white mb-0">08:00 - 20:00</h6>
                                 </div>      
                             </div>

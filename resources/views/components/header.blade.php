@@ -15,11 +15,24 @@
             <div class="display-none-sm">
                 <div class="d-flex align-items-center">
                     <div class="pointer">0208 090 6151</div>
-                    <div class="pointer pl-5">
-                        <a href="{{ url('/login') }}">
-                            <img src="{{asset('images/person.svg')}}" alt="person" style="width: 30px;">
-                            <div class="text-white" style="font-size: 12px;">Log In</div>
-                        </a>
+                    <div class="pointer pl-5 login">
+
+
+                        @guest
+                            <a href="{{ url('/login') }}">
+                                <img src="{{asset('images/person.svg')}}" alt="person" style="width: 30px;">
+                                <div class="text-white" style="font-size: 12px;">Log In</div>
+                            </a>
+                        @else
+                            <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <img src="{{asset('images/person.svg')}}" alt="person" style="width: 30px;">
+                                <div class="text-white" style="font-size: 12px;">Log Out</div>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            
+                        @endguest
                     </div>
                 </div>
             </div>

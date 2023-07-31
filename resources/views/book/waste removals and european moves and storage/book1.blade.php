@@ -17,7 +17,7 @@
                         <div class="text-center">
                             <img src="{{asset('images/courier.png')}}" class="w-60">
                         </div>
-                        <h5 class="text-center">
+                        <h5 class="text-center text-dark">
                             We need some details about what you would like to store. 
                             Please give us a call and a member of our team will get a price for you right away.
                         </h5>
@@ -36,7 +36,7 @@
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div class="container-content mt-5" style="margin-bottom: -85px;">
+    <div class="container-content mt-5" style="margin-bottom: -120px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="row">
                 <div class="col-md-7">
