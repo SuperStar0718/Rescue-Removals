@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="bg-warning-light my-5">
+<div class=" my-5">
         <div class="container-content py-5 ">
             <h3>Our Services - We love what we do & we do it well…</h3>            
         </div>
@@ -85,7 +85,7 @@
         </div>
     </div>
     <!--------------- section 1 --------------->
-    <div class="container-content mt-5" style="margin-bottom: -85px; background-color:#f5f5fa;">
+    <div class="container-content book_now_btn" style="margin-bottom: -85px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="row book-now">
                     <div class="d-flex justify-content-start">
