@@ -65,7 +65,7 @@
                         </p>
                     </div>
                     <div>
-                        <img src="{{asset('images/Home Removals/home-removals-2.png')}}" class="w-100">
+                        <img src="{{asset('images/Home Removals/home-removals-2.png')}}" class="img_wid_100">
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                 Choose Rescue Removals for an affordable and worry-free move that exceeds your expectations.
             </p>
         </div>
-        <div class="container-content service_category">
+        <div class="container-content service_category services">
                 <div class="">
                     <img src="{{asset('images/Home Removals/home-removals-3.png')}}" class="">
                 </div>

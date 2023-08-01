@@ -38,7 +38,7 @@
         <div class="container-content py-5">
             <div class="row">
                 <div class="col-md-5 left_image">
-                    <img src="{{asset('images/Man & Van/man-and-van-1.png')}}" class="w-100">
+                    <img src="{{asset('images/Man & Van/man-and-van-1.png')}}" class="">
                 </div>
                 <div class="col-md-7">
                     <div class="mt-4 mt-md-0" style="margin-bottom: 64px;">
@@ -58,7 +58,7 @@
                         </p>
                     </div>
                     <div>
-                        <img src="{{asset('images/Man & Van/man-and-van-2.png')}}" class="w-100">
+                        <img src="{{asset('images/Man & Van/man-and-van-2.png')}}" class="img_wid_100">
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                 Choose Rescue Removals for an affordable and worry-free move that exceeds your expectations.
             </p>
         </div>
-        <div class="container-content service_category">
+        <div class="container-content service_category services">
                 <div class="">
                     <img src="{{asset('images/Man & Van/man-and-van-3.png')}}" class="">
                 </div>

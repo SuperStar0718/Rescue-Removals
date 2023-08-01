@@ -26,4 +26,16 @@
     @yield('script')     
    
 </body>
+<script>
+   $(document).ready(function(){
+        // Create a new Date object to get the current date and time
+        const today = new Date();
+
+        // Get the day of the week as a number (0: Sunday, 1: Monday, ..., 6: Saturday)
+        const dayOfWeekNumber = today.getDay();
+
+        var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).css('color','yellow ')
+
+    })
+</script>
 </html>

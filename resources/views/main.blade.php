@@ -250,7 +250,7 @@
 
 @section('script')
       <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOf6R2b522tP1OTC9xqqzP2o4zyyiF7b8&callback=initMap&libraries=places&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&callback=initMap&libraries=places&v=weekly"
         defer
       ></script>
     <script>
@@ -261,7 +261,8 @@
     mapTypeControl: false,
   });
   const card = document.getElementById("pac-card");
-  const input = document.getElementById("pac-input");
+  const from = document.getElementById("pac-input");
+  const to = document.getElementById("dropOff");
   const biasInputElement = document.getElementById("use-location-bias");
   const strictBoundsInputElement = document.getElementById("use-strict-bounds");
   const options = {
@@ -272,12 +273,14 @@
 
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
 
-  const autocomplete = new google.maps.places.Autocomplete(input, options);
+  const autocomplete = new google.maps.places.Autocomplete(from, options);
 
   // Bind the map's bounds (viewport) property to the autocomplete object,
   // so that the autocomplete requests use the current map bounds for the
   // bounds option in the request.
   autocomplete.bindTo("bounds", map);
+  const autocomplete1 = new google.maps.places.Autocomplete(to, options);
+  autocomplete1.bindTo("bounds", map);
 
   const infowindow = new google.maps.InfoWindow();
   const infowindowContent = document.getElementById("infowindow-content");

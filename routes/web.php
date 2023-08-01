@@ -8,6 +8,7 @@ use App\Http\Controllers\ManVan;
 use App\Http\Controllers\OfficeRemovals;
 use App\Http\Controllers\HomeRemovals;
 use App\Http\Controllers\Motorbike;
+use App\Http\Controllers\UserDashboard;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,12 +55,16 @@ Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallbac
 // });
 
 
+// Route::group(['middleware'=>['']], function(){
+    Route::get('user_panel', [UserDashboard::class, 'index'])->name('user_panel');
+// });
+
 //--------------------------------------------Our Books routes--------------------------------------------------------
 // Route::get('/furnitureappliance_manvan_eBaydeliveries/book1', [eBayDeliveries::class, 'index'])->name('cart');
 // Route::get('/furnitureappliance_manvan_eBaydeliveries/book2', [eBayDeliveries::class, 'hours_need'])->name('hours_need');
 // Route::get('/furnitureappliance_manvan_eBaydeliveries/book3', [eBayDeliveries::class, 'men'])->name('men');
 // Route::get('/furnitureappliance_manvan_eBaydeliveries/book4', [eBayDeliveries::class, 'select_car'])->name('select_car');
-Route::group(['prefix'=>'eBaydelivery', 'middleware'=>['auth']], function (){
+Route::group(['prefix'=>'eBaydelivery'], function (){
 
     Route::get('select-items', [eBayDeliveries::class, 'index'])->name('eBay');
     Route::get('timer', [eBayDeliveries::class, 'hours_need'])->name('eBay.hours_need');
@@ -89,7 +94,7 @@ Route::group(['prefix'=>'eBaydelivery', 'middleware'=>['auth']], function (){
 
 
 
-Route::group(['prefix'=>'Furniture_Appliance', 'middleware'=>['auth']], function (){
+Route::group(['prefix'=>'Furniture_Appliance'], function (){
 
     Route::get('select-items', [Furniture_Appliance::class, 'index'])->name('Furniture_Appliance');
     Route::get('timer', [Furniture_Appliance::class, 'hours_need'])->name('Furniture_Appliance.hours_need');
@@ -119,7 +124,7 @@ Route::group(['prefix'=>'Furniture_Appliance', 'middleware'=>['auth']], function
 
 
 
-Route::group(['prefix'=>'ManVan', 'middleware'=>['auth']], function (){
+Route::group(['prefix'=>'ManVan'], function (){
 
     Route::get('select-items', [ManVan::class, 'index'])->name('ManVan');
     Route::get('timer', [ManVan::class, 'hours_need'])->name('ManVan.hours_need');
@@ -149,7 +154,7 @@ Route::group(['prefix'=>'ManVan', 'middleware'=>['auth']], function (){
 
 
 
-Route::group(['prefix'=>'OfficeRemoval', 'middleware'=>['auth']], function (){
+Route::group(['prefix'=>'OfficeRemoval'], function (){
 
     // Route::get('/OfficeRemoval/select-items', [OfficeRemovals::class, 'index'])->name('OfficeRemovals');
     Route::get('timer', [OfficeRemovals::class, 'hours_need'])->name('OfficeRemovals.hours_need');
@@ -185,7 +190,7 @@ Route::group(['prefix'=>'OfficeRemoval', 'middleware'=>['auth']], function (){
 
 
 
-Route::group(['prefix'=>'HomeRemovals', 'middleware'=>['auth']], function (){
+Route::group(['prefix'=>'HomeRemovals'], function (){
     Route::get('house_type', [HomeRemovals::class, 'index'])->name('HomeRemovals.house_type');
     Route::get('select-items', [HomeRemovals::class, 'cart'])->name('HomeRemovals.cart');
     Route::get('timer', [HomeRemovals::class, 'hours_need'])->name('HomeRemovals.hours_need');
@@ -221,7 +226,7 @@ Route::group(['prefix'=>'HomeRemovals', 'middleware'=>['auth']], function (){
 
 
 
-Route::group(['prefix'=>'Motorbike', 'middleware'=>['auth']], function (){
+Route::group(['prefix'=>'Motorbike'], function (){
     // Route::get('/OfficeRemoval/select-items', [OfficeRemovals::class, 'index'])->name('OfficeRemovals');
     Route::get('timer', [Motorbike::class, 'hours_need'])->name('Motorbike.hours_need');
     Route::get('chooseman', [Motorbike::class, 'men'])->name('Motorbike.men');
