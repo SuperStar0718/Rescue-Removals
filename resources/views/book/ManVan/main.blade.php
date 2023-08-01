@@ -259,7 +259,17 @@ $(document).ready(function(){
 
 })
 
+ $(document).ready(function(){
+            // Create a new Date object to get the current date and time
+            const today = new Date();
 
+            // Get the day of the week as a number (0: Sunday, 1: Monday, ..., 6: Saturday)
+            const dayOfWeekNumber = today.getDay();
+
+            var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).find(':first-child').css('color','yellow ')
+            console.log(text)
+
+        })
     function update_cart(title, amount){
         var csrfToken = "{{ csrf_token() }}";
         $.ajaxSetup({
