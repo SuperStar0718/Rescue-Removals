@@ -95,11 +95,9 @@
                             <img src="{{asset('images/Trustpilot Logo-1.svg')}}" alt="courier" style="width: 120px;">
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ url('/') }}" id="quote_url">
-                                <button type="button" class="btn bg-primary-light text-white px-5 py-3" >
-                                    Get Quote Now
-                                </button>
-                            </a>                       
+                            <button type="button" class="btn bg-primary-light text-white px-5 py-3" id="quote_btn" >
+                                Get Quote Now
+                            </button>
                         </div>
                     </div>
                     <div class = "warning">
@@ -270,6 +268,7 @@
             fields: ["formatted_address", "geometry", "name"],
             strictBounds: false,
             types: ["establishment"],
+            componentRestrictions: { country: 'UK' } // Limit results to the United Kingdom
         };
 
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
@@ -279,18 +278,35 @@
         // Bind the map's bounds (viewport) property to the autocomplete object,
         // so that the autocomplete requests use the current map bounds for the
         // bounds option in the request.
-        autocomplete.bindTo("bounds", map);
         const autocomplete1 = new google.maps.places.Autocomplete(to, options);
-        autocomplete1.bindTo("bounds", map);
-
-        const infowindow = new google.maps.InfoWindow();
-        const infowindowContent = document.getElementById("infowindow-content");
-
-        infowindow.setContent(infowindowContent);
-
-        const marker = new google.maps.Marker({
-            map,
-            anchorPoint: new google.maps.Point(0, -29),
+        // Listen for the place_changed event
+        autocomplete.addListener('place_changed', function() {
+            const place = autocomplete.getPlace();
+            if (place && place.formatted_address) {
+                console.log('Selected Address:', place.formatted_address);
+                const data = {
+                    'address':place.formatted_address,
+                    'lat':place.geometry.location.lat(),
+                    'lng':place.geometry.location.lng(),
+                }
+                localStorage.setItem('from', JSON.stringify(data));
+            } else {
+            console.log('No address selected or not found.');
+            }
+        });
+        autocomplete1.addListener('place_changed', function() {
+            const place = autocomplete1.getPlace();
+            if (place && place.formatted_address) {
+                console.log('Selected Address:', place.formatted_address);
+                const data = {
+                    'address':place.formatted_address,
+                    'lat':place.geometry.location.lat(),
+                    'lng':place.geometry.location.lng(),
+                }
+                localStorage.setItem('to', JSON.stringify(data));
+            } else {
+            console.log('No address selected or not found.');
+            }
         });
     }
 
@@ -316,6 +332,17 @@
                 $('#dropdown-frame').hide();
             }
         });
+
+        $('#quote_btn').click(function(){
+            var category = $('#moving-input').val()
+                var from  =  $('#pac-input').val()
+                var to = $('#dropOff').val()
+                if(from !== '' && to !==''){
+                    console.log(from)
+                    console.log(to)
+                    alert("hello")
+                }
+        })
 
         function set_value(val) {
             $('#moving-input').val(val);

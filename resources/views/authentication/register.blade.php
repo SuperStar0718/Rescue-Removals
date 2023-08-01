@@ -6,12 +6,12 @@
 
 @section('content')
     <!--------------- section 1 --------------->
-    <div class="container-content py-5">
-        <div class="row">
-            <div class="col-md-6">
+    <div class="container-content">
+        <div class="row main_container_content">
+            <div class="col-md-6 left_image">
                 <img src="{{asset('images/Register/signup.png')}}" class="">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 right_content">
                 <div class="shadow-effect auth-bg-color" style="height: 99%">
                     <div class="p-5">
                         <h4>Create Account</h4>
