@@ -151,9 +151,9 @@
                     </a>
                 </div>
                 <div class=" ">
-                    <a href="{{ url('/service_storage') }}">
+                    <a href="{{ url('/service_office_removals') }}">
                         <div class="position-relative service_card" style="text-align: center">
-                            <h4 class="position-absolute center-character text-white">Storage</h4>
+                            <h4 class="position-absolute center-character text-white">Office Removals</h4>
                             <img src="{{asset('images/Main/Image 2.png')}}" class=" service" style="filter: brightness(0.6);">
                         </div>
                     </a>

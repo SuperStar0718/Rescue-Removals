@@ -9,7 +9,7 @@
     <div class="container-content py-5">
         <div class="row">
             <div class="col-md-6">
-                <img src="{{asset('images/Register/signup.png')}}" class="w-100">
+                <img src="{{asset('images/Register/signup.png')}}" class="">
             </div>
             <div class="col-md-6">
                 <div class="shadow-effect auth-bg-color" style="height: 99%">
