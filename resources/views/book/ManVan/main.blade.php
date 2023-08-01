@@ -727,4 +727,18 @@ $(document).ready(function(){
 })
 </script>
 @endif
+@if($component=="ManVan.final_calculation")
+<script>
+$('div.phone_number.first button').click(function(){
+    var content = " <div class='row py-3 second_phone' style='flex-direction:row-reverse;'><div class='col-6'><div class='input-block phone_number'><input type='text' name ='input-text' required ><span class='placeholder'>Phone Number</span><button>-</button></div></div></div>"
+    if($('div.second_phone').length<1)
+    {
+        $('.booking-form').append(content)
+        $('.second_phone button').click(function(){
+            $(this).parent().parent().parent().remove()
+        })
+    }
+})
+</script>
+@endif
 @endsection
