@@ -255,42 +255,43 @@
       ></script>
     <script>
     function initMap() {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 40.749933, lng: -73.98633 },
-    zoom: 13,
-    mapTypeControl: false,
-  });
-  const card = document.getElementById("pac-card");
-  const from = document.getElementById("pac-input");
-  const to = document.getElementById("dropOff");
-  const biasInputElement = document.getElementById("use-location-bias");
-  const strictBoundsInputElement = document.getElementById("use-strict-bounds");
-  const options = {
-    fields: ["formatted_address", "geometry", "name"],
-    strictBounds: false,
-    types: ["establishment"],
-  };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 40.749933, lng: -73.98633 },
+            zoom: 13,
+            mapTypeControl: false,
+        });
+       
+        const card = document.getElementById("pac-card");
+        const from = document.getElementById("pac-input");
+        const to = document.getElementById("dropOff");
+        const biasInputElement = document.getElementById("use-location-bias");
+        const strictBoundsInputElement = document.getElementById("use-strict-bounds");
+        const options = {
+            fields: ["formatted_address", "geometry", "name"],
+            strictBounds: false,
+            types: ["establishment"],
+        };
 
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
 
-  const autocomplete = new google.maps.places.Autocomplete(from, options);
+        const autocomplete = new google.maps.places.Autocomplete(from, options);
 
-  // Bind the map's bounds (viewport) property to the autocomplete object,
-  // so that the autocomplete requests use the current map bounds for the
-  // bounds option in the request.
-  autocomplete.bindTo("bounds", map);
-  const autocomplete1 = new google.maps.places.Autocomplete(to, options);
-  autocomplete1.bindTo("bounds", map);
+        // Bind the map's bounds (viewport) property to the autocomplete object,
+        // so that the autocomplete requests use the current map bounds for the
+        // bounds option in the request.
+        autocomplete.bindTo("bounds", map);
+        const autocomplete1 = new google.maps.places.Autocomplete(to, options);
+        autocomplete1.bindTo("bounds", map);
 
-  const infowindow = new google.maps.InfoWindow();
-  const infowindowContent = document.getElementById("infowindow-content");
+        const infowindow = new google.maps.InfoWindow();
+        const infowindowContent = document.getElementById("infowindow-content");
 
-  infowindow.setContent(infowindowContent);
+        infowindow.setContent(infowindowContent);
 
-  const marker = new google.maps.Marker({
-    map,
-    anchorPoint: new google.maps.Point(0, -29),
-  });
+        const marker = new google.maps.Marker({
+            map,
+            anchorPoint: new google.maps.Point(0, -29),
+        });
     }
 
         $(document).ready(function(){

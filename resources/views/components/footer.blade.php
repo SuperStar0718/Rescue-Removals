@@ -8,23 +8,21 @@
                     <div class="mt-5">
                         <div class="d-flex flex-md-row flex-column">
                             <div class="mt-2">
-                                <div class="d-flex justify-content-center">
-                                    <div style="width: 300px;">
-                                        <img src="{{asset('images/Footer Logo.svg')}}" class="w-100">
-                                    </div>
+                                <div class="">
+                                        <img src="{{asset('images/Footer Logo.svg')}}" class="footer_logo">
                                 </div>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <div class="mr-3" style="width: 65px;">
-                                        <img src="{{asset('images/facebook.svg')}}" class="w-100">
+                                <div class="d-flex justify-content-between mt-3">
+                                    <div class="" style="">
+                                        <img src="{{asset('images/facebook.svg')}}">
                                     </div>
-                                    <div class="mr-3" style="width: 65px;">
-                                        <img src="{{asset('images/instagram.svg')}}" class="w-100">
+                                    <div class="" style="">
+                                        <img src="{{asset('images/instagram.svg')}}" >
                                     </div>
-                                    <div class="mr-3" style="width: 65px;">
-                                        <img src="{{asset('images/whatsapp.svg')}}" class="w-100">
+                                    <div class="" style="">
+                                        <img src="{{asset('images/whatsapp.svg')}}" >
                                     </div>
-                                    <div style="width: 65px;">
-                                        <img src="{{asset('images/tiktok.svg')}}" class="w-100">
+                                    <div style="">
+                                        <img src="{{asset('images/tiktok.svg')}}" >
                                     </div>
                                 </div>
                             </div>
