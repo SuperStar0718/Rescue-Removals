@@ -10,7 +10,7 @@
     <div class="py-1">
         <div class="bg-primary-light py-1">
             <div class="container-content d-flex flex-column align-items-center  text-center">                
-                <div class="py-5" style="width: 45%; height: 60%">             
+                <div style="width: 45%; height: 60%; padding:150px 0px;">             
                     <h3 class="text-white">We would love to hear from you...</h3>                       
                     <div class="my-3 px-4" style="background-color: white; border-radius: 2rem;">
                         <h6 class="py-5">Want to send us a message? Simply fill in all fields on this form and hit the send button</h6>

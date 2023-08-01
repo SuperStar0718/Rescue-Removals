@@ -200,6 +200,9 @@ div.men{
 .select_car{
   display: flex;
   flex-direction: row;
+  min-height: 290px;
+  align-items: center;
+  justify-content: center;
 }
 .select_car .arrow{
   align-self: center;
@@ -221,8 +224,6 @@ div.car_title_section{
   width: 280px;
   align-items: center;
   padding-left: 20px;
-  position: relative;
-  top: -50px;
 }
 .car_title_section .car_title{
   padding: 7px;
@@ -267,11 +268,7 @@ div.car_title_section{
   border:1px solid #0015ff;
   color: #0015ff;
 }
-.congestion{
-  align-self: center;
-  padding-top:8rem;
-  padding-bottom: 8rem;
-}
+
 .shadow-effect h5{
   color: white;
 }
@@ -503,6 +500,18 @@ color: #284B63;
 
 .shadow-effect>.row, .shadow-effect>.panel_row, .cart_panel.shadow-effect{
   min-height: 530px;
+
+}
+
+.shadow-effect>.panel_row{
+    display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.shadow-effect .right_panel{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .car-panel{
   display: flex;
@@ -515,10 +524,16 @@ color: #284B63;
     width: 100%;
     flex-direction: row-reverse;
 }
-
 .carousel-item{
   min-height: 280px;
+
 }
+.carousel-item.active{
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
 .men.car div>div>img{
   width: 320px;
 }
@@ -604,7 +619,7 @@ button.cancel{
   transition: 0.5s all ease-in-out;
 }
 .container-content .service_card:hover img.service{
-  transform: scale(1.2);
+  transform: scale(1.05);
 }
 .container-content .service_card{
   overflow: hidden;
@@ -697,4 +712,19 @@ footer>div.footer{
 .container-content .left_image img{
   width: 100%;
   height:100%;
+}
+
+.container-content.service_category > .row >div{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.other-category>div> a >h5{
+  font-size: 21px;
+  font-family: HelveticaNeueMedium;
+}
+footer span.display-block, footer span.display-block>h6{
+  font-family: HelveticaNeueMedium;
+}
+footer .weekday h6{
+  font-family: HelveticaNeueMedium;
 }

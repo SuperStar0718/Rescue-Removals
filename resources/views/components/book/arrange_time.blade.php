@@ -5,7 +5,7 @@
                 <h3 class="text-white pl-4">What time would you like to arrange the removal?</h3>
             </div>                        
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 right_panel">
             <div class="d-flex justify-content-center py-5">
                 <div class="text-center py-5 hour">                                
                     <i class="fa fa-play pointer up" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(-90deg);"></i>                                

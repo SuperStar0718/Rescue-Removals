@@ -6,7 +6,7 @@
             </div>                        
         </div>
         <div class="col-md-8 car-panel">
-            <div class="car_selection py-5">
+            <div class="car_selection ">
                 <div class="text-center  select_car">                                
                     <div class="arrow carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"><i class="fa fa-play pointer up" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(180deg);"></i></div>
                     <div id="carouselExampleControls" class="carousel slide col-md-8" data-ride="carousel" data-interval="false">

@@ -9,7 +9,7 @@
         <div class="container-content py-5 ">
             <h3>Our Services - We love what we do & we do it well…</h3>            
         </div>
-        <div class="container-content">
+        <div class="container-content service_category">
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_home_removals') }}">
@@ -112,4 +112,20 @@
    
 @section('footer')
     @include('components.footer')    
+@endsection
+
+@section('script')
+<script>
+ $(document).ready(function(){
+            // Create a new Date object to get the current date and time
+            const today = new Date();
+
+            // Get the day of the week as a number (0: Sunday, 1: Monday, ..., 6: Saturday)
+            const dayOfWeekNumber = today.getDay();
+
+            var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).find(':first-child').css('color','yellow ')
+            console.log(text)
+
+        })
+</script>
 @endsection

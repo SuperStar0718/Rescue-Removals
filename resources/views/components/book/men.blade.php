@@ -5,8 +5,8 @@
                 <h3 class="text-white pl-4">Select how many<br>Men you would like to help you?</h3>
             </div>                        
         </div>
-        <div class="col-md-8 men">
-            <div class="d-flex justify-content-center pb-5">
+        <div class="col-md-8 men right_panel">
+            <div class="d-flex justify-content-center ">
                 <div class="text-center py-5 men_image z-indx-1">                                
                     <img src="{{asset('images/man-courier.png')}}" />
                 </div>

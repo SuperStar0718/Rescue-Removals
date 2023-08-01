@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-center mt-5 mt-md-0">
+                            <div class="d-flex justify-content-center mt-5 mt-md-0 other-category">
                                 <div class="d-flex flex-column ml-0 ml-md-5">
                                     <a href="#" class="display-block text-white"><h5 class="mb-0">Privacy Policy</h5></a>
                                     <a href="#" class="display-block text-white"><h5 class="mb-0">Terms of Use</h5></a>

@@ -80,7 +80,7 @@
                 We value your schedule and are always prepared to take swift action when needed.
             </p>            
         </div>
-        <div class="container-content">
+        <div class="container-content service_category">
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <img src="{{asset('images/European Moves/european-moves-3.png')}}" class="w-100">
@@ -138,4 +138,19 @@
    
 @section('footer')
     @include('components.footer')    
+@endsection
+@section('script')
+<script>
+$(document).ready(function(){
+            // Create a new Date object to get the current date and time
+            const today = new Date();
+
+            // Get the day of the week as a number (0: Sunday, 1: Monday, ..., 6: Saturday)
+            const dayOfWeekNumber = today.getDay();
+
+            var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).find(':first-child').css('color','yellow ')
+            console.log(text)
+
+        })
+</script>
 @endsection

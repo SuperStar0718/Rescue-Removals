@@ -5,7 +5,7 @@
                 <h3 class="text-white pl-4">Select how many flights of stairs our team will need to climb?</h3>
             </div>                        
         </div>
-        <div class="col-md-8 stairs py-5">
+        <div class="col-md-8 stairs right_panel">
             <div class="p-5">
                 <h4 class="btn-text-primary-light pt-5">Pickup Details</h4>
                 <div class="row justify-content-between">

@@ -5,7 +5,7 @@
                 <h3 class="text-white pl-4">Are any of the addresses in the congestion zone?</h3>
             </div>                        
         </div>
-        <div class="col-md-8 congestion ">
+        <div class="col-md-8 congestion right_panel">
             <div class=" row py-5 my-5">
                 <div class="px-5 col-md-5 py-3 button yes" @if($result->congestion==1) style='background-color:#353EA3; color:white;' @endif >
                     Yes

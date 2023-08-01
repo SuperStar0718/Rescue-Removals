@@ -132,7 +132,7 @@
         <div class="container-content py-5 ">
             <h3>Our Services - We love what we do & we do it well…</h3>            
         </div>
-        <div class="container-content">
+        <div class="container-content service_category">
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <a href="{{ url('/service_home_removals') }}">

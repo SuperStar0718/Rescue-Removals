@@ -4,7 +4,7 @@
             <!-- <img src="{{asset('images/search.png')}}" alt="search" class="w-10"> -->
             <input type="search" class="form-control cart_input" style="height: 50px; border-color: #353ea3;  border-radius: 1rem 1rem 0rem 1rem;" id="search" placeholder="Enter your item(s) here e.g. Sofa">
         </div>                        
-        <div class="py-5">
+        <div class="pt-5">
             <p>Or quickly add from our list of popular items</p>
             <div class="row removals_items">
                 <div class="col-md-4">

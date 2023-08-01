@@ -540,14 +540,14 @@ $(document).ready(function(){
     }
     $('.men_count i.up').click(function(){
         var count = parseInt($(this).parent().parent().children('div.number_panel').children('h1').text())+1
-        $(this).parent().parent().children('div.number_panel').children('h1').text(count.toString().padStart(2, '0'));
+        $(this).parent().parent().children('div.number_panel').children('h1').text(count);
         update_number_of_car(count)
     })
 
     $('.men_count i.down').click(function(){
         var count = parseInt($(this).parent().parent().children('div.number_panel').children('h1').text())-1
         if(count>0){
-            $(this).parent().parent().children('div.number_panel').children('h1').text(count.toString().padStart(2, '0'));
+            $(this).parent().parent().children('div.number_panel').children('h1').text(count);
             update_number_of_car(count)
         }
     })

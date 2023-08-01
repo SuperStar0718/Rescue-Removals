@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-8 men car">
         @else
-        <div class="col-md-12 pick_date ">
+        <div class="col-md-12 pick_date right_panel">
         @endif
             <div class=" container py-3">
                 <div class="select_month py-2 row">
