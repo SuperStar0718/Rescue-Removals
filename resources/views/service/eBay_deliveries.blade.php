@@ -80,27 +80,25 @@
             </p>
             
         </div>
-        <div class="container-content ">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-3.png')}}" class="w-100">
+        <div class="container-content service_category">
+                <div class="">
+                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-3.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-4.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-4.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-5.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-5.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-6.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-6.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-7.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-7.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-8.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/eBay Deliveries/ebay-deliveries-8.png')}}" class="">
                 </div>
-            </div>
         </div>
     </div>
     <!--------------- end section 3 --------------->

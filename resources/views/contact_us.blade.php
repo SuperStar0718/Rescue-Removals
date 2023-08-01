@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="text-center mt-1">
-                        <button type="button" class="btn bg-primary-light text-white px-5 py-3">
+                        <button type="button" class="btn bg-primary-light text-white px-5 py-4">
                             <h5 class="mb-0">Book Now</h5>
                         </button>
                     </div>

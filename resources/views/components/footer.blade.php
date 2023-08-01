@@ -55,31 +55,31 @@
                                 <h4 class="text-white">HOURS OF OPERATION</h4>
                                 <div class="d-flex justify-content-between">                               
                                     <h6 class=" mb-0">MONDAY</h6>
-                                    <h6 class="text-white mb-0">08:00 - 20:00</h6>
+                                    <h6 class="mb-0">08:00 - 20:00</h6>
                                 </div>    
                                 <div class="d-flex justify-content-between">                               
                                     <h6 class="mb-0">TUESDAY</h6>
-                                    <h6 class="text-white mb-0">08:00 - 20:00</h6>
+                                    <h6 class="mb-0">08:00 - 20:00</h6>
                                 </div>
                                 <div class="d-flex justify-content-between">                               
                                     <h6 class="mb-0">WEDNESDAY</h6>
-                                    <h6 class="text-white mb-0">08:00 - 20:00</h6>
+                                    <h6 class="mb-0">08:00 - 20:00</h6>
                                 </div>   
                                 <div class="d-flex justify-content-between">                               
                                     <h6 class="mb-0">THURSDAY</h6>
-                                    <h6 class="text-white mb-0">08:00 - 20:00</h6>
+                                    <h6 class="mb-0">08:00 - 20:00</h6>
                                 </div>   
                                 <div class="d-flex justify-content-between">                               
                                     <h6 class="mb-0">FRIDAY</h6>
-                                    <h6 class="text-white mb-0">08:00 - 20:00</h6>
+                                    <h6 class="mb-0">08:00 - 20:00</h6>
                                 </div>   
                                 <div class="d-flex justify-content-between">                               
                                     <h6 class=" mb-0">SATURDAY</h6>
-                                    <h6 class="text-white mb-0">08:00 - 20:00</h6>
+                                    <h6 class="mb-0">08:00 - 20:00</h6>
                                 </div>   
                                 <div class="d-flex justify-content-between">                               
                                     <h6 class="mb-0">SUNDAY</h6>
-                                    <h6 class="text-white mb-0">08:00 - 20:00</h6>
+                                    <h6 class="mb-0">08:00 - 20:00</h6>
                                 </div>      
                             </div>
                         </div>

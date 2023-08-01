@@ -250,7 +250,7 @@ $(document).ready(function(){
             // Get the day of the week as a number (0: Sunday, 1: Monday, ..., 6: Saturday)
             const dayOfWeekNumber = today.getDay();
 
-            var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).find(':first-child').css('color','yellow ')
+            var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).css('color','yellow ')
             console.log(text)
 
         })

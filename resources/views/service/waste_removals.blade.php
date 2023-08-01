@@ -85,26 +85,24 @@
             </p>
         </div>
         <div class="container-content service_category">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/Waste Removals/waste-removals-3.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/Waste Removals/waste-removals-3.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/Waste Removals/waste-removals-4.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/Waste Removals/waste-removals-4.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/Waste Removals/waste-removals-5.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/Waste Removals/waste-removals-5.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/Waste Removals/waste-removals-6.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/Waste Removals/waste-removals-6.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/Waste Removals/waste-removals-7.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/Waste Removals/waste-removals-7.png')}}" class="">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/Waste Removals/waste-removals-8.png')}}" class="w-100">
+                <div class="">
+                    <img src="{{asset('images/Waste Removals/waste-removals-8.png')}}" class="">
                 </div>
-            </div>
         </div>
     </div>
     <!--------------- end section 3 --------------->
@@ -151,7 +149,7 @@ $(document).ready(function(){
             // Get the day of the week as a number (0: Sunday, 1: Monday, ..., 6: Saturday)
             const dayOfWeekNumber = today.getDay();
 
-            var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).find(':first-child').css('color','yellow ')
+            var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).css('color','yellow ')
             console.log(text)
 
         })
