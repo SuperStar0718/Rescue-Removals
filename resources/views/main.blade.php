@@ -344,12 +344,32 @@
                     from = JSON.parse(from);
                     var to = localStorage.getItem('to');
                     to = JSON.parse(to);
+                    console.log("category",category)
                     switch (category) {
                         case "eBay Deliveries":
                             var url = "{{route('eBay.cart.update.position')}}"
                             update_from_to(url, from, to)
                             break;
-                    
+                        case "Furniture & Appliances":
+                            var url = "{{route('Furniture_Appliance.cart.update.position')}}"
+                            update_from_to(url, from, to)
+                            break;
+                        case "Man & Van":
+                            var url = "{{route('ManVan.cart.update.position')}}"
+                            update_from_to(url, from, to)
+                            break;
+                        case "Office Removals":
+                            var url = "{{route('OfficeRemovals.cart.update.position')}}"
+                            update_from_to(url, from, to)
+                            break;
+                        case "Home Removals":
+                            var url = "{{route('HomeRemovals.cart.update.position')}}"
+                            update_from_to(url, from, to)
+                            break;
+                        case "Motorbikes":
+                            var url = "{{route('Motorbike.cart.update.position')}}"
+                            update_from_to(url, from, to)
+                            break;
                         default:
                             break;
                     }
@@ -357,6 +377,22 @@
                     console.log(to)
 
                 }
+                switch (category) {
+                        case "Waste Removals":
+                            var url = "{{route('WasteRemovals')}}"
+                            window.location.assign(url)
+                            break;
+                        case "European moves":
+                            var url = "{{route('European_moves')}}"
+                            window.location.assign(url)
+                            break;
+                        case "Storage":
+                            var url = "{{route('Storage')}}"
+                            window.location.assign(url)
+                            break;
+                        default:
+                            break;
+                    }
         })
 
         function update_from_to(url, from, to){
@@ -366,7 +402,6 @@
                     'X-CSRF-TOKEN': csrfToken
                 }
             });
-
 
             $.ajax({
                 url: url,
@@ -378,7 +413,8 @@
                 success: function(response) {
                     // Handle the successful response
                     console.log(response);
-                    window.location.assign("{{route('eBay')}}")
+                    
+                    window.location.assign(response)
 
                 },
                 error: function(xhr, status, error) {

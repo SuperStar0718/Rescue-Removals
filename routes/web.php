@@ -119,6 +119,8 @@ Route::group(['prefix'=>'Furniture_Appliance'], function (){
     Route::post('update_pick_date', [Furniture_Appliance::class, 'update_pick_date'])->name('Furniture_Appliance.cart.update.pick_date');
     Route::post('update_arrange_hour', [Furniture_Appliance::class, 'update_arrange_hour'])->name('Furniture_Appliance.cart.update.arrange_hour');
     Route::post('update_congestion', [Furniture_Appliance::class, 'update_congestion'])->name('Furniture_Appliance.cart.update.congestion');
+    Route::post('update_position', [Furniture_Appliance::class, 'update_position'])->name('Furniture_Appliance.cart.update.position');
+    Route::post('update_stair', [Furniture_Appliance::class, 'update_stair'])->name('Furniture_Appliance.cart.update.stair');
 });
 
 
@@ -149,6 +151,8 @@ Route::group(['prefix'=>'ManVan'], function (){
     Route::post('update_pick_date', [ManVan::class, 'update_pick_date'])->name('ManVan.cart.update.pick_date');
     Route::post('update_arrange_hour', [ManVan::class, 'update_arrange_hour'])->name('ManVan.cart.update.arrange_hour');
     Route::post('update_congestion', [ManVan::class, 'update_congestion'])->name('ManVan.cart.update.congestion');
+    Route::post('update_position', [ManVan::class, 'update_position'])->name('ManVan.cart.update.position');
+    Route::post('update_stair', [ManVan::class, 'update_stair'])->name('ManVan.cart.update.stair');
 });
 
 
@@ -181,6 +185,8 @@ Route::group(['prefix'=>'OfficeRemoval'], function (){
     Route::post('update_arrange_hour', [OfficeRemovals::class, 'update_arrange_hour'])->name('OfficeRemovals.cart.update.arrange_hour');
     Route::post('update_congestion', [OfficeRemovals::class, 'update_congestion'])->name('OfficeRemovals.cart.update.congestion');
     Route::post('update_packing_service', [OfficeRemovals::class, 'update_packing_service'])->name('OfficeRemovals.cart.update.packing_service');
+    Route::post('update_position', [OfficeRemovals::class, 'update_position'])->name('OfficeRemovals.cart.update.position');
+    Route::post('update_stair', [OfficeRemovals::class, 'update_stair'])->name('OfficeRemovals.cart.update.stair');
 });
 
 
@@ -217,6 +223,8 @@ Route::group(['prefix'=>'HomeRemovals'], function (){
     Route::post('update_arrange_hour', [HomeRemovals::class, 'update_arrange_hour'])->name('HomeRemovals.cart.update.arrange_hour');
     Route::post('update_congestion', [HomeRemovals::class, 'update_congestion'])->name('HomeRemovals.cart.update.congestion');
     Route::post('update_packing_service', [HomeRemovals::class, 'update_packing_service'])->name('HomeRemovals.cart.update.packing_service');
+    Route::post('update_position', [HomeRemovals::class, 'update_position'])->name('HomeRemovals.cart.update.position');
+    Route::post('update_stair', [HomeRemovals::class, 'update_stair'])->name('HomeRemovals.cart.update.stair');
 });
 
 
@@ -252,6 +260,8 @@ Route::group(['prefix'=>'Motorbike'], function (){
     Route::post('update_arrange_hour', [Motorbike::class, 'update_arrange_hour'])->name('Motorbike.cart.update.arrange_hour');
     Route::post('update_congestion', [Motorbike::class, 'update_congestion'])->name('Motorbike.cart.update.congestion');
     Route::post('update_packing_service', [Motorbike::class, 'update_packing_service'])->name('Motorbike.cart.update.packing_service');
+    Route::post('update_position', [Motorbike::class, 'update_position'])->name('Motorbike.cart.update.position');
+    Route::post('update_stair', [Motorbike::class, 'update_stair'])->name('Motorbike.cart.update.stair');
 
 });
 

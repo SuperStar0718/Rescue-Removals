@@ -99,7 +99,28 @@ class OfficeRemovals extends Controller
     public function price_page(){
         $component = "OfficeRemovals.price_page";
         $result = OfficeRemovalsCart::where('userid', 1)->first();
-        return view('book.OfficeRemovals.main', compact('component','result'));
+        $price = 0;
+        if($result->congestion==1)
+            $price+=15;
+        switch ($result->van) {
+            case 1:
+                # code...
+                $price += (70+$result->men * 20) * $result->number_of_car;
+                break;
+            case 2:
+                # code...
+                $price += (50+$result->men * 20) * $result->number_of_car;
+                break;
+            case 3:
+                # code...
+                $price += (40+$result->men * 20) * $result->number_of_car;
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        return view('book.OfficeRemovals.main', compact('component','result','price'));
     }
 
     public function update_cart(Request $request){
@@ -261,6 +282,45 @@ class OfficeRemovals extends Controller
             $eBaycart->packing_service = $packing_service;
             $eBaycart->save();
         }
+        return "";
+    }
+    public function update_position(Request $request){
+        $from = $request->from;
+        $to = $request->to;
+
+        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        if($result){
+            $result->from = json_encode($from);
+            $result->to = json_encode($to);
+            $result->save();
+        }
+        else{
+            $eBaycart = new OfficeRemovalsCart();
+            $eBaycart->userid = 1;
+            $eBaycart->reference_id = 1887654;
+            $eBaycart->from = json_encode($from);
+            $eBaycart->to = json_encode($to);
+            $eBaycart->save();
+        }
+        
+        return route('OfficeRemovals.hours_need');
+
+    }
+    public function update_stair(Request $request){
+        $direction = $request->direction;
+        $value = $request->value;
+
+        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        if($result){
+            if($direction=='from'){
+                $result->from_stair = $value;
+            }
+            else if($direction=='to'){
+                $result->to_stair = $value;
+            }
+            $result->save();
+        }
+        
         return "";
     }
 }

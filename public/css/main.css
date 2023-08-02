@@ -687,7 +687,7 @@ button.cancel{
   font-weight: bold;
 }
 .moving-home>.book-now p{
-width: 300px;
+max-width: 300px;
 font-size: 21px;
 line-height: normal;
 font-weight: bold;
@@ -748,9 +748,12 @@ footer .weekday h6{
 }
 .location_input div:first-child{
   padding-right: 5px;
+  /* padding-left: 0px; */
+
 }
 .location_input div:nth-child(2){
   padding-left: 5px;
+  /* padding-right: 0px; */
 }
 .location_input div button{
   width: 100%;

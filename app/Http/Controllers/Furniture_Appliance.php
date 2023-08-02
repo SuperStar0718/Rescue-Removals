@@ -20,7 +20,7 @@ class Furniture_Appliance extends Controller
             $Furniture_ApplianceCart = new Furniture_ApplianceCart();
             $Furniture_ApplianceCart->userid = 1;
             $Furniture_ApplianceCart->reference_id = 1887654;
-            $Furniture_ApplianceCart->cart_list = 'asdf';
+            $Furniture_ApplianceCart->cart_list = '';
             $Furniture_ApplianceCart->save();
             $result = Furniture_ApplianceCart::where('userid', 1)->first();
         }
@@ -88,7 +88,28 @@ class Furniture_Appliance extends Controller
     public function price_page(){
         $component = "Furniture_Appliance.price_page";
         $result = Furniture_ApplianceCart::where('userid', 1)->first();
-        return view('book.Furniture_Appliance.main', compact('component','result'));
+        $price = 0;
+        if($result->congestion==1)
+            $price+=15;
+        switch ($result->van) {
+            case 1:
+                # code...
+                $price += (70+$result->men * 20) * $result->number_of_car;
+                break;
+            case 2:
+                # code...
+                $price += (50+$result->men * 20) * $result->number_of_car;
+                break;
+            case 3:
+                # code...
+                $price += (40+$result->men * 20) * $result->number_of_car;
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        return view('book.Furniture_Appliance.main', compact('component','result','price'));
     }
 
     public function update_cart(Request $request){
@@ -235,6 +256,45 @@ class Furniture_Appliance extends Controller
             $Furniture_ApplianceCart->congestion = $congestion;
             $Furniture_ApplianceCart->save();
         }
+        return "";
+    }
+    public function update_position(Request $request){
+        $from = $request->from;
+        $to = $request->to;
+
+        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        if($result){
+            $result->from = json_encode($from);
+            $result->to = json_encode($to);
+            $result->save();
+        }
+        else{
+            $eBaycart = new Furniture_ApplianceCart();
+            $eBaycart->userid = 1;
+            $eBaycart->reference_id = 1887654;
+            $eBaycart->cart_list = '';
+            $eBaycart->from = json_encode($from);
+            $eBaycart->to = json_encode($to);
+            $eBaycart->save();
+        }
+        
+        return route('Furniture_Appliance');
+    }
+    public function update_stair(Request $request){
+        $direction = $request->direction;
+        $value = $request->value;
+
+        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        if($result){
+            if($direction=='from'){
+                $result->from_stair = $value;
+            }
+            else if($direction=='to'){
+                $result->to_stair = $value;
+            }
+            $result->save();
+        }
+        
         return "";
     }
 }

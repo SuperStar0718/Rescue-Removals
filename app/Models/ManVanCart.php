@@ -18,4 +18,12 @@ class ManVanCart extends Model
         $date = DateTime::createFromFormat('Y-m-d', $this->year . '-' . $this->month . '-' . $this->day);
         return $date->format('D d F Y');
     }
+    public function getFromAddress(){
+        $address = json_decode($this->from, true);
+        return $address['address'];
+    }
+    public function getToAddress(){
+        $address = json_decode($this->to, true);
+        return $address['address'];
+    }
 }

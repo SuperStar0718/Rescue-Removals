@@ -122,7 +122,11 @@
                 @if($component=="Furniture_Appliance.final_calculation" || $component=="Furniture_Appliance.billing" )  
                     <div class="map-wrapper shadow-effect">
                         <div id="googleMap">
-                            <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=300&amp;height=300&amp;hl=en&amp;q=University of Oxford&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;}.gmap_canvas {overflow:hidden;background:none!important;border-top-left-radius:3rem;}.gmap_iframe {height:300px!important;width:100%}</style></div>
+                           <div class="mapouter">
+                                <div id="gmap_canvas">
+                                    
+                                </div>
+                            </div>
                         </div>
                         <div class="map-content-wrapper">
                             <div class="content pb-3">
@@ -218,45 +222,47 @@
 <script>
 $(document).ready(function(){
     var lists = @json($result->cart_list)  
-    lists = JSON.parse(lists)
-    console.log(lists)
-    const keys = Object.keys(lists);
-    console.log(keys)
-    var index=1
-    var total_carts=0
+    if(lists!=""){
 
-    keys.forEach(key=>{
-        if(lists[key]=='0')
-            return;
-        total_carts+=parseInt(lists[key])
-        var content = '<div class="title">'+key+'</div><div class="operation"><div class="minus">-</div><div class="amount">'+lists[key]+'</div><div class="plus">+</div></div>';
-        var element = $('<div class="cart '+ (index) +' ">').html(content);
-        $('.cart_panel .carts').append(element);
-        $(".cart_panel .carts .cart."+ (index) +" .operation .minus").click(function(e){
-            var amount = parseInt($(this).parent().children('.amount').text());
-            var title = $(this).parent().parent().children('.title').text();
-            update_cart(title, amount-1)
-            if(amount==1)
-                $(this).parent().parent().remove();
-            
-            else
-                $(this).parent().children('.amount').text(amount-1)
-            var cart_amount = parseInt($(".cart_panel .cart_amount").text());
-            $(".cart_panel .cart_amount").text(cart_amount-1);
-        })
-    
-        $(".cart_panel .carts .cart."+ (index) +" .operation .plus").click(function(){
-            var amount = parseInt($(this).parent().children('.amount').text());
-            var title = $(this).parent().parent().children('.title').text();
-            update_cart(title, amount+1)
-            $(this).parent().children('.amount').text(amount+1)
-            var cart_amount = parseInt($(".cart_panel .cart_amount").text());
-            $(".cart_panel .cart_amount").text(cart_amount+1);
-        })
-        index++
-    })
-    $(".cart_panel .cart_amount").text(total_carts);
+        lists = JSON.parse(lists)
+        console.log(lists)
+        const keys = Object.keys(lists);
+        console.log(keys)
+        var index=1
+        var total_carts=0
 
+        keys.forEach(key=>{
+            if(lists[key]=='0')
+                return;
+            total_carts+=parseInt(lists[key])
+            var content = '<div class="title">'+key+'</div><div class="operation"><div class="minus">-</div><div class="amount">'+lists[key]+'</div><div class="plus">+</div></div>';
+            var element = $('<div class="cart '+ (index) +' ">').html(content);
+            $('.cart_panel .carts').append(element);
+            $(".cart_panel .carts .cart."+ (index) +" .operation .minus").click(function(e){
+                var amount = parseInt($(this).parent().children('.amount').text());
+                var title = $(this).parent().parent().children('.title').text();
+                update_cart(title, amount-1)
+                if(amount==1)
+                    $(this).parent().parent().remove();
+                
+                else
+                    $(this).parent().children('.amount').text(amount-1)
+                var cart_amount = parseInt($(".cart_panel .cart_amount").text());
+                $(".cart_panel .cart_amount").text(cart_amount-1);
+            })
+        
+            $(".cart_panel .carts .cart."+ (index) +" .operation .plus").click(function(){
+                var amount = parseInt($(this).parent().children('.amount').text());
+                var title = $(this).parent().parent().children('.title').text();
+                update_cart(title, amount+1)
+                $(this).parent().children('.amount').text(amount+1)
+                var cart_amount = parseInt($(".cart_panel .cart_amount").text());
+                $(".cart_panel .cart_amount").text(cart_amount+1);
+            })
+            index++
+        })
+        $(".cart_panel .cart_amount").text(total_carts);
+    }
 })
 
  $(document).ready(function(){
@@ -582,10 +588,54 @@ $(document).ready(function(){
 
 @if($component=='Furniture_Appliance.stairs')
 <script>
-$('.dropdown .dropdown-menu .dropdown-item').click(function(){
+function update_stair(direction, value){
+    var csrfToken = "{{ csrf_token() }}";
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        }
+    });
+
+    $.ajax({
+        url: '{{ route('Furniture_Appliance.cart.update.stair')}}',
+        method: 'POST',
+        data: {
+            direction: direction,
+            value:value
+        },
+        success: function(response) {
+            // Handle the successful response
+            console.log(response);
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.log(error);
+        }
+    });
+}
+
+$('.dropdown .dropdown-menu.from .dropdown-item').click(function(){
     var content = $(this).text()
     $(this).parent().parent().children('button').text(content)
+    update_stair('from', content)
 })
+$('.dropdown .dropdown-menu.to .dropdown-item').click(function(){
+    var content = $(this).text()
+    $(this).parent().parent().children('button').text(content)
+    update_stair('to', content)
+
+})
+
+$(document).ready(function(){
+    var from_stair = "{{$result->from_stair}}"
+    var to_stair = "{{$result->to_stair}}"
+    console.log(from_stair)
+    if(from_stair!="")
+    $('.dropdown .dropdown-menu.from').parent().children('button').text(from_stair)
+    if(to_stair!="")
+    $('.dropdown .dropdown-menu.to').parent().children('button').text(to_stair)
+})
+
 </script>
 @endif
 @if($component=='Furniture_Appliance.congestion')
@@ -750,6 +800,44 @@ $('div.phone_number.first button').click(function(){
         })
     }
 })
+
+
+function initMap() {
+    var from = @json($result->from)  
+    from = JSON.parse(from)
+    var to = @json($result->to)  
+    to = JSON.parse(to)
+    var position1 = { lat: parseInt(from.lat), lng:parseInt(from.lng) };
+    var position2 = { lat: parseInt(to.lat), lng:parseInt(to.lng) };
+
+    var map = new google.maps.Map(document.getElementById("gmap_canvas"), {
+      center: position1,
+      zoom: 10, // Adjust the zoom level as needed
+    });
+
+    var directionsService = new google.maps.DirectionsService();
+    var directionsRenderer = new google.maps.DirectionsRenderer({
+      map: map,
+    });
+
+    var request = {
+      origin: position1,
+      destination: position2,
+      travelMode: google.maps.TravelMode.DRIVING, // You can change the travel mode (DRIVING, WALKING, etc.)
+    };
+
+    directionsService.route(request, function (response, status) {
+      if (status === "OK") {
+        directionsRenderer.setDirections(response);
+      } else {
+        console.error("Error:", status);
+      }
+    });
+  }
+
+
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&libraries=places&callback=initMap" async defer></script>
 @endif
+
 @endsection

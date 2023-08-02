@@ -8,10 +8,10 @@
     <!--------------- section 1 --------------->
     <div class="container-content py-5">
         <div class="row">
-            <div class="col-md-6">
-                <img src="{{asset('images/Login/login.png')}}" class="w-100">
+            <div class="col-md-6 left_image">
+                <img src="{{asset('images/Login/login.png')}}" style="width:100%">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 right_content">
                 <div class="shadow-effect bg-warning-light" style="height: 99%">
                     <div class="p-5">
                         <div class="text-center">

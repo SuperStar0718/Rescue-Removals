@@ -6,7 +6,7 @@
                 <h3 class="text-white pl-4">Select the date that you would like to move?</h3>
             </div>                        
         </div>
-        <div class="col-md-8 men car">
+        <div class="col-md-8 men car right_panel">
         @else
         <div class="col-md-12 pick_date right_panel">
         @endif

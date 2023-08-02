@@ -276,7 +276,7 @@ class eBayDeliveries extends Controller
             $eBaycart->save();
         }
         
-        return "";
+        return route('eBay');
     }
     public function update_stair(Request $request){
         $direction = $request->direction;

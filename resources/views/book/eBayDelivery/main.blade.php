@@ -222,44 +222,46 @@
 <script>
 $(document).ready(function(){
     var lists = @json($result->cart_list)  
-    lists = JSON.parse(lists)
-    console.log(lists)
-    const keys = Object.keys(lists);
-    console.log(keys)
-    var index=1
-    var total_carts=0
+    if(lists!=""){
+        lists = JSON.parse(lists)
+        console.log(lists)
+        const keys = Object.keys(lists);
+        console.log(keys)
+        var index=1
+        var total_carts=0
 
-    keys.forEach(key=>{
-        if(lists[key]=='0')
-            return;
-        total_carts+=parseInt(lists[key])
-        var content = '<div class="title">'+key+'</div><div class="operation"><div class="minus">-</div><div class="amount">'+lists[key]+'</div><div class="plus">+</div></div>';
-        var element = $('<div class="cart '+ (index) +' ">').html(content);
-        $('.cart_panel .carts').append(element);
-        $(".cart_panel .carts .cart."+ (index) +" .operation .minus").click(function(e){
-            var amount = parseInt($(this).parent().children('.amount').text());
-            var title = $(this).parent().parent().children('.title').text();
-            update_cart(title, amount-1)
-            if(amount==1)
-                $(this).parent().parent().remove();
-            
-            else
-                $(this).parent().children('.amount').text(amount-1)
-            var cart_amount = parseInt($(".cart_panel .cart_amount").text());
-            $(".cart_panel .cart_amount").text(cart_amount-1);
+        keys.forEach(key=>{
+            if(lists[key]=='0')
+                return;
+            total_carts+=parseInt(lists[key])
+            var content = '<div class="title">'+key+'</div><div class="operation"><div class="minus">-</div><div class="amount">'+lists[key]+'</div><div class="plus">+</div></div>';
+            var element = $('<div class="cart '+ (index) +' ">').html(content);
+            $('.cart_panel .carts').append(element);
+            $(".cart_panel .carts .cart."+ (index) +" .operation .minus").click(function(e){
+                var amount = parseInt($(this).parent().children('.amount').text());
+                var title = $(this).parent().parent().children('.title').text();
+                update_cart(title, amount-1)
+                if(amount==1)
+                    $(this).parent().parent().remove();
+                
+                else
+                    $(this).parent().children('.amount').text(amount-1)
+                var cart_amount = parseInt($(".cart_panel .cart_amount").text());
+                $(".cart_panel .cart_amount").text(cart_amount-1);
+            })
+        
+            $(".cart_panel .carts .cart."+ (index) +" .operation .plus").click(function(){
+                var amount = parseInt($(this).parent().children('.amount').text());
+                var title = $(this).parent().parent().children('.title').text();
+                update_cart(title, amount+1)
+                $(this).parent().children('.amount').text(amount+1)
+                var cart_amount = parseInt($(".cart_panel .cart_amount").text());
+                $(".cart_panel .cart_amount").text(cart_amount+1);
+            })
+            index++
         })
-    
-        $(".cart_panel .carts .cart."+ (index) +" .operation .plus").click(function(){
-            var amount = parseInt($(this).parent().children('.amount').text());
-            var title = $(this).parent().parent().children('.title').text();
-            update_cart(title, amount+1)
-            $(this).parent().children('.amount').text(amount+1)
-            var cart_amount = parseInt($(".cart_panel .cart_amount").text());
-            $(".cart_panel .cart_amount").text(cart_amount+1);
-        })
-        index++
-    })
-    $(".cart_panel .cart_amount").text(total_carts);
+        $(".cart_panel .cart_amount").text(total_carts);
+    }
 
 })
  $(document).ready(function(){
@@ -624,8 +626,13 @@ $('.dropdown .dropdown-menu.to .dropdown-item').click(function(){
 })
 
 $(document).ready(function(){
-    $('.dropdown .dropdown-menu.from').parent().children('button').text("{{$result->from_stair}}")
-    $('.dropdown .dropdown-menu.to').parent().children('button').text("{{$result->to_stair}}")
+    var from_stair = "{{$result->from_stair}}"
+    var to_stair = "{{$result->to_stair}}"
+    console.log(from_stair)
+    if(from_stair!="")
+    $('.dropdown .dropdown-menu.from').parent().children('button').text(from_stair)
+    if(to_stair!="")
+    $('.dropdown .dropdown-menu.to').parent().children('button').text(to_stair)
 })
 
 </script>
