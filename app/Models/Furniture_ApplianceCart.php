@@ -11,7 +11,9 @@ class Furniture_ApplianceCart extends Model
 {
     use HasFactory;
     protected $casts = [
-        'cart_list' => 'array'
+        'cart_list' => 'array',
+        'from' => 'array',
+        'to' => 'array'
     ];
     public function getDateInfo(){
         $date = DateTime::createFromFormat('Y-m-d', $this->year . '-' . $this->month . '-' . $this->day);

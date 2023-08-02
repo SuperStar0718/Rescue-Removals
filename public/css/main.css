@@ -851,3 +851,12 @@ background-color: rebeccapurple;
 .book_now_btn{
   margin-top: 150px;
 }
+
+.dropdown .dropdown-toggle{
+  overflow: hidden;
+}
+#gmap_canvas{
+  height: 280px;
+  width: 100%;
+  border-top-left-radius: 3rem;
+}

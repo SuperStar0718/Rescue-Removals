@@ -335,14 +335,58 @@
 
         $('#quote_btn').click(function(){
             var category = $('#moving-input').val()
-                var from  =  $('#pac-input').val()
-                var to = $('#dropOff').val()
+            var from  =  $('#pac-input').val()
+            var to = $('#dropOff').val()
+            if(category!='')
                 if(from !== '' && to !==''){
+                    // Retrieve the JSON string from localStorage and parse it back to an object
+                    var from = localStorage.getItem('from');
+                    from = JSON.parse(from);
+                    var to = localStorage.getItem('to');
+                    to = JSON.parse(to);
+                    switch (category) {
+                        case "eBay Deliveries":
+                            var url = "{{route('eBay.cart.update.position')}}"
+                            update_from_to(url, from, to)
+                            break;
+                    
+                        default:
+                            break;
+                    }
                     console.log(from)
                     console.log(to)
-                    alert("hello")
+
                 }
         })
+
+        function update_from_to(url, from, to){
+            var csrfToken = "{{ csrf_token() }}";
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                }
+            });
+
+
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: {
+                    from: from,
+                    to: to
+                },
+                success: function(response) {
+                    // Handle the successful response
+                    console.log(response);
+                    window.location.assign("{{route('eBay')}}")
+
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error
+                    console.log(error);
+                }
+            });
+        }
 
         function set_value(val) {
             $('#moving-input').val(val);

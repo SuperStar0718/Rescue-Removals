@@ -87,6 +87,8 @@ Route::group(['prefix'=>'eBaydelivery'], function (){
     Route::post('update_pick_date', [eBayDeliveries::class, 'update_pick_date'])->name('eBay.cart.update.pick_date');
     Route::post('update_arrange_hour', [eBayDeliveries::class, 'update_arrange_hour'])->name('eBay.cart.update.arrange_hour');
     Route::post('update_congestion', [eBayDeliveries::class, 'update_congestion'])->name('eBay.cart.update.congestion');
+    Route::post('update_position', [eBayDeliveries::class, 'update_position'])->name('eBay.cart.update.position');
+    Route::post('update_stair', [eBayDeliveries::class, 'update_stair'])->name('eBay.cart.update.stair');
 });
 
 

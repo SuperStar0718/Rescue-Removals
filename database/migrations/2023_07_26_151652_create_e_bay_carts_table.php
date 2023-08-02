@@ -15,12 +15,16 @@ return new class extends Migration
             $table->id();
             $table->integer('userid');
             $table->integer('reference_id');
+            $table->json('from')->nullable();
+            $table->json('to')->nullable();
+            $table->string('from_stair')->default("");
+            $table->string('to_stair')->default("");
             $table->json('cart_list')->nullable();
             $table->integer('hour')->default(2);
             $table->integer('minute')->default(0);
             $table->integer('men')->default(0);
             $table->integer('van')->default(1);
-            $table->integer('number_of_car')->default(0);
+            $table->string('number_of_car')->default(0);
             $table->tinyInteger('congestion')->default(2);
             $table->integer('year')->default(0);
             $table->integer('month')->default(0);

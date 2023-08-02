@@ -11,19 +11,15 @@
                 <div class="row justify-content-between">
                     <div class="dropdown col-md-6">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            London, N22, 6HU
+                            {{$result->getFromAddress()}}
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                        
                     </div>
                     <div class="dropdown col-md-5">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ground Floor
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu from" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Basement</a>
                             <a class="dropdown-item" href="#">Ground floor</a>
                             <a class="dropdown-item" href="#">1st floor</a>
@@ -40,19 +36,15 @@
                 <div class="row justify-content-between pb-5">
                     <div class="dropdown col-md-6">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            London, E2 7JJ
+                            {{$result->getToAddress()}}
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                       
                     </div>
                     <div class="dropdown col-md-5">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ground Floor
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu to" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Basement</a>
                             <a class="dropdown-item" href="#">Ground floor</a>
                             <a class="dropdown-item" href="#">1st floor</a>

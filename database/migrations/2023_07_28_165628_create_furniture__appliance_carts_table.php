@@ -16,6 +16,10 @@ return new class extends Migration
             $table->integer('userid');
             $table->integer('reference_id');
             $table->json('cart_list')->nullable();
+            $table->json('from')->nullable();
+            $table->json('to')->nullable();
+            $table->string('from_stair')->default("");
+            $table->string('to_stair')->default("");
             $table->integer('hour')->default(2);
             $table->integer('minute')->default(0);
             $table->integer('men')->default(0);

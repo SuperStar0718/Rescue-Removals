@@ -27,7 +27,7 @@
                 </div>
                 <div class="price_panel">
                     <div class="price">
-                        £121.00
+                        £{{$price}}
                     </div>
                     <div>
                         Your Price

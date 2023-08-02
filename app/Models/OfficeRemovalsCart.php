@@ -9,6 +9,10 @@ use DateTime;
 class OfficeRemovalsCart extends Model
 {
     use HasFactory;
+    protected $casts = [
+        'from' => 'array',
+        'to' => 'array'
+    ];
     public function getDateInfo(){
         $date = DateTime::createFromFormat('Y-m-d', $this->year . '-' . $this->month . '-' . $this->day);
         return $date->format('D d F Y');
