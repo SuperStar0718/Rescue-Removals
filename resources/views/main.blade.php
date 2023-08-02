@@ -266,7 +266,7 @@
         const strictBoundsInputElement = document.getElementById("use-strict-bounds");
         const options = {
             fields: ["formatted_address", "geometry", "name"],
-            strictBounds: false,
+            strictBounds: true,
             types: ["establishment"],
             componentRestrictions: { country: 'UK' } // Limit results to the United Kingdom
         };
