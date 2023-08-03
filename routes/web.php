@@ -8,7 +8,7 @@ use App\Http\Controllers\ManVan;
 use App\Http\Controllers\OfficeRemovals;
 use App\Http\Controllers\HomeRemovals;
 use App\Http\Controllers\Motorbike;
-use App\Http\Controllers\UserDashboard;
+use App\Http\Controllers\AdminPanel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,10 +56,12 @@ Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallbac
 
 
 Route::group(['prefix'=> 'admin_panel'], function(){
-    Route::get('/', [UserDashboard::class, 'index'])->name('admin_panel');
-    Route::get('completed', [UserDashboard::class, 'completed'])->name('completed');
-    Route::get('upcoming', [UserDashboard::class, 'upcoming'])->name('upcoming');
-    Route::get('uncompleted', [UserDashboard::class, 'uncompleted'])->name('uncompleted');
+    Route::get('/', [AdminPanel::class, 'index'])->name('admin_panel');
+    Route::get('completed', [AdminPanel::class, 'completed'])->name('completed');
+    Route::get('upcoming', [AdminPanel::class, 'upcoming'])->name('upcoming');
+    Route::get('uncompleted', [AdminPanel::class, 'uncompleted'])->name('uncompleted');
+    Route::get('settings', [AdminPanel::class, 'settings'])->name('settings');
+    Route::get('chat', [AdminPanel::class, 'chat'])->name('chat');
 });
 
 //--------------------------------------------Our Books routes--------------------------------------------------------
