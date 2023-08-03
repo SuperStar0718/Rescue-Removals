@@ -263,11 +263,74 @@
       ></script> --}}
     <script>
     function initMap() {
+
+
+
+
+// Replace with your API key and desired postcode
+const apiKey = 'AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU';
+const postcode = "LU5 4UH";
+
+// Perform a geocoding request using Google Geocoding API
+// Perform a geocoding request using Google Geocoding API
+// Perform a geocoding request using Google Geocoding API
+const geocoder = new google.maps.Geocoder();
+geocoder.geocode(
+  {
+    address: postcode,
+    componentRestrictions: { country: 'UK' }, // Adjust the country as needed
+  },
+  (results, status) => {
+    if (status === google.maps.GeocoderStatus.OK) {
+      const flatNumbers = [];
+
+      results.forEach((result) => {
+        const addressComponents = result.address_components || [];
+
+        // Find and collect flat number components
+        const flatNumber = addressComponents.find(
+          (component) => component.types.includes('subpremise')
+        );
+
+        if (flatNumber) {
+          flatNumbers.push(flatNumber.long_name);
+        }
+      });
+
+      // Display the collected flat numbers
+      if (flatNumbers.length > 0) {
+        console.log('Available Flat Numbers:', flatNumbers.join(', '));
+      } else {
+        console.log('No flat numbers found in the given postcode.');
+      }
+    }
+  }
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         const map = new google.maps.Map(document.getElementById("map"), {
             center: { lat: 40.749933, lng: -73.98633 },
             zoom: 13,
             mapTypeControl: false,
         });
+
+
+
+
+
        
         const card = document.getElementById("pac-card");
         const from = document.getElementById("pac-input");
@@ -275,9 +338,10 @@
         const biasInputElement = document.getElementById("use-location-bias");
         const strictBoundsInputElement = document.getElementById("use-strict-bounds");
         const options = {
-            fields: ["formatted_address", "geometry", "name"],
+            fields: ["address_components", "geometry", "name", "formatted_address"],
             strictBounds: true,
-            componentRestrictions: { country: 'UK' } // Limit results to the United Kingdom
+            componentRestrictions: { country: 'UK' }, // Limit results to the United Kingdom
+              types: ['geocode'],
         };
 
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
@@ -291,10 +355,11 @@
         // Listen for the place_changed event
         autocomplete.addListener('place_changed', function() {
             const place = autocomplete.getPlace();
-            if (place && place.formatted_address) {
-                console.log('Selected Address:', place.formatted_address);
+            if (place && place.address_components) {
+                console.log('Selected Address:', place);
                 const data = {
-                    'address':place.formatted_address,
+                    'address_components':place.address_components,
+                    'formatted_address':place.formatted_address,
                     'lat':place.geometry.location.lat(),
                     'lng':place.geometry.location.lng(),
                 }
@@ -305,10 +370,11 @@
         });
         autocomplete1.addListener('place_changed', function() {
             const place = autocomplete1.getPlace();
-            if (place && place.formatted_address) {
-                console.log('Selected Address:', place.formatted_address);
+            if (place && place.address_components) {
+                console.log('Selected Address:', place);
                 const data = {
-                    'address':place.formatted_address,
+                    'address_components':place.address_components,
+                    'formatted_address':place.formatted_address,
                     'lat':place.geometry.location.lat(),
                     'lng':place.geometry.location.lng(),
                 }

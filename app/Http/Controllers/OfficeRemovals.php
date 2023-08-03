@@ -92,7 +92,7 @@ class OfficeRemovals extends Controller
     public function billing(){
         $component = "OfficeRemovals.billing";
         $result = OfficeRemovalsCart::where('userid', 1)->first();
-        $job_type = "eBay Deliveries";
+        $job_type = "Office Removals";
         $van = VanType::where('id', $result->van)->first();
         return view('book.OfficeRemovals.main', compact('component','job_type','result','van'));
     }

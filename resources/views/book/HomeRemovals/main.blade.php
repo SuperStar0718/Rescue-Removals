@@ -38,6 +38,9 @@
                         <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
                     </div>                      
                 </div>
+                @if($component=="HomeRemovals.final_calculation")
+                    <form class="needs-validation" novalidate method="get">
+                @endif
                 @switch($component)
                     @case('HomeRemovals.house_type')
                         @include('components.book.house_type')
@@ -101,6 +104,7 @@
                         @break
                     @case('HomeRemovals.billing')
                         @include('components.book.final_calculation')
+                        @include('components.book.BillingModal')
                         @php($next = "main")
                         @php( $previous = "HomeRemovals.price_page")
                         @break
@@ -115,11 +119,14 @@
                         </button>
                     </a>
                     <a href="{{route($next)}}" class="next_button" id="quote_url">
-                        <button type="button" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                        <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Next</h5>
                         </button>
                     </a>
                 </div>
+                @if($component=="HomeRemovals.final_calculation")
+                    </form>
+                @endif
             </div>
             <div class="col-md-3">
                 <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
@@ -182,11 +189,11 @@
                             </div>
                             <div class="content pb-3">
                                 <p>Pick Up Location</p>
-                                <span>London N22 6JD</span>
+                                <span>{{$result->getFromAddress()}}</span>
                             </div>
                             <div class="content pb-3">
                                 <p>Drop Off Location</p>
-                                <span>Barking IG11 0AD</span>
+                                <span>{{$result->getToAddress()}}</span>
                             </div>
                         </div>
                     </div>
@@ -880,5 +887,25 @@ function initMap() {
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&libraries=places&callback=initMap" async defer></script>
+
+<script>
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.needs-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+</script>
 @endif
 @endsection

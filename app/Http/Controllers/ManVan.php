@@ -80,7 +80,7 @@ class ManVan extends Controller
     public function billing(){
         $component = "ManVan.billing";
         $result = ManVanCart::where('userid', 1)->first();
-        $job_type = "Furniture_Appliance";
+        $job_type = "ManVan";
         $van = VanType::where('id', $result->van)->first();
         return view('book.ManVan.main', compact('component','job_type','result','van'));
     }

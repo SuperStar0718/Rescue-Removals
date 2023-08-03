@@ -83,7 +83,7 @@ class Motorbike extends Controller
     public function final_calculation(){
         $component = "Motorbike.final_calculation";
         $result = MotorbikeCart::where('userid', 1)->first();
-        $job_type = "Office Removals";
+        $job_type = "Motorbikes";
         $van = VanType::where('id', $result->van)->first();
 
         return view('book.Motorbike.main', compact('component','job_type','result','van'));
@@ -91,7 +91,7 @@ class Motorbike extends Controller
     public function billing(){
         $component = "Motorbike.billing";
         $result = MotorbikeCart::where('userid', 1)->first();
-        $job_type = "eBay Deliveries";
+        $job_type = "Motorbikes";
         $van = VanType::where('id', $result->van)->first();
         return view('book.Motorbike.main', compact('component','job_type','result','van'));
     }

@@ -118,7 +118,7 @@ class HomeRemovals extends Controller
     public function final_calculation(){
         $component = "HomeRemovals.final_calculation";
         $result = HomeRemovalsCart::where('userid', 1)->first();
-        $job_type = "Office Removals";
+        $job_type = "Home Removals";
         $van = VanType::where('id', $result->van)->first();
 
         return view('book.HomeRemovals.main', compact('component','job_type','result','van'));
@@ -126,7 +126,7 @@ class HomeRemovals extends Controller
     public function billing(){
         $component = "HomeRemovals.billing";
         $result = HomeRemovalsCart::where('userid', 1)->first();
-        $job_type = "eBay Deliveries";
+        $job_type = "Home Removals";
         $van = VanType::where('id', $result->van)->first();
         return view('book.HomeRemovals.main', compact('component','job_type','result','van'));
     }

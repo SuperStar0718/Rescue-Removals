@@ -1,7 +1,7 @@
 <div class="shadow-effect px-4" style="background-color: white; border-radius: 2rem;">                    
     <div class="p-5 panel_row">
         <div>
-            <!-- <img src="{{asset('images/search.png')}}" alt="search" class="w-10"> -->
+            <img src="{{asset('images/search.png')}}" alt="search" class="w-10">
             <input type="search" class="form-control cart_input" style="height: 50px; border-color: #353ea3;  border-radius: 1rem 1rem 0rem 1rem;" id="search" placeholder="Enter your item(s) here e.g. Sofa">
         </div>                        
         <div class="pt-5">

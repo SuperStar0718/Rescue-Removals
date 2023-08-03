@@ -816,3 +816,15 @@ img.storage{
 #gmap_canvas .gmnoprint, #gmap_canvas button.gm-control-active.gm-fullscreen-control, #gmap_canvas button.gm-svpc, #gmap_canvas .gmnoprint>div{
   display: none;
 }
+
+.form-control{
+  height: auto;
+}
+.panel_row > div > img{
+  position: absolute;
+  padding: 0.375rem 0.75rem;
+  height: 50px;
+}
+#search{
+  padding-left: 50px;
+}

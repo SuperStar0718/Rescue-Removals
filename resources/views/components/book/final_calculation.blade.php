@@ -4,7 +4,7 @@
         <div class="row py-3">
             <div class="col-12">
                 <div class="input-block">
-                    <input type="text" name="input-text"  required >
+                    <input type="text" name="input-text" class="form-control" class="form-control" class="form-control"  required >
                     <span class="placeholder">
                         First Name & Last Name
                     </span>
@@ -14,7 +14,7 @@
         <div class="row py-3">
             <div class="col-6">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" class="form-control" required  >
                     <span class="placeholder">
                         Email Address
                     </span>
@@ -22,11 +22,11 @@
             </div>
             <div class="col-6">
                 <div class="input-block phone_number first">
-                    <input type="text" class="" name="input-text"  required  >
+                    <input type="text" class="form-control" name="input-text"  required  >
                     <span class="placeholder">
                         Phone Number
                     </span>
-                    <button>
+                    <button type="button">
                     +
                     </button>
                 </div>
@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-md-6 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" value="{{$result->getPostCodeFrom()}}" required>
                     <span class="placeholder">
                         Search Postcode
                     </span>
@@ -49,7 +49,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         Address Line 1
                     </span>
@@ -57,7 +57,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         Address Line 2
                     </span>
@@ -65,7 +65,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         City
                     </span>
@@ -73,7 +73,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         County
                     </span>
@@ -81,7 +81,7 @@
             </div>
             <div class="col-md-6 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         Contact Name at Pickup
                     </span>
@@ -89,7 +89,7 @@
             </div>
             <div class="col-md-6 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         Pickup Contact Number
                     </span>
@@ -113,7 +113,7 @@
         <div class="row">
             <div class="col-md-6  py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" value="{{$result->getPostCodeTo()}}" required  >
                     <span class="placeholder">
                         Search Postcode
                     </span>
@@ -121,7 +121,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         Address Line 1
                     </span>
@@ -129,7 +129,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         Address Line 2
                     </span>
@@ -138,7 +138,7 @@
            
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         City
                     </span>
@@ -146,7 +146,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         County
                     </span>
@@ -154,7 +154,7 @@
             </div>
             <div class="col-md-6 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         Contact Name at Pickup
                     </span>
@@ -162,7 +162,7 @@
             </div>
             <div class="col-md-6 py-3">
                 <div class="input-block">
-                    <input type="text" name="input-text" required  >
+                    <input type="text" name="input-text" class="form-control" required  >
                     <span class="placeholder">
                         Pickup Contact Number
                     </span>
@@ -179,88 +179,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary modal_button" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Enter Payment Details</h5>
-    </div>
-    <div>
-        <img src="{{asset('images/visa_card.png')}}" alt="">
-    </div>
-    <div class="modal-body content-wrapper">
-        <div class="row">
-            <div class="col-md-8  py-3">
-                <div class="input-block">
-                    <input type="text" name="input-text" required  >
-                    <span class="placeholder">
-                        Name on card
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8  py-3">
-                <div class="input-block">
-                    <input type="text" name="input-text" required  >
-                    <span class="placeholder">
-                        Card Number
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4  py-3">
-                <div class="input-block">
-                    <input type="text" name="input-text" required  >
-                    <span class="placeholder">
-                        Exp. Month
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-4  py-3">
-                <div class="input-block">
-                    <input type="text" name="input-text" required  >
-                    <span class="placeholder">
-                        Exp. Year
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-4  py-3">
-                <div class="input-block">
-                    <input type="text" name="input-text" required  >
-                    <span class="placeholder">
-                        CVV
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="row price">
-            <div class="col-md-12 d-flex justify-content-between align-items-center">
-                <div class="">Total Price</div>
-                <div class="price_number">£121.00</div>
-
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <div class="row">
-            <div class="col-md-6">By clicking Book Now, you agree with our Privacy Policy and Terms of Use.</div>
-            <div class="col-md-6">
-
-                <button type="button" class="btn cancel" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn book_now">Book Now</button>
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
 </div>

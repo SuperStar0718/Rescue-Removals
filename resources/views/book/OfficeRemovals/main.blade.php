@@ -163,11 +163,11 @@
                             </div>
                             <div class="content pb-3">
                                 <p>Pick Up Location</p>
-                                <span>London N22 6JD</span>
+                                <span>{{$result->getFromAddress()}}</span>
                             </div>
                             <div class="content pb-3">
                                 <p>Drop Off Location</p>
-                                <span>Barking IG11 0AD</span>
+                                <span>{{$result->getToAddress()}}</span>
                             </div>
                         </div>
                     </div>
