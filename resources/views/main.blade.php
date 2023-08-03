@@ -251,6 +251,16 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&callback=initMap&libraries=places&v=weekly"
         defer
       ></script>
+      {{-- <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/place/js/AutocompletionService.GetPredictionsJson?1sE2%20&amp;2u3&amp;4sen&amp;6m6&amp;1m2&amp;1d49.686402&amp;2d-7.678393&amp;2m2&amp;1d59.241507&amp;2d1.73144&amp;9sgeocode&amp;15e3&amp;21m1&amp;2e1&amp;callback=initMap&amp;key=AIzaSyDDkvdRgP5NAgi1sMPuITttk1752-fkyfw&amp;channel=40&amp;token=126173"></script> --}}
+      {{-- <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&callback=initMap&libraries=places&v=weekly"
+        defer
+      ></script> --}}
+      
+      {{-- <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5iAjd-YzWe_wWv2pK9-SR9i-IvGF7Gr0&callback=initMap&libraries=places&v=weekly"
+        defer
+      ></script> --}}
     <script>
     function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -267,7 +277,6 @@
         const options = {
             fields: ["formatted_address", "geometry", "name"],
             strictBounds: true,
-            types: ["establishment"],
             componentRestrictions: { country: 'UK' } // Limit results to the United Kingdom
         };
 

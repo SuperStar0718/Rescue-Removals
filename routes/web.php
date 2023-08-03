@@ -55,9 +55,12 @@ Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallbac
 // });
 
 
-// Route::group(['middleware'=>['']], function(){
-    Route::get('user_panel', [UserDashboard::class, 'index'])->name('user_panel');
-// });
+Route::group(['prefix'=> 'admin_panel'], function(){
+    Route::get('/', [UserDashboard::class, 'index'])->name('admin_panel');
+    Route::get('completed', [UserDashboard::class, 'completed'])->name('completed');
+    Route::get('upcoming', [UserDashboard::class, 'upcoming'])->name('upcoming');
+    Route::get('uncompleted', [UserDashboard::class, 'uncompleted'])->name('uncompleted');
+});
 
 //--------------------------------------------Our Books routes--------------------------------------------------------
 // Route::get('/furnitureappliance_manvan_eBaydeliveries/book1', [eBayDeliveries::class, 'index'])->name('cart');

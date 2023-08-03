@@ -1,0 +1,331 @@
+/*================== admin Panel======================== */
+body{
+    background-color: #F6F6F6;
+}
+.grid_main{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 20px;
+}
+.container.admin_panel{
+    padding: 0px;
+    margin-top: 50px;
+  }
+  .container .left_sidebar{
+    height: 650px;
+    min-width: 220px;
+    background-color: #353DA3;
+    margin-right: 20px;
+    border-radius: 3rem;
+    color: white;
+    font-family: Raleway;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .container .main_content{
+    margin-bottom: 130px;
+  }
+  .container .main_content .row{
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;
+  }
+  .container .main_content  .chart{
+  }
+  .container .main_content  .chart .chart_panel{
+    background-color: white;
+    border-top-right-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+  }
+  .container .main_content  .percentage .inner{
+    border-color: #f5f5fa;
+border-width: 3px;
+border-style: solid;
+border-top-left-radius: 55px;
+border-top-right-radius: 0px;
+border-bottom-right-radius: 63px;
+border-bottom-left-radius: 62px;
+color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
+  }
+  .container .main_content  .percentage{
+    padding: 15px 11px 12px 11px;
+    flex:auto;
+  background-color: #353DA3;
+  border-top-left-radius: 70px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 70px;
+  border-bottom-left-radius: 70px;
+  }
+  
+  .container .main_content .statistics{
+    background-color: #353DA3;
+    border-top-left-radius: 4rem;
+    border-bottom-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+  }
+  .container .main_content .row .statistics .content .item{
+    margin-bottom: 20px;
+  }
+  .container .main_content .row .statistics .content .item .title{
+    font-family: "Proxima Nova";
+    font-size: 10px;
+    font-weight: bold;
+  }
+  .container .main_content .row .statistics .content .item .value{
+    font-family: "Poppins";
+    font-size: 26px;
+    font-weight: bold;
+  }
+  .container .main_content .row .statistics .content{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .container .main_content .chart_context{
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 72% 25%;
+    gap: 20px;
+  }
+  .container .main_content .chart_context .row{
+    height: 335px;
+
+  }
+  
+  .container .header_section{
+    margin-left: 230px;
+  }
+  .container .header_section .title{
+    font-family: "Helvetica Neue";
+    font-size: 29px;
+    color: #353DA3;
+  }
+  .container .header_section .context{
+    font-weight: bold;
+    font-family: Raleway;
+    font-size: 20px;
+    color: black;
+  }
+  .container .left_sidebar .menu{
+    display: flex;
+    align-items: center;
+  }
+  .container .left_sidebar{
+    padding: 5rem 1rem;
+  }
+  .container .left_sidebar .menu .icon{
+    padding: 20px 20px;
+    width: 70px;
+  }
+  .container .left_sidebar .menu .icon::before{
+    content: '';
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    opacity: 0.49;
+    position: absolute;
+    border-radius: 100%;
+    margin-top: -12px;
+    margin-left: -12px;
+    display: none;
+  }
+  
+  .container .left_sidebar .menu:hover{
+    cursor: pointer;
+  }
+  .container .left_sidebar .menu.active  .icon::before{
+    display: inline-block;
+  }
+  
+
+  .main_content .percentage .text_content{
+    width: 150px;
+    font-size: 15px;
+    text-align: center;
+  }
+  .main_content .percentage .percent_digit{
+    font-family: Lato;
+    font-size: 85px;
+    font-weight: bold;
+    line-height: 90px;
+  }
+  .main_content .percentage .text_percent{
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: bold;
+
+  }
+  .title.vertical{
+    writing-mode: tb-rl;
+    transform: rotate(180deg);
+    align-self: center;
+    font-family: 'Proxima Nova';
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    opacity: 0.58;
+    width: 35px;
+  }
+  .main_content .percentage .text_content span{
+    font-family: "Lato";
+    color: #FFCD00;
+  }
+  .main_content .order .item .header img{
+    position: relative;
+    height: 64px;
+    top: 20px;
+
+    
+  }
+  .main_content .order .item{
+   
+    height: fit-content;  
+    filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.16 ));
+
+  }
+  .main_content .order .item .header{
+    font-family: "Poppins";
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: left;
+    color: #f5f5fa;
+    padding: 18px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+ 
+  
+  .main_content .order .item .main_body .heading{
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    text-align: left;
+    color: #7f8fa4;
+}
+.main_content .order .item .main_body .context{
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 14px;
+    font-style: normal;
+    text-align: left;
+    color: #354052;
+}
+.main_content .order .item .main_body{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px; 
+    padding: 8px 5px 8px 20px;
+    font-family: "Lato";
+    background-color: white;
+
+}
+.main_content .order .category_title{
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.main_content .order .category_title .view_all{
+    font-family: "Helvetica Neue";
+font-size: 9px;
+font-weight: bold;
+line-height: 9px;
+font-style: normal;
+    color: rgba(255, 255, 255, 0.521);
+    border-radius: 10px;
+    padding: 6px 20px 6px 20px;
+    cursor: pointer;
+}
+.view_all.pink, .header.pink{
+    background-color: #ff524280;
+}
+.view_all.green, .header.green{
+    background-color: #33c53381;
+  }
+.view_all.purple, .header.purple{
+    background-color: #353ca379;
+  }
+.status.purple{
+
+}
+.status.pink{
+    color: #FF5242;
+}
+.status.green{
+    color: #33C534;
+}
+.status.purple{
+    color: #353DA3;
+}
+.main_content .order .context_title::after {
+    content: ''; /* Create a pseudo-element for the underline */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px; /* Adjust the distance between text and underline */
+    border-bottom: 3px solid #FFA101; /* Define the underline style */
+}
+.main_content .order .context_title{
+    position: relative;
+    font-family: "Raleway";
+font-size: 18px;
+font-weight: bold;
+font-style: normal;
+text-align: left;
+}
+.main_content .order .grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px 0px; 
+}
+
+.main_content .order .date_info{
+    justify-content: space-between;
+}
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.main_content .order .item .main_body .service{
+    padding-bottom: 20px;
+}
+.main_content .order .item .main_body .date_info{
+    padding-bottom: 20px;
+}
+.main_content .order .item .main_body .footer{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: left;
+    color: #33c534;
+}
+.main_content .order .item .main_body .footer img{
+    position: relative;
+    top: 5px;
+}
+.quote_button{
+    padding: 6px 17px;
+    border-radius: 12px;
+    background: #ffffff;
+    font-family: "Helvetica Neue";
+font-size: 13px;
+font-weight: bold;
+font-style: normal;
+text-align: left;
+color: #353da3;
+}

@@ -773,81 +773,6 @@ img.storage{
 }
 
 
-
-/*================== user Panel======================== */
-
-.container .left_sidebar{
-  height: 650px;
-  width: 220px;
-  background-color: #353DA3;
-  margin-right: 40px;
-  border-radius: 3rem;
-  color: white;
-  font-family: Raleway;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.container .main_content{
-  flex: auto;
-}
-.container .main_content .row .chart{
-background-color: rgb(99, 73, 214);
-}
-.container .main_content .row .percentage{
-  flex:auto;
-background-color: rebeccapurple;
-}
-
-.container .main_content .row{
-  height: 335px;
-}
-
-.container .header_section{
-  margin-left: 260px;
-}
-.container .header_section .title{
-  font-family: Helvetica Neue;
-  font-size: 29px;
-  color: #353DA3;
-}
-.container .header_section .context{
-  font-weight: bold;
-  font-family: Raleway;
-  font-size: 20px;
-  color: black;
-}
-.container .left_sidebar .menu{
-  display: flex;
-  align-items: center;
-}
-.container .left_sidebar{
-  padding: 5rem 1rem;
-}
-.container .left_sidebar .menu .icon{
-  padding: 20px 20px;
-  width: 70px;
-}
-.container .left_sidebar .menu .icon::before{
-  content: '';
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  opacity: 0.49;
-  position: absolute;
-  border-radius: 100%;
-  margin-top: -12px;
-  margin-left: -12px;
-  display: none;
-}
-
-.container .left_sidebar .menu:hover{
-  cursor: pointer;
-}
-.container .left_sidebar .menu.active  .icon::before{
-  display: inline-block;
-}
-
 .img_wid_100{
   width: 100%;
 }
@@ -863,6 +788,9 @@ background-color: rebeccapurple;
   width: 100%;
   border-top-left-radius: 3rem;
 }
+
+
+
 
 /* ===========Google map ======================== */
 .pac-item .pac-icon{
@@ -881,4 +809,7 @@ background-color: rebeccapurple;
 }
 .pac-item:nth-child(3){
   font-size: 16px;
+}
+.pac-logo:after{
+  display: none;
 }
