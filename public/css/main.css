@@ -813,3 +813,6 @@ img.storage{
 .pac-logo:after{
   display: none;
 }
+#gmap_canvas .gmnoprint, #gmap_canvas button.gm-control-active.gm-fullscreen-control, #gmap_canvas button.gm-svpc, #gmap_canvas .gmnoprint>div{
+  display: none;
+}

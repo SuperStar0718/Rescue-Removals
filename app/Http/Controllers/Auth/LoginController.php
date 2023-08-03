@@ -31,7 +31,9 @@ class LoginController extends Controller
         ])->onlyInput('email');
     }
     public function logout(){
-        AUth::logout();
+        // AUth::logout();
+        session()->flash('toast_success', 'You have successfully logged out!');
+    
         return redirect()->route('main');
     }
     public function redirectToGoogle()

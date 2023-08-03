@@ -47,7 +47,7 @@
                     Chat
                 </div>
             </div>
-            <div class="menu">
+            <div class="menu" onclick="window.location.assign('{{route('logout')}}')">
                 <div class="icon">
                     <img src="{{asset('images/Admin/logout.png')}}" alt="">
                 </div>
