@@ -99,28 +99,7 @@ class OfficeRemovals extends Controller
     public function price_page(){
         $component = "OfficeRemovals.price_page";
         $result = OfficeRemovalsCart::where('userid', 1)->first();
-        $price = 0;
-        if($result->congestion==1)
-            $price+=15;
-        switch ($result->van) {
-            case 1:
-                # code...
-                $price += (70+$result->men * 20) * $result->number_of_car;
-                break;
-            case 2:
-                # code...
-                $price += (50+$result->men * 20) * $result->number_of_car;
-                break;
-            case 3:
-                # code...
-                $price += (40+$result->men * 20) * $result->number_of_car;
-                break;
-            
-            default:
-                # code...
-                break;
-        }
-        return view('book.OfficeRemovals.main', compact('component','result','price'));
+        return view('book.OfficeRemovals.main', compact('component','result'));
     }
 
     public function update_cart(Request $request){

@@ -70,10 +70,9 @@
         </div>
     </div>
     <div class="modal-footer">
-        <div class="row">
+        <div class="row justify-content-between">
             <div class="col-md-6">By clicking Book Now, you agree with our Privacy Policy and Terms of Use.</div>
-            <div class="col-md-6">
-
+            <div class="col-md-6 d-flex justify-content-between" >
                 <button type="button" class="btn cancel" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn book_now">Book Now</button>
             </div>

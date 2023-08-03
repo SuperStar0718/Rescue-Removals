@@ -91,6 +91,7 @@
                         @break
                     @case('ManVan.billing')
                         @include('components.book.final_calculation')
+                        @include('components.book.BillingModal')
                         @php($next = "main")
                         @php( $previous = "ManVan.price_page")
                         @break
@@ -161,15 +162,25 @@
                             </div>
                             <div class="content pb-3">
                                 <p>Floors</p>
-                                <span>Ground Floor to 1st Floor</span>
+                                <span>{{$result->from_stair}} to {{$result->to_stair}}</span>
                             </div>
                             <div class="content pb-3">
                                 <p>Congestion Zone</p>
                                 <span>{{$result->congestion ? "Yes" : "No"}} </span>
                             </div>
+                            @if(isset($result->packing_service))
+                            <div class="content pb-3">
+                                <p>Packaging Service</p>
+                                <span>{{$result->packing_service ? "Yes" : "No"}} </span>
+                            </div>
+                            @endif
                             <div class="content pb-3">
                                 <p>Date</p>
                                 <span>{{$result->getDateInfo()}}</span>
+                            </div>
+                            <div class="content pb-3">
+                                <p>Start Time</p>
+                                <span>{{$result->arrange_hour}}:{{$result->arrange_minute}}</span>
                             </div>
                             <div class="content pb-3">
                                 <p>Pick Up Location</p>
@@ -837,6 +848,28 @@ function initMap() {
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&libraries=places&callback=initMap" async defer></script>
+<script>
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.needs-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      else{
+        event.preventDefault()
+        window.location.assign('{{route($next)}}')
+      }
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+</script>
 @endif
 
 @endsection

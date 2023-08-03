@@ -828,3 +828,10 @@ img.storage{
 #search{
   padding-left: 50px;
 }
+
+.modal-footer > .row > div{
+  padding: 0px;
+}
+.modal-footer > .row:first-child{
+  padding-right: 10px;
+}

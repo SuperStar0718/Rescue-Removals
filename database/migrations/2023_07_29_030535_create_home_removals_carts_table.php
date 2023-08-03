@@ -18,8 +18,8 @@ return new class extends Migration
             $table->json('cart_list')->nullable();
             $table->json('from')->nullable();
             $table->json('to')->nullable();
-            $table->string('from_stair')->default("");
-            $table->string('to_stair')->default("");
+            $table->string('from_stair')->default("Ground floor");
+            $table->string('to_stair')->default("Ground floor");
             $table->integer('hour')->default(2);
             $table->integer('minute')->default(0);
             $table->integer('men')->default(0);

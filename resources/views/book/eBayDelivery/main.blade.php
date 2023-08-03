@@ -91,6 +91,7 @@
                         @break
                     @case('eBay.billing')
                         @include('components.book.final_calculation')
+                        @include('components.book.BillingModal')
                         @php($next = "main")
                         @php( $previous = "eBay.price_page")
                         @break
@@ -838,6 +839,28 @@ function initMap() {
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&libraries=places&callback=initMap" async defer></script>
+<script>
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.needs-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      else{
+        event.preventDefault()
+        window.location.assign('{{route($next)}}')
+      }
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+</script>
 @endif
 
 

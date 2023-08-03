@@ -27,7 +27,7 @@
                 </div>
                 <div class="price_panel">
                     <div class="price">
-                        £{{$price}}
+                        £{{$result->getPrice()}}
                     </div>
                     <div>
                         Your Price

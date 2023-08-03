@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('reference_id');
             $table->json('from')->nullable();
             $table->json('to')->nullable();
-            $table->string('from_stair')->default("");
-            $table->string('to_stair')->default("");
+            $table->string('from_stair')->default("Ground floor");
+            $table->string('to_stair')->default("Ground floor");
             $table->json('cart_list')->nullable();
             $table->integer('hour')->default(2);
             $table->integer('minute')->default(0);

@@ -177,15 +177,25 @@
                             </div>
                             <div class="content pb-3">
                                 <p>Floors</p>
-                                <span>Ground Floor to 1st Floor</span>
+                                <span>{{$result->from_stair}} to {{$result->to_stair}}</span>
                             </div>
                             <div class="content pb-3">
                                 <p>Congestion Zone</p>
                                 <span>{{$result->congestion ? "Yes" : "No"}} </span>
                             </div>
+                            @if(isset($result->packing_service))
+                            <div class="content pb-3">
+                                <p>Packaging Service</p>
+                                <span>{{$result->packing_service ? "Yes" : "No"}} </span>
+                            </div>
+                            @endif
                             <div class="content pb-3">
                                 <p>Date</p>
                                 <span>{{$result->getDateInfo()}}</span>
+                            </div>
+                            <div class="content pb-3">
+                                <p>Start Time</p>
+                                <span>{{$result->arrange_hour}}:{{$result->arrange_minute}}</span>
                             </div>
                             <div class="content pb-3">
                                 <p>Pick Up Location</p>
@@ -900,7 +910,10 @@ Array.from(forms)
         event.preventDefault()
         event.stopPropagation()
       }
-
+      else{
+        event.preventDefault()
+        window.location.assign('{{route($next)}}')
+      }
       form.classList.add('was-validated')
     }, false)
   })

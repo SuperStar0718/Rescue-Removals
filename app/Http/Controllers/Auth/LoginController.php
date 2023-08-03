@@ -23,7 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->route('main');
+            return redirect()->route('admin_panel');
         }
 
         return back()->withErrors([
@@ -31,7 +31,7 @@ class LoginController extends Controller
         ])->onlyInput('email');
     }
     public function logout(){
-        // AUth::logout();
+        AUth::logout();
         session()->flash('toast_success', 'You have successfully logged out!');
     
         return redirect()->route('main');

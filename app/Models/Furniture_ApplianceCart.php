@@ -39,4 +39,28 @@ class Furniture_ApplianceCart extends Model
         $postcode_from = end($postcode_from);
         return $postcode_from['long_name'] == "United Kingdom" ? '' : $postcode_from['long_name'];
     }
+    public function getPrice(){
+        $price = 0;
+        if($this->congestion==1)
+            $price+=15;
+        switch ($this->van) {
+            case 1:
+                # code...
+                $price += (70+$this->men * 20) * $this->number_of_car;
+                break;
+            case 2:
+                # code...
+                $price += (50+$this->men * 20) * $this->number_of_car;
+                break;
+            case 3:
+                # code...
+                $price += (40+$this->men * 20) * $this->number_of_car;
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        return $price;
+    }
 }

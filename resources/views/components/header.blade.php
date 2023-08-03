@@ -34,7 +34,7 @@
                                     <img src="{{asset('images/person.svg')}}" alt="person" style="width: 30px;">
                                     <div class="text-white" style="font-size: 12px;">Log Out</div>
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="get" style="display: none;">
                                     @csrf
                                 </form>
                                 
