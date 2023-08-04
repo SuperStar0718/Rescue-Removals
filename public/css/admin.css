@@ -13,7 +13,7 @@ body{
   }
   .container .left_sidebar{
     height: 650px;
-    min-width: 220px;
+    width: 80px;
     background-color: #353DA3;
     margin-right: 20px;
     border-radius: 3rem;
@@ -21,8 +21,21 @@ body{
     font-family: Raleway;
     font-size: 15px;
     font-weight: bold;
+  transition: all 0.2s;
+
   }
-  
+  .container .left_sidebar:hover{
+    width: 220px;
+  }
+  .container .left_sidebar .menu_text:hover{
+color: #c5c8ed;
+  }
+  .container .left_sidebar .menu_text{
+    display: none;
+  }
+  .container .left_sidebar:hover  .menu .menu_text{
+    display: block;
+  }
   .container .main_content{
     margin-bottom: 130px;
   }
@@ -119,7 +132,7 @@ height: 100%;
     align-items: center;
   }
   .container .left_sidebar{
-    padding: 5rem 1rem;
+    padding: 5rem 0.5rem;
   }
   .container .left_sidebar .menu .icon{
     padding: 20px 20px;

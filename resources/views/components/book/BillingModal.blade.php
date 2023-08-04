@@ -64,7 +64,7 @@
         <div class="row price">
             <div class="col-md-12 d-flex justify-content-between align-items-center">
                 <div class="">Total Price</div>
-                <div class="price_number">£121.00</div>
+                <div class="price_number">£{{$result->getPrice()}}</div>
 
             </div>
         </div>

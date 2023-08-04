@@ -55,7 +55,7 @@ Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallbac
 // });
 
 
-Route::group(['prefix'=> 'admin_panel'], function(){
+Route::group(['prefix'=> 'admin_panel', 'middleware'=>['role']], function(){
     Route::get('/', [AdminPanel::class, 'index'])->name('admin_panel');
     Route::get('completed', [AdminPanel::class, 'completed'])->name('completed');
     Route::get('upcoming', [AdminPanel::class, 'upcoming'])->name('upcoming');

@@ -19,7 +19,13 @@
                         <div class="p-5">
                             @csrf
                             <input type="text" class="form-control mb-2" style="height: 40px; border-radius: 0.5rem;" name="email" id="email" placeholder="Email Address">
-                            <input type="password" class="form-control" style="height: 40px; border-radius: 0.5rem;" name="password" id="password" placeholder="Password">
+                            @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <input type="password" class="form-control mb-2" style="height: 40px; border-radius: 0.5rem;" name="password" id="password" placeholder="Password">
+                            @error('password')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="d-flex justify-content-around py-3">
                                 <div >
                                     <label class="form-check-label" for="check">

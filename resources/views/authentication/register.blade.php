@@ -19,9 +19,17 @@
                             @csrf
                             <div class="p-5">
                                 <input type="text" name="email" class="form-control mb-4" style="height: 40px; border-radius: 0.5rem;" id="email" placeholder="Email Address">
+                                @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <input type="password" name="password" class="form-control mb-4" style="height: 40px; border-radius: 0.5rem;" id="password" placeholder="Password">
+                                @error('password')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <input type="password" name="password_conf" class="form-control" style="height: 40px; border-radius: 0.5rem;" id="confirm password" placeholder="Conrfirm Password">
-                                
+                                @error('password_conf')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="text-center mt-1">
                                     <button type="submit" class="btn my-5 py-2 px-3 bg-primary-light text-white" style="border-radius: 0.5rem;">
                                         <h5 class="mb-0">Create Account</h5>

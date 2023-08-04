@@ -835,3 +835,6 @@ img.storage{
 .modal-footer > .row:first-child{
   padding-right: 10px;
 }
+.alert{
+  padding: 0.1rem 0.5rem;
+}

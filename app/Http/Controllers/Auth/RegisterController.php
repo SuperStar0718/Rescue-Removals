@@ -17,7 +17,7 @@ class RegisterController extends Controller
         $userInfo = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
-            'password_conf' => ['required'],
+            'password_conf' => ['required','confirmed'],
         ]);
         $email = $request->email;
         $password = $request->password;

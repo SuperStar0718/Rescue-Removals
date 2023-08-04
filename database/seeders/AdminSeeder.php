@@ -18,7 +18,8 @@ class AdminSeeder extends Seeder
         User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => '$2y$10$3fDfKPnTwdPwKvg3zPwzauZRIXZ2HIdZAXr8oD9818OIG1ohPAfsW'
+            'password' => '$2y$10$3fDfKPnTwdPwKvg3zPwzauZRIXZ2HIdZAXr8oD9818OIG1ohPAfsW',
+            'admin'=> true
         ]);
     }
 }
