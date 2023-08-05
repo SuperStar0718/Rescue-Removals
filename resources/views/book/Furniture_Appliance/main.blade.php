@@ -541,14 +541,16 @@ $(document).ready(function(){
     }
     $('.men_count i.up').click(function(){
         var men = parseInt($(this).parent().parent().children('div.number_panel').children('h1').text())+1
-        $(this).parent().parent().children('div.number_panel').children('h1').text(men.toString().padStart(2, '0'));
-        update_men(men)
+        if(men<5){
+            $(this).parent().parent().children('div.number_panel').children('h1').text(men);
+            update_men(men)
+        }
     })
 
     $('.men_count i.down').click(function(){
         var men = parseInt($(this).parent().parent().children('div.number_panel').children('h1').text())-1
         if(men>0){
-            $(this).parent().parent().children('div.number_panel').children('h1').text(men.toString().padStart(2, '0'));
+            $(this).parent().parent().children('div.number_panel').children('h1').text(men);
             update_men(men)
         }
     })
@@ -583,8 +585,10 @@ $(document).ready(function(){
     }
     $('.men_count i.up').click(function(){
         var count = parseInt($(this).parent().parent().children('div.number_panel').children('h1').text())+1
-        $(this).parent().parent().children('div.number_panel').children('h1').text(count);
-        update_number_of_car(count)
+        if(count<5){
+            $(this).parent().parent().children('div.number_panel').children('h1').text(count);
+            update_number_of_car(count)
+        }
     })
 
     $('.men_count i.down').click(function(){
@@ -759,7 +763,7 @@ function update_time(hour,min){
     $('.hour i.up').click(function(){
         var hour = parseInt($(this).parent().children('div').children('h1').text())+1
         var minute = parseInt($(this).parent().parent().children('div.minute').children('div').children('h1').text())
-        if(hour<25){
+        if(hour<21){
             $(this).parent().children('div').children('h1').text(hour.toString().padStart(2, '0'));
             update_time(hour,minute)
         }
@@ -767,7 +771,7 @@ function update_time(hour,min){
     $('.hour i.down').click(function(){
         var hour = parseInt($(this).parent().children('div').children('h1').text())-1
         var minute = parseInt($(this).parent().parent().children('div.minute').children('div').children('h1').text())
-        if(hour>-1){
+        if(hour>7){
             $(this).parent().children('div').children('h1').text(hour.toString().padStart(2, '0'));
             update_time(hour,minute)
         }
@@ -775,20 +779,25 @@ function update_time(hour,min){
     $('.minute i.up').click(function(){
         var minute = parseInt($(this).parent().children('div').children('h1').text())+30
         var hour = parseInt($(this).parent().parent().children('div.hour').children('div').children('h1').text())
-        hour = hour+ Math.floor(minute/60)
-        minute = minute%60
-        $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
-        $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
-        update_time(hour,minute%60)
+        if(hour<20)
+        {
+            hour = hour+ Math.floor(minute/60)
+            minute = minute%60
+            $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
+            $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
+            update_time(hour,minute%60)
+        }
     })
     $('.minute i.down').click(function(){
         var hour = parseInt($(this).parent().parent().children('div.hour').children('div').children('h1').text())
         var minute = parseInt($(this).parent().children('div').children('h1').text())-30
-        hour = hour+ Math.floor(minute/60)
-        minute = (minute+60)%60
-        $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
-        $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
-        update_time(hour,minute)
+        if(hour>8){
+            hour = hour+ Math.floor(minute/60)
+            minute = (minute+60)%60
+            $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
+            $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
+            update_time(hour,minute)
+        }
     })
 </script>
 @endif

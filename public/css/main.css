@@ -56,6 +56,19 @@ img {
   .display-none-sm {
     display: none !important;
   }
+  .section_content{
+    display: flex !important;
+    flex-direction : column !important;
+  }
+  .section_content .right_content{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+@media only screen and (max-width: 1240px) {
+  .section_content{
+    grid-template-columns: 50% 50% !important;
+  }
 }
 
 /* Colors */
@@ -81,8 +94,9 @@ img {
 
 /* pages */
 .moving-home {
-  border-radius: 40px;
+  border-radius: 70px;
   border: solid 2px #353ea3;
+  padding: 2.5rem 3rem !important;
 }
 .center-character {
   top: 50%;
@@ -450,7 +464,7 @@ div.car_title_section{
   font-weight: 500;
   font-size: 1rem;
   color: #495055;
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 8px;
   /* border: 2px solid  #D9D9D9; */
   /* outline:none; */
@@ -685,6 +699,8 @@ button.cancel{
 .moving-home>.book-now h3{
   font-size: 43px;
   font-weight: bold;
+  margin-bottom: 0px;
+
 }
 .moving-home>.book-now p{
 max-width: 300px;
@@ -777,7 +793,7 @@ img.storage{
   width: 100%;
 }
 .book_now_btn{
-  margin-top: 150px;
+  margin-top: 15px;
 }
 
 .dropdown .dropdown-toggle{
@@ -837,4 +853,160 @@ img.storage{
 }
 .alert{
   padding: 0.1rem 0.5rem;
+}
+.section_content {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  padding-top: 5rem !important;
+}
+.section_content .left_lmage  img{
+  width: 100%;
+}
+
+.section_content .right_content{
+  color: white;
+  font-family: "Helvetica Neue";
+  font-size: 20px;
+  text-align: right;
+  line-height:25px;
+  font-weight:bold;
+
+}
+.reviews{
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  gap: 6px;
+  margin-top: 120px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+
+.reviews .item{
+  border-radius: 2rem;
+  position: relative;
+}
+.reviews .item.left::after{
+  position: absolute;
+  left: calc(50% - 32px);
+  content: ' ';
+  border-left: 32px solid #ffffff00;
+  border-right: 32px solid #ffffff00;
+  border-top: 30px solid #7C0000;
+}
+.reviews .item.right::after{
+  position: absolute;
+  left: calc(50% - 32px);
+  content: ' ';
+  border-left: 32px solid #ffffff00;
+  border-right: 32px solid #ffffff00;
+  border-top: 30px solid #356A00;
+}
+.reviews .item.center::after{
+  position: absolute;
+  left: calc(50% - 32px);
+  content: ' ';
+  border-left: 32px solid #ffffff00;
+  border-right: 32px solid #ffffff00;
+  border-top: 30px solid #1A1818;
+}
+
+
+.reviews .item.left img.avatar, .reviews .item.right img.avatar{
+  left: calc(50% - 39px);
+  position: relative;
+  top: -40px;
+}
+.reviews .item div{
+  position: relative;
+}
+.reviews .item.left{
+  background-color: #7C0000;
+}
+
+.reviews .item.center img.avatar{
+  position: relative;
+  top: -65px;
+  left: calc(50% - 60px);
+
+}
+.reviews .item.center{
+  background-color: #1A1818;
+}
+.reviews .item.right{
+  background-color: #356A00;
+
+}
+
+
+.container-content.text{
+  
+font-family: "Helvetica Neue";
+font-size: 20px;
+font-weight: normal;
+font-style: normal;
+text-align: center;
+letter-spacing: -50px;
+color: #000000;
+}
+.container-content .item.center .text.content {
+  font-size: 17px;
+  line-height: 15px;
+}
+.container-content .item.center .text.title {
+  font-size: 24px;
+}
+.container-content .item .text.title {
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-weight: bold;
+}
+.container-content .item .text.content {
+  font-family: "Helvetica Neue";
+  font-size: 8px;
+  font-weight: bold;
+}
+.container-content .item .text{
+  color: white;
+  font-family: "Helvetica Neue";
+
+
+}
+
+.container-content .item .star .text{
+}
+.container-content .item .star{
+  text-align: center;
+  top: -35px;
+  width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-content .item.center .star {
+  width: 64%;
+  top: -60px;
+}
+
+.container-content .item .text-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text-context div{
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Helvetica Neue";
+  line-height: 21px;
+}
+.full-size img{
+  width: 100%;
+  height: 100%;
+}
+.full-size{
+  margin-top: 50px;
 }

@@ -114,14 +114,14 @@
     <!--------------- section 2 --------------->
     <div>
         <div class="d-flex justify-content-center text-center">
-            <div class="border-bottom border-grey " style="width: 75%">
+            <div class=" border-grey " style="width: 75%">
                 <h3 class="py-4">Your Journey Begins With Us!</h3>
             </div>            
         </div>
         
-        <div class="bg-primary-dark my-5">
-            <div class="container-content py-5">                
-                <img src="{{asset('images/Blue Truck.png')}}" class="w-100 py-5" alt="car">               
+        <div class=" my-5">
+            <div class="container-content">                
+                <img src="{{asset('images/iPhone Rescue Removals.png')}}" class="w-100" alt="car">               
                               
             </div>
         </div>
@@ -134,12 +134,67 @@
     
     <!--------------- end section 2 --------------->
 
-    <!--------------- section 3 --------------->
-    <div class="bg-warning-light my-5">
-        <div class="container-content py-5 ">
-            <h3>Our Services - We love what we do & we do it well…</h3>            
+<div class="bg-primary-light">
+    <div class="section_content container-content ">
+        <div class="left_lmage">
+            <img src="{{asset('images/people website.png')}}" >               
         </div>
-        <div class="container-content service_category">
+        <div class="right_content">
+            <div class="pb-5">
+                Welcome to Rescue Removals, your trusted Removal Company based in the heart of London and covering all surrounding areas! We take pride in providing top-notch moving services, ensuring a smooth and stress-free relocation experience for our valued customers. Whether you’re moving your home or office, locally or nationally, our dedicated team is here to rescue you from the complexities of the moving process.
+            </div>
+            <div>
+                With years of experience in the industry, Rescue Removals understands the importance of handling your belongings with care and precision. We treat each move as unique, tailoring our services to meet your specific needs and requirements. Our goal is to take the burden off your shoulders, allowing you to focus on the excitement of your new journey.
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--------------- section 3 --------------->
+    <div class=" mt-5">
+        <div class="container-content reviews">
+            <div class="left item">
+                <img src="{{asset('images/left.png')}}" class="avatar" alt="">
+                <div class="star" >
+                    <div><img src="{{asset('images/CompositeLayer.png')}}" class="w-100"  alt=""></div>
+                        <div class="text title">Excellent Service</div>
+                        <div class="text content">Did what they said, I have no complaints. I am a happy customer.</div>
+                </div>
+            </div>
+            <div class="center item">
+                <img src="{{asset('images/center.png')}}" class="avatar" alt="">
+                <div class="star" >
+                    <div><img src="{{asset('images/CompositeLayer.png')}}" class="w-100"  alt=""></div>
+                        <div class="text title">Good Job</div>
+                        <div class="text content">Did what they said, I have no complaints. I am a happy customer.</div>
+                </div>
+
+            </div>
+            <div class="right item">
+                <img src="{{asset('images/right.png')}}" class="avatar" alt="">
+                <div class="star" >
+                    <div><img src="{{asset('images/CompositeLayer.png')}}" class="w-100"  alt=""></div>
+                        <div class="text title">WOW</div>
+                        <div class="text content">Did what they said, I have no complaints. I am a happy customer.</div>
+                </div>
+            </div>
+        </div>
+        <div class="container-content text-context">
+            <div>
+                At Rescue Removals, customer satisfaction is at the core of everything we do. Our team of highly-trained professionals is committed to providing exceptional service from start to finish, ensuring that all your possessions are transported safely and securely to their new destination.
+            </div>
+            <div>
+                Our strategic location in London enables us to serve the city and its surroundings promptly and efficiently. We know that time is of the essence, especially in the bustling city, and our fleet of specialised vehicles is equipped to handle any move with ease and precision.
+            </div>
+            <div>
+                As a fully licensed and insured company, you can trust Rescue Removals to handle your move with transparency, integrity, and professionalism. We believe in building lasting relationships with our clients, and our dedication to quality has earned us a reputation as one of London’s leading removal companies.
+            </div>
+            <div>
+                Experience the difference with Rescue Removals and let us guide you through a seamless and enjoyable moving experience. Contact us today for a no-obligation quote, and let our friendly team rescue you from the stresses of moving. 
+            </div>
+        </div>
+
+        <div class="container-content service_category py-5">
                 <div class="">
                     <a href="{{ url('/service_home_removals') }}">
                         <div class="position-relative service_card" style="text-align: center">
@@ -212,6 +267,9 @@
                         </div>
                     </a>
                 </div>
+        </div>
+        <div class="container-content full-size">
+            <img src="{{asset('images/imgpsh_fullsize_anim (1).png')}}" alt="">
         </div>
     </div>
     <!--------------- end section 3 --------------->
