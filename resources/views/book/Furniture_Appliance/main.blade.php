@@ -38,9 +38,13 @@
                         <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
                     </div>                      
                 </div>
+                @if($component=="Furniture_Appliance.final_calculation")
+                    <form class="needs-validation" novalidate method="get">
+                @endif
                 @switch($component)
                     @case('Furniture_Appliance')
                         @include('components.book.cart')
+                        @include('components.book.GetPriceModal', ['url'=> 'Furniture_Appliance.get_email'])
                         @php($next = "Furniture_Appliance.hours_need")
                         @php( $previous = "main")
                         @break
@@ -111,6 +115,9 @@
                         </button>
                     </a>
                 </div>
+                @if($component=="Furniture_Appliance.final_calculation")
+                    </form>
+                @endif
             </div>
             <div class="col-md-3">
                 <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
@@ -401,6 +408,19 @@ $(document).ready(function(){
             $(this).val('');
         }
     })
+
+    $('.next_button').click((event)=>{
+        event.preventDefault()
+        $('button.modal_button').trigger('click');
+
+    })
+    $('.input-block input[type="email"]').on('change', function(){
+        var email = $(this).val()
+        if(email.length>0)
+            $(this).addClass('active')
+        else
+            $(this).removeClass('active')
+    })
 </script>  
 @endif
 @if($component=="Furniture_Appliance.hours_need")
@@ -549,7 +569,7 @@ $(document).ready(function(){
 
     $('.men_count i.down').click(function(){
         var men = parseInt($(this).parent().parent().children('div.number_panel').children('h1').text())-1
-        if(men>0){
+        if(men>-1){
             $(this).parent().parent().children('div.number_panel').children('h1').text(men);
             update_men(men)
         }
