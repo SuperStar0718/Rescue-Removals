@@ -753,9 +753,9 @@ footer>div.footer{
   padding-left: 0px; */
   width: 100%;
 }
-.other-category>div> a >h5{
-  font-size: 21px;
-  font-family: Regular;
+.other-category>div> a >h5, .second-context{
+  font-size: 21px !important;
+font-family: "Regular" !important ;
 }
 footer span.display-block, footer span.display-block>h6{
   font-family: HelveticaNeueMedium;
@@ -867,7 +867,7 @@ img.storage{
 .section_content .right_content{
   color: white;
   font-family: "Helvetica Neue";
-  font-size: 20px;
+  font-size: 19px;
   text-align: right;
   line-height:25px;
   font-weight:bold;
@@ -950,8 +950,8 @@ text-align: center;
 letter-spacing: -50px;
 color: #000000;
 }
-.container-content .item.center .text.content {
-  font-size: 17px;
+.container-content .item.center .text.content, .container-content .first_context{
+  font-size: 20px;
   line-height: 15px;
 }
 .container-content .item.center .text.title {
@@ -964,7 +964,7 @@ color: #000000;
 }
 .container-content .item .text.content {
   font-family: "Helvetica Neue";
-  font-size: 8px;
+  font-size: 11px;
   font-weight: bold;
 }
 .container-content .item .text{
@@ -1106,4 +1106,7 @@ color: #000000;
   display: grid;
   grid-template-columns: 32% 32% 31%;
   gap: 10px;
+}
+.footer-text{
+  font-size: 20px;
 }

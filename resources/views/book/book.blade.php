@@ -7,7 +7,7 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-warning-light py-3">
+    <div class="bg-warning-light pt-3">
         <div class="container-content">
         <div class="row">
             <div class="col-md-9">
@@ -78,13 +78,13 @@
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div class="container-content book_now_btn" style="margin-bottom: -120px;">
+    <div class="container-content book_now_btn" style="margin-bottom: -100px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="d-flex justify-content-center align-items-center ">
                 <div>
                     <h1>Your Journey Begins With Us!</h1>
                 </div>   
-                <div style="width: 105px;">
+                <div style="padding-left:30px">
                     <img src="{{asset('images/book-car.png')}}" class="w-100">
                 </div>
             </div>

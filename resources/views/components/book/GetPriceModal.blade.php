@@ -20,7 +20,7 @@
                 <div class="content-wrapper ">
     
                     <div class="input-block">
-                        <input type="email" name="email" class="form-control" class="form-control" class="form-control"  required >
+                        <input type="email" name="email" class="form-control"  required >
                         <span class="placeholder">
                             Enter your Eamil address
                         </span>

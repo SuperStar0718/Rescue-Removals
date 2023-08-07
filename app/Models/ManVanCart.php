@@ -38,28 +38,115 @@ class ManVanCart extends Model
         $postcode_from = end($postcode_from);
         return $postcode_from['long_name'] == "United Kingdom" ? '' : $postcode_from['long_name'];
     }
+    public function get_stair($stair){
+
+        switch ($stair) {
+            case 'Basement':
+                # code...
+                $number = 0;
+                break;
+            case 'Ground floor':
+                # code...
+                $number = 0;
+                break;
+            case '1st floor':
+                # code...
+                $number = 1;
+                break;
+            case '2nd floor':
+                # code...
+                $number = 2;
+                break;
+            case '3rd floor':
+                # code...
+                $number = 3;
+                break;
+            case '4th floor':
+                # code...
+                $number = 4;
+                break;
+            case '5th floor':
+                # code...
+                $number = 5;
+                break;
+            case '6th floor':
+                # code...
+                $number = 6;
+                break;
+            case 'Above 6th floor':
+                # code...
+                $number = 6;
+                break;
+         
+            
+            default:
+                # code...
+                break;
+        }
+        return($number);
+    }
     public function getPrice(){
         $price = 0;
         if($this->congestion==1)
             $price+=15;
+        if($this->packing_service==1)
+            $price+=200;
+
+        $from = json_decode($this->from);
+        $to = json_decode($this->to);
+        $distance = $this->haversineDistance($from->lat, $from->lng, $to->lat, $to->lng);
+        $from_stair = $this->get_stair($this->from_stair);
+        $to_stair = $this->get_stair($this->to_stair);
+        $price = $price + ($from_stair+$to_stair)*15;
+        // dd($distance);
+        $price += floor($distance/1609) * 1.5;
+
         switch ($this->van) {
             case 1:
                 # code...
-                $price += (70+$this->men * 20) * $this->number_of_car;
+                if($this->men==0)
+                    $price = $price + 70 * $this->hour;
+                if($this->men==1)
+                    $price = $price + 90 * $this->hour;
+                if($this->men==2)
+                    $price = $price + 100 * $this->hour;
+                if($this->men==3)
+                    $price = $price + 115 * $this->hour;
+                if($this->men==4)
+                    $price = $price + 130 * $this->hour;
                 break;
             case 2:
                 # code...
-                $price += (50+$this->men * 20) * $this->number_of_car;
+                if($this->men==0)
+                    $price = $price + 50 * $this->hour;
+                if($this->men==1)
+                    $price = $price + 70 * $this->hour;
+                if($this->men==2)
+                    $price = $price + 80 * $this->hour;
+                if($this->men==3)
+                    $price = $price + 95 * $this->hour;
+                if($this->men==4)
+                    $price = $price + 110 * $this->hour;
                 break;
             case 3:
                 # code...
-                $price += (40+$this->men * 20) * $this->number_of_car;
+                if($this->men==0)
+                    $price = $price + 40 * $this->hour;
+                if($this->men==1)
+                    $price = $price + 60 * $this->hour;
+                if($this->men==2)
+                    $price = $price + 70 * $this->hour;
+                if($this->men==3)
+                    $price = $price + 85 * $this->hour;
+                if($this->men==4)
+                    $price = $price + 100 * $this->hour;
                 break;
             
             default:
                 # code...
                 break;
         }
+
         return $price;
     }
 }

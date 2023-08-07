@@ -7,7 +7,7 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-primary-dark py-5">
+    <div class="bg-primary-dark pt-5">
         <div class="container-content">
             <div class="row">
                 <div class="col-md-8">
@@ -108,21 +108,17 @@
     <!--------------- end section 3 --------------->
 
     <!--------------- section 4 --------------->
-    <div class="container-content book_now_btn" style="margin-bottom: -120px;">
+    <div class="container-content book_now_btn" style="margin-bottom: -100px;">
         <div class="moving-home bg-white position-relative p-5">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="d-flex justify-content-center">
+            <div class="row book-now">
+                    <div class="d-flex justify-content-start">
                         <div>
                             <h3  class="btn-text-primary-light">Need Waste Removed?</h3>
                             <p>
-                                Simply give us a call, answer a few questions
-                                and we will give a personalised quote straight away.
+                                Fill in our simple form and let us take care of the rest.
                             </p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
                     <div class="text-center mt-1">
                         <a href="{{ url('/') }}">
                             <button type="button" class="btn bg-primary-light text-white rounded-pill px-5 py-3">
@@ -130,7 +126,6 @@
                             </button>
                         </a>
                     </div>
-                </div>
             </div>
         </div>
     </div>

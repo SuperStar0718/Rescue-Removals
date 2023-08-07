@@ -7,7 +7,7 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-warning-light py-3">
+    <div class="bg-warning-light pt-3">
         <div class="container-content">
         <div class="row">
             
@@ -239,13 +239,13 @@
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div class="container-content book_now_btn" style="margin-bottom: -120px;">
+    <div class="container-content book_now_btn" style="margin-bottom: -104px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="d-flex justify-content-center align-items-center ">
                 <div>
                     <h1>Your Journey Begins With Us!</h1>
                 </div>   
-                <div style="width: 105px;">
+                <div style="padding-left:30px">
                     <img src="{{asset('images/book-car.png')}}" class="w-100">
                 </div>
             </div>
@@ -1009,6 +1009,7 @@ function initMap() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&libraries=places&callback=initMap" async defer></script>
 
+@endif
 <script>
 
 (function () {
@@ -1021,15 +1022,10 @@ Array.from(forms)
         event.preventDefault()
         event.stopPropagation()
       }
-      else{
-        event.preventDefault()
-        window.location.assign('{{route($next)}}')
-      }
       form.classList.add('was-validated')
     }, false)
   })
 })()
 
 </script>
-@endif
 @endsection

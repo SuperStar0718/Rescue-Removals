@@ -37,10 +37,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-5 text-white">
-                            <span class="display-block"><h6>Rescue Removals Limited is a company registered in England and Wales.</h6></span>
-                            <span class="display-block"><h6>Registered address: 6-8 Great Eastern St, London EC2A 3NT | Company number: 14893004</h6></span>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -82,6 +79,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="mt-5 text-white footer-text">
+                    <span class="display-block"><h6>Rescue Removals Limited is a company registered in England and Wales.</h6></span>
+                    <span class="display-block"><h6>Registered address: 6-8 Great Eastern St, London EC2A 3NT | Company number: 14893004</h6></span>
                 </div>
             </div>
         </div>

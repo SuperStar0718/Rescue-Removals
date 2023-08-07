@@ -180,10 +180,10 @@
             </div>
         </div>
         <div class="container-content text-context">
-            <div>
+            <div class="first_context">
                 At Rescue Removals, customer satisfaction is at the core of everything we do. Our team of highly-trained professionals is committed to providing exceptional service from start to finish, ensuring that all your possessions are transported safely and securely to their new destination.
             </div>
-            <div>
+            <div class="second-context">
                 Our strategic location in London enables us to serve the city and its surroundings promptly and efficiently. We know that time is of the essence, especially in the bustling city, and our fleet of specialised vehicles is equipped to handle any move with ease and precision.
             </div>
             <div>
@@ -275,7 +275,7 @@
     <!--------------- end section 3 --------------->
 
     <!--------------- section 4 --------------->
-    <div class="container-content book_now_btn" style="margin-bottom: -120px;">
+    <div class="container-content book_now_btn" style="margin-bottom: -100px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="row book-now">
                     <div class="d-flex justify-content-start">

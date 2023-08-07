@@ -85,7 +85,7 @@
     <!--------------- end section 4 --------------->
 
     <!--------------- section 5 --------------->
-    <div class="container-content book_now_btn" style="margin-bottom: -120px;">
+    <div class="container-content book_now_btn" style="margin-bottom: -100px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="row book-now">
                     <div class="d-flex justify-content-start">

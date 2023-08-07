@@ -51,6 +51,53 @@ class HomeRemovalsCart extends Model
     
         return $distance;
     }
+    public function get_stair($stair){
+
+        switch ($stair) {
+            case 'Basement':
+                # code...
+                $number = 0;
+                break;
+            case 'Ground floor':
+                # code...
+                $number = 0;
+                break;
+            case '1st floor':
+                # code...
+                $number = 1;
+                break;
+            case '2nd floor':
+                # code...
+                $number = 2;
+                break;
+            case '3rd floor':
+                # code...
+                $number = 3;
+                break;
+            case '4th floor':
+                # code...
+                $number = 4;
+                break;
+            case '5th floor':
+                # code...
+                $number = 5;
+                break;
+            case '6th floor':
+                # code...
+                $number = 6;
+                break;
+            case 'Above 6th floor':
+                # code...
+                $number = 6;
+                break;
+         
+            
+            default:
+                # code...
+                break;
+        }
+        return($number);
+    }
     public function getPrice(){
         $price = 0;
         if($this->congestion==1)
@@ -61,6 +108,9 @@ class HomeRemovalsCart extends Model
         $from = json_decode($this->from);
         $to = json_decode($this->to);
         $distance = $this->haversineDistance($from->lat, $from->lng, $to->lat, $to->lng);
+        $from_stair = $this->get_stair($this->from_stair);
+        $to_stair = $this->get_stair($this->to_stair);
+        $price = $price + ($from_stair+$to_stair)*15;
         // dd($distance);
         $price += floor($distance/1609) * 1.5;
 
