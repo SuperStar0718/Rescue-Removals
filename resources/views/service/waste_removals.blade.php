@@ -40,7 +40,7 @@
                 <div class="col-md-5  left_image">
                     <img src="{{asset('images/Waste Removals/waste-removals-1.png')}}" class="">
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7 right_context">
                     <div class="mt-4 mt-md-0" style="margin-bottom: 103px;">
                         <p>
                             Experience Specialised Clearing Services Across the UK: Our expertise extends to providing top-notch 

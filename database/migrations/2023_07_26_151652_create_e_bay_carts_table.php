@@ -35,20 +35,18 @@ return new class extends Migration
             $table->integer('arrange_hour')->default(8);
             $table->integer('arrange_minute')->default(0);
             $table->string('username')->default("");
-            $table->string('user_email')->default("");
             $table->string('phone_number')->default("");
             $table->string('phone_number_2')->default("");
             $table->string('pickup_address1')->default("");
             $table->string('pickup_address2')->default("");
             $table->string('pickup_city')->default("");
-            $table->string('pickup_country')->default("");
+            $table->string('pickup_county')->default("");
             $table->string('pickup_name')->default("");
             $table->string('pickup_phone')->default("");
-
             $table->string('delivery_address1')->default("");
             $table->string('delivery_address2')->default("");
             $table->string('delivery_city')->default("");
-            $table->string('delivery_country')->default("");
+            $table->string('delivery_county')->default("");
             $table->string('delivery_name')->default("");
             $table->string('delivery_phone')->default("");
             $table->timestamps();

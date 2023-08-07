@@ -40,7 +40,7 @@
                 <div class="col-md-5 left_image">
                     <img src="{{asset('images/European Moves/european-moves-1.png')}}" >
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7 right_context">
                     <div class="mt-4 mt-md-0" style="margin-bottom: 95px;">
                         <p>
                             Experience a seamless and cost-effective European move with Rescue Removals. 

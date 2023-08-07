@@ -30,12 +30,22 @@ class MotorbikeCart extends Model
     public function getPostCodeFrom(){
         $postcode_from = json_decode($this->from, true);
         $postcode_from = $postcode_from['address_components'];
+        foreach ($postcode_from as $key => $value) {
+            # code...
+            if($value['types'][0]=='postal_code')
+                return $value['long_name'];            
+        }
         $postcode_from = end($postcode_from);
         return $postcode_from['long_name'] == "United Kingdom" ? '' : $postcode_from['long_name'];
     }
     public function getPostCodeTo(){
         $postcode_from = json_decode($this->to, true);
         $postcode_from = $postcode_from['address_components'];
+        foreach ($postcode_from as $key => $value) {
+            # code...
+            if($value['types'][0]=='postal_code')
+                return $value['long_name'];            
+        }
         $postcode_from = end($postcode_from);
         return $postcode_from['long_name'] == "United Kingdom" ? '' : $postcode_from['long_name'];
     }

@@ -40,7 +40,7 @@
                 <div class="col-md-5 left_image">
                     <img src="{{asset('images/Man & Van/man-and-van-1.png')}}" class="">
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7 right_context">
                     <div class="mt-4 mt-md-0" style="margin-bottom: 64px;">
                         <p>
                             Rescue Removals is here to handle all your transportation needs with our reliable man with a van service. 

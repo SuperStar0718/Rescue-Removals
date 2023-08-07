@@ -88,6 +88,45 @@ class Motorbike extends Controller
 
         return view('book.Motorbike.main', compact('component','job_type','result','van'));
     }
+    public function final_calculation_post(Request $request){
+        $name = $request->name;
+        $email = $request->email;
+        $phone = $request->phone;
+        $pickup_add1 = $request->pickup_add1;
+        $pickup_add2 = $request->pickup_add2;
+        $pickup_city = $request->pickup_city;
+        $pickup_county = $request->pickup_county;
+        $pickup_contact_name = $request->pickup_contact_name;
+        $pickup_contact_number = $request->pickup_contact_number;
+        $delivery_add1 = $request->delivery_add1;
+        $delivery_add2 = $request->delivery_add2;
+        $delivery_city = $request->delivery_city;
+        $delivery_county = $request->delivery_county;
+        $delivery_contact_name = $request->delivery_contact_name;
+        $delivery_contact_phone = $request->delivery_contact_phone;
+
+        $result = MotorbikeCart::where('userid', 1)->first();
+        if($result){
+            $result->username = $name;
+            $result->email = $email;
+            $result->phone_number = $phone;
+            $result->pickup_address1 = $pickup_add1;
+            $result->pickup_address2 = $pickup_add2;
+            $result->pickup_city = $pickup_city;
+            $result->pickup_county = $pickup_county;
+            $result->pickup_name = $pickup_contact_name;
+            $result->pickup_phone = $pickup_contact_number;
+            $result->delivery_address1 = $delivery_add1;
+            $result->delivery_address2 = $delivery_add2;
+            $result->delivery_city = $delivery_city;
+            $result->delivery_county = $delivery_county;
+            $result->delivery_name = $delivery_contact_name;
+            $result->delivery_phone = $delivery_contact_phone;
+            $result->save();
+        }
+        
+        return redirect()->route('Motorbike.price_page');
+    }
     public function billing(){
         $component = "Motorbike.billing";
         $result = MotorbikeCart::where('userid', 1)->first();

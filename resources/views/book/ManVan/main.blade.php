@@ -18,12 +18,12 @@
                 @php( $previous = "ManVan.final_calculation")
                 <div class="d-flex justify-content-between py-5">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
-                        <button type="button" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                        <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
                         </button>
                     </a>
                     <a href="{{route($next)}}" class="next_button" id="quote_url">
-                        <button type="button" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                        <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Next</h5>
                         </button>
                     </a>
@@ -39,7 +39,8 @@
                     </div>                      
                 </div>
                 @if($component=="ManVan.final_calculation")
-                    <form class="needs-validation" novalidate method="get">
+                    <form class="needs-validation" novalidate method="post" action="">
+                        @csrf
                 @endif
                 @switch($component)
                     @case('ManVan')
@@ -105,12 +106,12 @@
 
                 <div class="d-flex justify-content-between py-5">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
-                        <button type="button" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                        <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
                         </button>
                     </a>
                     <a href="{{route($next)}}" class="next_button" id="quote_url">
-                        <button type="button" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                        <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Next</h5>
                         </button>
                     </a>
@@ -834,8 +835,44 @@ $(document).ready(function(){
 })
 </script>
 @endif
-@if($component=="ManVan.final_calculation")
+@if($component=="ManVan.final_calculation" || $component=="ManVan.billing" )
 <script>
+
+    $('#pickup_use').change(function() {
+        var name = $('#name').val()
+        var phone = $('#phone').val()
+        if ($(this).is(':checked')) {
+            $('#pickup_contact_name').val(name)
+            $('#pickup_phone').val(phone)
+        } else {
+            $('#pickup_contact_name').val('')
+            $('#pickup_phone').val('')
+        }
+    });
+    $('#deliver_info').change(function() {
+        var name = $('#name').val()
+        var phone = $('#phone').val()
+        if ($(this).is(':checked')) {
+            $('#delivery_name').val(name)
+            $('#delivery_phone').val(phone)
+        } else {
+            $('#delivery_name').val('')
+            $('#delivery_phone').val('')
+        }
+    });
+
+    $('#name, #phone').on('keyup',function(){
+        var name = $('#name').val()
+        var phone = $('#phone').val()
+        if(name.length>0 && phone.length>0){
+            $('.useContact').show()
+        }
+        else{
+            $('.useContact').hide()
+        }
+    })
+
+
 $('div.phone_number.first button').click(function(){
     var content = " <div class='row py-3 second_phone' style='flex-direction:row-reverse;'><div class='col-6'><div class='input-block phone_number'><input type='text' name ='input-text' required ><span class='placeholder'>Phone Number</span><button>-</button></div></div></div>"
     if($('div.second_phone').length<1)

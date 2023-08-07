@@ -45,12 +45,12 @@
 
                 <div class="d-flex justify-content-between py-5">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
-                        <button type="button" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                        <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
                         </button>
                     </a>
                     <a href="{{route($next)}}" class="next_button" id="quote_url">
-                        <button type="button" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                        <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Next</h5>
                         </button>
                     </a>

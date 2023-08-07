@@ -81,6 +81,7 @@ Route::group(['prefix'=>'eBaydelivery'], function (){
     Route::get('pick_date', [eBayDeliveries::class, 'pick_date'])->name('eBay.pick_date');
     Route::get('arrange_time', [eBayDeliveries::class, 'arrange_time'])->name('eBay.arrange_time');
     Route::get('final_calculation', [eBayDeliveries::class, 'final_calculation'])->name('eBay.final_calculation');
+    Route::post('final_calculation', [eBayDeliveries::class, 'final_calculation_post'])->name('eBay.final_calculation_post');
     Route::get('price_page', [eBayDeliveries::class, 'price_page'])->name('eBay.price_page');
     Route::get('billing', [eBayDeliveries::class, 'billing'])->name('eBay.billing');
     Route::post('get_email', [eBayDeliveries::class, 'get_email'])->name('eBay.get_email');
@@ -115,6 +116,7 @@ Route::group(['prefix'=>'Furniture_Appliance'], function (){
     Route::get('pick_date', [Furniture_Appliance::class, 'pick_date'])->name('Furniture_Appliance.pick_date');
     Route::get('arrange_time', [Furniture_Appliance::class, 'arrange_time'])->name('Furniture_Appliance.arrange_time');
     Route::get('final_calculation', [Furniture_Appliance::class, 'final_calculation'])->name('Furniture_Appliance.final_calculation');
+    Route::post('final_calculation', [Furniture_Appliance::class, 'final_calculation_post'])->name('Furniture_Appliance.final_calculation_post');
     Route::get('price_page', [Furniture_Appliance::class, 'price_page'])->name('Furniture_Appliance.price_page');
     Route::get('billing', [Furniture_Appliance::class, 'billing'])->name('Furniture_Appliance.billing');
     Route::post('get_email', [Furniture_Appliance::class, 'get_email'])->name('Furniture_Appliance.get_email');
@@ -149,6 +151,7 @@ Route::group(['prefix'=>'ManVan'], function (){
     Route::get('pick_date', [ManVan::class, 'pick_date'])->name('ManVan.pick_date');
     Route::get('arrange_time', [ManVan::class, 'arrange_time'])->name('ManVan.arrange_time');
     Route::get('final_calculation', [ManVan::class, 'final_calculation'])->name('ManVan.final_calculation');
+    Route::post('final_calculation', [ManVan::class, 'final_calculation_post'])->name('ManVan.final_calculation_post');
     Route::get('price_page', [ManVan::class, 'price_page'])->name('ManVan.price_page');
     Route::get('billing', [ManVan::class, 'billing'])->name('ManVan.billing');
     Route::post('get_email', [ManVan::class, 'get_email'])->name('ManVan.get_email');
@@ -184,6 +187,7 @@ Route::group(['prefix'=>'OfficeRemoval'], function (){
     Route::get('pick_date', [OfficeRemovals::class, 'pick_date'])->name('OfficeRemovals.pick_date');
     Route::get('arrange_time', [OfficeRemovals::class, 'arrange_time'])->name('OfficeRemovals.arrange_time');
     Route::get('final_calculation', [OfficeRemovals::class, 'final_calculation'])->name('OfficeRemovals.final_calculation');
+    Route::post('final_calculation', [OfficeRemovals::class, 'final_calculation_post'])->name('OfficeRemovals.final_calculation_post');
     Route::get('price_page', [OfficeRemovals::class, 'price_page'])->name('OfficeRemovals.price_page');
     Route::get('billing', [OfficeRemovals::class, 'billing'])->name('OfficeRemovals.billing');
     Route::post('get_email', [OfficeRemovals::class, 'get_email'])->name('OfficeRemovals.get_email');
@@ -224,6 +228,7 @@ Route::group(['prefix'=>'HomeRemovals'], function (){
     Route::get('pick_date', [HomeRemovals::class, 'pick_date'])->name('HomeRemovals.pick_date');
     Route::get('arrange_time', [HomeRemovals::class, 'arrange_time'])->name('HomeRemovals.arrange_time');
     Route::get('final_calculation', [HomeRemovals::class, 'final_calculation'])->name('HomeRemovals.final_calculation');
+    Route::post('final_calculation', [HomeRemovals::class, 'final_calculation_post'])->name('HomeRemovals.final_calculation_post');
     Route::get('price_page', [HomeRemovals::class, 'price_page'])->name('HomeRemovals.price_page');
     Route::get('billing', [HomeRemovals::class, 'billing'])->name('HomeRemovals.billing');
     Route::post('get_email', [HomeRemovals::class, 'get_email'])->name('HomeRemovals.get_email');
@@ -263,6 +268,7 @@ Route::group(['prefix'=>'Motorbike'], function (){
     Route::get('pick_date', [Motorbike::class, 'pick_date'])->name('Motorbike.pick_date');
     Route::get('arrange_time', [Motorbike::class, 'arrange_time'])->name('Motorbike.arrange_time');
     Route::get('final_calculation', [Motorbike::class, 'final_calculation'])->name('Motorbike.final_calculation');
+    Route::post('final_calculation', [Motorbike::class, 'final_calculation_post'])->name('Motorbike.final_calculation_post');
     Route::get('price_page', [Motorbike::class, 'price_page'])->name('Motorbike.price_page');
     Route::get('billing', [Motorbike::class, 'billing'])->name('Motorbike.billing');
     Route::post('get_email', [Motorbike::class, 'get_email'])->name('Motorbike.get_email');

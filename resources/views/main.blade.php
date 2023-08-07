@@ -135,8 +135,8 @@
     <!--------------- end section 2 --------------->
 
 <div class="bg-primary-light">
-    <div class="section_content container-content ">
-        <div class="left_lmage">
+    <div class="section_content container-content main_body ">
+        <div class="left_image">
             <img src="{{asset('images/people website.png')}}" >               
         </div>
         <div class="right_content">

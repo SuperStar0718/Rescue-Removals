@@ -40,7 +40,7 @@
                 <div class="col-md-5 left_image">
                     <img src="{{asset('images/Home Removals/home-removals-1.png')}}">
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7 right_context">
                     <div class="mt-4 mt-md-0" style="margin-bottom: 39px;">
                         <p>
                             Experience an stress-free, time-saving, and cost-effective solution for your home removal
