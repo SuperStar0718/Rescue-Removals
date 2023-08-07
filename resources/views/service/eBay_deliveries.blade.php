@@ -7,7 +7,7 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-primary-dark pt-5">
+    <div class="bg-primary-dark py-5">
         <div class="container-content">
             <div class="row">
                 <div class="col-md-8">
@@ -35,7 +35,7 @@
     <!--------------- section 2 --------------->
     <h4 class="container-content font-weight-bolder my-4">eBay Deliveries</h4>
     <div class="bg-warning-light">
-        <div class="container-content py-5">
+        <div class="container-content py-5 sevice_text_content">
             <div class="row">
                 <div class="col-md-5 left_image">
                     <img src="{{asset('images/eBay Deliveries/ebay-deliveries-1.png')}}" class="">
@@ -64,14 +64,14 @@
     <!--------------- end section 2 --------------->
 
     <!--------------- section 3 --------------->
-    <div>
-        <div class="container-content py-5">
+    <div class="py-5">
+        <div class="container-content py-5 sevice_text_content">
             <h5>Get quality eBay courier services for less</h5>
-            <p class="mb-2">
+            <p class="mb-3">
                 When it comes to assessing eBay courier quotes, the reputation of the delivery company holds significant importance. 
                 With Rescue Removals, making the right choice becomes effortless. Simply reach out to us for an instant price quote, and we’ll handle the rest.
             </p>
-            <p class="mb-2">
+            <p class="mb-5">
                 We offer complimentary basic compensation cover, providing protection against fire and theft for up to £50k (subject to our Terms and Conditions). 
                 No matter the nature of your items or their destination, we will match you with the perfect courier. 
                 Our extensive fleet of transport partners allows us to select a courier operating on a nearby route, 
@@ -107,7 +107,7 @@
     <div class="container-content book_now_btn" style="margin-bottom: -100px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="row  book-now">
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-start">
                         <div>
                             <h3  class="btn-text-primary-light">Need Parcels Collected & Delivered?</h3>
                             <p>

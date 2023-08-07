@@ -3,9 +3,14 @@
         <div class="container-content">
             <h1 class="text-center text-white mt-5">WE ARE OPEN 7 DAYS A WEEK</h1>
             <h1 class="text-center text-white mt-2">0208 090 6151</h1>
-            <div class="row pt-5">
-                <div class="col-md-7 mt-5">
-                    <div class="mt-5">
+            <div class="row trustpilot_logo">
+                <div class="mb-2 d-flex justify-content-end" style="width: 200px; ">
+                    <img src="{{asset('images/Trustpilot Logo.svg')}}" class="w-100">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="">
                         <div class="d-flex flex-md-row flex-column">
                             <div class="mt-2">
                                 <div class="">
@@ -26,8 +31,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-center mt-5 mt-md-0 other-category">
-                                <div class="d-flex flex-column ml-0 ml-md-5">
+                            <div class="d-flex justify-content-around mt-5 mt-md-0 other-category">
+                                <div class="d-flex flex-column ml-0 ml-md-5 justify-content-center">
                                     <a href="#" class="display-block text-white"><h5 class="mb-0">Privacy Policy</h5></a>
                                     <a href="#" class="display-block text-white"><h5 class="mb-0">Terms of Use</h5></a>
                                     <a href="#" class="display-block text-white"><h5 class="mb-0">Insurance</h5></a>
@@ -41,13 +46,11 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="d-flex justify-content-center justify-content-md-end">
-                        <div class="d-flex flex-column align-items-end">
-                            <div class="mb-2 d-flex justify-content-end" style="width: 200px; ">
-                                <img src="{{asset('images/Trustpilot Logo.svg')}}" class="w-100">
-                            </div>
+                    <div class="d-flex justify-content-center justify-content-md-end" style="height: 100%">
+                        <div class="d-flex flex-column align-items-end justify-content-between footer_weekday">
+                            
+                            <h4 class="text-white">HOURS OF OPERATION</h4>
                             <div class="weekday">
-                                <h4 class="text-white">HOURS OF OPERATION</h4>
                                 <div class="d-flex justify-content-between">                               
                                     <h6 class=" mb-0">MONDAY</h6>
                                     <h6 class="mb-0">08:00 - 20:00</h6>
@@ -74,7 +77,7 @@
                                 </div>   
                                 <div class="d-flex justify-content-between">                               
                                     <h6 class="mb-0">SUNDAY</h6>
-                                    <h6 class="mb-0">08:00 - 20:00</h6>
+                                    <h6 class="mb-0">09:00 - 20:00</h6>
                                 </div>      
                             </div>
                         </div>

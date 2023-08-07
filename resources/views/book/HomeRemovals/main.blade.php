@@ -30,7 +30,7 @@
                 </div>
             </div>
             @elseif($component=="HomeRemovals.house_type")
-            <div class="col-md-12">
+            <div class="col-md-12 px-0">
                 @include('components.book.house_type')
                 @include('components.book.GetPriceModal', ['url'=> 'HomeRemovals.get_email'])
                 @php($next = "HomeRemovals.cart")
@@ -49,11 +49,11 @@
                 </div>
             </div>
             @else
-            <div class="col-md-9">
+            <div class="col-md-72 col">
                 <div class="d-flex justify-content-start align-items-center">
                     <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 150px;">
-                    <div class="ml-2">
-                        <h2 class="mb-0"><i>Final Step-Tell us what you're moving</i></h2>
+                    <div class="ml-2 header_text">
+                        <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
                         <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
                     </div>                      
                 </div>
@@ -142,7 +142,7 @@
                     </form>
                 @endif
             </div>
-            <div class="col-md-3">
+            <div class="col-md-28 col header_text_right">
                 <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
                     <div>
                         <h6 class="mb-0">Prefer to get a price over the phone?</h6>
@@ -227,7 +227,7 @@
                     </div>
                 @else
                     <div class="cart_panel shadow-effect p-4" style="background-color: white; border-radius: 0rem 3rem 3rem 0rem;"> 
-                        <h5 class="btn-text-primary-light">My List(<span class="cart_amount">0</span>)</h5>
+                        <h5 class="btn-text-primary-light">My List (<span class="cart_amount">0</span>)</h5>
                         <div class="carts">
                     </div>
                 @endif

@@ -7,7 +7,7 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-primary-dark pt-5">
+    <div class="bg-primary-dark py-5">
         <div class="container-content">
             <div class="row">
                 <div class="col-md-8">
@@ -35,7 +35,7 @@
     <!--------------- section 2 --------------->
     <h4 class="container-content font-weight-bolder my-4">Home Removals</h4>
     <div class="bg-warning-light">
-        <div class="container-content py-5">
+        <div class="container-content py-5 sevice_text_content">
             <div class="row">
                 <div class="col-md-5 left_image">
                     <img src="{{asset('images/Home Removals/home-removals-1.png')}}">
@@ -74,15 +74,15 @@
     <!--------------- end section 2 --------------->
 
     <!--------------- section 3 --------------->
-    <div>
-        <div class="container-content py-5">
+    <div class="py-5">
+        <div class="container-content py-5 sevice_text_content">
             <h5>Your Affordable Solution for Smooth Moves</h5>
-            <p class="mb-2">
+            <p class="mb-3">
                 Get ready for a hassle-free house move with Rescue Removals. We understand the importance of competitive
                 pricing, allowing you to start your journey without any financial worries. Whether you’re planning weeks
                 ahead or need immediate assistance, we strive to make your relocation easy and convenient.
             </p>
-            <p class="mb-2">
+            <p class="mb-3">
                 On the big day, our dedicated team will take care of all your requirements. Equipped with lifting gear,
                 protective attire, and top-notch packing materials, we ensure the safe transportation of your
                 belongings.
@@ -90,7 +90,7 @@
                 seamless experience. Regardless of the size of your property, we have mastered the art of efficient and
                 secure packing. Bid farewell to return trips and the risk of breakages.
             </p>
-            <p class="mb-2">
+            <p class="mb-5">
                 Choose Rescue Removals for an affordable and worry-free move that exceeds your expectations.
             </p>
         </div>

@@ -10,11 +10,11 @@
     <div class="bg-warning-light pt-3">
         <div class="container-content">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-72 col">
                 <div class="d-flex justify-content-start align-items-center">
                     <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 150px;">
-                    <div class="ml-2">
-                        <h2 class="mb-0"><i>Final Step-Tell us what you're moving</i></h2>
+                    <div class="ml-2 header_text">
+                        <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
                         <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
                     </div>                      
                 </div>
@@ -65,7 +65,7 @@
                     </div>                    
                 </div>
                 <div class="cart_panel shadow-effect my-3 p-4" style="background-color: white; border-radius: 0rem 2rem 2rem 0rem;">   
-                    <h5 class="btn-text-primary-light">My List(<span class="cart_amount">0</span>)</h5>
+                    <h5 class="btn-text-primary-light">My List (<span class="cart_amount">0</span>)</h5>
                     <div class="carts">
                         @if($component!="cart")
                           <div class="cart 1"><div class="title">6 Seater Dining Table &amp; Chairs</div><div class="operation"><div class="minus">-</div><div class="amount">1</div><div class="plus">+</div></div></div><div class="cart 2 "><div class="title">Medium Box</div><div class="operation"><div class="minus">-</div><div class="amount">1</div><div class="plus">+</div></div></div><div class="cart 3 "><div class="title">Large Television/TV (Greater than 40")</div><div class="operation"><div class="minus">-</div><div class="amount">1</div><div class="plus">+</div></div></div>

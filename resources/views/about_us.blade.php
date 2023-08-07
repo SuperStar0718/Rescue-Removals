@@ -30,7 +30,7 @@
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div class="container-content py-5">
+    <div class="container-content py-5 sevice_text_content">
         <div>
             <p>
                 Welcome to Rescue Removals, where we turn the chaos of moving into a seamless experience filled with ease, efficiency, and a touch of magic. 
@@ -56,7 +56,7 @@
     <!--------------- end section 3 --------------->
 
     <!--------------- section 4 --------------->
-    <div class="container-content py-5">
+    <div class="container-content py-5 sevice_text_content">
         <div class="row">            
             <div class="col-md-7">
                 <div class="mt-4 mt-md-0" style="margin-bottom: 39px;">

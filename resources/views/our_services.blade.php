@@ -29,7 +29,7 @@
                 <div class=" ">
                     <a href="{{ url('/service_furniture&appliance') }}">
                         <div class="position-relative service_card" style="text-align: center">
-                            <h4 class="position-absolute center-character text-white">Furniture & Large Items Delivery</h4>
+                            <h4 class="position-absolute center-character text-white">Furniture & Appliances</h4>
                             <img src="{{asset('images/Main/Image 2.png')}}" class="service" style="filter: brightness(0.6);">
                         </div>
                     </a>

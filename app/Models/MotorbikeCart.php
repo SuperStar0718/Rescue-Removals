@@ -39,6 +39,19 @@ class MotorbikeCart extends Model
         $postcode_from = end($postcode_from);
         return $postcode_from['long_name'] == "United Kingdom" ? '' : $postcode_from['long_name'];
     }
+    public function haversineDistance($lat1, $lon1, $lat2, $lon2) {
+        $earthRadius = 6371000; // in meters
+    
+        $dLat = deg2rad($lat2 - $lat1);
+        $dLon = deg2rad($lon2 - $lon1);
+    
+        $a = sin($dLat / 2) * sin($dLat / 2) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($dLon / 2) * sin($dLon / 2);
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+    
+        $distance = $earthRadius * $c;
+    
+        return $distance;
+    }
     public function get_stair($stair){
 
         switch ($stair) {

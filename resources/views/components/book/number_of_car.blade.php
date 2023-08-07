@@ -13,7 +13,7 @@
                 
                 <div class="men_count text-center minute d-flex flex-column justify-content-between poisition-relative">
                     <div><i class="fa fa-play pointer up" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(-90deg);"></i></div>
-                    <div class="number_panel d-flex align-items-center bg-primary-light py-4 my-3" style="border-radius: 1.5rem;"><h1 class="text-white" style="font-size: 146px">{{$result->number_of_car}}</h1></div>
+                    <div class="number_panel d-flex align-items-center bg-primary-light my-3" style="border-radius: 1.5rem;"><h1 class="text-white" style="font-size: 146px">{{$result->number_of_car}}</h1></div>
                     <div><i class="fa fa-play pointer down" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(90deg);"></i></div>
                 </div>
             </div>

@@ -30,15 +30,30 @@
                 </div>
             </div>
             @else
-            <div @if($component=="Motorbike.final_calculation" || $component=="Motorbike.billing" ) class="col-md-9" @else class="col-md-12" @endif>
-                <div class="d-flex justify-content-start align-items-center">
-                    <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 150px;">
-                    <div class="ml-2">
-                        <h2 class="mb-0"><i>Final Step-Tell us what you're moving</i></h2>
-                        <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
-                    </div>                      
+            <div @if($component=="Motorbike.final_calculation" || $component=="Motorbike.billing" ) class="col-md-72" @else class="col-md-12" @endif>
+                <div  class="row">
+                    <div @if($component=="Motorbike.final_calculation" || $component=="Motorbike.billing" ) class="col-md-12" @else class="col-md-8" @endif>
+                        <div class="d-flex justify-content-start align-items-center">
+                            <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 150px;">
+                            <div class="ml-2 header_text">
+                                <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
+                                <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
+                            </div>                      
+                        </div>
+                    </div>
+                    @if($component!="Motorbike.final_calculation" && $component!="Motorbike.billing" )
+                    <div class="col-md-4 ">
+                        <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
+                            <div class="header_text_right">
+                                <h6 class="mb-0">Prefer to get a price over the phone?</h6>
+                                <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
+                                <h6 >Quote Ref: 1887654</h6>
+                            </div>                    
+                        </div>
+                    </div>
+                    @endif
                 </div>
-                @if($component=="Motorbike.final_calculation")
+                @if($component=="Motorbike.final_calculation" || $component=="Motorbike.billing")
                     <form class="needs-validation" novalidate method="get">
                 @endif
                 @switch($component)
@@ -110,12 +125,12 @@
                         </button>
                     </a>
                 </div>
-                @if($component=="Motorbike.final_calculation")
+                @if($component=="Motorbike.final_calculation" || $component=="Motorbike.billing")
                     </form>
                 @endif
             </div>
             @if($component=="Motorbike.final_calculation" || $component=="Motorbike.billing")
-            <div class="col-md-3">
+            <div class="col-md-28 col header_text_right">
                 <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
                     <div>
                         <h6 class="mb-0">Prefer to get a price over the phone?</h6>

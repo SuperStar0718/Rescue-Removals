@@ -11,12 +11,12 @@
         <div class="section">
             <img src="{{asset('images/logo_blue.svg')}}" alt="">
         </div>
-        <div class="section">
+        <div class="section w-100 mb-5" >
             Please enter your email address to get instant prices
         </div>
         <form  class="needs-validation" novalidate method="POST" action="{{route($url)}}">
             @csrf
-            <div class="email_input">
+            <div class="email_input mb-5">
                 <div class="content-wrapper ">
     
                     <div class="input-block">

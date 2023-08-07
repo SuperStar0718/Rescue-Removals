@@ -7,7 +7,7 @@
 @section('content')
 
      <!--------------- section 1 --------------->
-     <div class="bg-primary-dark pt-5">
+     <div class="bg-primary-dark py-5">
         <div class="container-content">
             <div class="row">
                 <div class="col-md-8">
@@ -35,7 +35,7 @@
     <!--------------- section 2 --------------->
     <h4 class="container-content font-weight-bolder my-4">European Moves</h4>
     <div class="bg-warning-light">
-        <div class="container-content py-5">
+        <div class="container-content py-5 sevice_text_content">
             <div class="row">
                 <div class="col-md-5 left_image">
                     <img src="{{asset('images/European Moves/european-moves-1.png')}}" >
@@ -63,10 +63,10 @@
     <!--------------- end section 2 --------------->
 
     <!--------------- section 3 --------------->
-    <div>
-        <div class="container-content py-5">
+    <div class="py-5">
+        <div class="container-content py-5 sevice_text_content">
             <h5>Professional removals to all parts of Europe</h5>
-            <p class="mb-2">
+            <p class="mb-3">
                 When it comes to moving to or from Europe, whether it’s for personal or work-related reasons, 
                 there are numerous factors to consider beyond a straightforward move. 
                 Renting and driving a van on your own can come with various challenges and inconveniences. 
@@ -74,7 +74,7 @@
                 Moreover, additional expenses like insurance and fuel further complicate the process of European van hire. On the surface, 
                 it can seem overwhelmingly daunting. However, with Rescue Removals, it doesn’t have to be.
             </p>
-            <p class="mb-2">
+            <p class="mb-5">
                 We offer highly competitive prices, allowing you to initiate your move promptly and with the confidence that you’re in capable hands. 
                 Simultaneously, if you prefer to plan your international removal well in advance, we are more than accommodating. 
                 We value your schedule and are always prepared to take swift action when needed.
@@ -112,8 +112,8 @@
                         <div>
                             <h3  class="btn-text-primary-light">Looking to Move Abroad?</h3>
                             <p>
-                                Simply give us a call, answer a few questions
-                                and we will give a personalised quote straight away.
+                                Fill in our simple form and let
+                            us take care of the rest.
                             </p>
                         </div>
                     </div>
