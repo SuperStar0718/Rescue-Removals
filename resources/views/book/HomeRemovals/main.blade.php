@@ -29,6 +29,25 @@
                     </a>
                 </div>
             </div>
+            @elseif($component=="HomeRemovals.house_type")
+            <div class="col-md-12">
+                @include('components.book.house_type')
+                @include('components.book.GetPriceModal', ['url'=> 'HomeRemovals.get_email'])
+                @php($next = "HomeRemovals.cart")
+                @php( $previous = "main")
+                <div class="d-flex justify-content-between py-5">
+                    <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
+                        <button type="button" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                            <h5 class="mb-0">Previous</h5>
+                        </button>
+                    </a>
+                    <a href="{{route($next)}}" class="next_button" id="quote_url">
+                        <button type="button" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                            <h5 class="mb-0">Next</h5>
+                        </button>
+                    </a>
+                </div>
+            </div>
             @else
             <div class="col-md-9">
                 <div class="d-flex justify-content-start align-items-center">
@@ -42,15 +61,10 @@
                     <form class="needs-validation" novalidate method="get">
                 @endif
                 @switch($component)
-                    @case('HomeRemovals.house_type')
-                        @include('components.book.house_type')
-                        @php($next = "HomeRemovals.cart")
-                        @php( $previous = "main")
-                        @break
                     @case('HomeRemovals.cart')
                         @include('components.book.cart')
                         @php($next = "HomeRemovals.hours_need")
-                        @php( $previous = "main")
+                        @php( $previous = "HomeRemovals.house_type")
                         @break
                     @case('HomeRemovals.hours_need')
                         @include('components.book.hour')
@@ -562,7 +576,7 @@ $(document).ready(function(){
 
     $('.men_count i.down').click(function(){
         var men = parseInt($(this).parent().parent().children('div.number_panel').children('h1').text())-1
-        if(men>0){
+        if(men>-1){
             $(this).parent().parent().children('div.number_panel').children('h1').text(men);
             update_men(men)
         }
@@ -665,6 +679,75 @@ $(document).ready(function(){
 })
 </script>
 @endif
+@if($component=='HomeRemovals.house_type')
+
+<script>
+    
+    $('.input-block input[type="email"]').on('change', function(){
+        var email = $(this).val()
+        if(email.length>0)
+            $(this).addClass('active')
+        else
+            $(this).removeClass('active')
+    })
+
+function update_house_type(type, value){
+    var csrfToken = "{{ csrf_token() }}";
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        }
+    });
+
+    $.ajax({
+        url: '{{ route('HomeRemovals.cart.update.house_type')}}',
+        method: 'POST',
+        data: {
+            type: type,
+            value:value
+        },
+        success: function(response) {
+            // Handle the successful response
+            console.log(response);
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.log(error);
+        }
+    });
+}
+
+$('.from .dropdown_widget li').click(function(){
+    var content = $(this).text()
+    $('#pickup_type').text(content)
+    update_house_type('from', content)
+})
+$('.to .dropdown_widget li').click(function(){
+    var content = $(this).text()
+    $('#delivery_type').text(content)
+    update_house_type('to', content)
+
+})
+
+$(document).ready(function(){
+    var from_type = "{{$result->from_type}}"
+    var to_type = "{{$result->to_type}}"
+    if(from_type!="")
+    $('#pickup_type').text(from_type)
+    if(to_type!="")
+    $('#delivery_type').text(to_type)
+})
+
+$('.next_button').click((event)=>{
+    event.preventDefault()
+    $('button.modal_button').trigger('click');
+
+})
+
+
+</script>
+@endif
+
 @if($component=='HomeRemovals.congestion')
 <script>
 function update_congestion(value){
@@ -857,6 +940,23 @@ $(document).ready(function(){
 </script>
 @endif
 @if($component=="HomeRemovals.final_calculation")
+{{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"></script>
+<script>
+    // Coordinates for points A and B
+    var pointA = new google.maps.LatLng(37.7749, -122.4194); // Example San Francisco, CA
+    var pointB = new google.maps.LatLng(34.0522, -118.2437); // Example Los Angeles, CA
+
+    // Calculate distance using the geometry library
+    var distance = google.maps.geometry.spherical.computeDistanceBetween(pointA, pointB);
+
+    // Convert distance from meters to kilometers
+    var distanceInKm = distance / 1000;
+
+    // Display the calculated distance
+    console.log('Distance between point A and B:', distanceInKm.toFixed(2), 'km');
+
+</script> --}}
+
 <script>
 $('div.phone_number.first button').click(function(){
     var content = " <div class='row py-3 second_phone' style='flex-direction:row-reverse;'><div class='col-6'><div class='input-block phone_number'><input type='text' name ='input-text' required ><span class='placeholder'>Phone Number</span><button>-</button></div></div></div>"
@@ -901,6 +1001,8 @@ function initMap() {
         console.error("Error:", status);
       }
     });
+
+    
   }
 
 

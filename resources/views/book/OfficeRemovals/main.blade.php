@@ -38,9 +38,13 @@
                         <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
                     </div>                      
                 </div>
+                @if($component=="OfficeRemovals.final_calculation")
+                    <form class="needs-validation" novalidate method="get">
+                @endif
                 @switch($component)
                     @case('OfficeRemovals.hours_need')
                         @include('components.book.hour')
+                        @include('components.book.GetPriceModal', ['url'=> 'OfficeRemovals.get_email'])
                         @php($next = "OfficeRemovals.men")
                         @php( $previous = "main")
                         @break
@@ -111,6 +115,9 @@
                         </button>
                     </a>
                 </div>
+                @if($component=="OfficeRemovals.final_calculation")
+                    </form>
+                @endif
             </div>
             @if($component=="OfficeRemovals.final_calculation" || $component=="OfficeRemovals.billing")
             <div class="col-md-3">
@@ -448,6 +455,19 @@ $(document).ready(function(){
         $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
         update_time(hour,minute)
     })
+
+    $('.next_button').click((event)=>{
+        event.preventDefault()
+        $('button.modal_button').trigger('click');
+
+    })
+    $('.input-block input[type="email"]').on('change', function(){
+        var email = $(this).val()
+        if(email.length>0)
+            $(this).addClass('active')
+        else
+            $(this).removeClass('active')
+    })
 </script>
 @endif
 @if($component=="OfficeRemovals.select_car")
@@ -533,7 +553,7 @@ $(document).ready(function(){
 
     $('.men_count i.down').click(function(){
         var men = parseInt($(this).parent().parent().children('div.number_panel').children('h1').text())-1
-        if(men>0){
+        if(men>-1){
             $(this).parent().parent().children('div.number_panel').children('h1').text(men);
             update_men(men)
         }

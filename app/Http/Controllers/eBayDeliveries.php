@@ -88,6 +88,26 @@ class eBayDeliveries extends Controller
         $result = eBayCart::where('userid', 1)->first();
         return view('book.eBayDelivery.main', compact('component','result'));
     }
+    public function get_email(Request $request){
+        $email = $request->email;
+        $result = eBayCart::where('userid', 1)->first();
+        if(!$result)
+        {
+            $eBaycart = new eBayCart();
+            $eBaycart->userid = 1;
+            $eBaycart->reference_id = 1887654;
+            $eBaycart->email = $email;
+            $eBaycart->save();
+            $result = eBayCart::where('userid', 1)->first();
+        }
+        else
+        {
+            $result->email = $email;
+            $result->save();
+        }
+
+        return redirect()->route('eBay.hours_need');
+    }
 
     public function update_cart(Request $request){
         $title = $request->title;

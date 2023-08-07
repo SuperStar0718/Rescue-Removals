@@ -84,6 +84,26 @@ class ManVan extends Controller
         $van = VanType::where('id', $result->van)->first();
         return view('book.ManVan.main', compact('component','job_type','result','van'));
     }
+    public function get_email(Request $request){
+        $email = $request->email;
+        $result = ManVanCart::where('userid', 1)->first();
+        if(!$result)
+        {
+            $eBaycart = new ManVanCart();
+            $eBaycart->userid = 1;
+            $eBaycart->reference_id = 1887654;
+            $eBaycart->email = $email;
+            $eBaycart->save();
+            $result = ManVanCart::where('userid', 1)->first();
+        }
+        else
+        {
+            $result->email = $email;
+            $result->save();
+        }
+
+        return redirect()->route('ManVan.hours_need');
+    }
     public function price_page(){
         $component = "ManVan.price_page";
         $result = ManVanCart::where('userid', 1)->first();

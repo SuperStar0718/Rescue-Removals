@@ -17,11 +17,44 @@ class HomeRemovals extends Controller
             $eBaycart = new HomeRemovalsCart();
             $eBaycart->userid = 1;
             $eBaycart->reference_id = 1887654;
-            $eBaycart->cart_list = '';
             $eBaycart->save();
             $result = HomeRemovalsCart::where('userid', 1)->first();
         }
         return view('book.HomeRemovals.main',compact('component', 'result'));
+    }
+    public function place_details(){
+        $component = "HomeRemovals.place_details";
+        $result = HomeRemovalsCart::where('userid', 1)->first();
+        if(!$result)
+        {
+            $eBaycart = new HomeRemovalsCart();
+            $eBaycart->userid = 1;
+            $eBaycart->reference_id = 1887654;
+            $eBaycart->save();
+            $result = HomeRemovalsCart::where('userid', 1)->first();
+        }
+        return view('book.HomeRemovals.main',compact('component', 'result'));
+    }
+    public function get_email(Request $request){
+        $email = $request->email;
+        $component = "HomeRemovals.cart";
+        $result = HomeRemovalsCart::where('userid', 1)->first();
+        if(!$result)
+        {
+            $eBaycart = new HomeRemovalsCart();
+            $eBaycart->userid = 1;
+            $eBaycart->reference_id = 1887654;
+            $eBaycart->email = $email;
+            $eBaycart->save();
+            $result = HomeRemovalsCart::where('userid', 1)->first();
+        }
+        else
+        {
+            $result->email = $email;
+            $result->save();
+        }
+
+        return redirect()->route('HomeRemovals.cart');
     }
     public function cart(){
         $component = "HomeRemovals.cart";
@@ -31,7 +64,6 @@ class HomeRemovals extends Controller
             $eBaycart = new HomeRemovalsCart();
             $eBaycart->userid = 1;
             $eBaycart->reference_id = 1887654;
-            $eBaycart->cart_list = '';
             $eBaycart->save();
             $result = HomeRemovalsCart::where('userid', 1)->first();
         }
@@ -317,7 +349,7 @@ class HomeRemovals extends Controller
             $eBaycart->save();
         }
         
-        return route('HomeRemovals.cart');
+        return route('HomeRemovals.house_type');
 
     }
     public function update_stair(Request $request){
@@ -336,5 +368,22 @@ class HomeRemovals extends Controller
         }
         
         return "";
+    }
+    public function update_house_type(Request $request){
+        $type = $request->type;
+        $value = $request->value;
+
+        $result = HomeRemovalsCart::where('userid', 1)->first();
+        if($result){
+            if($type=='from'){
+                $result->from_type = $value;
+            }
+            else if($type=='to'){
+                $result->to_type = $value;
+            }
+            $result->save();
+        }
+        
+        return $type;
     }
 }

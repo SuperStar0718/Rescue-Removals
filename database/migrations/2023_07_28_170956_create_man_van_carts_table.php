@@ -14,15 +14,18 @@ return new class extends Migration
         Schema::create('man_van_carts', function (Blueprint $table) {
             $table->id();
             $table->integer('userid');
+            $table->string('email')->default('');
             $table->integer('reference_id');
-            $table->json('cart_list')->nullable();
+            $table->json('cart_list')->default('');
             $table->json('from')->nullable();
             $table->json('to')->nullable();
             $table->string('from_stair')->default("Ground floor");
             $table->string('to_stair')->default("Ground floor");
+            $table->string('from_type')->default("");
+            $table->string('to_type')->default("");
             $table->integer('hour')->default(2);
             $table->integer('minute')->default(0);
-            $table->integer('men')->default(1);
+            $table->integer('men')->default(0);
             $table->integer('van')->default(1);
             $table->integer('number_of_car')->default(1);
             $table->tinyInteger('congestion')->default(2);

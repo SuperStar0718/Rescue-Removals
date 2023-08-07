@@ -252,8 +252,9 @@ div.car_title_section{
 }
 
 .dropdown button.dropdown-toggle{
+  padding: 1rem;
   background-color: white;
-  color: black;
+  color: #353EA3;
     border: 1px solid #353ea3;
     width: 100%;
     display: flex;
@@ -464,7 +465,7 @@ div.car_title_section{
   font-weight: 500;
   font-size: 1rem;
   color: #495055;
-  padding: 0.5rem 0.75rem;
+  padding: 0.7rem 0.75rem;
   border-radius: 8px;
   /* border: 2px solid  #D9D9D9; */
   /* outline:none; */
@@ -484,7 +485,7 @@ div.car_title_section{
   font-size: 1rem;
   font-weight: 400;
 
-  top: 8px;
+  top: 12px;
   left: 17px;
 
   transition: all 0.2s;
@@ -762,14 +763,14 @@ footer span.display-block, footer span.display-block>h6{
 footer .weekday h6{
   font-family: HelveticaNeueMedium;
 }
-.location_input div:first-child{
+.location_input>div:first-child{
   padding-right: 5px;
-  /* padding-left: 0px; */
+  padding-left: 0px;
 
 }
-.location_input div:nth-child(2){
+.location_input>div:nth-child(2){
   padding-left: 5px;
-  /* padding-right: 0px; */
+  padding-right: 0px;
 }
 .location_input div button{
   width: 100%;
@@ -1009,4 +1010,100 @@ color: #000000;
 }
 .full-size{
   margin-top: 50px;
+}
+
+.grid_house_type{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.dropdown_widget{
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.dropdown div.dropdown-menu{
+  border: 1px solid #353EA3;
+  border-radius: 18px;
+  margin-top: 10px;
+}
+.dropdown_widget .drop_item{
+  padding: 20px;
+  width: 150px;
+}
+.dropdown_widget .drop_item > div{
+  display: flex;
+  align-items: center;
+  color: #353EA3;
+  font-size: 20px;
+
+}
+.dropdown_widget .drop_item > div >img{
+  padding-right: 10px;
+}
+.dropdown_widget .drop_item li{
+  color: #A8A8A8;
+  padding-top: 10px;
+}
+.dropdown_widget .drop_item li:hover{
+  color: #353EA3;
+  cursor: pointer;
+}
+.row{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+/* ======================house type modal ========================================== */
+.house_type .modal-content{
+  /* width: 50vw; */
+  padding: 3rem;
+  font-size: 35px;
+  font-weight: bold;
+  font-family: "Helvetica Neue";
+  line-height: 35px;
+}
+.house_type .modal-content img{
+  padding: 0px;
+}
+
+.house_type .modal-content .section{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.modal-dialog.house_type {
+  max-width: none;
+  width: 43vw;
+}
+.modal-dialog.house_type .content-wrapper{
+  padding: 0px;
+}
+.email_input{
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 20px;
+}
+.modal-dialog.house_type .next_button button{
+  padding: 16px 30px !important; 
+}
+.modal-dialog.house_type .email_input input{
+  padding: 14px 30px;
+  font-size: 20px;
+}
+.modal-dialog .content-wrapper div.input-block input.active + span.placeholder{
+  transform: scale(0.8) translateY(-31px);
+    background: #fff;
+}
+
+
+
+.modal .modal-dialog .col-1,.modal .modal-dialog .col-2,.modal .modal-dialog .col-3,.modal .modal-dialog .col-4,.modal .modal-dialog .col-5,.modal .modal-dialog .col-6,.modal .modal-dialog .col-7,.modal .modal-dialog .col-8,.modal .modal-dialog .col-9,.modal .modal-dialog .col-10,.modal .modal-dialog .col-11,.modal .modal-dialog .col-12,.modal .modal-dialog .col,.modal .modal-dialog .col-auto{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.modal-payment-grid{
+  display: grid;
+  grid-template-columns: 32% 32% 31%;
+  gap: 10px;
 }

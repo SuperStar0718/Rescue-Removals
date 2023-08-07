@@ -35,8 +35,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4  py-3">
+        <div class="row modal-payment-grid">
+            <div class="py-3">
                 <div class="input-block">
                     <input type="text" name="input-text" required  >
                     <span class="placeholder">
@@ -44,7 +44,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-4  py-3">
+            <div class="py-3">
                 <div class="input-block">
                     <input type="text" name="input-text" required  >
                     <span class="placeholder">
@@ -52,7 +52,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-4  py-3">
+            <div class="py-3">
                 <div class="input-block">
                     <input type="text" name="input-text" required  >
                     <span class="placeholder">

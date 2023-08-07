@@ -85,6 +85,26 @@ class Furniture_Appliance extends Controller
         $van = VanType::where('id', $result->van)->first();
         return view('book.Furniture_Appliance.main', compact('component','job_type','result','van'));
     }
+    public function get_email(Request $request){
+        $email = $request->email;
+        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        if(!$result)
+        {
+            $eBaycart = new Furniture_ApplianceCart();
+            $eBaycart->userid = 1;
+            $eBaycart->reference_id = 1887654;
+            $eBaycart->email = $email;
+            $eBaycart->save();
+            $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        }
+        else
+        {
+            $result->email = $email;
+            $result->save();
+        }
+
+        return redirect()->route('Furniture_Appliance.hours_need');
+    }
     public function price_page(){
         $component = "Furniture_Appliance.price_page";
         $result = Furniture_ApplianceCart::where('userid', 1)->first();

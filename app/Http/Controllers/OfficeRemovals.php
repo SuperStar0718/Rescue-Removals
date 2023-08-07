@@ -96,6 +96,26 @@ class OfficeRemovals extends Controller
         $van = VanType::where('id', $result->van)->first();
         return view('book.OfficeRemovals.main', compact('component','job_type','result','van'));
     }
+    public function get_email(Request $request){
+        $email = $request->email;
+        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        if(!$result)
+        {
+            $eBaycart = new OfficeRemovalsCart();
+            $eBaycart->userid = 1;
+            $eBaycart->reference_id = 1887654;
+            $eBaycart->email = $email;
+            $eBaycart->save();
+            $result = OfficeRemovalsCart::where('userid', 1)->first();
+        }
+        else
+        {
+            $result->email = $email;
+            $result->save();
+        }
+
+        return redirect()->route('OfficeRemovals.men');
+    }
     public function price_page(){
         $component = "OfficeRemovals.price_page";
         $result = OfficeRemovalsCart::where('userid', 1)->first();

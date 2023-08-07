@@ -95,6 +95,26 @@ class Motorbike extends Controller
         $van = VanType::where('id', $result->van)->first();
         return view('book.Motorbike.main', compact('component','job_type','result','van'));
     }
+    public function get_email(Request $request){
+        $email = $request->email;
+        $result = MotorbikeCart::where('userid', 1)->first();
+        if(!$result)
+        {
+            $eBaycart = new MotorbikeCart();
+            $eBaycart->userid = 1;
+            $eBaycart->reference_id = 1887654;
+            $eBaycart->email = $email;
+            $eBaycart->save();
+            $result = MotorbikeCart::where('userid', 1)->first();
+        }
+        else
+        {
+            $result->email = $email;
+            $result->save();
+        }
+
+        return redirect()->route('Motorbike.men');
+    }
     public function price_page(){
         $component = "Motorbike.price_page";
         $result = MotorbikeCart::where('userid', 1)->first();

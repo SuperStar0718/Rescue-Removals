@@ -39,7 +39,8 @@
                     <div class="dropdown col-md-6">
                         
                         <button class="btn  dropdown-toggle" type="button" id="pickup_type" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @if($result->from_type=='')Select Property Type @endif
+                            @if($result->from_type=='')Select Property Type @else {{$result->from_type}} @endif
+
                         </button>
                         <div class="dropdown-menu from" aria-labelledby="dropdownMenuButton">
                             <div class="dropdown_widget">
@@ -82,40 +83,19 @@
                        
                     </div>
                     <div class="dropdown col-md-6">
-                        
                         <button class="btn  dropdown-toggle" type="button" id="delivery_type" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Select Property Type
-
+                            Ground Floor
                         </button>
                         <div class="dropdown-menu to" aria-labelledby="dropdownMenuButton">
-                            <div class="dropdown_widget">
-                                <div class="house drop_item">
-                                    <div>
-                                        <img src="{{asset('images/house.svg')}}" alt="">House
-                                    </div>
-                                    <li>1 Bed House</li>
-                                    <li>2 Bed House</li>
-                                    <li>3 Bed House</li>
-                                    <li>4+ Bed House</li>
-                                </div>
-                                <div class="flat drop_item">
-                                    <div>
-                                        <img src="{{asset('images/flat.svg')}}" alt="">Flat
-                                    </div>
-                                    <li>1 Bed Flat</li>
-                                    <li>2 Bed Flat</li>
-                                    <li>3 Bed Flat</li>
-                                    <li>4+ Bed Flat</li>
-                                </div>
-                                <div class="other drop_item">
-                                    <div>
-                                        <img src="{{asset('images/other.svg')}}" alt="">Other
-                                    </div>
-                                    <li>Studio</li>
-                                    <li>Storage Unit</li>
-                                    <li>Flatshare</li>
-                                </div>
-                            </div>                            
+                            <a class="dropdown-item" href="#">Basement</a>
+                            <a class="dropdown-item" href="#">Ground floor</a>
+                            <a class="dropdown-item" href="#">1st floor</a>
+                            <a class="dropdown-item" href="#">2nd floor</a>
+                            <a class="dropdown-item" href="#">3rd floor</a>
+                            <a class="dropdown-item" href="#">4th floor</a>
+                            <a class="dropdown-item" href="#">5th floor</a>
+                            <a class="dropdown-item" href="#">6th floor</a>
+                            <a class="dropdown-item" href="#">Above 6th floor</a>
                         </div>
                     </div>
                 </div>

@@ -305,6 +305,9 @@
 @endsection
 
 @section('script')
+
+
+
       <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&callback=initMap&libraries=places&v=weekly"
         defer
@@ -580,7 +583,7 @@ geocoder.geocode(
             }
             else if(val === "Home Removals")
             {
-                quote_url = "{{ route('HomeRemovals.cart') }}";
+                quote_url = "{{ route('HomeRemovals.house_type') }}";
             }
             else if(val === "Motorbikes")
             {
