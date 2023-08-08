@@ -65,7 +65,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="pickup_city" class="form-control" required  >
+                    <input type="text" name="pickup_city" class="form-control" required  value="{{$result->getCity($result->from)}}"    >
                     <span class="placeholder">
                         City
                     </span>
@@ -73,7 +73,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="pickup_county" class="form-control" required  >
+                    <input type="text" name="pickup_county" class="form-control" required  value="{{$result->getCounty($result->from)}}"   >
                     <span class="placeholder">
                         County
                     </span>
@@ -138,7 +138,7 @@
            
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="delivery_city" class="form-control" required  >
+                    <input type="text" name="delivery_city" class="form-control" required value="{{$result->getCity($result->to)}}"  >
                     <span class="placeholder">
                         City
                     </span>
@@ -146,7 +146,7 @@
             </div>
             <div class="col-md-12 py-3">
                 <div class="input-block">
-                    <input type="text" name="delivery_county" class="form-control" required  >
+                    <input type="text" name="delivery_county" class="form-control" required  value="{{$result->getCounty($result->to)}}"   >
                     <span class="placeholder">
                         County
                     </span>

@@ -1224,3 +1224,7 @@ color: #434343;
 .useContact{
   display: none;
 }
+.address_abb{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

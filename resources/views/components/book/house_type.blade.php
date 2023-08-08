@@ -31,7 +31,7 @@
                 <div class="row justify-content-between location_input">
                     <div class="dropdown col-md-6">
                         <button class="btn  dropdown-toggle" type="button" id="pickup_details" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{$result->getFromAddress()}}
+                            <span class='address_abb'>{{$result->getFromAddress()}}</span>
                         </button>
                         
                     </div>
@@ -77,7 +77,7 @@
                 <div class="row justify-content-between pb-5 location_input">
                     <div class="dropdown col-md-6">
                         <button class="btn  dropdown-toggle" type="button" id="delivery_details" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{$result->getToAddress()}}
+                            <span  class='address_abb'>{{$result->getToAddress()}}</span>
                         </button>
                        
                     </div>

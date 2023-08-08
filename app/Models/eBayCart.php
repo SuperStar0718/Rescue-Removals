@@ -48,6 +48,24 @@ class eBayCart extends Model
         $postcode_from = end($postcode_from);
         return $postcode_from['long_name'] == "United Kingdom" ? '' : $postcode_from['long_name'];
     }
+    public function getCity($address){
+        $postcode_from = json_decode($address, true);
+        $postcode_from = $postcode_from['address_components'];
+        foreach ($postcode_from as $key => $value) {
+            # code...
+            if($value['types'][0]=='postal_town')
+                return $value['long_name'];            
+        }
+    }
+    public function getCounty($address){
+        $postcode_from = json_decode($address, true);
+        $postcode_from = $postcode_from['address_components'];
+        foreach ($postcode_from as $key => $value) {
+            # code...
+            if($value['types'][0]=='administrative_area_level_2')
+                return $value['long_name'];            
+        }
+    }
     public function haversineDistance($lat1, $lon1, $lat2, $lon2) {
         $earthRadius = 6371000; // in meters
     

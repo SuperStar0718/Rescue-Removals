@@ -8,10 +8,10 @@
         <div class="col-md-8 stairs right_panel">
             <div class="p-5">
                 <h4 class="btn-text-primary-light pt-5">Pickup Details</h4>
-                <div class="row justify-content-between">
-                    <div class="dropdown col-md-6">
+                <div class="row justify-content-between location_input">
+                    <div class="dropdown col-md-7">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{$result->getFromAddress()}}
+                            <span class="address_abb">{{$result->getFromAddress()}}</span>
                         </button>
                         
                     </div>
@@ -33,10 +33,10 @@
                     </div>
                 </div>
                 <h4 class="btn-text-primary-light pt-5 ">Delivery Details</h4>
-                <div class="row justify-content-between pb-5">
-                    <div class="dropdown col-md-6">
+                <div class="row justify-content-between pb-5 location_input">
+                    <div class="dropdown col-md-7">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{$result->getToAddress()}}
+                            <span class="address_abb">{{$result->getToAddress()}}</span>
                         </button>
                        
                     </div>
