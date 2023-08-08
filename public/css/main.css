@@ -965,7 +965,11 @@ text-align: center;
 letter-spacing: -50px;
 color: #000000;
 }
-.container-content .item.center .text.content, .container-content .first_context{
+.container-content .first_context{
+  font-size: 20px;
+  line-height: 20px;
+}
+.container-content .item.center .text.content{
   font-size: 20px;
   line-height: 15px;
 }

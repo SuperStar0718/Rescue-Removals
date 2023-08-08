@@ -1,25 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Distance Calculation</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"></script>
+  <title>Google Maps Postal Code Example</title>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-    <div id="map" style="width: 500px; height: 400px;"></div>
+  <div id="map"></div>
+  <script>
+    // Step 1: Geocoding - Convert postal code to coordinates
+    function geocodePostalCode(postalCode, callback) {
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ address: postalCode }, function (results, status) {
+        if (status === "OK") {
+          if (results[0]) {
+            callback(results[0].geometry.location);
+          } else {
+            console.log("No results found");
+          }
+        } else {
+          console.log("Geocode was not successful for the following reason: " + status);
+        }
+      });
+    }
 
-    <script>
-        // Coordinates for points A and B
-        var pointA = new google.maps.LatLng(36.7749, -122.4194); // Example San Francisco, CA
-        var pointB = new google.maps.LatLng(34.0522, -118.2437); // Example Los Angeles, CA
-        
-        // Calculate distance using the geometry library
-        var distance = google.maps.geometry.spherical.computeDistanceBetween(pointA, pointB);
-        
-        // Convert distance from meters to kilometers
-        var distanceInKm = distance / 1000;
-        
-        // Display the calculated distance
-        console.log('Distance between point A and B:', distanceInKm.toFixed(2), 'km');
-    </script>
+    // Step 2: Reverse geocoding - Get address details for coordinates
+    function reverseGeocode(latlng, callback) {
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ location: latlng }, function (results, status) {
+        if (status === "OK") {
+          if (results[0]) {
+            callback(results[0]);
+          } else {
+            console.log("No results found");
+          }
+        } else {
+          console.log("Geocode was not successful for the following reason: " + status);
+        }
+      });
+    }
+
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 51.4062365, lng: -0.6755624 },
+        zoom: 8,
+      });
+
+      var postalCode = "SL5 9PT"; // Replace with the desired postal code
+
+      geocodePostalCode(postalCode, function (location) {
+        reverseGeocode(location, function (result) {
+          // Access the required data (flat, house number, etc.) from the result object
+          console.log(result);
+
+          // Example: Display the formatted address on the map
+          var marker = new google.maps.Marker({
+            position: result.geometry.location,
+            map: map,
+          });
+
+          var infowindow = new google.maps.InfoWindow({
+            content: result.formatted_address,
+          });
+
+          marker.addListener("click", function () {
+            infowindow.open(map, marker);
+          });
+
+          map.setCenter(result.geometry.location);
+        });
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&callback=initMap" async defer></script>
 </body>
 </html>
