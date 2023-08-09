@@ -523,6 +523,11 @@ $(document).ready(function(){
 @endif
 @if($component=="Motorbike.men")
 <script>
+ $(document).ready(function(){
+    var men = $('.number_panel h1').text()
+    if(men==0)
+        $('.number_panel p').css('display','block')
+ })
     function update_men(men){
         var csrfToken = "{{ csrf_token() }}";
         $.ajaxSetup({
@@ -553,6 +558,8 @@ $(document).ready(function(){
             $(this).parent().parent().children('div.number_panel').children('h1').text(men);
             update_men(men)
         }
+        if(men>0)
+            $('.number_panel p').css('display','none')
     })
 
     $('.men_count i.down').click(function(){
@@ -561,6 +568,8 @@ $(document).ready(function(){
             $(this).parent().parent().children('div.number_panel').children('h1').text(men);
             update_men(men)
         }
+        if(men==0)
+            $('.number_panel p').css('display','block')
     })
 </script>
 @endif

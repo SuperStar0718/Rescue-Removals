@@ -16,7 +16,7 @@
             
             <div class="row">
                 <div class="col-md-4 mb-4" style="padding-left: 0;padding-right: 10px;">
-                    <img src="{{asset('images/About Us/about-us-1.png')}}" class="w-100" style="width: 100% !important;">
+                    <img src="{{asset('images/About Us/about-us-1.png')}}" class="w-100" style="width: 100% !important; height:100%">
                 </div>
                 <div class="col-md-4 mb-4" style="padding-left: 0;padding-right: 5px;">
                     <img src="{{asset('images/About Us/about-us-2.png')}}" class="w-100" style="width: 100% !important;">

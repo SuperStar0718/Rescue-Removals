@@ -208,12 +208,19 @@ div.men{
     flex-direction: column-reverse;
 
   }
+  .men .men_count .number_panel p{
+    position: absolute;
+    top: 200px;
+    color: white;
+    display: none;
+  }
   .men .men_count .number_panel h1{
     line-height: 126px;
 
   }
 .men .men_count .number_panel{
   /* height: 100%; */
+  position: relative;
   padding: 60px 60px;
 }
 

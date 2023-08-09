@@ -644,21 +644,20 @@ geocoder.geocode(
         
         <script type = "text/javascript" language = "javascript">
         $('#quote_btn').click(function(){
-    
-        // Get the Login Name value and trim it
-        var name = $('#pac-input').val();
-        
-        var name1 = $('#dropOff').val();
-        
+            
+            // Get the Login Name value and trim it
+            var name = $('#pac-input').val();
+            
+            var name1 = $('#dropOff').val();
+            var moving_input = $('#moving-input').val();
+            // Check if empty of not
+            if (name.length < 1) {
+                $(".target").effect( "shake", {times:5}, 500 );
+                $('.target').css('background-color' , '#FFFCD9');
+                return false;
+            }
         // Check if empty of not
-        if (name1.length < 1) {
-            $(".target").effect( "shake", {times:5}, 500 );
-           $('.target').css('background-color' , '#FFFCD9');
-            return false;
-        }
-    
-        // Check if empty of not
-        if (name.length < 1) {
+        if (name1.length < 1 && moving_input!='Storage'  && moving_input!='Waste Removals'  && moving_input!='European Moves' ) {
             $(".target").effect( "shake", {times:5}, 500 );
               $('.target').css('background-color' , '#FFFCD9');
             return false;
