@@ -74,8 +74,8 @@
     <!--------------- end section 2 --------------->
 
     <!--------------- section 3 --------------->
-    <div class="py-5">
-        <div class="container-content py-5 sevice_text_content">
+    <div class="py-10" style="padding-top: 0rem !important;margin-bottom: 10rem;">
+        <div class="container-content py-10 sevice_text_content" style="padding-top: 4rem !important; padding-bottom: 2rem !important;">
             <h5>Your Affordable Solution for Smooth Moves</h5>
             <p class="mb-3">
                 Get ready for a hassle-free house move with Rescue Removals. We understand the importance of competitive

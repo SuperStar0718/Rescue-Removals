@@ -7,29 +7,29 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="py-1">
+    <div class="py-1" style="padding-bottom: 10rem !important;">
         <div class="bg-primary-light py-1">
             <div class="container-content d-flex flex-column align-items-center  text-center">                
-                <div style="width: 45%; height: 60%; padding:150px 0px;">             
+                <div style="width: 50%; height: 60%; padding:150px 0px;">             
                     <h3 class="text-white">We would love to hear from you...</h3>                       
-                    <div class="my-3 px-4" style="background-color: white; border-radius: 2rem;">
-                        <h6 class="py-5">Want to send us a message? Simply fill in all fields on this form and hit the send button</h6>
+                    <div class="my-3 px-4" style="background-color: white; border-radius: 2rem;    padding-left: 4rem !important;padding-right: 4rem !important;">
+                        <h6 class="py-5" style="font-weight: bold;">Want to send us a message? Simply fill in all fields <br>on this form and hit the send button</h6>
                         <div class="d-flex justify-content-between">
-                            <input type="text" class="form-control  mr-2" style="height: 40px; border-radius: 0.5rem;" id="name" placeholder="Name">
-                            <input type="text" class="form-control" style="height: 40px; border-radius: 0.5rem;" id="number" placeholder="Number">
+                            <input type="text" class="form-control  mr-2" style="height: 50px; border-radius: 0.5rem;" id="name" placeholder="Name">
+                            <input type="text" class="form-control" style="height: 50px; border-radius: 0.5rem;" id="number" placeholder="Number">
                         </div>
                         <div class="d-flex justify-content-between py-2">
-                            <input type="text" class="form-control  mr-2" style="height: 40px; border-radius: 0.5rem;" id="email" placeholder="Email Address">
-                            <input type="text" class="form-control" style="height: 40px; border-radius: 0.5rem;" id="subject" placeholder="Subject">
+                            <input type="text" class="form-control  mr-2" style="height: 50px; border-radius: 0.5rem;" id="email" placeholder="Email Address">
+                            <input type="text" class="form-control" style="height: 50px; border-radius: 0.5rem;" id="subject" placeholder="Subject">
                         </div>
                         <textarea type="text" class="form-control" rows="8" style="border-radius: 0.5rem;" id="message" placeholder="Message"></textarea> 
                         <div class="text-center py-5">
-                            <button type="button" class="btn bg-primary-light text-white rounded-pill px-4 py-2">
+                            <button type="button" class="btn bg-primary-light text-white rounded-pill px-4 py-2" style="padding: 15px 45px !important;border-radius: 12px !important;">
                                 <h6 class="mb-0">Send Message</h6>
                             </button>
                         </div>       
                     </div>
-                    <div class="py-3 px-2" style="background-color: white; height: 6%; border-radius: 2rem;">
+                    <div class="py-3 px-2" style="background-color: white; height: 6%; border-radius: 2rem;margin-top: 30px;">
                         <h6 class="btn-text-primary-light mb-0">Rescue Removals, 6-8 Great Eastern Street, London, EC2A 3NT</h6>
                     </div>
                 </div>

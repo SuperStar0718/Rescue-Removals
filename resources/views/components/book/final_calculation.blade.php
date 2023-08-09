@@ -22,7 +22,7 @@
             </div>
             <div class="col-6">
                 <div class="input-block phone_number first">
-                    <input type="tel" class="form-control" name="phone" id="phone"  required  >
+                    <input type="tel" class="form-control" name="phone" id="phone"  required value="{{$result->phone_number}}" >
                     <span class="placeholder">
                         Phone Number
                     </span>
@@ -36,7 +36,7 @@
     </div>
 </div>
 <div class="content-wrapper address-detail m-40 shadow-effect">
-    <h3>Pickup Address & Contact Details</h3>
+    <h3>Pickup Address</h3>
     <div class="address-form">
         <div class="row">
             <div class="col-md-6 py-3">
@@ -79,6 +79,13 @@
                     </span>
                 </div>
             </div>
+            </div></div>
+            
+            
+            
+            <h3 style="padding-top: 20px;">Contact Details</h3>
+            <div class="address-form">
+        <div class="row">
             <div class="col-md-6 py-3">
                 <div class="input-block">
                     <input type="text" name="pickup_contact_name" class="form-control" id="pickup_contact_name" required  >
@@ -108,7 +115,7 @@
     </div>
 </div>
 <div class="content-wrapper address-detail m-40 shadow-effect">
-    <h3>Delivery Address & Contact Details</h3>
+    <h3>Delivery Address </h3>
     <div class="address-form">
         <div class="row">
             <div class="col-md-6  py-3">
@@ -152,6 +159,11 @@
                     </span>
                 </div>
             </div>
+            </div>
+            </div>
+              <h3 style="padding-top: 20px;">Contact Details</h3>
+            <div class="address-form">
+        <div class="row">
             <div class="col-md-6 py-3">
                 <div class="input-block">
                     <input type="text" name="delivery_contact_name" id="delivery_name" class="form-control" required  >

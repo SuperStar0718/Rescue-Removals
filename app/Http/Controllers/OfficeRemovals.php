@@ -12,7 +12,8 @@ class OfficeRemovals extends Controller
     //
     public function index(){
         $component = "OfficeRemovals";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if(!$result)
         {
             $eBaycart = new OfficeRemovalsCart();
@@ -20,70 +21,72 @@ class OfficeRemovals extends Controller
             $eBaycart->reference_id = 1887654;
             $eBaycart->cart_list = '';
             $eBaycart->save();
-            $result = OfficeRemovalsCart::where('userid', 1)->first();
+            $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         }
         return view('book.OfficeRemovals.main',compact('component', 'result'));
     }
     public function hours_need(){
         $component = "OfficeRemovals.hours_need";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
-        if(!$result)
-        {
-            $eBaycart = new OfficeRemovalsCart();
-            $eBaycart->userid = 1;
-            $eBaycart->reference_id = 1887654;
-            $eBaycart->save();
-            $result = OfficeRemovalsCart::where('userid', 1)->first();
-        }
-        return view('book.OfficeRemovals.main', compact('component','result'));
+       
+        return view('book.OfficeRemovals.main', compact('component'));
     }
     public function men(){
         $component = "OfficeRemovals.men";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         $cart_list = isset($result->cart_list) ? $result->cart_list : '' ;
         $men = $result->men;
         return view('book.OfficeRemovals.main', compact('component', 'result','men'));
     }
     public function select_car(){
         $component = "OfficeRemovals.select_car";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         $vans = VanType::all();
         return view('book.OfficeRemovals.main', compact('component', 'result', 'vans'));
     }
     public function number_of_car(){
         $component = "OfficeRemovals.number_of_car";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         $van = VanType::where('id', $result->van)->first();
         return view('book.OfficeRemovals.main', compact('component', 'result','van'));
     }
     public function stairs(){
         $component = "OfficeRemovals.stairs";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         return view('book.OfficeRemovals.main', compact('component', 'result'));
     }
     public function congestion(){
         $component = "OfficeRemovals.congestion";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         return view('book.OfficeRemovals.main', compact('component', 'result'));
     }
     public function packing_service(){
         $component = "OfficeRemovals.packing_service";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         return view('book.OfficeRemovals.main', compact('component', 'result'));
     }
     public function pick_date(){
         $component = "OfficeRemovals.pick_date";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         return view('book.OfficeRemovals.main', compact('component', 'result'));
     }
     public function arrange_time(){
         $component = "OfficeRemovals.arrange_time";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         return view('book.OfficeRemovals.main', compact('component','result'));
     }
     public function final_calculation(){
         $component = "OfficeRemovals.final_calculation";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         $job_type = "Office Removals";
         $van = VanType::where('id', $result->van)->first();
 
@@ -106,7 +109,8 @@ class OfficeRemovals extends Controller
         $delivery_contact_name = $request->delivery_contact_name;
         $delivery_contact_phone = $request->delivery_contact_phone;
 
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $result->username = $name;
             $result->email = $email;
@@ -130,41 +134,58 @@ class OfficeRemovals extends Controller
     }
     public function billing(){
         $component = "OfficeRemovals.billing";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         $job_type = "Office Removals";
         $van = VanType::where('id', $result->van)->first();
         return view('book.OfficeRemovals.main', compact('component','job_type','result','van'));
     }
     public function get_email(Request $request){
         $email = $request->email;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
-        if(!$result)
-        {
+        $mobile = $request->mobile;
+        $pickup_address = $request->pickup_address;
+        $delivery_address = $request->delivery_address;
+        $hour = $request->hour;
+        $min = $request->min;
+        session()->put('email',$email );
+        $result = OfficeRemovalsCart::where('email', $email)->first();
+
+        if($result){
+            $result->phone_number = strval($mobile);
+            $result->from = $pickup_address;
+            $result->to = $delivery_address;
+            $result->hour = $hour;
+            $result->minute = $min;
+            $result->save();
+        }
+        else{
+
             $eBaycart = new OfficeRemovalsCart();
             $eBaycart->userid = 1;
             $eBaycart->reference_id = 1887654;
             $eBaycart->email = $email;
+            $eBaycart->phone_number = strval($mobile);
+            $eBaycart->from = $pickup_address;
+            $eBaycart->to = $delivery_address;
+            $eBaycart->hour = $hour;
+            $eBaycart->minute = $min;
             $eBaycart->save();
-            $result = OfficeRemovalsCart::where('userid', 1)->first();
-        }
-        else
-        {
-            $result->email = $email;
-            $result->save();
         }
 
         return redirect()->route('OfficeRemovals.men');
     }
     public function price_page(){
         $component = "OfficeRemovals.price_page";
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         return view('book.OfficeRemovals.main', compact('component','result'));
     }
 
     public function update_cart(Request $request){
         $title = $request->title;
         $amount = $request->amount;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $data = $result->cart_list;
             $data = json_decode($data, true);
@@ -187,7 +208,8 @@ class OfficeRemovals extends Controller
     public function update_time(Request $request){
         $hour = $request->hour;
         $min = $request->min;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $result->hour = $hour;
             $result->minute = $min;
@@ -205,7 +227,8 @@ class OfficeRemovals extends Controller
     }
     public function update_car(Request $request){
         $van = $request->car;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         $car = VanType::where('id',$van)->first();
         if($result){
             $result->van = $van;
@@ -222,7 +245,8 @@ class OfficeRemovals extends Controller
     }
     public function update_men(Request $request){
         $men = $request->men;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $result->men = $men;
             $result->save();
@@ -238,7 +262,8 @@ class OfficeRemovals extends Controller
     }
     public function update_number_of_car(Request $request){
         $count = $request->count;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $result->number_of_car = $count;
             $result->save();
@@ -256,7 +281,8 @@ class OfficeRemovals extends Controller
         $year    = $request->year;
         $month    = $request->month;
         $day    = $request->day;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $result->year = $year;
             $result->month = $month;
@@ -276,7 +302,8 @@ class OfficeRemovals extends Controller
     public function update_arrange_hour(Request $request){
         $hour = $request->hour;
         $min = $request->min;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $result->arrange_hour = $hour;
             $result->arrange_minute = $min;
@@ -294,7 +321,8 @@ class OfficeRemovals extends Controller
     }
     public function update_congestion(Request $request){
         $congestion = $request->congestion;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $result->congestion = $congestion;
             $result->save();
@@ -309,7 +337,8 @@ class OfficeRemovals extends Controller
     }
     public function update_packing_service(Request $request){
         $packing_service = $request->packing_service;
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $result->packing_service = $packing_service;
             $result->save();
@@ -326,7 +355,8 @@ class OfficeRemovals extends Controller
         $from = $request->from;
         $to = $request->to;
 
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             $result->from = json_encode($from);
             $result->to = json_encode($to);
@@ -348,7 +378,8 @@ class OfficeRemovals extends Controller
         $direction = $request->direction;
         $value = $request->value;
 
-        $result = OfficeRemovalsCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
         if($result){
             if($direction=='from'){
                 $result->from_stair = $value;

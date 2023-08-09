@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-<div class=" my-5">
-        <div class="container-content py-5 ">
+<div class=" my-5" style="margin-bottom: 10rem !important;">
+        <div class="container-content py-5 " style="    padding-top: 3rem !important;padding-bottom: 3rem !important;">
             <h3>Our Services - We love what we do & we do it well…</h3>            
         </div>
         <div class="container-content service_category">

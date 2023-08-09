@@ -8,7 +8,7 @@
 
     <!--------------- section 1 --------------->
     <div class="bg-warning-light pt-3">
-        <div class="container-content">
+        <div class="container-content mar5">
         <div class="row">
             
             @if($component=="eBay.price_page")
@@ -16,7 +16,7 @@
                 @include('components.book.price_page')
                 @php($next = "eBay.billing")
                 @php( $previous = "eBay.final_calculation")
-                <div class="d-flex justify-content-between py-5">
+                <div class="d-flex justify-content-between py-50">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -32,7 +32,7 @@
             @else
             <div class="col-md-72 col">
                 <div class="d-flex justify-content-start align-items-center">
-                    <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 150px;">
+                    <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
                     <div class="ml-2 header_text">
                         <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
                         <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
@@ -104,7 +104,7 @@
                         
                 @endswitch
 
-                <div class="d-flex justify-content-between py-5">
+                <div class="d-flex justify-content-between py-50">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -121,7 +121,7 @@
                 @endif
             </div>
             <div class="col-md-28 col header_text_right">
-                <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
+                <div class="d-flex justify-content-end align-items-center pt-3" style="height:179px;">
                     <div>
                         <h6 class="mb-0">Prefer to get a price over the phone?</h6>
                         <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
@@ -229,9 +229,10 @@
 
 @section('script')
 <script>
+    @if($component!='eBay')
 $(document).ready(function(){
-    var lists = @json($result->cart_list)  
-    if(lists!=""){
+    var lists =  @json($result->cart_list)  
+    if(lists!=null){
         lists = JSON.parse(lists)
         console.log(lists)
         const keys = Object.keys(lists);
@@ -273,6 +274,7 @@ $(document).ready(function(){
     }
 
 })
+@endif
  $(document).ready(function(){
             // Create a new Date object to get the current date and time
             const today = new Date();
@@ -316,7 +318,6 @@ $(document).ready(function(){
         $(".cart_panel .carts").find('.title').each(function(){
             if($(this).text()== title){
                 var amount = parseInt($(this).parent().children('.operation').children('.amount').text());
-                update_cart (title, amount+1)
                 $(this).parent().children('.operation').children('.amount').text(amount+1)
             } 
             else
@@ -326,10 +327,8 @@ $(document).ready(function(){
             var content = '<div class="title">'+title+'</div><div class="operation"><div class="minus">-</div><div class="amount">1</div><div class="plus">+</div></div>';
             var element = $('<div class="cart '+ (iteration+1) +' ">').html(content);
             $('.cart_panel .carts').append(element);
-            update_cart (title, 1)
             $(".cart_panel .carts .cart."+ (iteration+1) +" .operation .minus").click(function(e){
                 var amount = parseInt($(this).parent().children('.amount').text());
-                update_cart(title, amount-1)
                 if(amount==1)
                     $(this).parent().parent().remove();
                 
@@ -341,7 +340,6 @@ $(document).ready(function(){
         
             $(".cart_panel .carts .cart."+ (iteration+1) +" .operation .plus").click(function(){
                 var amount = parseInt($(this).parent().children('.amount').text());
-                update_cart(title, amount+1)
                 $(this).parent().children('.amount').text(amount+1)
                 var cart_amount = parseInt($(".cart_panel .cart_amount").text());
                 $(".cart_panel .cart_amount").text(cart_amount+1);
@@ -355,11 +353,9 @@ $(document).ready(function(){
             var content = '<div class="title">'+title+'</div><div class="operation"><div class="minus">-</div><div class="amount">1</div><div class="plus">+</div></div>';
             var element = $('<div class="cart '+ 1 +'">').html(content);
             $('.cart_panel .carts').append(element);
-            update_cart (title, 1)
             
             $(".cart_panel .carts .cart.1 .operation .minus").click(function(e){
                 var amount = parseInt($(this).parent().children('.amount').text());
-                update_cart(title, amount-1)
 
                 if(amount==1)
                     $(this).parent().parent().remove();
@@ -373,7 +369,6 @@ $(document).ready(function(){
             $(".cart_panel .carts .cart.1 .operation .plus").click(function(){
                 var amount = parseInt($(this).parent().children('.amount').text());
                 $(this).parent().children('.amount').text(amount+1)
-                update_cart(title, amount+1)
 
                 var cart_amount = parseInt($(".cart_panel .cart_amount").text());
                 $(".cart_panel .cart_amount").text(cart_amount+1);
@@ -410,6 +405,22 @@ $(document).ready(function(){
             $(this).addClass('active')
         else
             $(this).removeClass('active')
+    })
+
+    $('.needs-validation').submit(function(event){
+        var cart_list = {};
+        $('.cart_panel .carts .cart').each(function(){
+            var key = $(this).children('div.title').text()
+            var value = $(this).children('div.operation').children('.amount').text()
+
+            cart_list[key]=value
+        })
+        cart_list = JSON.stringify(cart_list)
+        var pick_address = localStorage.getItem('from');
+        var delivery_address = localStorage.getItem('to');
+        $(this).append($('<input>').attr('type', 'hidden').attr('name', 'pickup_address').val(pick_address));
+        $(this).append($('<input>').attr('type', 'hidden').attr('name', 'delivery_address').val(delivery_address));
+        $(this).append($('<input>').attr('type', 'hidden').attr('name', 'cart_list').val(cart_list));
     })
 
 </script>  

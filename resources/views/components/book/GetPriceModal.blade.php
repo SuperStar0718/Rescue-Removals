@@ -11,18 +11,24 @@
         <div class="section">
             <img src="{{asset('images/logo_blue.svg')}}" alt="">
         </div>
-        <div class="section w-100 mb-5" >
-            Please enter your email address to get instant prices
+        <div class="section w-100 mb-5" style="letter-spacing: -1px;" >
+            Please enter your email address and mobile number to get instant prices
         </div>
         <form  class="needs-validation" novalidate method="POST" action="{{route($url)}}">
             @csrf
             <div class="email_input mb-5">
                 <div class="content-wrapper ">
     
-                    <div class="input-block">
+                    <div class="input-block" style="margin-bottom: 10px;">
                         <input type="email" name="email" class="form-control"  required >
                         <span class="placeholder">
-                            Enter your Eamil address
+                            Enter your Email address
+                        </span>
+                    </div>
+                    <div class="input-block">
+                        <input type="number" name="mobile" class="form-control"  required >
+                        <span class="placeholder">
+                            Enter your Mobile Number
                         </span>
                     </div>
                 </div>

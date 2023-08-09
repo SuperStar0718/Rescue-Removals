@@ -2,14 +2,17 @@
     <div class="p-5 panel_row">
         <div>
             <img src="{{asset('images/search.png')}}" alt="search" class="w-10">
-            <input type="search" class="form-control cart_input" style="height: 50px; border-color: #353ea3;  border-radius: 1rem 1rem 0rem 1rem;" id="search" placeholder="Enter your item(s) here e.g. Sofa">
+            <input type="search" class="form-control cart_input" style="height: 60px; border-color: #353ea3;  border-radius: 1rem 1rem 0rem 1rem;" id="search" placeholder="Enter your item(s) here e.g. Sofa">
         </div>                        
-        <div class="pt-5">
+        <div class="pt-530">
             <p>Or quickly add from our list of popular items</p>
             <div class="row removals_items">
-                <div class="col-md-4">
-                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                    <span>Sofas</span>
+                <div class="col-md-4" style="padding-left: 0;">
+                    <button type="button" class="btn dropdown-toggle mb-3  item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
+                        <div>
+                            <img src="{{asset('images/Select Screen Icons/Sofas.png')}}" alt="">
+                            <span>Sofas</span>
+                        </div>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">
@@ -27,8 +30,11 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                    Wardrobes
+                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
+                        <div>
+                            <img src="{{asset('images/Select Screen Icons/Wardrobes Icon.png')}}" alt="">
+                            <span>Wardrobes</span>
+                        </div>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">
@@ -45,9 +51,12 @@
                         </li>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                    Boxes
+                <div class="col-md-4" style="padding-right: 0;">
+                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
+                        <div>
+                            <img src="{{asset('images/Select Screen Icons/Boxes Icon.png')}}" alt="">
+                            <span>Boxes</span>
+                        </div>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">
@@ -64,9 +73,14 @@
                         </li>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                    Beds & Mattresses
+                <div class="col-md-4" style="padding-left: 0;">
+                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
+                        <div>
+                            <img src="{{asset('images/Select Screen Icons/Tables.png')}}" alt="">
+                            <span>
+                                Beds & Mattresses
+                            </span>
+                        </div>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">
@@ -84,8 +98,13 @@
                     </div>
                 </div>  
                 <div class="col-md-4">
-                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                    Tables
+                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
+                        <div>
+                            <img src="{{asset('images/Select Screen Icons/Table Icon.webp')}}" alt="">
+                            <span>
+                                Tables
+                            </span>
+                        </div>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">
@@ -106,9 +125,14 @@
                         </li>
                     </div>
                 </div>  
-                <div class="col-md-4">
-                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                    Televisions
+                <div class="col-md-4" style="padding-right: 0;">
+                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
+                        <div>
+                            <img src="{{asset('images/Select Screen Icons/TV Icon.png')}}" alt="">
+                            <span>
+                                Televisions
+                            </span>
+                        </div>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">
@@ -125,9 +149,14 @@
                         </li>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                    Clothing
+                <div class="col-md-4" style="padding-left: 0;">
+                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
+                        <div>
+                            <img src="{{asset('images/Select Screen Icons/Clothing Icon.webp')}}" alt="">
+                            <span>
+                                Clothing
+                            </span>
+                        </div>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">
@@ -145,8 +174,13 @@
                     </div>
                 </div>   
                 <div class="col-md-4">
-                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                    Chairs
+                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
+                        <div>
+                            <img src="{{asset('images/Select Screen Icons/Chairs Icon.webp')}}" alt="">
+                            <span>
+                                Chairs
+                            </span>
+                        </div>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">
@@ -163,9 +197,11 @@
                         </li>
                     </div>
                 </div>   
-                <div class="col-md-4">
-                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                    Add your own items
+                <div class="col-md-4" style="padding-right: 0;">
+                    <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
+                        <span>
+                            Add your own items
+                        </span>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">

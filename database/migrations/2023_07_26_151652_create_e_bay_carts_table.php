@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('to_stair')->default("Ground floor");
             $table->string('from_type')->default("");
             $table->string('to_type')->default("");
-            $table->json('cart_list')->default('');
+            $table->json('cart_list')->nullable();
             $table->integer('hour')->default(2);
             $table->integer('minute')->default(0);
             $table->integer('men')->default(0);

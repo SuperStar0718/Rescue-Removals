@@ -11,78 +11,80 @@ class Motorbike extends Controller
     //
     public function index(){
         $component = "Motorbike";
-        $result = MotorbikeCart::where('userid', 1)->first();
-        if(!$result)
-        {
-            $eBaycart = new MotorbikeCart();
-            $eBaycart->userid = 1;
-            $eBaycart->reference_id = 1887654;
-            $eBaycart->cart_list = '';
-            $eBaycart->save();
-            $result = MotorbikeCart::where('userid', 1)->first();
-        }
-        return view('book.Motorbike.main',compact('component', 'result'));
+
+        return view('book.Motorbike.main',compact('component'));
     }
     public function hours_need(){
         $component = "Motorbike.hours_need";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if(!$result)
         {
             $eBaycart = new MotorbikeCart();
             $eBaycart->userid = 1;
             $eBaycart->reference_id = 1887654;
             $eBaycart->save();
-            $result = MotorbikeCart::where('userid', 1)->first();
+            $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         }
         return view('book.Motorbike.main', compact('component','result'));
     }
     public function men(){
         $component = "Motorbike.men";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         $cart_list = isset($result->cart_list) ? $result->cart_list : '' ;
         $men = $result->men;
         return view('book.Motorbike.main', compact('component', 'result','men'));
     }
     public function select_car(){
         $component = "Motorbike.select_car";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         $vans = VanType::all();
         return view('book.Motorbike.main', compact('component', 'result', 'vans'));
     }
     public function number_of_car(){
         $component = "Motorbike.number_of_car";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         $van = VanType::where('id', $result->van)->first();
         return view('book.Motorbike.main', compact('component', 'result','van'));
     }
     public function stairs(){
         $component = "Motorbike.stairs";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         return view('book.Motorbike.main', compact('component', 'result'));
     }
     public function congestion(){
         $component = "Motorbike.congestion";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         return view('book.Motorbike.main', compact('component', 'result'));
     }
     public function packing_service(){
         $component = "Motorbike.packing_service";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         return view('book.Motorbike.main', compact('component', 'result'));
     }
     public function pick_date(){
         $component = "Motorbike.pick_date";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         return view('book.Motorbike.main', compact('component', 'result'));
     }
     public function arrange_time(){
         $component = "Motorbike.arrange_time";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         return view('book.Motorbike.main', compact('component','result'));
     }
     public function final_calculation(){
         $component = "Motorbike.final_calculation";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         $job_type = "Motorbikes";
         $van = VanType::where('id', $result->van)->first();
 
@@ -105,7 +107,8 @@ class Motorbike extends Controller
         $delivery_contact_name = $request->delivery_contact_name;
         $delivery_contact_phone = $request->delivery_contact_phone;
 
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $result->username = $name;
             $result->email = $email;
@@ -129,41 +132,58 @@ class Motorbike extends Controller
     }
     public function billing(){
         $component = "Motorbike.billing";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         $job_type = "Motorbikes";
         $van = VanType::where('id', $result->van)->first();
         return view('book.Motorbike.main', compact('component','job_type','result','van'));
     }
     public function get_email(Request $request){
         $email = $request->email;
-        $result = MotorbikeCart::where('userid', 1)->first();
-        if(!$result)
-        {
+        $mobile = $request->mobile;
+        $pickup_address = $request->pickup_address;
+        $delivery_address = $request->delivery_address;
+        $hour = $request->hour;
+        $min = $request->min;
+        session()->put('email',$email );
+        $result = MotorbikeCart::where('email', $email)->first();
+
+        if($result){
+            $result->phone_number = strval($mobile);
+            $result->from = $pickup_address;
+            $result->to = $delivery_address;
+            $result->hour = $hour;
+            $result->minute = $min;
+            $result->save();
+        }
+        else{
+
             $eBaycart = new MotorbikeCart();
             $eBaycart->userid = 1;
             $eBaycart->reference_id = 1887654;
             $eBaycart->email = $email;
+            $eBaycart->phone_number = strval($mobile);
+            $eBaycart->from = $pickup_address;
+            $eBaycart->to = $delivery_address;
+            $eBaycart->hour = $hour;
+            $eBaycart->minute = $min;
             $eBaycart->save();
-            $result = MotorbikeCart::where('userid', 1)->first();
-        }
-        else
-        {
-            $result->email = $email;
-            $result->save();
         }
 
         return redirect()->route('Motorbike.men');
     }
     public function price_page(){
         $component = "Motorbike.price_page";
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         return view('book.Motorbike.main', compact('component','result'));
     }
 
     public function update_cart(Request $request){
         $title = $request->title;
         $amount = $request->amount;
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $data = $result->cart_list;
             $data = json_decode($data, true);
@@ -186,7 +206,8 @@ class Motorbike extends Controller
     public function update_time(Request $request){
         $hour = $request->hour;
         $min = $request->min;
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $result->hour = $hour;
             $result->minute = $min;
@@ -204,7 +225,8 @@ class Motorbike extends Controller
     }
     public function update_car(Request $request){
         $van = $request->car;
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         $car = VanType::where('id',$van)->first();
         if($result){
             $result->van = $van;
@@ -221,7 +243,8 @@ class Motorbike extends Controller
     }
     public function update_men(Request $request){
         $men = $request->men;
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $result->men = $men;
             $result->save();
@@ -237,7 +260,8 @@ class Motorbike extends Controller
     }
     public function update_number_of_car(Request $request){
         $count = $request->count;
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $result->number_of_car = $count;
             $result->save();
@@ -255,7 +279,8 @@ class Motorbike extends Controller
         $year    = $request->year;
         $month    = $request->month;
         $day    = $request->day;
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $result->year = $year;
             $result->month = $month;
@@ -275,7 +300,8 @@ class Motorbike extends Controller
     public function update_arrange_hour(Request $request){
         $hour = $request->hour;
         $min = $request->min;
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $result->arrange_hour = $hour;
             $result->arrange_minute = $min;
@@ -293,7 +319,8 @@ class Motorbike extends Controller
     }
     public function update_congestion(Request $request){
         $congestion = $request->congestion;
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $result->congestion = $congestion;
             $result->save();
@@ -308,7 +335,8 @@ class Motorbike extends Controller
     }
     public function update_packing_service(Request $request){
         $packing_service = $request->packing_service;
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $result->packing_service = $packing_service;
             $result->save();
@@ -325,7 +353,8 @@ class Motorbike extends Controller
         $from = $request->from;
         $to = $request->to;
 
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             $result->from = json_encode($from);
             $result->to = json_encode($to);
@@ -347,7 +376,8 @@ class Motorbike extends Controller
         $direction = $request->direction;
         $value = $request->value;
 
-        $result = MotorbikeCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = MotorbikeCart::where('email', $email)->first();
         if($result){
             if($direction=='from'){
                 $result->from_stair = $value;

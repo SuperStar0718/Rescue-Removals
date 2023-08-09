@@ -9,20 +9,20 @@
     <!--------------- section 1 --------------->
     <div class="">
         <div class="container-content">
-            <div class="py-4">
-                <h2>We are a team of experts</h2>
-                <h4>A bit about Us</h4>
+            <div class="py-4" style="padding-top: 3rem !important;">
+                <h2 style="    font-size: 32px;font-weight: bold;line-height: 32px;">We are a team of experts</h2>
+                <h4 style="line-height: 12px;">A bit about Us</h4>
             </div>
             
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/About Us/about-us-1.png')}}" class="w-100">
+                <div class="col-md-4 mb-4" style="padding-left: 0;padding-right: 10px;">
+                    <img src="{{asset('images/About Us/about-us-1.png')}}" class="w-100" style="width: 100% !important;">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/About Us/about-us-2.png')}}" class="w-100">
+                <div class="col-md-4 mb-4" style="padding-left: 0;padding-right: 5px;">
+                    <img src="{{asset('images/About Us/about-us-2.png')}}" class="w-100" style="width: 100% !important;">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="{{asset('images/About Us/about-us-3.png')}}" class="w-100">
+                <div class="col-md-4 mb-4" style="padding-left: 5px;padding-right: 0;">
+                    <img src="{{asset('images/About Us/about-us-3.png')}}" class="w-100" style="width: 100% !important;">
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div class="container-content py-5 sevice_text_content">
+    <div class="container-content py-5 sevice_text_content" style="padding-top: 3rem !important; padding-bottom: 3rem !important;">
         <div>
             <p>
                 Welcome to Rescue Removals, where we turn the chaos of moving into a seamless experience filled with ease, efficiency, and a touch of magic. 
@@ -56,9 +56,9 @@
     <!--------------- end section 3 --------------->
 
     <!--------------- section 4 --------------->
-    <div class="container-content py-5 sevice_text_content">
+    <div class="container-content py-5 sevice_text_content" style="padding-top: 3rem !important;     padding-bottom: 9rem !important;">
         <div class="row">            
-            <div class="col-md-7">
+            <div class="col-md-7"   style="padding-left: 0;">
                 <div class="mt-4 mt-md-0" style="margin-bottom: 39px;">
                     <p>
                         But our superpowers don’t end there. We believe in going the extra mile to make your move extraordinary. 

@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-8">
         <div class="d-flex justify-content-start align-items-center">
-            <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 150px;">
+            <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
             <div class="ml-2 header_text">
                 <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
                 <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="col-md-4 ">
-        <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
+        <div class="d-flex justify-content-end align-items-center pt-3" style="height:179px;">
             <div class="header_text_right">
                 <h6 class="mb-0">Prefer to get a price over the phone?</h6>
                 <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-4 bg-primary-light d-flex justify-content-center align-items-center" style="border-radius: 2rem 0rem 0rem 2rem;">
             <div class="d-flex justify-content-center align-items-center">
-                <h3 class="text-white pl-4">Where are you moving from and to?</h3>
+                <h3 class="text-white pl-4">Where are you moving <br>from and to?</h3>
             </div>                        
         </div>
         <div class="col-md-8 stairs right_panel">
@@ -31,7 +31,7 @@
                 <div class="row justify-content-between location_input">
                     <div class="dropdown col-md-6">
                         <button class="btn  dropdown-toggle" type="button" id="pickup_details" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class='address_abb'>{{$result->getFromAddress()}}</span>
+                            <span class='address_abb'></span>
                         </button>
                         
                     </div>
@@ -39,7 +39,7 @@
                     <div class="dropdown col-md-6">
                         
                         <button class="btn  dropdown-toggle" type="button" id="pickup_type" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @if($result->from_type=='')Select Property Type @endif
+                            Select Property Type  
                         </button>
                         <div class="dropdown-menu from" aria-labelledby="dropdownMenuButton">
                             <div class="dropdown_widget">
@@ -77,7 +77,7 @@
                 <div class="row justify-content-between pb-5 location_input">
                     <div class="dropdown col-md-6">
                         <button class="btn  dropdown-toggle" type="button" id="delivery_details" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span  class='address_abb'>{{$result->getToAddress()}}</span>
+                            <span  class='address_abb'></span>
                         </button>
                        
                     </div>

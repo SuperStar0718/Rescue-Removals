@@ -12,67 +12,65 @@ class Furniture_Appliance extends Controller
     //
     public function index(){
         $component = "Furniture_Appliance";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
-        if($result)
-            $cart_list =  $result->cart_list;
-        else
-        {
-            $Furniture_ApplianceCart = new Furniture_ApplianceCart();
-            $Furniture_ApplianceCart->userid = 1;
-            $Furniture_ApplianceCart->reference_id = 1887654;
-            $Furniture_ApplianceCart->cart_list = '';
-            $Furniture_ApplianceCart->save();
-            $result = Furniture_ApplianceCart::where('userid', 1)->first();
-        }
-        return view('book.Furniture_Appliance.main',compact('component', 'result'));
+      
+        return view('book.Furniture_Appliance.main',compact('component'));
     }
     public function hours_need(){
         $component = "Furniture_Appliance.hours_need";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         return view('book.Furniture_Appliance.main', compact('component','result'));
     }
     public function men(){
         $component = "Furniture_Appliance.men";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         $cart_list = isset($result->cart_list) ? $result->cart_list : '' ;
         $men = $result->men;
         return view('book.Furniture_Appliance.main', compact('component', 'result','men'));
     }
     public function select_car(){
         $component = "Furniture_Appliance.select_car";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         $vans = VanType::all();
         return view('book.Furniture_Appliance.main', compact('component', 'result', 'vans'));
     }
     public function number_of_car(){
         $component = "Furniture_Appliance.number_of_car";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         $van = VanType::where('id', $result->van)->first();
         return view('book.Furniture_Appliance.main', compact('component', 'result','van'));
     }
     public function stairs(){
         $component = "Furniture_Appliance.stairs";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         return view('book.Furniture_Appliance.main', compact('component', 'result'));
     }
     public function congestion(){
         $component = "Furniture_Appliance.congestion";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         return view('book.Furniture_Appliance.main', compact('component', 'result'));
     }
     public function pick_date(){
         $component = "Furniture_Appliance.pick_date";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         return view('book.Furniture_Appliance.main', compact('component', 'result'));
     }
     public function arrange_time(){
         $component = "Furniture_Appliance.arrange_time";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         return view('book.Furniture_Appliance.main', compact('component','result'));
     }
     public function final_calculation(){
         $component = "Furniture_Appliance.final_calculation";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         $job_type = "Furniture & Appliance";
         $van = VanType::where('id', $result->van)->first();
 
@@ -95,7 +93,8 @@ class Furniture_Appliance extends Controller
         $delivery_contact_name = $request->delivery_contact_name;
         $delivery_contact_phone = $request->delivery_contact_phone;
 
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             $result->username = $name;
             $result->email = $email;
@@ -119,41 +118,54 @@ class Furniture_Appliance extends Controller
     }
     public function billing(){
         $component = "Furniture_Appliance.billing";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         $job_type = "Furniture_Appliance";
         $van = VanType::where('id', $result->van)->first();
         return view('book.Furniture_Appliance.main', compact('component','job_type','result','van'));
     }
     public function get_email(Request $request){
         $email = $request->email;
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
-        if(!$result)
-        {
+        $mobile = $request->mobile;
+        $cart_list = $request->cart_list;
+        $pickup_address = $request->pickup_address;
+        $delivery_address = $request->delivery_address;
+        session()->put('email',$email );
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
+        if($result){
+            $result->phone_number = strval($mobile);
+            $result->from = $pickup_address;
+            $result->to = $delivery_address;
+            $result->cart_list = $cart_list;    
+            $result->save();
+        }
+        else{
+
             $eBaycart = new Furniture_ApplianceCart();
             $eBaycart->userid = 1;
             $eBaycart->reference_id = 1887654;
             $eBaycart->email = $email;
+            $eBaycart->phone_number = strval($mobile);
+            $eBaycart->from = $pickup_address;
+            $eBaycart->to = $delivery_address;
+            $eBaycart->cart_list = $cart_list;
             $eBaycart->save();
-            $result = Furniture_ApplianceCart::where('userid', 1)->first();
-        }
-        else
-        {
-            $result->email = $email;
-            $result->save();
         }
 
         return redirect()->route('Furniture_Appliance.hours_need');
     }
     public function price_page(){
         $component = "Furniture_Appliance.price_page";
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         return view('book.Furniture_Appliance.main', compact('component','result'));
     }
 
     public function update_cart(Request $request){
         $title = $request->title;
         $amount = $request->amount;
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             $data = $result->cart_list;
             $data = json_decode($data, true);
@@ -176,7 +188,8 @@ class Furniture_Appliance extends Controller
     public function update_time(Request $request){
         $hour = $request->hour;
         $min = $request->min;
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             $result->hour = $hour;
             $result->minute = $min;
@@ -194,7 +207,8 @@ class Furniture_Appliance extends Controller
     }
     public function update_car(Request $request){
         $van = $request->car;
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         $car = VanType::where('id',$van)->first();
         if($result){
             $result->van = $van;
@@ -211,7 +225,8 @@ class Furniture_Appliance extends Controller
     }
     public function update_men(Request $request){
         $men = $request->men;
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             $result->men = $men;
             $result->save();
@@ -227,7 +242,8 @@ class Furniture_Appliance extends Controller
     }
     public function update_number_of_car(Request $request){
         $count = $request->count;
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             $result->number_of_car = $count;
             $result->save();
@@ -245,7 +261,8 @@ class Furniture_Appliance extends Controller
         $year    = $request->year;
         $month    = $request->month;
         $day    = $request->day;
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             $result->year = $year;
             $result->month = $month;
@@ -265,7 +282,8 @@ class Furniture_Appliance extends Controller
     public function update_arrange_hour(Request $request){
         $hour = $request->hour;
         $min = $request->min;
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             $result->arrange_hour = $hour;
             $result->arrange_minute = $min;
@@ -283,7 +301,8 @@ class Furniture_Appliance extends Controller
     }
     public function update_congestion(Request $request){
         $congestion = $request->congestion;
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             $result->congestion = $congestion;
             $result->save();
@@ -300,7 +319,8 @@ class Furniture_Appliance extends Controller
         $from = $request->from;
         $to = $request->to;
 
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             $result->from = json_encode($from);
             $result->to = json_encode($to);
@@ -322,7 +342,8 @@ class Furniture_Appliance extends Controller
         $direction = $request->direction;
         $value = $request->value;
 
-        $result = Furniture_ApplianceCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
         if($result){
             if($direction=='from'){
                 $result->from_stair = $value;

@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-8 stairs right_panel">
             <div class="p-5">
-                <h4 class="btn-text-primary-light pt-5">Pickup Details</h4>
+                <h4 class="btn-text-primary-light pt-50" style="padding-top: 50px;">Pickup Details</h4>
                 <div class="row justify-content-between location_input">
                     <div class="dropdown col-md-7">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <h4 class="btn-text-primary-light pt-5 ">Delivery Details</h4>
+                <h4 class="btn-text-primary-light pt-5001" style="padding-top: 50px;">Delivery Details</h4>
                 <div class="row justify-content-between pb-5 location_input">
                     <div class="dropdown col-md-7">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

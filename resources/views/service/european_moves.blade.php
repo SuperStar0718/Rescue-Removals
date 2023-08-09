@@ -63,8 +63,8 @@
     <!--------------- end section 2 --------------->
 
     <!--------------- section 3 --------------->
-    <div class="py-5">
-        <div class="container-content py-5 sevice_text_content">
+    <div class="py-10" style="padding-top: 0rem !important;margin-bottom: 10rem;">
+        <div class="container-content py-10 sevice_text_content" style="padding-top: 4rem !important; padding-bottom: 2rem !important;">
             <h5>Professional removals to all parts of Europe</h5>
             <p class="mb-3">
                 When it comes to moving to or from Europe, whether it’s for personal or work-related reasons, 

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('userid');
             $table->string('email')->default('');
             $table->integer('reference_id');
-            $table->json('cart_list')->default('');
+            $table->json('cart_list')->nullable();
             $table->json('from')->nullable();
             $table->json('to')->nullable();
             $table->string('from_stair')->default("Ground floor");

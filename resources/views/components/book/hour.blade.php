@@ -6,19 +6,19 @@
             </div>                        
         </div>
         <div class="col-md-8 right_panel">
-            <div class="d-flex justify-content-center py-5">
-                <div class="text-center py-5 hour">                                
+            <div class="d-flex justify-content-center py-502">
+                <div class="text-center py-502 hour">                                
                     <i class="fa fa-play pointer up" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(-90deg);"></i>                                
-                    <div class="bg-primary-light px-5 py-4 my-3" style="border-radius: 1.5rem;"><h1 class="text-white" style="font-size: 80px">{{sprintf("%02d", $result->hour)}}</h1></div>
+                    <div class="bg-primary-light px-5 py-4 my-3" style="border-radius: 1.5rem;padding-left: 3rem !important;"><h1 class="text-white" style="font-size: 80px">{{sprintf("%02d", isset($result) ? $result->hour : '2' )}}</h1></div>
                     <i class="fa fa-play pointer down" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(90deg);"></i>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-center px-3">
                     <div class="bg-primary-light mb-3" style="width: 15px; height: 15px; border-radius: 50%;"></div>
                     <div class="bg-primary-light" style="width: 15px; height: 15px; border-radius: 50%;"></div>
                 </div>
-                <div class="text-center py-5 minute">
+                <div class="text-center py-502 minute">
                     <i class="fa fa-play pointer up" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(-90deg);"></i>
-                    <div class="bg-primary-light px-5 py-4 my-3" style="border-radius: 1.5rem;"><h1 class="text-white" style="font-size: 80px">{{sprintf("%02d", $result->minute)}}</h1></div>
+                    <div class="bg-primary-light px-5 py-4 my-3" style="border-radius: 1.5rem;padding-left: 3rem !important;"><h1 class="text-white" style="font-size: 80px">{{sprintf("%02d", isset($result) ? $result->minute : '0')}}</h1></div>
                     <i class="fa fa-play pointer down" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(90deg);"></i>                          
                 </div>
             </div>

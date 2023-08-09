@@ -10,67 +10,66 @@ class eBayDeliveries extends Controller
     //
     public function index(){
         $component = "eBay";
-        $result = eBayCart::where('userid', 1)->first();
-        if($result)
-            $cart_list =  $result->cart_list;
-        else
-        {
-            $eBaycart = new eBayCart();
-            $eBaycart->userid = 1;
-            $eBaycart->reference_id = 1887654;
-            $eBaycart->cart_list = '';
-            $eBaycart->save();
-            $result = eBayCart::where('userid', 1)->first();
-        }
-        return view('book.eBayDelivery.main',compact('component', 'result'));
+       
+        return view('book.eBayDelivery.main',compact('component'));
     }
     public function hours_need(){
         $component = "eBay.hours_need";
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         $result = eBayCart::where('userid', 1)->first();
         return view('book.eBayDelivery.main', compact('component','result'));
     }
     public function men(){
         $component = "eBay.men";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         $cart_list = isset($result->cart_list) ? $result->cart_list : '' ;
         $men = $result->men;
         return view('book.eBayDelivery.main', compact('component', 'result','men'));
     }
     public function select_car(){
         $component = "eBay.select_car";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         $vans = VanType::all();
         return view('book.eBayDelivery.main', compact('component', 'result', 'vans'));
     }
     public function number_of_car(){
         $component = "eBay.number_of_car";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         $van = VanType::where('id', $result->van)->first();
         return view('book.eBayDelivery.main', compact('component', 'result','van'));
     }
     public function stairs(){
         $component = "eBay.stairs";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         return view('book.eBayDelivery.main', compact('component', 'result'));
     }
     public function congestion(){
         $component = "eBay.congestion";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         return view('book.eBayDelivery.main', compact('component', 'result'));
     }
     public function pick_date(){
         $component = "eBay.pick_date";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         return view('book.eBayDelivery.main', compact('component', 'result'));
     }
     public function arrange_time(){
         $component = "eBay.arrange_time";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         return view('book.eBayDelivery.main', compact('component','result'));
     }
     public function final_calculation(){
         $component = "eBay.final_calculation";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         $job_type = "eBay Deliveries";
         $van = VanType::where('id', $result->van)->first();
 
@@ -93,7 +92,8 @@ class eBayDeliveries extends Controller
         $delivery_contact_name = $request->delivery_contact_name;
         $delivery_contact_phone = $request->delivery_contact_phone;
 
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             $result->username = $name;
             $result->email = $email;
@@ -117,32 +117,44 @@ class eBayDeliveries extends Controller
     }
     public function billing(){
         $component = "eBay.billing";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         $job_type = "eBay Deliveries";
         $van = VanType::where('id', $result->van)->first();
         return view('book.eBayDelivery.main', compact('component','job_type','result','van'));
     }
     public function price_page(){
         $component = "eBay.price_page";
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         return view('book.eBayDelivery.main', compact('component','result'));
     }
     public function get_email(Request $request){
         $email = $request->email;
-        $result = eBayCart::where('userid', 1)->first();
-        if(!$result)
-        {
+        $mobile = $request->mobile;
+        $cart_list = $request->cart_list;
+        $pickup_address = $request->pickup_address;
+        $delivery_address = $request->delivery_address;
+        session()->put('email',$email );
+        $result = eBayCart::where('email', $email)->first();
+        if($result){
+            $result->phone_number = strval($mobile);
+            $result->from = $pickup_address;
+            $result->to = $delivery_address;
+            $result->cart_list = $cart_list;    
+            $result->save();
+        }
+        else{
+
             $eBaycart = new eBayCart();
             $eBaycart->userid = 1;
             $eBaycart->reference_id = 1887654;
             $eBaycart->email = $email;
+            $eBaycart->phone_number = strval($mobile);
+            $eBaycart->from = $pickup_address;
+            $eBaycart->to = $delivery_address;
+            $eBaycart->cart_list = $cart_list;
             $eBaycart->save();
-            $result = eBayCart::where('userid', 1)->first();
-        }
-        else
-        {
-            $result->email = $email;
-            $result->save();
         }
 
         return redirect()->route('eBay.hours_need');
@@ -151,7 +163,8 @@ class eBayDeliveries extends Controller
     public function update_cart(Request $request){
         $title = $request->title;
         $amount = $request->amount;
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             $data = $result->cart_list;
             $data = json_decode($data, true);
@@ -174,7 +187,8 @@ class eBayDeliveries extends Controller
     public function update_time(Request $request){
         $hour = $request->hour;
         $min = $request->min;
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             $result->hour = $hour;
             $result->minute = $min;
@@ -192,7 +206,8 @@ class eBayDeliveries extends Controller
     }
     public function update_car(Request $request){
         $van = $request->car;
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         $car = VanType::where('id',$van)->first();
         if($result){
             $result->van = $van;
@@ -209,7 +224,8 @@ class eBayDeliveries extends Controller
     }
     public function update_men(Request $request){
         $men = $request->men;
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             $result->men = $men;
             $result->save();
@@ -225,7 +241,8 @@ class eBayDeliveries extends Controller
     }
     public function update_number_of_car(Request $request){
         $count = $request->count;
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             $result->number_of_car = $count;
             $result->save();
@@ -243,7 +260,8 @@ class eBayDeliveries extends Controller
         $year    = $request->year;
         $month    = $request->month;
         $day    = $request->day;
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             $result->year = $year;
             $result->month = $month;
@@ -263,7 +281,8 @@ class eBayDeliveries extends Controller
     public function update_arrange_hour(Request $request){
         $hour = $request->hour;
         $min = $request->min;
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             $result->arrange_hour = $hour;
             $result->arrange_minute = $min;
@@ -281,7 +300,8 @@ class eBayDeliveries extends Controller
     }
     public function update_congestion(Request $request){
         $congestion = $request->congestion;
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             $result->congestion = $congestion;
             $result->save();
@@ -298,7 +318,8 @@ class eBayDeliveries extends Controller
         $from = $request->from;
         $to = $request->to;
 
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             $result->from = json_encode($from);
             $result->to = json_encode($to);
@@ -320,7 +341,8 @@ class eBayDeliveries extends Controller
         $direction = $request->direction;
         $value = $request->value;
 
-        $result = eBayCart::where('userid', 1)->first();
+        $email = session()->get('email');
+        $result = eBayCart::where('email', $email)->first();
         if($result){
             if($direction=='from'){
                 $result->from_stair = $value;

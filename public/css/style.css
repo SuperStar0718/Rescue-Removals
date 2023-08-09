@@ -6624,7 +6624,7 @@ button.bg-dark:focus {
 
 .mt-4,
 .my-4 {
-  margin-top: 1.5rem !important; }
+  margin-top: 2.5rem !important; }
 
 .mr-4,
 .mx-4 {
@@ -6632,7 +6632,7 @@ button.bg-dark:focus {
 
 .mb-4,
 .my-4 {
-  margin-bottom: 1.5rem !important; }
+  margin-bottom: 2.5rem !important; }
 
 .ml-4,
 .mx-4 {
@@ -7982,6 +7982,9 @@ button.bg-dark:focus {
   font-weight: 700 !important; }
 
 .font-weight-bolder {
+    font-size: 35px;
+    
+    font-family: 'Helvetica Neue';
   font-weight: bolder !important; }
 
 .font-italic {
@@ -8299,5 +8302,14 @@ button.switch-month {
 button.switch-month:hover {
   color: #1089ff; }
 
-
+.py-50 {
+        padding-top: 3rem !important;
+}
   
+  .mar5 {
+          margin-bottom: 10rem !important;
+  }
+  
+  .pt-530 {
+          padding-top: 3rem !important;
+  }

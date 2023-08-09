@@ -8,7 +8,7 @@
 
     <!--------------- section 1 --------------->
     <div class="bg-warning-light pt-3">
-        <div class="container-content">
+        <div class="container-content mar5">
         <div class="row">
             
             @if($component=="OfficeRemovals.price_page")
@@ -16,7 +16,7 @@
                 @include('components.book.price_page')
                 @php($next = "OfficeRemovals.billing")
                 @php( $previous = "OfficeRemovals.final_calculation")
-                <div class="d-flex justify-content-between py-5">
+                <div class="d-flex justify-content-between py-50">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -34,7 +34,7 @@
                 <div  class="row">
                     <div @if($component=="OfficeRemovals.final_calculation" || $component=="OfficeRemovals.billing" ) class="col-md-12" @else class="col-md-8" @endif>
                         <div class="d-flex justify-content-start align-items-center">
-                            <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 150px;">
+                            <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
                             <div class="ml-2 header_text">
                                 <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
                                 <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
@@ -43,7 +43,7 @@
                     </div>
                     @if($component!="OfficeRemovals.final_calculation" && $component!="OfficeRemovals.billing" )
                     <div class="col-md-4 ">
-                        <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
+                        <div class="d-flex justify-content-end align-items-center pt-3" style="height:179px;">
                             <div class="header_text_right">
                                 <h6 class="mb-0">Prefer to get a price over the phone?</h6>
                                 <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
@@ -119,7 +119,7 @@
                         
                 @endswitch
 
-                <div class="d-flex justify-content-between py-5">
+                <div class="d-flex justify-content-between py-50">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -137,7 +137,7 @@
             </div>
             @if($component=="OfficeRemovals.final_calculation" || $component=="OfficeRemovals.billing")
             <div class="col-md-28 col header_text_right">
-                <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
+                <div class="d-flex justify-content-end align-items-center pt-3" style="height:179px;">
                     <div>
                         <h6 class="mb-0">Prefer to get a price over the phone?</h6>
                         <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
@@ -239,9 +239,10 @@
 
 @section('script')
 <script>
+    @if($component!='OfficeRemovals.hours_need')
 $(document).ready(function(){
-    var lists = @json($result->cart_list)  
-    if(lists!=""){
+    var lists =  @json($result->cart_list)  
+    if(lists!=null){
 
         lists = JSON.parse(lists)
         console.log(lists)
@@ -283,6 +284,7 @@ $(document).ready(function(){
         $(".cart_panel .cart_amount").text(total_carts);
     }
 })
+@endif
  $(document).ready(function(){
             // Create a new Date object to get the current date and time
             const today = new Date();
@@ -413,29 +415,9 @@ $(document).ready(function(){
 @if($component=="OfficeRemovals.hours_need")
 <script>
     function update_time(hour,min){
-        var csrfToken = "{{ csrf_token() }}";
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            }
-        });
-
-        $.ajax({
-            url: '{{ route('OfficeRemovals.cart.update.time')}}',
-            method: 'POST',
-            data: {
-                hour: hour,
-                min: min
-            },
-            success: function(response) {
-                // Handle the successful response
-                console.log(response);
-            },
-            error: function(xhr, status, error) {
-                // Handle the error
-                console.log(error);
-            }
-        });
+        localStorage.setItem('hour', hour);
+        localStorage.setItem('min', min);
+        
     }
     $('.hour i.up').click(function(){
         var hour = parseInt($(this).parent().children('div').children('h1').text())+1
@@ -483,6 +465,17 @@ $(document).ready(function(){
             $(this).addClass('active')
         else
             $(this).removeClass('active')
+    })
+
+    $('.needs-validation').submit(function(){
+        var pick_address = localStorage.getItem('from');
+        var delivery_address = localStorage.getItem('to');
+        var hour = localStorage.getItem('hour');
+        var min = localStorage.getItem('min');
+        $(this).append($('<input>').attr('type', 'hidden').attr('name', 'pickup_address').val(pick_address));
+        $(this).append($('<input>').attr('type', 'hidden').attr('name', 'delivery_address').val(delivery_address));
+        $(this).append($('<input>').attr('type', 'hidden').attr('name', 'hour').val(hour));
+        $(this).append($('<input>').attr('type', 'hidden').attr('name', 'min').val(min));
     })
 </script>
 @endif

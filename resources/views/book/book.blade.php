@@ -7,12 +7,12 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-warning-light pt-3">
+    <div class="bg-warning-light2 pt-3">
         <div class="container-content">
         <div class="row">
             <div class="col-md-72 col">
                 <div class="d-flex justify-content-start align-items-center">
-                    <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 150px;">
+                    <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
                     <div class="ml-2 header_text">
                         <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
                         <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
@@ -43,7 +43,7 @@
                         
                 @endswitch
 
-                <div class="d-flex justify-content-between py-5">
+                <div class="d-flex justify-content-between py-50">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>

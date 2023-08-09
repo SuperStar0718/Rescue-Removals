@@ -153,6 +153,7 @@ img {
   display: flex;
   justify-content: space-between;
   padding: 0.25rem 0.5rem;
+  cursor: pointer;
 }
 
 .cart_panel .carts .cart{
@@ -203,7 +204,7 @@ div.men{
 .men .men_image{
   z-index: 1  ;
   padding-left: 15px;
-  display: flex;
+ 
     flex-direction: column-reverse;
 
   }
@@ -213,7 +214,7 @@ div.men{
   }
 .men .men_count .number_panel{
   /* height: 100%; */
-  padding: 65px 55px;
+  padding: 60px 60px;
 }
 
 .select_car{
@@ -467,6 +468,7 @@ div.car_title_section{
 
 .content-wrapper div.input-block input {
   width: 100%;
+  height: 55px;
   font-weight: 500;
   font-size: 1rem;
   color: #495055;
@@ -701,7 +703,7 @@ button.cancel{
   border: 0.5px solid #707070;
   font-size: 20px;
   font-weight: 500;
-  width: 35px;
+  width: 60px;
 }
 .moving-home>.book-now h3{
   font-size: 43px;
@@ -735,6 +737,7 @@ footer>div.footer{
 }
 .container-content .left_image{
   padding-right: 5px;
+  padding-left: 0;
 }
 .container-content.main_body .left_image{
   padding-right: 5px;
@@ -879,11 +882,11 @@ img.storage{
 .section_content .right_content{
   color: white;
   font-family: "Helvetica Neue";
-  font-size: 19px;
+  font-size: 20px;
   text-align: right;
   line-height:25px;
-  font-weight:bold;
-  display: flex;
+  font-weight:normal;
+ 
     flex-direction: column;
     justify-content: center;
 
@@ -965,13 +968,9 @@ text-align: center;
 letter-spacing: -50px;
 color: #000000;
 }
-.container-content .first_context{
+.container-content .item.center .text.content, .container-content .first_context{
   font-size: 20px;
-  line-height: 20px;
-}
-.container-content .item.center .text.content{
-  font-size: 20px;
-  line-height: 15px;
+  line-height: 24px;
 }
 .container-content .item.center .text.title {
   font-size: 24px;
@@ -983,8 +982,9 @@ color: #000000;
 }
 .container-content .item .text.content {
   font-family: "Helvetica Neue";
-  font-size: 11px;
-  font-weight: bold;
+      font-size: 14px;
+    font-weight: 200;
+    line-height: 16px;
 }
 .container-content .item .text{
   color: white;
@@ -998,7 +998,7 @@ color: #000000;
 .container-content .item .star{
   text-align: center;
   top: -35px;
-  width: 50%;
+  width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1007,7 +1007,7 @@ color: #000000;
 }
 
 .container-content .item.center .star {
-  width: 64%;
+  width: 70%;
   top: -60px;
 }
 
@@ -1098,7 +1098,8 @@ color: #000000;
 }
 .modal-dialog.house_type {
   max-width: none;
-  width: 43vw;
+  width: 50vw;
+  margin: 0 auto;
 }
 .modal-dialog.house_type .content-wrapper{
   padding: 0px;
@@ -1141,12 +1142,13 @@ color: #000000;
 }
 .sevice_text_content p{
   font-size: 20px;
-  line-height: 22px;
+    font-weight: normal;
+    line-height: 24px;
 
 }
 .sevice_text_content h5{
   font-size: 30px;
-  line-height: 60px;
+  line-height: 70px;
   font-weight: bold;
 }
 
@@ -1179,7 +1181,7 @@ color: #000000;
 }
 .col-md-28{
   flex: 0 0 28%;
-    max-width: 325px;
+    max-width: 365px;
     padding-right: 0px;
 }
 .col-md-28 h6, .header_text_right h6{
@@ -1231,4 +1233,25 @@ color: #434343;
 .address_abb{
   overflow: hidden;
   text-overflow: ellipsis;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.removals_items img{
+  width: 50px;
+}
+
+.removals_items button>div{
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+}
+
+.removals_items button span{
+  padding-left: 5px;
+  overflow: hidden;
+    text-overflow: ellipsis;
 }

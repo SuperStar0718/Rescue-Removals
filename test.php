@@ -328,6 +328,8 @@
 
 
 
+
+
 // Replace with your API key and desired postcode
 const apiKey = 'AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU';
 const postcode = "LU5 4UH";
@@ -483,34 +485,28 @@ geocoder.geocode(
                     console.log("category",category)
                     switch (category) {
                         case "eBay Deliveries":
-                            var url = "{{route('eBay')}}"
-                            window.location.assign(url)
-                            // update_from_to(url, from, to)
+                            var url = "{{route('eBay.cart.update.position')}}"
+                            update_from_to(url, from, to)
                             break;
                         case "Furniture & Appliances":
-                            var url = "{{route('Furniture_Appliance')}}"
-                            window.location.assign(url)
-                            // update_from_to(url, from, to)
+                            var url = "{{route('Furniture_Appliance.cart.update.position')}}"
+                            update_from_to(url, from, to)
                             break;
                         case "Man & Van":
-                            var url = "{{route('ManVan')}}"
-                            window.location.assign(url)
-                            // update_from_to(url, from, to)
+                            var url = "{{route('ManVan.cart.update.position')}}"
+                            update_from_to(url, from, to)
                             break;
                         case "Office Removals":
-                            var url = "{{route('OfficeRemovals.hours_need')}}"
-                            window.location.assign(url)
-                            // update_from_to(url, from, to)
+                            var url = "{{route('OfficeRemovals.cart.update.position')}}"
+                            update_from_to(url, from, to)
                             break;
                         case "Home Removals":
-                            var url = "{{route('HomeRemovals.house_type')}}"
-                            window.location.assign(url)
-                            // update_from_to(url, from, to)
+                            var url = "{{route('HomeRemovals.cart.update.position')}}"
+                            update_from_to(url, from, to)
                             break;
                         case "Motorbikes":
-                            var url = "{{route('Motorbike.hours_need')}}"
-                            window.location.assign(url)
-                            // update_from_to(url, from, to)
+                            var url = "{{route('Motorbike.cart.update.position')}}"
+                            update_from_to(url, from, to)
                             break;
                         default:
                             break;
@@ -573,47 +569,38 @@ geocoder.geocode(
             let quote_url = "{{ url('/') }}";
             if(val === "eBay Deliveries")
             {
-                $('#dropOff').prop('disabled', false);
                 quote_url = "{{route('eBay')}}";            
             }
             else if(val === "Furniture & Appliances")
             {
-                $('#dropOff').prop('disabled', false);
                 quote_url = "{{route('Furniture_Appliance')}}";            
             }
             else if(val === "Man & Van")
             {
-                $('#dropOff').prop('disabled', false);
                 quote_url = "{{route('ManVan')}}";            
             }
             else if(val === "Office Removals")
             {
-                $('#dropOff').prop('disabled', false);
                 quote_url = "{{ route('OfficeRemovals.hours_need') }}";
             }
             else if(val === "Home Removals")
             {
-                $('#dropOff').prop('disabled', false);
                 quote_url = "{{ route('HomeRemovals.house_type') }}";
             }
             else if(val === "Motorbikes")
             {
-                $('#dropOff').prop('disabled', false);
                 quote_url = "{{ route('Motorbike.hours_need') }}";
             }
             else if(val === "Waste Removals")
             {
-                $('#dropOff').prop('disabled', true);
                 quote_url = "{{ route('WasteRemovals') }}";
             }
             else if(val === "European Moves")
             {
-                $('#dropOff').prop('disabled', true);
                 quote_url = "{{ route('European_moves') }}";
             }
             else if(val === "Storage")
             {
-                $('#dropOff').prop('disabled', true);
                 quote_url = "{{ route('Storage') }}";
             }
             else
@@ -626,76 +613,77 @@ geocoder.geocode(
 
         }
         
-    </script>   
-      <style>
+    </script> 
+    <style>
 
-        .ui-effects-wrapper input{
+    .ui-effects-wrapper input{
+
+              background: #faed6d;
+
+    }   
     
-                  background: #faed6d;
+  
+
+</style>
     
-        }   
-        
+    <script type = "text/javascript"  src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"> </script>
+    
+    
+    <script type = "text/javascript" language = "javascript">
+    $('#quote_btn').click(function(){
+
+    // Get the Login Name value and trim it
+    var name = $('#pac-input').val();
+    
+    var name1 = $('#dropOff').val();
+    
+    // Check if empty of not
+    if (name1.length < 1) {
+        $(".target").effect( "shake", {times:5}, 500 );
+       $('.target').css('background-color' , '#FFFCD9');
+        return false;
+    }
+
+    // Check if empty of not
+    if (name.length < 1) {
+        $(".target").effect( "shake", {times:5}, 500 );
+          $('.target').css('background-color' , '#FFFCD9');
+        return false;
+    }else {
+        $('.target').css('background-color' , '#ffffff');
+    }
+    
+
+});
+
+
+$(function(){
+  $('.placeholder01').mouseover(function(){
+    //gets the current placeholder
+    this.holder=$(this).attr('placeholder');
+    $(this).attr('placeholder', 'Postcode or Town');
+    $('.placeholder01').css('background-color' , '#FFFCD9');
+  });
+  $('.placeholder01').mouseout(function(){
+    $(this).attr('placeholder', this.holder); //sets it back to the initial value
+     $('.target').css('background-color' , '#ffffff');
+  });
+})
+
+$(function(){
+  $('.placeholder02').mouseover(function(){
+    //gets the current placeholder
+    this.holder=$(this).attr('placeholder');
+    $(this).attr('placeholder', 'Postcode or Town');
+    $('.placeholder02').css('background-color' , '#FFFCD9');
+  });
+  $('.placeholder02').mouseout(function(){
+    $(this).attr('placeholder', this.holder); //sets it back to the initial value
+     $('.target').css('background-color' , '#ffffff');
+  });
+})
+      </script>
       
-    
-    </style>
-        
-        <script type = "text/javascript"  src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"> </script>
-        
-        
-        <script type = "text/javascript" language = "javascript">
-        $('#quote_btn').click(function(){
-    
-        // Get the Login Name value and trim it
-        var name = $('#pac-input').val();
-        
-        var name1 = $('#dropOff').val();
-        
-        // Check if empty of not
-        if (name1.length < 1) {
-            $(".target").effect( "shake", {times:5}, 500 );
-           $('.target').css('background-color' , '#FFFCD9');
-            return false;
-        }
-    
-        // Check if empty of not
-        if (name.length < 1) {
-            $(".target").effect( "shake", {times:5}, 500 );
-              $('.target').css('background-color' , '#FFFCD9');
-            return false;
-        }else {
-            $('.target').css('background-color' , '#ffffff');
-        }
-        
-    
-    });
-    
-    
-    $(function(){
-      $('.placeholder01').mouseover(function(){
-        //gets the current placeholder
-        this.holder=$(this).attr('placeholder');
-        $(this).attr('placeholder', 'Postcode or Town');
-        $('.placeholder01').css('background-color' , '#FFFCD9');
-      });
-      $('.placeholder01').mouseout(function(){
-        $(this).attr('placeholder', this.holder); //sets it back to the initial value
-         $('.target').css('background-color' , '#ffffff');
-      });
-    })
-    
-    $(function(){
-      $('.placeholder02').mouseover(function(){
-        //gets the current placeholder
-        this.holder=$(this).attr('placeholder');
-        $(this).attr('placeholder', 'Postcode or Town');
-        $('.placeholder02').css('background-color' , '#FFFCD9');
-      });
-      $('.placeholder02').mouseout(function(){
-        $(this).attr('placeholder', this.holder); //sets it back to the initial value
-         $('.target').css('background-color' , '#ffffff');
-      });
-    })
-          </script>
-          
-       
+   
+     
 @endsection

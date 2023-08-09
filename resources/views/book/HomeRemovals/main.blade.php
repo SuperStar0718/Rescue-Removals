@@ -7,8 +7,8 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-warning-light pt-3">
-        <div class="container-content">
+    <div class="bg-warning-light2 pt-3">
+        <div class="container-content mar5">
         <div class="row">
             
             @if($component=="HomeRemovals.price_page")
@@ -16,7 +16,7 @@
                 @include('components.book.price_page')
                 @php($next = "HomeRemovals.billing")
                 @php( $previous = "HomeRemovals.final_calculation")
-                <div class="d-flex justify-content-between py-5">
+                <div class="d-flex justify-content-between py-50 py123">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -35,7 +35,7 @@
                 @include('components.book.GetPriceModal', ['url'=> 'HomeRemovals.get_email'])
                 @php($next = "HomeRemovals.cart")
                 @php( $previous = "main")
-                <div class="d-flex justify-content-between py-5">
+                <div class="d-flex justify-content-between py-50 py123" style=" padding-top: 3rem !important;">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -49,9 +49,9 @@
                 </div>
             </div>
             @else
-            <div class="col-md-72 col">
+            <div class="col-md-72 col" style="padding-left: 0px;">
                 <div class="d-flex justify-content-start align-items-center">
-                    <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 150px;">
+                    <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
                     <div class="ml-2 header_text">
                         <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
                         <h6>Not 100% sure what you’re moving yet? Changing items later is easy!</h6>
@@ -127,7 +127,7 @@
                         
                 @endswitch
 
-                <div class="d-flex justify-content-between py-5">
+                <div class="d-flex justify-content-between py-50 py123">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -144,15 +144,15 @@
                 @endif
             </div>
             <div class="col-md-28 col header_text_right">
-                <div class="d-flex justify-content-end align-items-center pt-3" style="height:128px;">
+                <div class="d-flex justify-content-end align-items-center pt-3" style="height:179px;">
                     <div>
-                        <h6 class="mb-0">Prefer to get a price over the phone?</h6>
-                        <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
-                        <h6 >Quote Ref: 1887654</h6>
+                        <h6 class="mb-0" style="    font-size: 21px;line-height: 10px;">Prefer to get a price over the phone?</h6>
+                        <h1 class="btn-text-primary-light mb-0" style="font-size: 51px;">0208 090 6151</h1>
+                        <h6 style="    margin-top: -6px;" >Quote Ref: 1887654</h6>
                     </div>                    
                 </div>
                 @if($component=="HomeRemovals.final_calculation" || $component=="HomeRemovals.billing" )  
-                    <div class="map-wrapper shadow-effect">
+                    <div class="map-wrapper shadow-effect" style="    margin-top: 30px;">
                         <div id="googleMap">
                             <div class="mapouter">
                                 <div id="gmap_canvas">
@@ -261,9 +261,10 @@
 
 @section('script')
 <script>
+@if($component!='HomeRemovals.house_type')
 $(document).ready(function(){
-    var lists = @json($result->cart_list)  
-    if(lists!=""){
+    var lists = @json($result->cart_list);
+    if(lists!=null){
         lists = JSON.parse(lists)
         console.log(lists)
         const keys = Object.keys(lists);
@@ -304,7 +305,7 @@ $(document).ready(function(){
         $(".cart_panel .cart_amount").text(total_carts);
     }
 })
-
+@endif
  $(document).ready(function(){
             // Create a new Date object to get the current date and time
             const today = new Date();
@@ -684,6 +685,9 @@ $(document).ready(function(){
 
 <script>
     
+
+
+
     $('.input-block input[type="email"]').on('change', function(){
         var email = $(this).val()
         if(email.length>0)
@@ -721,22 +725,36 @@ function update_house_type(type, value){
 $('.from .dropdown_widget li').click(function(){
     var content = $(this).text()
     $('#pickup_type').text(content)
-    update_house_type('from', content)
+    // update_house_type('from', content)
 })
 $('.to .dropdown_widget li').click(function(){
     var content = $(this).text()
     $('#delivery_type').text(content)
-    update_house_type('to', content)
+    // update_house_type('to', content)
 
 })
 
+$('.needs-validation').submit(function(){
+    var pick_address = localStorage.getItem('from');
+    var delivery_address = localStorage.getItem('to');
+    var pick_address_type = $('#pickup_type').text()
+    var delivery_address_type = $('#delivery_type').text()
+    $(this).append($('<input>').attr('type', 'hidden').attr('name', 'pickup_address').val(pick_address));
+    $(this).append($('<input>').attr('type', 'hidden').attr('name', 'delivery_address').val(delivery_address));
+    $(this).append($('<input>').attr('type', 'hidden').attr('name', 'pick_address_type').val(pick_address_type));
+    $(this).append($('<input>').attr('type', 'hidden').attr('name', 'delivery_address_type').val(delivery_address_type));
+})
+
+
 $(document).ready(function(){
-    var from_type = "{{$result->from_type}}"
-    var to_type = "{{$result->to_type}}"
-    if(from_type!="")
-    $('#pickup_type').text(from_type)
-    if(to_type!="")
-    $('#delivery_type').text(to_type)
+    var from = localStorage.getItem('from');
+    from = JSON.parse(from);
+    $('#pickup_details span').text(from['formatted_address'])
+
+    var to = localStorage.getItem('to');
+    to = JSON.parse(to);
+    $('#delivery_details span').text(to['formatted_address'])
+
 })
 
 $('.next_button').click((event)=>{
