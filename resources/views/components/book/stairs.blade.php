@@ -17,7 +17,7 @@
                     </div>
                     <div class="dropdown col-md-5">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Ground Floor
+                            Select Option
                         </button>
                         <div class="dropdown-menu from" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Basement</a>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="dropdown col-md-5">
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Ground Floor
+                            Select Option
                         </button>
                         <div class="dropdown-menu to" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Basement</a>

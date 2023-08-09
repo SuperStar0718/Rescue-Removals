@@ -471,7 +471,9 @@ $(document).ready(function(){
         var pick_address = localStorage.getItem('from');
         var delivery_address = localStorage.getItem('to');
         var hour = localStorage.getItem('hour');
+        hour = hour ? hour : 2;
         var min = localStorage.getItem('min');
+        min= min ? min : 0;
         $(this).append($('<input>').attr('type', 'hidden').attr('name', 'pickup_address').val(pick_address));
         $(this).append($('<input>').attr('type', 'hidden').attr('name', 'delivery_address').val(delivery_address));
         $(this).append($('<input>').attr('type', 'hidden').attr('name', 'hour').val(hour));

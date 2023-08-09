@@ -19,8 +19,8 @@ return new class extends Migration
             $table->json('cart_list')->nullable();
             $table->json('from')->nullable();
             $table->json('to')->nullable();
-            $table->string('from_stair')->default("Ground floor");
-            $table->string('to_stair')->default("Ground floor");
+            $table->string('from_stair')->default("Select Option");
+            $table->string('to_stair')->default("Select Option");
             $table->string('from_type')->default("");
             $table->string('to_type')->default("");
             $table->integer('hour')->default(2);

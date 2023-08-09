@@ -522,24 +522,24 @@ $(document).ready(function(){
             }
         });
     }
-    $('.carousel-control-next').click(function(){
-        var cars = $('.carousel-item');
-        cars.each(function(index, car){
-            if($(this).hasClass('active')){
-                console.log((index+1)%3+1)
-                update_car((index+1)%3+1)
-            }
+    // $('.carousel-control-next').click(function(){
+    //     var cars = $('.carousel-item');
+    //     cars.each(function(index, car){
+    //         if($(this).hasClass('active')){
+    //             console.log((index+1)%3+1)
+    //             update_car((index+1)%3+1)
+    //         }
 
-        })
-    })
+    //     })
+    // })
 
-    $('.carousel-control-prev').click(function(){
-        var cars = $('.carousel-item');
-        cars.each(function(index, car){
-            if($(this).hasClass('active'))
-                update_car((index+2)%3+1)
-        })
-    })
+    // $('.carousel-control-prev').click(function(){
+    //     var cars = $('.carousel-item');
+    //     cars.each(function(index, car){
+    //         if($(this).hasClass('active'))
+    //             update_car((index+2)%3+1)
+    //     })
+    // })
 </script>
 @endif
 @if($component=="HomeRemovals.men")

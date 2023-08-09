@@ -8,7 +8,9 @@
         <div class="col-md-8 car-panel">
             <div class="car_selection ">
                 <div class="text-center  select_car">                                
+                    @if($component!="HomeRemovals.select_car")
                     <div class="arrow carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"><i class="fa fa-play pointer up" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(180deg);"></i></div>
+                    @endif
                     <div id="carouselExampleControls" class="carousel slide col-md-8" data-ride="carousel" data-interval="false">
                         <div class="carousel-inner">
                             @foreach($vans as $key => $van)
@@ -19,7 +21,10 @@
                             @endforeach
                         </div>
                     </div>
+                    @if($component!="HomeRemovals.select_car")
+
                     <div class="arrow carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"><i class="fa fa-play pointer down" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px;"></i></div>
+                    @endif
                 </div>
                 
             </div>
