@@ -303,12 +303,12 @@
 
     <div class="display-sm">
         <div class=" main_content">
-            <div class="logo">
+            {{-- <div class="logo">
                 <img src="{{asset('images/logo.svg')}}" alt="">
             </div>
             <div class="logo-text">
                 Your Journey Begins With Us!
-            </div>
+            </div> --}}
             <div class="banner">
                 <img src="{{asset('images/courier.png')}}" alt="">
             </div>

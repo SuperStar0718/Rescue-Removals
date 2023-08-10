@@ -142,7 +142,7 @@
             <img src="{{asset('images/car.png')}}" alt="" style="width:62%">
         </div>
     </div>
-    <div class="bg-primary-light footer pb-4">
+    {{-- <div class="bg-primary-light footer pb-4">
         <div class="container-content">
             <h1 class="text-center text-white mt-5 display-none-sm">WE ARE OPEN 7 DAYS A WEEK</h1>
             <h1 class="text-center text-white mt-2 display-none-sm">0208 090 6151</h1>
@@ -278,6 +278,6 @@
             </div>
         </div>
     </div>
-  
+   --}}
     @endif
 </footer>
