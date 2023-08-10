@@ -731,8 +731,8 @@ color: black;
 .moving-home>.book-now{
   justify-content: space-between;
 align-items: center;
-padding-left: 5rem;
-padding-right: 5rem;
+padding-left: 3rem;
+padding-right: 3rem;
 }
 .moving-home>.book-now button{
   border-radius: 15px;
@@ -820,7 +820,7 @@ img.storage{
   width: 100%;
 }
 .book_now_btn{
-  margin-top: 15px;
+  margin-bottom: -100px;
 }
 
 .dropdown .dropdown-toggle{
@@ -1264,4 +1264,22 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-left: 5px;
   overflow: hidden;
     text-overflow: ellipsis;
+}
+.our-services-context{
+  margin-bottom: 10rem;
+}
+.service-container{
+  padding-top: 0px;
+  margin-bottom: 10rem;
+}
+.about_image{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+a{
+  color: #353DA3;
+}
+h5 a{
+  color: white;
 }

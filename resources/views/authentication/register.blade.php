@@ -7,7 +7,7 @@
 @section('content')
     <!--------------- section 1 --------------->
     <div class="container-content">
-        <div class="row main_container_content">
+        <div class="row main_container_content mar5">
             <div class="col-md-6 left_image">
                 <img src="{{asset('images/Register/signup.png')}}" class="">
             </div>
@@ -18,15 +18,15 @@
                         <form action="{{route('register')}}" method="post">
                             @csrf
                             <div class="p-5">
-                                <input type="text" name="email" class="form-control mb-4" style="height: 40px; border-radius: 0.5rem;" id="email" placeholder="Email Address">
+                                <input type="text" name="email" class="form-control mb-41" style="height: 50px; border-radius: 0.5rem;margin-bottom: 24px;" id="email" placeholder="Email Address">
                                 @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <input type="password" name="password" class="form-control mb-4" style="height: 40px; border-radius: 0.5rem;" id="password" placeholder="Password">
+                                <input type="password" name="password" class="form-control mb-41" style="height: 50px; border-radius: 0.5rem;margin-bottom: 24px;" id="password" placeholder="Password">
                                 @error('password')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <input type="password" name="password_conf" class="form-control" style="height: 40px; border-radius: 0.5rem;" id="confirm password" placeholder="Conrfirm Password">
+                                <input type="password" name="password_conf" class="form-control" style="height: 50px; border-radius: 0.5rem;margin-bottom: 24px;" id="confirm password" placeholder="Conrfirm Password">
                                 @error('password_conf')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -62,8 +62,12 @@
                 </div>
                 <div class="text-center mt-1">
                     <a href="{{ url('/') }}">
-                        <button type="button" class="btn bg-primary-light text-white px-5 py-4">
-                            <h5 class="mb-0">Book Now</h5>
+                        <button type="button" class="btn bg-primary-light text-white rounded-pill px-5 py-4">
+                            <h5 class="mb-0">
+                                <a href="{{route('main')}}">
+                                    BOOK NOW
+                                </a>
+                            </h5>
                         </button>
                     </a>
                 </div>

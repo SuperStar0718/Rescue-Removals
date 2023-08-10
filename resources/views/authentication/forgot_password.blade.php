@@ -7,7 +7,7 @@
 @section('content')
     <!--------------- section 1 --------------->
     <div class="container-content ">
-        <div class="row main_container_content">
+        <div class="row main_container_content mar5">
             <div class="col-md-6 left_image">
                 <img src="{{asset('images/Forgot Password/forgotpassword.png')}}">
             </div>
@@ -39,7 +39,7 @@
         <div class="moving-home bg-white position-relative p-5">
             <div class="row book-now">
                     <div class="d-flex justify-content-start">
-                        <div class="">
+                        <div class="bottom-book-now">
                             <h3  class="btn-text-primary-light">Ready to Move?</h3>
                             <p>
                                 Fill in our simple form and let
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="text-center mt-1">
-                        <button type="button" class="btn bg-primary-light text-white px-5 py-4">
+                        <button type="button" class="btn bg-primary-light text-white rounded-pill px-5 py-4">
                             <h5 class="mb-0">Book Now</h5>
                         </button>
                     </div>

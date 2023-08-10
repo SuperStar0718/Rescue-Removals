@@ -7,7 +7,7 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-primary-dark py-5">
+    <div class="bg-primary-dark py-5 display-none-sm">
         <div class="container-content">
             <div class="row">
                 <div class="col-md-8">
@@ -21,7 +21,7 @@
                         <div class="text-center">
                             <a href="{{ url('/') }}">
                                 <button type="button" class="btn bg-white btn-text-primary-dark rounded-pill px-5 py-3">
-                                    <h5 class="mb-0">Book Now</h5>  
+                                    <h5 class="mb-0" style="color: #14205d !important;">Book Now</h5>  
                                 </button>
                             </a> 
                         </div>                        
@@ -30,10 +30,22 @@
             </div>
         </div>
     </div>
+    <div class="display-sm">
+        <div class="top-content">
+            <div class="text">
+                EBAY DELIVERIES
+            </div>
+            <div class="book-now">
+                <a href="{{route('main')}}">
+                    BOOK NOW
+                </a>
+            </div>
+        </div>
+    </div>
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <h4 class="container-content font-weight-bolder my-4">eBay Deliveries</h4>
+    <h4 class="container-content font-weight-bolder display-none-sm my-4">eBay Deliveries</h4>
     <div class="bg-warning-light">
         <div class="container-content py-5 sevice_text_content">
             <div class="row">
@@ -108,8 +120,8 @@
         <div class="moving-home bg-white position-relative p-5">
             <div class="row  book-now">
                     <div class="d-flex justify-content-start">
-                        <div>
-                            <h3  class="btn-text-primary-light">Need Parcels Collected & Delivered?</h3>
+                        <div  class="bottom-book-now">
+                            <h3  class="btn-text-primary-light">Need Delivery Service?</h3>
                             <p>
                                 Fill in our simple form and let
                                 us take care of the rest.

@@ -74,7 +74,11 @@
             <div class="">By clicking Book Now, you agree with our Privacy Policy and Terms of Use.</div>
             <div class="d-flex justify-content-center" >
                 <button type="button" class="btn cancel" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn book_now">Book Now</button>
+                <button type="button" class="btn book_now">
+                    <a href="{{route('main')}}">
+                        BOOK NOW
+                    </a>
+                </button>
             </div>
         </div>
     </div>

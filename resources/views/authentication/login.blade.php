@@ -7,7 +7,7 @@
 @section('content')
     <!--------------- section 1 --------------->
     <div class="container-content">
-        <div class="row main_container_content">
+        <div class="row main_container_content mar5">
             <div class="col-md-6 left_image" >
                 <img src="{{asset('images/Login/login.png')}}" class="">
             </div>
@@ -18,11 +18,11 @@
                         <form action="{{route('login')}}" method="post">
                         <div class="p-5">
                             @csrf
-                            <input type="text" class="form-control mb-2" style="height: 40px; border-radius: 0.5rem;" name="email" id="email" placeholder="Email Address">
+                            <input type="text" class="form-control mb-21" style="height: 50px; border-radius: 0.5rem;margin-bottom: 24px;" name="email" id="email" placeholder="Email Address">
                             @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <input type="password" class="form-control mb-2" style="height: 40px; border-radius: 0.5rem;" name="password" id="password" placeholder="Password">
+                            <input type="password" class="form-control mb-21" style="height: 50px; border-radius: 0.5rem;margin-bottom: 24px;" name="password" id="password" placeholder="Password">
                             @error('password')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -89,8 +89,12 @@
                 </div>
                 <div class="text-center mt-1">
                     <a href="{{ url('/') }}">
-                        <button type="button" class="btn bg-primary-light text-white px-5 py-4">
-                            <h5 class="mb-0">Book Now</h5>
+                        <button type="button" class="btn bg-primary-light text-white rounded-pill px-5 py-4">
+                            <h5 class="mb-0">
+                                <a href="{{route('main')}}">
+                                    BOOK NOW
+                                </a>
+                            </h5>
                         </button>
                     </a>
                 </div>

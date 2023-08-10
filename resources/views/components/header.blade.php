@@ -1,4 +1,4 @@
-<header class="bg-primary-light p-3">
+<header class="bg-primary-light p-3" style="margin-bottom: 0px;">
         <div class="display-none-sm d-flex justify-content-between align-items-center container-content text-white">
             <div class="d-flex align-items-center">
                 <a href="{{ url('/') }}">
@@ -59,10 +59,18 @@
                 </div>
             </div>
             <div class="menu">
-                <a href="{{ url('/ourservices') }}" class="text-white mr-5">OUR SERVICES</a>
-                <a href="{{ url('/aboutus') }}" class="text-white mr-5">ABOUT US</a>
-                <a href="{{ url('/contactus') }}" class="text-white mr-5">CONTACT</a>
-                <a href="{{ url('/login') }}" class="text-white mr-5">LOGIN</a>
+                <a href="{{ url('/ourservices') }}" class="text-white">OUR SERVICES</a>
+                <a href="{{ url('/aboutus') }}" class="text-white">ABOUT US</a>
+                <a href="{{ url('/contactus') }}" class="text-white">CONTACT</a>
+                <a href="{{ url('/login') }}" class="text-white">LOGIN</a>
+            </div>
+            <div class="header-logo">
+                <div class="logo">
+                    <img src="{{asset('images/logo.svg')}}" alt="">
+                </div>
+                <div class="logo-text">
+                    Your Journey Begins With Us!
+                </div>
             </div>
         </div>
 </header>

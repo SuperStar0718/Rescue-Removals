@@ -21,7 +21,7 @@
                     </div>
                     <div style="position:relative;" class = "categories">                    
                         <input type="text" id="moving-input" class="form-control form-control-lg" style="height: 60px" id="moving" placeholder="What are you moving?"> 
-                        <div class="mt-2 py-4 px-5" id="dropdown-frame" style="position: absolute; width:650px; right:0px; background-color: white; border-radius: 0.5rem; border: 4px solid #353ea3;  display:none; z-index: 1;">
+                        <div class="mt-2 py-4 px-5" id="dropdown-frame" style="    padding-top: 2rem !important;    padding-left: 1rem !important;position: absolute; width:650px; right:0px; background-color: white; border-radius: 0.5rem; border: 4px solid #353ea3;  display:none; z-index: 1;">
                         <i class=""></i>
                             <div class="row">
                                 <div class="col-md-6 mb-2 category">
@@ -95,7 +95,7 @@
                             <img src="{{asset('images/Trustpilot Logo-1.svg')}}" alt="courier" style="width: 120px;">
                         </div>
                         <div class="col-md-6">
-                            <button type="button" class="btn bg-primary-light text-white px-5 py-3 " id="quote_btn" >
+                            <button type="button" class="btn bg-primary-light text-white px-5 py-3" style="font-size: 20px;" id="quote_btn" >
                                 Get Quote Now
                             </button>
                         </div>
@@ -279,7 +279,7 @@
         <div class="moving-home bg-white position-relative p-5">
             <div class="row book-now">
                     <div class="d-flex justify-content-start">
-                        <div class="">
+                        <div  class="bottom-book-now">
                             <h3  class="btn-text-primary-light">Ready to Move?</h3>
                             <p>
                                 Fill in our simple form and let
@@ -288,7 +288,7 @@
                         </div>
                     </div>
                     <div class="text-center mt-1">
-                        <button type="button" class="btn bg-primary-light text-white px-5 py-4">
+                        <button type="button" class="btn bg-primary-light text-white rounded-pill px-5 py-4">
                             <h5 class="mb-0">Book Now</h5>
                         </button>
                     </div>
@@ -301,8 +301,6 @@
 
 
 
-
-    {{--====================== mobile responsive===================== --}}
     <div class="display-sm">
         <div class=" main_content">
             <div class="logo">
@@ -394,7 +392,7 @@
                 </button>
             </div>
             <div class="courier">
-                <img src="{{asset('images/Trustpilot Logo-1.svg')}}" alt="courier">
+                <img src="{{asset('images/Trustpilot Logo.svg')}}" alt="courier">
             </div>
         </div>
     </div>

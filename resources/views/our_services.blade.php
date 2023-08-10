@@ -5,9 +5,21 @@
 @endsection
 
 @section('content')
-<div class=" my-5" style="margin-bottom: 10rem !important;">
-        <div class="container-content py-5 " style="    padding-top: 3rem !important;padding-bottom: 3rem !important;">
+<div class="our-services-context">
+        <div class="container-content py-5 display-none-sm" style="    padding-top: 3rem !important;padding-bottom: 3rem !important;">
             <h3>Our Services - We love what we do & we do it well…</h3>            
+        </div>
+        <div class="display-sm">
+            <div class="top-content">
+                <div class="text">
+                    OUR SERVICES
+                </div>
+                <div class="book-now">
+                    <a href="{{route('main')}}">
+                        BOOK NOW
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="container-content service_category">
                 <div class="">
@@ -85,11 +97,11 @@
         </div>
     </div>
     <!--------------- section 1 --------------->
-    <div class="container-content book_now_btn" style="margin-bottom: -100px;">
+    <div class="container-content book_now_btn" >
         <div class="moving-home bg-white position-relative p-5">
             <div class="row book-now">
                     <div class="d-flex justify-content-start">
-                        <div class="">
+                        <div class="bottom-book-now">
                             <h3  class="btn-text-primary-light">Ready to Move?</h3>
                             <p>
                                 Fill in our simple form and let
@@ -98,8 +110,12 @@
                         </div>
                     </div>
                     <div class="text-center mt-1">
-                        <button type="button" class="btn bg-primary-light text-white px-5 py-4">
-                            <h5 class="mb-0">Book Now</h5>
+                        <button type="button" class="btn bg-primary-light text-white rounded-pill  px-5 py-3">
+                            <h5 class="mb-0">
+                                <a href="{{route('main')}}">
+                                    BOOK NOW
+                                </a>
+                            </h5>
                         </button>
                     </div>
             </div>

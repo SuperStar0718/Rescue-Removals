@@ -7,7 +7,7 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-primary-dark py-5">
+    <div class="bg-primary-dark py-5 display-none-sm">
         <div class="container-content ">
             <div class="row">
                 <div class="col-md-8">
@@ -30,10 +30,22 @@
             </div>
         </div>
     </div>
+    <div class="display-sm">
+        <div class="top-content">
+            <div class="text">
+                STORAGE
+            </div>
+            <div class="book-now">
+                <a href="{{route('main')}}">
+                    BOOK NOW
+                </a>
+            </div>
+        </div>
+    </div>
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <h4 class="container-content font-weight-bolder my-4">Storage</h4>
+    <h4 class="container-content font-weight-bolder display-none-sm my-4">Storage</h4>
     <div class="bg-warning-light">
         <div class="container-content py-5 sevice_text_content">
             <div class="row">
@@ -64,7 +76,7 @@
                             assist you every step of the way.
                         </p>
                     </div>
-                    <div>
+                    <div class="display-none-sm">
                         <img src="{{asset('images/Storage/storage-2.png')}}" class="img_wid_100">
                     </div>
                 </div>
@@ -72,9 +84,11 @@
         </div>
     </div>
     <!--------------- end section 2 --------------->
-
+    <div class="display-sm">
+        <img src="{{asset('images/Storage/storage-2.png')}}" class="img_wid_100">
+    </div>
     <!--------------- section 3 --------------->
-    <div class="py-10" style="padding-top: 0rem !important;margin-bottom: 10rem;">
+    <div class="py-10 service-container">
         <div class="container-content py-10 sevice_text_content" style="padding-top: 4rem !important; padding-bottom: 2rem !important;">
             <h5>Your Affordable Solution for Smooth Moves</h5>
             <p class="mb-3">
@@ -122,7 +136,7 @@
         <div class="moving-home bg-white position-relative p-5">
             <div class="row book-now">
                     <div class="d-flex justify-content-center">
-                        <div>
+                        <div class="bottom-book-now">
                             <h3  class="btn-text-primary-light">Need Storage?</h3>
                             <p>
                                 Fill in our simple form and let

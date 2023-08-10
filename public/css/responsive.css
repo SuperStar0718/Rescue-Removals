@@ -1,4 +1,53 @@
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 771px) {
+    .service-container{
+        margin-bottom: 40px;
+      }
+    .sevice_text_content .left_image img{
+        border-top-left-radius: 55px;
+        border-bottom-right-radius: 55px;
+    }
+    .bg-warning-light{
+        background-color: white !important;
+    }
+    .footer-social>div{
+        width: 260px;
+    }
+    .footer-social{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .faq{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    }
+    footer .col-md-5, footer .col-md-7{
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .display-sm.footer-text>div>div{
+        font-size: 15px;
+        color: white;
+        text-align: center;
+        padding: 5px 0px;
+        line-height: 16px;
+        width: 260px;
+    }
+    .container-content .trustpilot_logo{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        margin-top: 50px;
+    }
+    .container-content .trustpilot_logo>div{
+        width: fit-content !important;
+    }
+    .container-content .trustpilot_logo>div>img{
+        width: 100% !important;
+    }
 .location_input .col-md-6{
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -19,6 +68,64 @@
     padding: 0px !important;
     width: 100%;
   }
+  .container-content.service_category.services div{
+    display: none;
+  }
+  .container-content.service_category.services div:first-child{
+    display: block !important;
+  }
+
+  .container-content.service_category{
+    grid-template-columns: auto;
+    padding: 0px !important;
+  }
+  .our-services-context{
+    margin-bottom: 40px;
+  }
+  .book_now_btn{
+    margin-bottom: -120px;
+  }
+  .moving-home>.book-now button{
+    padding: 18px 35px !important;
+    width: 193px;
+    border-radius: 15px !important;
+  }
+  .moving-home>.book-now .bottom-book-now{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .moving-home>.book-now{
+    max-width: 280px;
+    justify-content: center;
+    padding: 0px;
+  }
+  .moving-home>.book-now h3{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  .moving-home>.book-now p{
+    margin: 0px;
+    width: 180px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  .moving-home{
+    border-radius: 40px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-content.book_now_btn{
+    padding-left: 15% !important;
+    padding-right: 15% !important;
+
+  }
 
 }
 /* media */
@@ -28,6 +135,11 @@
 @media only screen and (max-width: 1240px) {
 
 }
+@media only screen and (max-width: 835px) {
+.ml-md-5{
+    margin-left: 0px  !important;
+}
+}
 @media only screen and (max-width: 940px) {
 .section_content.main_body .right_content{
     padding-top: 0px !important;
@@ -35,7 +147,7 @@
 
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1240px) {
+@media only screen and (min-width: 771px) and (max-width: 1240px) {
     #quote_btn{
         padding-left: 0px !important;
         padding-right: 0px !important;
@@ -142,24 +254,25 @@ color: #353da3;
     width: 40%;
 }
 footer .display-sm > div{
-    background-color: #14205d;
+    /* background-color: #14205d;
     display: flex;
-    justify-content: center;
+    justify-content: center; */
+
 }
 footer .display-sm img{
-    width: 70%;
+    width: 100%;
 }
 header .menu a{
-    transform: scaleY(2);
+    /* transform: scaleY(2); */
 
 }
 header .menu{
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    letter-spacing: -3px;
+    font-family: "Impact", Arial, sans-serif;
+    letter-spacing: 1px;
     font-weight: bold;
     position:absolute;
     background-color: #353da3;
-    font-size: 30px;
+    font-size: 38px;
     display: flex;
     flex-direction: column;
     padding: 20px 19%;
@@ -169,6 +282,8 @@ header .menu{
     transition: opacity 0.3s ease, height 0.3s ease;
     width: 100%;
     line-height: 60px;
+    left: 0px;
+    z-index: 2;
 }
 header .menu.show{
     opacity: 1;
@@ -200,4 +315,72 @@ header .menu.show{
 }
 .main_content .categories{
     position: relative;
+}
+.header-logo .logo img{
+width: 257px;
+}
+.header-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+header{
+    margin-bottom: 5px;
+}
+.top-content{
+    background-color: #353da3;
+    color: white;
+    margin-bottom: 20px;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+
+
+}
+.top-content .text{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 19px;
+    padding-bottom: 8px;
+}
+.top-content .book-now{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 16px 38px;
+    background-color: white;
+    color: #353DA3;
+    border-radius: 20px;
+}
+
+.display-sm .content-wrapper{
+    background-color: #353DA3;
+    border-radius: 0px;
+}
+.display-sm .input-block{
+    margin-bottom: 10px;
+}
+.send_message{
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #353DA3;
+    border-radius: 10px;
+    background-color: white;
+}
+.container.content-wrapper .bottom-text{
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 150px;
 }
