@@ -1,10 +1,10 @@
 <header class="bg-primary-light p-3">
-        <div class="d-flex justify-content-between align-items-center container-content text-white">
+        <div class="display-none-sm d-flex justify-content-between align-items-center container-content text-white">
             <div class="d-flex align-items-center">
                 <a href="{{ url('/') }}">
                     <img src="{{asset('images/logo.svg')}}" alt="person" class="mr-5" style="width: 160px;">
                 </a>                
-                <div class="display-none-sm">
+                <div class="header-sm">
                     <div class="d-flex align-items-center">
                         <a href="{{ url('/ourservices') }}" class="text-white mr-5">Our Services</a>
                         <a href="{{ url('/aboutus') }}" class="text-white mr-5">About Us</a>
@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            <div class="display-none-sm">
+            <div class="header-sm">
                 <div class="d-flex align-items-center">
                     @if (Route::currentRouteName() === 'admin_panel')
                         <!-- Your content for the specific route -->
@@ -42,6 +42,27 @@
                         </div>
                     @endif
                 </div>
+            </div>
+        </div>
+        <div class="display-sm">
+            <div class="d-flex justify-content-between">
+                <label for="three-dot">
+                    <div class="three-dot">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </label>
+                <input type="checkbox" id="three-dot" hidden>
+                <div class="call">
+                    CALL
+                </div>
+            </div>
+            <div class="menu">
+                <a href="{{ url('/ourservices') }}" class="text-white mr-5">OUR SERVICES</a>
+                <a href="{{ url('/aboutus') }}" class="text-white mr-5">ABOUT US</a>
+                <a href="{{ url('/contactus') }}" class="text-white mr-5">CONTACT</a>
+                <a href="{{ url('/login') }}" class="text-white mr-5">LOGIN</a>
             </div>
         </div>
 </header>

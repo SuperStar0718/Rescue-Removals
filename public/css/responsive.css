@@ -1,0 +1,203 @@
+@media only screen and (max-width: 768px) {
+.location_input .col-md-6{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 10px !important;
+
+}
+.display-none-sm {
+    display: none !important;
+  }
+.display-sm {
+    display: block !important;
+  }
+
+  header{
+    padding: 30px 24px;
+  }
+  .location_input>div{
+    padding: 0px !important;
+    width: 100%;
+  }
+
+}
+/* media */
+@media only screen and (max-width: 1500px) {
+
+}
+@media only screen and (max-width: 1240px) {
+
+}
+@media only screen and (max-width: 940px) {
+.section_content.main_body .right_content{
+    padding-top: 0px !important;
+}
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1240px) {
+    #quote_btn{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+.dot{
+    width: 13px;
+    height: 13px;
+    background-color: white;
+    display: block;
+    border-radius: 100%;
+    margin-right: 2px;
+
+}
+.three-dot{
+    display: flex;
+    align-items: center;
+}
+.call{
+    width: 68px;
+height: 29px;
+
+border-radius: 9px;
+
+
+background: #ffffff;
+
+font-family: "Arial Black";
+font-size: 12px;
+font-weight: normal;
+font-style: normal;
+align-items: center;
+    display: flex;
+    justify-content: center;
+/* letter-spacing: -25px; */
+color: #353da3;
+}
+.display-sm .main_content{
+    background-color: #353da3;
+    padding: 20px 19%;
+}
+.display-sm .logo-text{
+    color: white;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+}
+.display-sm .main_content >div> img{
+    width: 100%;
+}
+.display-sm .banner{
+    padding-top: 33px;
+}
+.display-sm .main_content input{
+    border-radius: 11px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #353da3;
+    padding: 13px 18px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.display-sm .main_content input[type="text"]::-webkit-input-placeholder {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #353da3;
+}
+.display-sm .main_content .warning{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+}
+.display-sm{
+    display: none;
+}
+#quote_btn{
+    background-color: white;
+    border-radius: 11px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #353da3;
+    padding: 13px 20px;
+}
+.get-quote{
+    display: flex;
+    justify-content: center;
+}
+.main_content div.courier{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.main_content div.courier img{
+    width: 40%;
+}
+footer .display-sm > div{
+    background-color: #14205d;
+    display: flex;
+    justify-content: center;
+}
+footer .display-sm img{
+    width: 70%;
+}
+header .menu a{
+    transform: scaleY(2);
+
+}
+header .menu{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: -3px;
+    font-weight: bold;
+    position:absolute;
+    background-color: #353da3;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 19%;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, height 0.3s ease;
+    width: 100%;
+    line-height: 60px;
+}
+header .menu.show{
+    opacity: 1;
+    height: auto;
+    transition: opacity 0.3s ease, height 0.3s ease;
+}
+#dropdown-frame-mobile{
+    position: absolute;
+       background-color: white;
+        border-radius: 0.5rem;
+           display:none;
+            z-index: 1;
+    width: 120%;
+    left: -10%;
+    
+}
+.main_content .categories .category img{
+    width: 30px !important;
+}
+
+.main_content .categories .category h6{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #8B8B8B;
+}
+.main_content .categories .category{
+    height: auto;
+}
+.main_content .categories{
+    position: relative;
+}

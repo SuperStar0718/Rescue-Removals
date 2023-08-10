@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
+    <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
 
 
 	<link rel="stylesheet" type="text/css" 
@@ -44,7 +45,17 @@
 
         var text = $('.weekday').children('div').eq(dayOfWeekNumber-1).css('color','yellow ')
 
+        $('#three-dot').change(function() {
+            if ($(this).is(':checked')) {
+            // Checkbox is checked, do something
+                $('header .menu').addClass('show')
+            } else {
+            // Checkbox is unchecked, do something else
+                $('header .menu').removeClass('show')
+            }
+        });
     })
+
 </script>
 
 </html>

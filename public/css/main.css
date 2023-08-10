@@ -53,8 +53,9 @@ img {
     padding: 0 2rem !important;
     width: 100% !important;
   }
-  .display-none-sm {
-    display: none !important;
+
+  .header-sm > div > a.mr-5{
+    margin-right: 20px !important;
   }
   .section_content{
     display: flex !important;
@@ -263,7 +264,9 @@ div.car_title_section{
   align-items: center; */
   /* width: 230px; */
 }
-
+#pickup_details:after, #delivery_details:after{
+  display: none;
+}
 .dropdown button.dropdown-toggle{
   padding: 1rem;
   background-color: white;

@@ -1,5 +1,5 @@
 <footer>        
-    <div class="bg-primary-light footer pb-4">
+    <div class="bg-primary-light footer pb-4 display-none-sm">
         <div class="container-content">
             <h1 class="text-center text-white mt-5">WE ARE OPEN 7 DAYS A WEEK</h1>
             <h1 class="text-center text-white mt-2">0208 090 6151</h1>
@@ -88,6 +88,11 @@
                     <span class="display-block"><h6>Registered address: 6-8 Great Eastern St, London EC2A 3NT | Company number: 14893004</h6></span>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="display-sm ">
+        <div class="py-3">
+            <img src="{{asset('images/car.png')}}" alt="">
         </div>
     </div>
 </footer>

@@ -7,7 +7,7 @@
 @section('content')
 
     <!--------------- section 1 --------------->
-    <div class="bg-warning-light py-5" style="padding-top: 3rem !important;">
+    <div class="bg-warning-light py-5 display-none-sm" style="padding-top: 3rem !important;">
         <div class="container-content" >
             <div class="row pb-3">
                 <div class="col-md-7" style="padding-left: 0;">
@@ -112,7 +112,7 @@
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div style="">
+    <div style="" class="display-none-sm">
         <div class="d-flex justify-content-center text-center">
             <div class=" border-grey " style="width: 75%">
                 <h3 class="py-4" style="font-weight: bold; font-size: 30px;padding-top: 2.5rem !important;">Your Journey Begins With Us!</h3>
@@ -134,7 +134,7 @@
     
     <!--------------- end section 2 --------------->
 
-<div class="bg-primary-light">
+<div class="bg-primary-light display-none-sm">
     <div class="section_content container-content main_body ">
         <div class="left_image">
             <img src="{{asset('images/people website.png')}}" >               
@@ -151,7 +151,7 @@
 </div>
 
     <!--------------- section 3 --------------->
-    <div class=" mt-5">
+    <div class="display-none-sm mt-5">
         <div class="container-content reviews">
             <div class="left item">
                 <img src="{{asset('images/left.png')}}" class="avatar" alt="">
@@ -275,7 +275,7 @@
     <!--------------- end section 3 --------------->
 
     <!--------------- section 4 --------------->
-    <div class="container-content book_now_btn" style="margin-bottom: -100px;">
+    <div class="display-none-sm container-content book_now_btn" style="margin-bottom: -100px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="row book-now">
                     <div class="d-flex justify-content-start">
@@ -298,6 +298,106 @@
       <div id="map"></div>
 
     <!--------------- end section 4 --------------->
+
+
+
+
+    {{--====================== mobile responsive===================== --}}
+    <div class="display-sm">
+        <div class=" main_content">
+            <div class="logo">
+                <img src="{{asset('images/logo.svg')}}" alt="">
+            </div>
+            <div class="logo-text">
+                Your Journey Begins With Us!
+            </div>
+            <div class="banner">
+                <img src="{{asset('images/courier.png')}}" alt="">
+            </div>
+            <div  class = "categories">                    
+                <input type="text" id="moving-input-mobile" class="form-control form-control-lg"  id="moving" placeholder="What are you moving?"> 
+                <div class=" py-4 " id="dropdown-frame-mobile" >
+                <i class=""></i>
+                    <div class="row">
+                        <div class="col-md-6 mb-2 category">
+                            <div class="d-flex justify-content-start align-items-center text-center pointer" id="homes" onclick = "set_value('Home Removals')">
+                                <img src="{{asset('images/Book/home removals icon (1).png')}}" alt="home-removals-logo" class="w-5 home_removals">
+                                <h6 class="pl-3 mb-0">Home Removals</h6>
+                            </div>                                
+                        </div>
+                        <div class="col-md-6 mb-2 category">
+                            <div class="d-flex justify-content-start align-items-center text-center pointer" id="man_van" onclick = "set_value('Man & Van')">
+                                <img src="{{asset('images/Book/man & van icon (1).png')}}" alt="home-removals-logo" class="w-5">
+                                <h6 class="pl-3 mb-0">Man & Van</h6>
+                            </div> 
+                        </div>
+                        <div class="col-md-6 mb-2 category">
+                            <div class="d-flex justify-content-start align-items-center text-center pointer" id="office" onclick = "set_value('Office Removals')">
+                                <img src="{{asset('images/Book/office icon (1).png')}}" alt="home-removals-logo" class="w-5">
+                                <h6 class="pl-3 mb-0">Office Removals</h6>
+                            </div> 
+                        </div>
+                        <div class="col-md-6 mb-2 category">
+                            <div class="d-flex justify-content-start align-items-center text-center pointer" id="motorbike" onclick = "set_value('Motorbikes')">
+                                <img src="{{asset('images/Book/motorbike icon (1).png')}}" alt="home-removals-logo" class="w-5  ">
+                                <h6 class="pl-3 mb-0">Motorbikes</h6>
+                            </div> 
+                        </div>
+                        <div class="col-md-6 mb-2 category">
+                            <div class="d-flex justify-content-start align-items-center text-center pointer" id="furniture" onclick = "set_value('Furniture & Appliances')">
+                                <img src="{{asset('images/Book/sofa icon (1).png')}}" alt="home-removals-logo" class="w-5  ">
+                                <h6 class="pl-3 mb-0">Furniture & Appliances</h6>
+                            </div> 
+                        </div>
+                        <div class="col-md-6 mb-2 category">
+                            <div class="d-flex justify-content-start align-items-center text-center pointer" id="european" onclick = "set_value('European Moves')">
+                                <img src="{{asset('images/Book/european union icon.png')}}" alt="home-removals-logo" class="w-5  ">
+                                <h6 class="pl-3 mb-0">European Moves</h6>
+                            </div> 
+                        </div>
+                        <div class="col-md-6 mb-2 category">
+                            <div class="d-flex justify-content-start align-items-center text-center pointer" id="waste" onclick = "set_value('Waste Removals')">
+                                <img src="{{asset('images/Book/waste icon-ai (1).png')}}" alt="home-removals-logo" class="w-5 waste_removals ">
+                                <h6 class="pl-3 mb-0" style="padding-left: 18px !important;">Waste Removals</h6>
+                            </div> 
+                        </div>
+                        <div class="col-md-6 mb-2 category">
+                            <div class="d-flex justify-content-start align-items-center text-center pointer" id="storage" onclick = "set_value('Storage')">
+                                <img src="{{asset('images/Book/storage icon (1).png')}}" alt="home-removals-logo" class="w-5 storage ">
+                                <h6 class="pl-3 mb-0" style="padding-left: 13px !important;">Storage</h6>
+                            </div> 
+                        </div>
+                        <div class="col-md-6 mb-2 category">
+                            <div class="d-flex justify-content-start align-items-center text-center pointer" id="ebay" onclick = "set_value('eBay Deliveries')">
+                                <img src="{{asset('images/Book/ebay icon (1).png')}}" alt="home-removals-logo" class="w-5 ebay ">
+                                <h6 class="pl-3 mb-0" style="padding-left: 18px !important;">eBay Deliveries</h6>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between row location_input">
+                <div class="">
+                    <input type="text" class="form-control form-control-lg mr-2 target placeholder01" id="pac-input" placeholder="Pick Up Location">
+                </div>
+                <div class="">
+                    <input type="text" class="form-control form-control-lg target placeholder02" id="dropOff" placeholder="Drop Off Location">
+                </div>
+
+            </div>
+            <div class = "warning">
+                Already received a quote?
+            </div>
+            <div class="get-quote">
+                <button type="button" class="btn  " id="quote_btn" >
+                    GET PRICE NOW
+                </button>
+            </div>
+            <div class="courier">
+                <img src="{{asset('images/Trustpilot Logo-1.svg')}}" alt="courier">
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('footer')
@@ -462,15 +562,23 @@ geocoder.geocode(
         $('#moving-input').click(function() {
             $('#dropdown-frame').toggle()
         });
+        $('#moving-input-mobile').click(function() {
+            $('#dropdown-frame-mobile').toggle()
+        });
 
         $(document).click(function(event) {
             if (!$(event.target).closest('#moving-input, #dropdown-frame').length) {
                 $('#dropdown-frame').hide();
             }
+            if (!$(event.target).closest('#moving-input-mobile, #dropdown-frame-mobile').length) {
+                $('#dropdown-frame-mobile').hide();
+            }
         });
 
         $('#quote_btn').click(function(){
             var category = $('#moving-input').val()
+            var category_mobile = $('#moving-input-mobile').val()
+            category = category_mobile ? category_mobile : category;
             var from  =  $('#pac-input').val()
             var to = $('#dropOff').val()
             if(category!='')
@@ -650,6 +758,30 @@ geocoder.geocode(
             
             var name1 = $('#dropOff').val();
             var moving_input = $('#moving-input').val();
+            // Check if empty of not
+            if (name.length < 1) {
+                $(".target").effect( "shake", {times:5}, 500 );
+                $('.target').css('background-color' , '#FFFCD9');
+                return false;
+            }
+        // Check if empty of not
+        if (name1.length < 1 && moving_input!='Storage'  && moving_input!='Waste Removals'  && moving_input!='European Moves' ) {
+            $(".target").effect( "shake", {times:5}, 500 );
+              $('.target').css('background-color' , '#FFFCD9');
+            return false;
+        }else {
+            $('.target').css('background-color' , '#ffffff');
+        }
+        
+    
+    });
+        $('#quote_btn-mobile').click(function(){
+            
+            // Get the Login Name value and trim it
+            var name = $('#pac-input-mobile').val();
+            
+            var name1 = $('#dropOff').val();
+            var moving_input = $('#moving-input-mobile').val();
             // Check if empty of not
             if (name.length < 1) {
                 $(".target").effect( "shake", {times:5}, 500 );
