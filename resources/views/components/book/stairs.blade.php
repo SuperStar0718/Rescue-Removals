@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4 bg-primary-light d-flex justify-content-center align-items-center" style="border-radius: 2rem 0rem 0rem 2rem;">
             <div class="d-flex justify-content-center align-items-center">
-                <h3 class="text-white pl-4">Select how many flights of stairs our team will need to climb?</h3>
+                <h3 class="text-white px-3">Select how many flights of stairs our team will need to climb?</h3>
             </div>                        
         </div>
         <div class="col-md-8 stairs right_panel">
@@ -19,16 +19,24 @@
                         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Select Option
                         </button>
-                        <div class="dropdown-menu from" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Basement</a>
+                        <div class="dropdown-menu from" aria-labelledby="dropdownMenuButton" style="transform: translateY(50px) !important;">
+                            <a class="dropdown-item" href="#">Basement With Lift</a>
+                            <a class="dropdown-item" href="#">Basement No Lift</a>
                             <a class="dropdown-item" href="#">Ground floor</a>
-                            <a class="dropdown-item" href="#">1st floor</a>
-                            <a class="dropdown-item" href="#">2nd floor</a>
-                            <a class="dropdown-item" href="#">3rd floor</a>
-                            <a class="dropdown-item" href="#">4th floor</a>
-                            <a class="dropdown-item" href="#">5th floor</a>
-                            <a class="dropdown-item" href="#">6th floor</a>
-                            <a class="dropdown-item" href="#">Above 6th floor</a>
+                            <a class="dropdown-item" href="#">1st floor With Lift</a>
+                            <a class="dropdown-item" href="#">1st floor No Lift</a>
+                            <a class="dropdown-item" href="#">2nd floor With Lift</a>
+                            <a class="dropdown-item" href="#">2nd floor No Lift</a>
+                            <a class="dropdown-item" href="#">3rd floor With Lift</a>
+                            <a class="dropdown-item" href="#">3rd floor No Lift</a>
+                            <a class="dropdown-item" href="#">4th floor With Lift</a>
+                            <a class="dropdown-item" href="#">4th floor No Lift</a>
+                            <a class="dropdown-item" href="#">5th floor With Lift</a>
+                            <a class="dropdown-item" href="#">5th floor No Lift</a>
+                            <a class="dropdown-item" href="#">6th floor With Lift</a>
+                            <a class="dropdown-item" href="#">6th floor No Lift</a>
+                            <a class="dropdown-item" href="#">Above 6th floor With Lift</a>
+                            <a class="dropdown-item" href="#">Above 6th floor No Lift</a>
                         </div>
                     </div>
                 </div>
@@ -45,15 +53,23 @@
                             Select Option
                         </button>
                         <div class="dropdown-menu to" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Basement</a>
+                            <a class="dropdown-item" href="#">Basement With Lift</a>
+                            <a class="dropdown-item" href="#">Basement No Lift</a>
                             <a class="dropdown-item" href="#">Ground floor</a>
-                            <a class="dropdown-item" href="#">1st floor</a>
-                            <a class="dropdown-item" href="#">2nd floor</a>
-                            <a class="dropdown-item" href="#">3rd floor</a>
-                            <a class="dropdown-item" href="#">4th floor</a>
-                            <a class="dropdown-item" href="#">5th floor</a>
-                            <a class="dropdown-item" href="#">6th floor</a>
-                            <a class="dropdown-item" href="#">Above 6th floor</a>
+                            <a class="dropdown-item" href="#">1st floor With Lift</a>
+                            <a class="dropdown-item" href="#">1st floor No Lift</a>
+                            <a class="dropdown-item" href="#">2nd floor With Lift</a>
+                            <a class="dropdown-item" href="#">2nd floor No Lift</a>
+                            <a class="dropdown-item" href="#">3rd floor With Lift</a>
+                            <a class="dropdown-item" href="#">3rd floor No Lift</a>
+                            <a class="dropdown-item" href="#">4th floor With Lift</a>
+                            <a class="dropdown-item" href="#">4th floor No Lift</a>
+                            <a class="dropdown-item" href="#">5th floor With Lift</a>
+                            <a class="dropdown-item" href="#">5th floor No Lift</a>
+                            <a class="dropdown-item" href="#">6th floor With Lift</a>
+                            <a class="dropdown-item" href="#">6th floor No Lift</a>
+                            <a class="dropdown-item" href="#">Above 6th floor With Lift</a>
+                            <a class="dropdown-item" href="#">Above 6th floor No Lift</a>
                         </div>
                     </div>
                 </div>

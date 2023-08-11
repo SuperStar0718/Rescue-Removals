@@ -16,7 +16,7 @@
                 @include('components.book.price_page')
                 @php($next = "ManVan.billing")
                 @php( $previous = "ManVan.final_calculation")
-                <div class="d-flex justify-content-between py-50">
+                <div class="d-flex justify-content-between py-50 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -104,7 +104,7 @@
                         
                 @endswitch
 
-                <div class="d-flex justify-content-between py-50">
+                <div class="d-flex justify-content-between py-50 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -472,7 +472,7 @@ $(document).ready(function(){
     $('.hour i.down').click(function(){
         var hour = parseInt($(this).parent().children('div').children('h1').text())-1
         var minute = parseInt($(this).parent().parent().children('div.minute').children('div').children('h1').text())
-        if(hour>-1){
+        if(hour>0){
             $(this).parent().children('div').children('h1').text(hour.toString().padStart(2, '0'));
             update_time(hour,minute)
         }
@@ -480,7 +480,10 @@ $(document).ready(function(){
     $('.minute i.up').click(function(){
         var minute = parseInt($(this).parent().children('div').children('h1').text())+30
         var hour = parseInt($(this).parent().parent().children('div.hour').children('div').children('h1').text())
-        if(hour<24){
+        hour = hour+ Math.floor(minute/60)
+
+        if(hour<24)
+        {
             hour = hour+ Math.floor(minute/60)
             minute = minute%60
             $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
@@ -491,13 +494,13 @@ $(document).ready(function(){
     $('.minute i.down').click(function(){
         var hour = parseInt($(this).parent().parent().children('div.hour').children('div').children('h1').text())
         var minute = parseInt($(this).parent().children('div').children('h1').text())-30
-        if(hour>2){
+        if(hour>0){
             hour = hour+ Math.floor(minute/60)
+            minute = (minute+60)%60
+            $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
+            $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
+            update_time(hour,minute)
         }
-        minute = (minute+60)%60
-        $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
-        $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
-        update_time(hour,minute)
     })
 </script>
 @endif

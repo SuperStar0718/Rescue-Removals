@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-8">
-        <div class="d-flex justify-content-start align-items-center">
+        <div class="d-flex justify-content-start align-items-center display-none-sm">
             <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
             <div class="ml-2 header_text">
                 <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
@@ -8,7 +8,7 @@
             </div>                      
         </div>
     </div>
-    <div class="col-md-4 ">
+    <div class="col-md-4 display-none-sm">
         <div class="d-flex justify-content-end align-items-center pt-3" style="height:179px;">
             <div class="header_text_right">
                 <h6 class="mb-0">Prefer to get a price over the phone?</h6>
@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-4 bg-primary-light d-flex justify-content-center align-items-center" style="border-radius: 2rem 0rem 0rem 2rem;">
             <div class="d-flex justify-content-center align-items-center">
-                <h3 class="text-white pl-4">Where are you moving <br>from and to?</h3>
+                <h3 class="text-white px-3">Where are you moving from and to?</h3>
             </div>                        
         </div>
         <div class="col-md-8 stairs right_panel">
@@ -33,15 +33,14 @@
                         <button class="btn  dropdown-toggle" type="button" id="pickup_details" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class='address_abb'></span>
                         </button>
-                        
                     </div>
                     
                     <div class="dropdown col-md-6">
                         
-                        <button class="btn  dropdown-toggle" type="button" id="pickup_type" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="dropdown-toggle" type="button" id="pickup_type" data-toggle="dropdown" >
                             Select Property Type  
                         </button>
-                        <div class="dropdown-menu from" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu from " >
                             <div class="dropdown_widget">
                                 <div class="house drop_item">
                                     <div>

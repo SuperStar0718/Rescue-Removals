@@ -16,7 +16,7 @@
                 @include('components.book.price_page')
                 @php($next = "HomeRemovals.billing")
                 @php( $previous = "HomeRemovals.final_calculation")
-                <div class="d-flex justify-content-between py-50 py123">
+                <div class="d-flex justify-content-between py-50 py123 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -30,12 +30,12 @@
                 </div>
             </div>
             @elseif($component=="HomeRemovals.house_type")
-            <div class="col-md-12 px-0">
+            <div class="col-md-12 px-0 house_type">
                 @include('components.book.house_type')
                 @include('components.book.GetPriceModal', ['url'=> 'HomeRemovals.get_email'])
                 @php($next = "HomeRemovals.cart")
                 @php( $previous = "main")
-                <div class="d-flex justify-content-between py-50 py123" style=" padding-top: 3rem !important;">
+                <div class="d-flex justify-content-between py-50 py123 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -48,6 +48,7 @@
                     </a>
                 </div>
             </div>
+            
             @else
             <div class="col-md-72 col" style="padding-left: 0px;">
                 <div class="d-flex justify-content-start align-items-center">
@@ -127,7 +128,7 @@
                         
                 @endswitch
 
-                <div class="d-flex justify-content-between py-50 py123">
+                <div class="d-flex justify-content-between py-50 py123 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -235,6 +236,17 @@
                 </div>                
             </div>
             @endif
+            <div class="display-sm">
+                <div class="bottom-buttons">
+                    <div class="turst_img">
+                        <img src="{{asset('images/trustpilot.png')}}" alt="">
+                    </div>
+                    <div class="view_item">
+                        <i></i>
+                        View Item
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!--------------- end section 1 --------------->
@@ -470,7 +482,7 @@ $(document).ready(function(){
     $('.hour i.down').click(function(){
         var hour = parseInt($(this).parent().children('div').children('h1').text())-1
         var minute = parseInt($(this).parent().parent().children('div.minute').children('div').children('h1').text())
-        if(hour>-1){
+        if(hour>0){
             $(this).parent().children('div').children('h1').text(hour.toString().padStart(2, '0'));
             update_time(hour,minute)
         }
@@ -479,19 +491,26 @@ $(document).ready(function(){
         var minute = parseInt($(this).parent().children('div').children('h1').text())+30
         var hour = parseInt($(this).parent().parent().children('div.hour').children('div').children('h1').text())
         hour = hour+ Math.floor(minute/60)
-        minute = minute%60
-        $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
-        $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
-        update_time(hour,minute%60)
+
+        if(hour<24)
+        {
+            hour = hour+ Math.floor(minute/60)
+            minute = minute%60
+            $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
+            $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
+            update_time(hour,minute%60)
+        }
     })
     $('.minute i.down').click(function(){
         var hour = parseInt($(this).parent().parent().children('div.hour').children('div').children('h1').text())
         var minute = parseInt($(this).parent().children('div').children('h1').text())-30
-        hour = hour+ Math.floor(minute/60)
-        minute = (minute+60)%60
-        $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
-        $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
-        update_time(hour,minute)
+        if(hour>0){
+            hour = hour+ Math.floor(minute/60)
+            minute = (minute+60)%60
+            $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
+            $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
+            update_time(hour,minute)
+        }
     })
 </script>
 @endif

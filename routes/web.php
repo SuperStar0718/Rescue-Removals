@@ -42,16 +42,16 @@ Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallbac
 //--------------------------------------------Our Services routes--------------------------------------------------------
 // Route::group(['middleware'=>['auth']], function(){
 
-    Route::get('/ourservices', function () { return view('our_services');});
-    Route::get('/service_home_removals', function () { return view('service/home_removals');});
-    Route::get('/service_office_removals', function () { return view('service/office_removals');});
-    Route::get('/service_waste_removals', function () { return view('service/waste_removals');});
-    Route::get('/service_eBay_deliveries', function () { return view('service/eBay_deliveries');});
-    Route::get('/service_man&van', function () { return view('service/man&van');});
-    Route::get('/service_furniture&appliance', function () { return view('service/furniture&appliance');});
-    Route::get('/service_motorbikes', function () { return view('service/motorbikes');});
-    Route::get('/service_european_moves', function () { return view('service/european_moves');});
-    Route::get('/service_storage', function () { return view('service/storage');});
+    Route::get('/ourservices', function () { return view('our_services');})->name('service');
+    Route::get('/service_home_removals', function () { return view('service/home_removals');})->name('service');
+    Route::get('/service_office_removals', function () { return view('service/office_removals');})->name('service');
+    Route::get('/service_waste_removals', function () { return view('service/waste_removals');})->name('service');
+    Route::get('/service_eBay_deliveries', function () { return view('service/eBay_deliveries');})->name('service');
+    Route::get('/service_man&van', function () { return view('service/man&van');})->name('service');
+    Route::get('/service_furniture&appliance', function () { return view('service/furniture&appliance');})->name('service');
+    Route::get('/service_motorbikes', function () { return view('service/motorbikes');})->name('service');
+    Route::get('/service_european_moves', function () { return view('service/european_moves');})->name('service');
+    Route::get('/service_storage', function () { return view('service/storage');})->name('service');
 // });
 
 
