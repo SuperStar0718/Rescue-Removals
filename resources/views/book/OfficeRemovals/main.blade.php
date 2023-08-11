@@ -9,11 +9,12 @@
     <!--------------- section 1 --------------->
     <div class="bg-warning-light pt-3">
         <div class="container-content mar5">
-        <div class="row">
             
             @if($component=="OfficeRemovals.price_page")
+            <div class="row">
             <div class="col-md-12">
                 @include('components.book.price_page')
+                @include('components.book.BillingModal')
                 @php($next = "OfficeRemovals.billing")
                 @php( $previous = "OfficeRemovals.final_calculation")
                 <div class="d-flex justify-content-between py-50 button-group">
@@ -30,6 +31,9 @@
                 </div>
             </div>
             @else
+            @if($component=="OfficeRemovals.final_calculation" || $component=="OfficeRemovals.billing" ) 
+                <div class="main-grid">
+            @else <div class="row"> @endif
             <div @if($component=="OfficeRemovals.final_calculation" || $component=="OfficeRemovals.billing" ) class="col-md-72" @else class="col-md-12" @endif>
                 <div  class="row">
                     <div @if($component=="OfficeRemovals.final_calculation" || $component=="OfficeRemovals.billing" ) class="col-md-12" @else class="col-md-8" @endif>
@@ -587,7 +591,20 @@ $(document).ready(function(){
     })
 </script>
 @endif
+@if($component=='OfficeRemovals.price_page')
+<script>
 
+$(document).ready(function(){
+    $('.next_button').click(function(e){
+        e.preventDefault()
+        $('button.modal_button').trigger('click');
+
+    })
+})
+
+</script>
+
+@endif
 @if($component=="OfficeRemovals.number_of_car")
 <script>
     function update_number_of_car(count){

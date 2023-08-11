@@ -6,7 +6,7 @@
 
 @section('content')
     <!--------------- section 1 --------------->
-    <div class="container-content pt-5">
+    <div class="container-content pt-5 mar5" style="padding-top: 3rem !important">
         <div class="row">
             <div class="col-md-6 left_image">
                 <img src="{{asset('images/Login/login.png')}}" style="width:100%">

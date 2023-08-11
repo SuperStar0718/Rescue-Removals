@@ -9,11 +9,11 @@
     <!--------------- section 1 --------------->
     <div class="bg-warning-light pt-3">
         <div class="container-content mar5">
-        <div class="row">
-            
             @if($component=="eBay.price_page")
+            <div class="row">
             <div class="col-md-12">
                 @include('components.book.price_page')
+                @include('components.book.BillingModal')
                 @php($next = "eBay.billing")
                 @php( $previous = "eBay.final_calculation")
                 <div class="d-flex justify-content-between py-50 button-group">
@@ -30,7 +30,8 @@
                 </div>
             </div>
             @else
-            <div class="col-md-72 col">
+            <div class="main-grid">
+            <div class="col-md-72 ">
                 <div class="d-flex justify-content-start align-items-center">
                     <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
                     <div class="ml-2 header_text">
@@ -494,6 +495,20 @@ $(document).ready(function(){
         }
     })
 </script>
+@endif
+@if($component=='eBay.price_page')
+<script>
+
+$(document).ready(function(){
+    $('.next_button').click(function(e){
+        e.preventDefault()
+        $('button.modal_button').trigger('click');
+
+    })
+})
+
+</script>
+
 @endif
 @if($component=="eBay.select_car")
 <script>

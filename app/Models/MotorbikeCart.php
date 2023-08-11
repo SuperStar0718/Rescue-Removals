@@ -81,6 +81,7 @@ class MotorbikeCart extends Model
         return $distance;
     }
     public function get_stair($stair){
+        $number=0;
 
         switch ($stair) {
             case 'Basement':

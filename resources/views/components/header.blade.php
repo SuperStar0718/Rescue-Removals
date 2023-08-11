@@ -25,7 +25,7 @@
 
 
                             @guest
-                                <a href="{{ url('/login') }}">
+                                <a href="">
                                     <img src="{{asset('images/person.svg')}}" alt="person" style="width: 30px;">
                                     <div class="text-white" style="font-size: 12px;">Log In</div>
                                 </a>
@@ -63,7 +63,7 @@
                 <a href="{{ url('/ourservices') }}" class="text-white">OUR SERVICES</a>
                 <a href="{{ url('/aboutus') }}" class="text-white">ABOUT US</a>
                 <a href="{{ url('/contactus') }}" class="text-white">CONTACT</a>
-                <a href="{{ url('/login') }}" class="text-white">LOGIN</a>
+                <a href="" class="text-white">LOGIN</a>
             </div>
             <div class="header-logo">
                 <div class="logo">
@@ -94,7 +94,7 @@
                     <a href="{{ url('/ourservices') }}" class="text-white">OUR SERVICES</a>
                     <a href="{{ url('/aboutus') }}" class="text-white">ABOUT US</a>
                     <a href="{{ url('/contactus') }}" class="text-white">CONTACT</a>
-                    <a href="{{ url('/login') }}" class="text-white">LOGIN</a>
+                    <a href="" class="text-white">LOGIN</a>
                 </div>
                 <div class="header-logo">
                     <div class="logo">

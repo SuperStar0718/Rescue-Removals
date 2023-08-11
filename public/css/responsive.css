@@ -1,4 +1,91 @@
 @media only screen and (max-width: 771px) {
+    .congestion .button{
+        margin-bottom: 10px !important;
+        font-size: 15px !important;
+    }
+    .men .men_count .number_panel{
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .men .men_count .number_panel h1{
+        font-size: 100px !important;
+    }
+    div.car_title_section{
+        width: 200px !important;
+    }
+    .men.car div>div>img{
+        width: 250px;
+    }
+    .men .men_count .number_panel h1{
+        line-height: 60px;
+    }
+    .shadow-effect > div.row{
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-grid{
+        display: block;
+    }
+    .shadow-effect .right_panel{
+        max-width: 350px;
+    }
+    .right_panel .hour, .right_panel .minute{
+        width: 100%;
+    }
+    .right_panel .hour >div, .right_panel .minute > div{
+        padding-left: 35px !important;
+        padding-right: 35px !important;
+    }
+    .right_panel .hour >div >h1, .right_panel .minute > div > h1{
+        font-size: 71px !important;
+        font-weight: bold;
+    }
+    .removals_items li>span{
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .removals_items div.dropdown-menu{
+        width: 100%;
+        transform: translateX(0px) !important;
+        transform: translateY(60px) !important;
+        border-width: 2px;
+        border-color: #353DA3;
+        border-radius: 18px;
+    }
+    .removals_items{
+        justify-content: center;
+    }
+    .removals_items .item_button{
+        border-color: #353DA3 !important;
+        color: #353DA3;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .removals_items > div{
+        max-width: 350px;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .removals_items button>div{
+        justify-content: center;
+    }
+    .col-md-72{
+        flex: none;
+        max-width: none;
+        padding-right: 0px !important;
+    }
+    .select-item-text{
+        font-size: 25px;
+        font-weight: bold;
+        color: #353DA3;
+        text-align: center;
+    }
+    .shadow-effect .panel_row{
+        padding-top: 0px  !important;
+    }
+    .shadow-effect .panel_row .pt-530{
+        padding-top: 0px !important;
+    }
     .modal-dialog.house_type .content-wrapper{
         width: 100%;
     }
@@ -38,6 +125,9 @@
     }
     .shadow-effect>.row, .shadow-effect>.panel_row, .cart_panel.shadow-effect{
         min-height: auto;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        justify-content: center;
     }
     .stairs.right_panel .dropdown div.dropdown-menu .dropdown_widget{
         flex-direction: column;
@@ -48,9 +138,11 @@
         transform: translateY(54px) !important;
     }
     .button-group{
+        max-width: 350px;
+        margin:auto;
         padding-top: 26px !important;
-        padding-left: 3rem;
-        padding-right: 3rem;
+        /* padding-left: 3rem; */
+        /* padding-right: 3rem; */
         display: grid !important;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -77,10 +169,12 @@
 
     .stairs.right_panel {
         height: 100%;
+        align-items: center;
     }
     .stairs.right_panel >div{
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
+        padding: 0px !important;
+        max-width: 350px;
+        width: 100%;
     }
     .stairs.right_panel h4{
         text-align: center;
@@ -157,7 +251,7 @@
     .container-content .trustpilot_logo>div>img{
         width: 100% !important;
     }
-.location_input .col-md-6{
+.location_input .col-md-6, .location_input .col-md-5, .location_input .col-md-7{
     padding-left: 0px !important;
     padding-right: 0px !important;
     padding-bottom: 10px !important;
@@ -241,6 +335,38 @@
 @media only screen and (max-width: 1500px) {
 
 }
+@media only screen and (min-width: 1070px) {
+    .men .men_count .number_panel{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+@media only screen and (max-width: 1170px) {
+.right_panel > div .hour >div, .right_panel > div .minute >div{
+    padding-left: 15px ;
+    padding-right: 15px;
+}
+.right_panel > div .hour >div > p, .right_panel > div .minute >div > p{
+    top: 167px !important;
+
+}
+.right_panel > div .hour >div > h1, .right_panel > div .minute >div > h1{
+    font-size: 100px !important;
+    line-height: 85px !important;
+}
+.men.car div>div>img{
+    width: 270px !important;
+}
+.header_text h2{
+    font-size: 25px !important;
+}
+.header_text h6{
+    font-size: 13px;
+}
+.col-md-28 h1, .header_text_right h1{
+    font-size: 32px !important;
+}
+}
 @media only screen and (max-width: 1240px) {
 
 }
@@ -260,6 +386,14 @@
     #quote_btn{
         padding-left: 0px !important;
         padding-right: 0px !important;
+    }
+    .men .men_count .number_panel{
+        padding-left: 20px !important; 
+        padding-right: 20px !important;
+    }
+    .men .men_count .number_panel h1{
+        font-size: 100px !important;
+        line-height: 85px !important;
     }
 }
 

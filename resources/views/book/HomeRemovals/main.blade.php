@@ -9,12 +9,12 @@
     <!--------------- section 1 --------------->
     <div class="bg-warning-light2 pt-3">
         <div class="container-content mar5">
-        <div class="row">
-            
             @if($component=="HomeRemovals.price_page")
+            <div class="row">
             <div class="col-md-12">
                 @include('components.book.price_page')
-                @php($next = "HomeRemovals.billing")
+                @include('components.book.BillingModal')
+                @php($next = "main")
                 @php( $previous = "HomeRemovals.final_calculation")
                 <div class="d-flex justify-content-between py-50 py123 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
@@ -50,8 +50,9 @@
             </div>
             
             @else
-            <div class="col-md-72 col" style="padding-left: 0px;">
-                <div class="d-flex justify-content-start align-items-center">
+            <div class="main-grid">
+            <div class="col-md-72  house_type">
+                <div class="d-flex justify-content-start align-items-center display-none-sm">
                     <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
                     <div class="ml-2 header_text">
                         <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
@@ -106,7 +107,7 @@
                     @case('HomeRemovals.pick_date')
                         @include('components.book.pick_date')
                         @php($next = "HomeRemovals.arrange_time")
-                        @php( $previous = "HomeRemovals.congestion")
+                        @php( $previous = "HomeRemovals.packing_service")
                         @break
                     @case('HomeRemovals.arrange_time')
                         @include('components.book.arrange_time')
@@ -144,16 +145,16 @@
                     </form>
                 @endif
             </div>
-            <div class="col-md-28 col header_text_right">
+            <div class="col-md-28  header_text_right display-none-sm ">
                 <div class="d-flex justify-content-end align-items-center pt-3" style="height:179px;">
                     <div>
-                        <h6 class="mb-0" style="    font-size: 21px;line-height: 10px;">Prefer to get a price over the phone?</h6>
+                        <h6 class="mb-0" style="    font-size: 21px;line-height: 20px;">Prefer to get a price over the phone?</h6>
                         <h1 class="btn-text-primary-light mb-0" style="font-size: 51px;">0208 090 6151</h1>
                         <h6 style="    margin-top: -6px;" >Quote Ref: 1887654</h6>
                     </div>                    
                 </div>
                 @if($component=="HomeRemovals.final_calculation" || $component=="HomeRemovals.billing" )  
-                    <div class="map-wrapper shadow-effect" style="    margin-top: 30px;">
+                    <div class="map-wrapper shadow-effect" >
                         <div id="googleMap">
                             <div class="mapouter">
                                 <div id="gmap_canvas">
@@ -842,6 +843,20 @@ $('.congestion .button').click(function(){
         update_congestion(0)
 })
 </script>
+@endif
+@if($component=='HomeRemovals.price_page')
+<script>
+
+$(document).ready(function(){
+    $('.next_button').click(function(e){
+        e.preventDefault()
+        $('button.modal_button').trigger('click');
+
+    })
+})
+
+</script>
+
 @endif
 @if($component=='HomeRemovals.packing_service')
 <script>

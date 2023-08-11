@@ -8,7 +8,7 @@
 
     <!--------------- section 1 --------------->
     <div class="py-1 display-none-sm" >
-        <div class="bg-primary-light py-1" style="margin-bottom: 15rem;">
+        <div class="bg-primary-light py-1" style="margin-bottom: 23px;">
             <div class="container-content d-flex flex-column align-items-center  text-center" >                
                 <div style="width: 50%; height: 60%; padding:150px 0px;">             
                     <h3 class="text-white" style="font-size: 1.95rem !important;">We would love to hear from you...</h3>                       
