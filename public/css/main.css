@@ -602,6 +602,7 @@ button.modal_button{
 /* billing======================= */
 .modal.show .modal-dialog{
   margin-top: 19vh;
+  width: 100%;
 }
 .modal-content img{
   padding: 0px 2rem ;
@@ -1091,7 +1092,9 @@ color: #000000;
 /* ======================house type modal ========================================== */
 .house_type .modal-content{
   /* width: 50vw; */
+  margin: auto;
   max-width: 820px;
+  min-width: 730px;
   padding: 4rem;
   font-size: 35px;
   font-weight: bold;

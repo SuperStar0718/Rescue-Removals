@@ -86,7 +86,7 @@
                             <input type="text" class="form-control form-control-lg mr-2 target placeholder01" style="height: 60px" id="pac-input" placeholder="Pick Up Location">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control form-control-lg target placeholder02" style="height: 60px" id="dropOff" placeholder="Drop Off Location">
+                            <input type="text" class="form-control form-control-lg target placeholder02 dropOff" style="height: 60px" id="dropOff" placeholder="Drop Off Location">
                         </div>
 
                     </div>
@@ -95,7 +95,7 @@
                             <img src="{{asset('images/Trustpilot Logo-1.svg')}}" alt="courier" style="width: 120px;">
                         </div>
                         <div class="col-md-6">
-                            <button type="button" class="btn bg-primary-light text-white px-5 py-3" style="font-size: 20px;" id="quote_btn" >
+                            <button type="button" class="btn bg-primary-light text-white px-5 py-3 quote_btn" style="font-size: 20px;" id="quote_btn" >
                                 Get Quote Now
                             </button>
                         </div>
@@ -302,13 +302,13 @@
 
 
     <div class="display-sm">
-        <div class=" main_content">
-            <div class="logo">
+        <div class="dashboard main_content">
+            {{-- <div class="logo">
                 <img src="{{asset('images/logo.svg')}}" alt="">
             </div>
             <div class="logo-text">
                 Your Journey Begins With Us!
-            </div>
+            </div> --}}
             <div class="banner">
                 <img src="{{asset('images/courier.png')}}" alt="">
             </div>
@@ -356,16 +356,16 @@
                         <div class="col-md-6 mb-2 category">
                             <div class="d-flex justify-content-start align-items-center text-center pointer" id="waste" onclick = "set_value('Waste Removals')">
                                 <img src="{{asset('images/Book/waste icon-ai (1).png')}}" alt="home-removals-logo" class="w-5 waste_removals ">
-                                <h6 class="pl-3 mb-0" style="padding-left: 18px !important;">Waste Removals</h6>
+                                <h6 class="pl-3 mb-0" style="padding-left: 17px !important;">Waste Removals</h6>
                             </div> 
                         </div>
                         <div class="col-md-6 mb-2 category">
                             <div class="d-flex justify-content-start align-items-center text-center pointer" id="storage" onclick = "set_value('Storage')">
                                 <img src="{{asset('images/Book/storage icon (1).png')}}" alt="home-removals-logo" class="w-5 storage ">
-                                <h6 class="pl-3 mb-0" style="padding-left: 13px !important;">Storage</h6>
+                                <h6 class="pl-3 mb-0" style="padding-left: 17px !important;">Storage</h6>
                             </div> 
                         </div>
-                        <div class="col-md-6 mb-2 category">
+                        <div class="col-md-6  category">
                             <div class="d-flex justify-content-start align-items-center text-center pointer" id="ebay" onclick = "set_value('eBay Deliveries')">
                                 <img src="{{asset('images/Book/ebay icon (1).png')}}" alt="home-removals-logo" class="w-5 ebay ">
                                 <h6 class="pl-3 mb-0" style="padding-left: 18px !important;">eBay Deliveries</h6>
@@ -376,10 +376,10 @@
             </div>
             <div class="d-flex justify-content-between row location_input">
                 <div class="">
-                    <input type="text" class="form-control form-control-lg mr-2 target placeholder01" id="pac-input" placeholder="Pick Up Location">
+                    <input type="text" class="form-control form-control-lg mr-2 target placeholder01" id="pac-input-mobile" placeholder="Pick Up Location">
                 </div>
                 <div class="">
-                    <input type="text" class="form-control form-control-lg target placeholder02" id="dropOff" placeholder="Drop Off Location">
+                    <input type="text" class="form-control form-control-lg target placeholder02 dropOff" id="dropOff-mobile" placeholder="Drop Off Location">
                 </div>
 
             </div>
@@ -387,7 +387,7 @@
                 Already received a quote?
             </div>
             <div class="get-quote">
-                <button type="button" class="btn  " id="quote_btn" >
+                <button type="button" class="btn quote_btn  " id="quote_btn" >
                     GET PRICE NOW
                 </button>
             </div>
@@ -493,7 +493,9 @@ geocoder.geocode(
        
         const card = document.getElementById("pac-card");
         const from = document.getElementById("pac-input");
+        const from_mobile = document.getElementById("pac-input-mobile");
         const to = document.getElementById("dropOff");
+        const to_mobile = document.getElementById("dropOff-mobile");
         const biasInputElement = document.getElementById("use-location-bias");
         const strictBoundsInputElement = document.getElementById("use-strict-bounds");
         const options = {
@@ -506,6 +508,8 @@ geocoder.geocode(
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
 
         const autocomplete = new google.maps.places.Autocomplete(from, options);
+        const autocomplete_from_mobile = new google.maps.places.Autocomplete(from_mobile, options);
+        const autocomplete_to_mobile = new google.maps.places.Autocomplete(to_mobile, options);
 
         // Bind the map's bounds (viewport) property to the autocomplete object,
         // so that the autocomplete requests use the current map bounds for the
@@ -529,6 +533,36 @@ geocoder.geocode(
         });
         autocomplete1.addListener('place_changed', function() {
             const place = autocomplete1.getPlace();
+            if (place && place.address_components) {
+                console.log('Selected Address:', place);
+                const data = {
+                    'address_components':place.address_components,
+                    'formatted_address':place.formatted_address,
+                    'lat':place.geometry.location.lat(),
+                    'lng':place.geometry.location.lng(),
+                }
+                localStorage.setItem('to', JSON.stringify(data));
+            } else {
+            console.log('No address selected or not found.');
+            }
+        });
+        autocomplete_from_mobile.addListener('place_changed', function() {
+            const place = autocomplete_from_mobile.getPlace();
+            if (place && place.address_components) {
+                console.log('Selected Address:', place);
+                const data = {
+                    'address_components':place.address_components,
+                    'formatted_address':place.formatted_address,
+                    'lat':place.geometry.location.lat(),
+                    'lng':place.geometry.location.lng(),
+                }
+                localStorage.setItem('from', JSON.stringify(data));
+            } else {
+            console.log('No address selected or not found.');
+            }
+        });
+        autocomplete_to_mobile.addListener('place_changed', function() {
+            const place = autocomplete_to_mobile.getPlace();
             if (place && place.address_components) {
                 console.log('Selected Address:', place);
                 const data = {
@@ -573,12 +607,16 @@ geocoder.geocode(
             }
         });
 
-        $('#quote_btn').click(function(){
+        $('.quote_btn').click(function(){
             var category = $('#moving-input').val()
             var category_mobile = $('#moving-input-mobile').val()
             category = category_mobile ? category_mobile : category;
             var from  =  $('#pac-input').val()
             var to = $('#dropOff').val()
+            var from_mobile  =  $('#pac-input-mobile').val()
+            var to_mobile = $('#dropOff-mobile').val()
+            from = from_mobile ? from_mobile : from;
+            to = to_mobile ? to_mobile : to;
             if(category!='')
                 if(from !== '' && to !==''){
                     // Retrieve the JSON string from localStorage and parse it back to an object
@@ -674,52 +712,54 @@ geocoder.geocode(
 
         function set_value(val) {
             $('#moving-input').val(val);
+            $('#moving-input-mobile').val(val);
             $('#dropdown-frame').hide();
+            $('#dropdown-frame-mobile').hide();
             $(".options .warning").show();
             let quote_url = "{{ url('/') }}";
             if(val === "eBay Deliveries")
             {
-                $('#dropOff').prop('disabled', false);
+                $('.dropOff').prop('disabled', false);
                 quote_url = "{{route('eBay')}}";            
             }
             else if(val === "Furniture & Appliances")
             {
-                $('#dropOff').prop('disabled', false);
+                $('.dropOff').prop('disabled', false);
                 quote_url = "{{route('Furniture_Appliance')}}";            
             }
             else if(val === "Man & Van")
             {
-                $('#dropOff').prop('disabled', false);
+                $('.dropOff').prop('disabled', false);
                 quote_url = "{{route('ManVan')}}";            
             }
             else if(val === "Office Removals")
             {
-                $('#dropOff').prop('disabled', false);
+                $('.dropOff').prop('disabled', false);
                 quote_url = "{{ route('OfficeRemovals.hours_need') }}";
             }
             else if(val === "Home Removals")
             {
-                $('#dropOff').prop('disabled', false);
+                $('.dropOff').prop('disabled', false);
                 quote_url = "{{ route('HomeRemovals.house_type') }}";
             }
             else if(val === "Motorbikes")
             {
-                $('#dropOff').prop('disabled', false);
+                $('.dropOff').prop('disabled', false);
                 quote_url = "{{ route('Motorbike.hours_need') }}";
             }
             else if(val === "Waste Removals")
             {
-                $('#dropOff').prop('disabled', true);
+                $('.dropOff').prop('disabled', true);
                 quote_url = "{{ route('WasteRemovals') }}";
             }
             else if(val === "European Moves")
             {
-                $('#dropOff').prop('disabled', true);
+                $('.dropOff').prop('disabled', true);
                 quote_url = "{{ route('European_moves') }}";
             }
             else if(val === "Storage")
             {
-                $('#dropOff').prop('disabled', true);
+                $('.dropOff').prop('disabled', true);
                 quote_url = "{{ route('Storage') }}";
             }
             else
@@ -749,13 +789,18 @@ geocoder.geocode(
         
         
         <script type = "text/javascript" language = "javascript">
-        $('#quote_btn').click(function(){
+        $('.quote_btn').click(function(){
             
             // Get the Login Name value and trim it
             var name = $('#pac-input').val();
-            
             var name1 = $('#dropOff').val();
             var moving_input = $('#moving-input').val();
+            var name_mobile = $('#pac-input-mobile').val();
+            var name1_mobile = $('#dropOff-mobile').val();
+            var moving_input_mobile = $('#moving-input-mobile').val();
+            name = name_mobile ? name_mobile : name;
+            name1 = name1_mobile ? name1_mobile : name1;
+            moving_input = moving_input_mobile ? moving_input_mobile : moving_input;
             // Check if empty of not
             if (name.length < 1) {
                 $(".target").effect( "shake", {times:5}, 500 );
