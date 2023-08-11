@@ -1,5 +1,5 @@
 <footer>   
-    @if(Route::currentRouteName()!='main')     
+    @if(Route::currentRouteName()=='service' || Route::currentRouteName()=='login' || Route::currentRouteName()=='register' || Route::currentRouteName()=='fogot_password')     
     <div class="bg-primary-light footer pb-4">
         <div class="container-content">
             <h1 class="text-center text-white mt-5 display-none-sm">WE ARE OPEN 7 DAYS A WEEK</h1>
@@ -273,10 +273,10 @@
             </div>
         </div>
     </div>
-      <div class="display-sm ">
-        <div class="bg-primary-dark d-flex justify-content-center">
-            <img src="{{asset('images/car.png')}}" alt="" style="width:62%">
-        </div>
+    <div class="display-sm ">
+    <div class="bg-primary-dark d-flex justify-content-center py-3">
+        <img src="{{asset('images/car.png')}}" alt="" style="width:62%">
+    </div>
     </div>
     {{-- <div class="bg-primary-light footer pb-4">
         <div class="container-content">

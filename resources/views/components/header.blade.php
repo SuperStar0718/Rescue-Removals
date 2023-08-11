@@ -1,4 +1,4 @@
-<header class=" @if(Route::currentRouteName()=='main' || Route::currentRouteName()=='login' || Route::currentRouteName()=='forgot_password' || Route::currentRouteName()=='register' || Route::currentRouteName()=='service'  )  bg-primary-light  @else bg-white-mobile @endif p-3" style="margin-bottom: 0px;">
+<header class=" @if(Route::currentRouteName()=='main' || Route::currentRouteName()=='login' || Route::currentRouteName()=='forgot_password' || Route::currentRouteName()=='register' || Route::currentRouteName()=='service'  )  bg-primary-light  @else bg-white-mobile @endif p-3" style="margin-bottom: 5px;">
         <div class="display-none-sm d-flex justify-content-between align-items-center container-content text-white">
             <div class="d-flex align-items-center">
                 <a href="{{ url('/') }}">

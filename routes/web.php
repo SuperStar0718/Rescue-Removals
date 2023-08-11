@@ -33,7 +33,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
-Route::get('/forgot_password', function () { return view('authentication/forgot_password');});
+Route::get('/forgot_password', function () { return view('authentication/forgot_password');})->name('forgot_password');
 
 
 Route::get('auth/google', [LoginController::class, 'redirectToGoogle']);
@@ -323,7 +323,7 @@ Route::get('/Storage/book', function () { return view('book/waste removals and e
 
 
 //--------------------------------------------About Us routes--------------------------------------------------------
-Route::get('/aboutus', function () { return view('about_us');});
+Route::get('/aboutus', function () { return view('about_us');})->name('service');
 
 //--------------------------------------------Contact Us routes--------------------------------------------------------
-Route::get('/contactus', function () { return view('contact_us');});
+Route::get('/contactus', function () { return view('contact_us');})->name('service');
