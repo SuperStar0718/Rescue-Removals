@@ -8,26 +8,29 @@
 
     <!--------------- section 1 --------------->
     <div class="py-1 display-none-sm" >
-        <div class="bg-primary-light py-1" style="margin-bottom: 15rem;">
+        <div class="bg-primary-light py-1" style="margin-bottom: 23px;">
             <div class="container-content d-flex flex-column align-items-center  text-center" >                
-                <div style="width: 50%; height: 60%; padding:150px 0px;">             
-                    <h3 class="text-white" style="font-size: 1.95rem !important;">We would love to hear from you...</h3>                       
-                    <div class="my-3 px-4" style="background-color: white; border-radius: 2rem;    padding-left: 5rem !important;padding-right: 5rem !important;padding-bottom: 4rem;padding-top: 4rem;">
-                        <h6 class="py-52" style="font-weight: bold;font-size: 16px;margin-bottom: 5rem;    margin-top: 15px;">Want to send us a message? Simply fill in all fields <br>on this form and hit the send button</h6>
-                        <div class="d-flex justify-content-between">
-                            <input type="text" class="form-control  mr-2" style="height: 50px; border-radius: 0.5rem;" id="name" placeholder="Name">
-                            <input type="text" class="form-control" style="height: 50px; border-radius: 0.5rem;" id="number" placeholder="Number">
-                        </div>
-                        <div class="d-flex justify-content-between py-2">
-                            <input type="text" class="form-control  mr-2" style="height: 50px; border-radius: 0.5rem;" id="email" placeholder="Email Address">
-                            <input type="text" class="form-control" style="height: 50px; border-radius: 0.5rem;" id="subject" placeholder="Subject">
-                        </div>
-                        <textarea type="text" class="form-control" rows="8" style="border-radius: 0.5rem;" id="message" placeholder="Message"></textarea> 
-                        <div class="text-center py-5" style="padding-bottom: 2rem !important;    margin-top: 4rem;">
-                            <button type="button" class="btn bg-primary-light text-white rounded-pill px-4 py-2" style="padding: 12px 30px !important;border-radius: 12px !important;">
-                                <h6 class="mb-0" style="font-size: 16px;">Send Message</h6>
-                            </button>
-                        </div>       
+                <div style="width: 50%; height: 60%; padding:150px 0px;">   
+                    <form action="{{route('contact')}}" method="post">
+                        @csrf
+                        <h3 class="text-white" style="font-size: 1.95rem !important;">We would love to hear from you...</h3>                       
+                        <div class="my-3 px-4" style="background-color: white; border-radius: 2rem;    padding-left: 5rem !important;padding-right: 5rem !important;padding-bottom: 4rem;padding-top: 4rem;">
+                            <h6 class="py-52" style="font-weight: bold;font-size: 16px;margin-bottom: 5rem;    margin-top: 15px;">Want to send us a message? Simply fill in all fields <br>on this form and hit the send button</h6>
+                            <div class="d-flex justify-content-between">
+                                <input type="text" class="form-control  mr-2" name="name" style="height: 50px; border-radius: 0.5rem;" id="name" placeholder="Name">
+                                <input type="text" class="form-control" name="number" style="height: 50px; border-radius: 0.5rem;" id="number" placeholder="Number">
+                            </div>
+                            <div class="d-flex justify-content-between py-2">
+                                <input type="text" class="form-control  mr-2" name='email' style="height: 50px; border-radius: 0.5rem;" id="email" placeholder="Email Address">
+                                <input type="text" class="form-control" name="subject" style="height: 50px; border-radius: 0.5rem;" id="subject" placeholder="Subject">
+                            </div>
+                            <textarea type="text" class="form-control" name="message" rows="8" style="border-radius: 0.5rem;" id="message" placeholder="Message"></textarea> 
+                            <div class="text-center py-5" style="padding-bottom: 2rem !important;    margin-top: 4rem;">
+                                <button type="submit" class="btn bg-primary-light text-white rounded-pill px-4 py-2" style="padding: 12px 30px !important;border-radius: 12px !important;">
+                                    <h6 class="mb-0" style="font-size: 16px;">Send Message</h6>
+                                </button>
+                            </div>       
+                    </form>          
                     </div>
                     <div class="py-3 px-2" style="background-color: white; height: 6%; border-radius: 1rem;margin-top: 10px;">
                         <h6 class="btn-text-primary-light mb-0">Rescue Removals, 6-8 Great Eastern Street, London, EC2A 3NT</h6>

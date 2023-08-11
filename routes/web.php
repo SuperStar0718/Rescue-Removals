@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\eBayDeliveries;
 use App\Http\Controllers\Furniture_Appliance;
+use App\Http\Controllers\MailSenderController;
 use App\Http\Controllers\ManVan;
 use App\Http\Controllers\OfficeRemovals;
 use App\Http\Controllers\HomeRemovals;
@@ -327,3 +328,4 @@ Route::get('/aboutus', function () { return view('about_us');})->name('service')
 
 //--------------------------------------------Contact Us routes--------------------------------------------------------
 Route::get('/contactus', function () { return view('contact_us');})->name('service');
+Route::post('/contact_us', [MailSenderController::class, 'contact_us'])->name('contact');

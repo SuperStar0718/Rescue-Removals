@@ -1,11 +1,14 @@
 <div class="shadow-effect px-4" style="background-color: white; border-radius: 2rem;">                    
     <div class="p-5 panel_row">
-        <div>
+        <div class="display-none-sm">
             <img src="{{asset('images/search.png')}}" alt="search" class="w-10">
             <input type="search" class="form-control cart_input" style="height: 60px; border-color: #353ea3;  border-radius: 1rem 1rem 0rem 1rem;" id="search" placeholder="Enter your item(s) here e.g. Sofa">
         </div>                        
         <div class="pt-530">
-            <p>Or quickly add from our list of popular items</p>
+            <p class="display-none-sm">Or quickly add from our list of popular items</p>
+            <div class="display-sm select-item-text">
+                Select Items!
+            </div>
             <div class="row removals_items">
                 <div class="col-md-4" style="padding-left: 0;">
                     <button type="button" class="btn dropdown-toggle mb-3  item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
@@ -199,9 +202,11 @@
                 </div>   
                 <div class="col-md-4" style="padding-right: 0;">
                     <button type="button" class="btn dropdown-toggle mb-3 py-2 px-3 item_button" data-toggle="dropdown" style="height: 60px;background-color: white; width: 100%; border: 1px solid gray; border-radius: 1rem;">
-                        <span>
-                            Add your own items
-                        </span>
+                        <div>
+                            <span>
+                                Add your own items
+                            </span>
+                        </div>
                     </button>
                     <div class="dropdown-menu">
                         <li class="dropdown-item" href="#">
