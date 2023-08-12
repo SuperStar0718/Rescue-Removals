@@ -22,27 +22,26 @@ class MailSenderController extends Controller
         $message = $request->message;
         $name = $request->name;
         $number = $request->number;
-        $data = ['message'=> $message];
+        $data = [
+            'name'=>$name,
+            'email'=>$email,
+            'number'=>$number,
+            'message'=> $message
+        ];
         try {
             //code...
-            // Mail::to('bestdeveloper0718@gmail.com')->send(new MailSender($data));
-            Mail::send('EmailTemplate.Contact', [
-                'name' => $request->name,
-                'email' => $request->email,
-                'number' => $request->number,
-                'message' => $request->message ],
-                function ($message) use($email, $name, $subject) {
-                        $message->from($email, $name);
-                        $message->to('superdev0718@gmail.com', 'Boris')
+            Mail::send('EmailTemplate.Contact', ['data' => $data],
+                function ($message) use( $subject) {
+                        $message->from('bestdeveloper0718@gmail.com');
+                        $message->to('info@rescueremovals.com', 'Support Team')
                                 ->subject($subject);
         });
 
-        return back()->with('success', 'Thanks for contacting me, I will get back to you soon!');
-
+        
         } catch (\Exception $e) {
             //throw $th;
             dd($e);
         }
-        return redirect()->route('main');
-    }
+        return back();
+}
 }

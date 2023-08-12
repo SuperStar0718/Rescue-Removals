@@ -6,8 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    Hello, Nice to meet you.
-    I am {{$name}}.
-    {{$message}}
+    <p>
+        Hello, I am {{$data['name']}}.
+    </p>
+    <p>
+        {{$data['message']}}
+    </p>
+    <p>
+        This is my Email address : {{$data['email']}}
+    </p>
+    <p>
+        Phone number : {{$data['number']}}
+    </p>
 </body>
 </html>
