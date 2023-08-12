@@ -33,8 +33,8 @@
         width: 100%;
     }
     .right_panel .hour >div, .right_panel .minute > div{
-        padding-left: 35px !important;
-        padding-right: 35px !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
     }
     .right_panel .hour >div >h1, .right_panel .minute > div > h1{
         font-size: 71px !important;
@@ -351,7 +351,7 @@
 
 }
 .right_panel > div .hour >div > h1, .right_panel > div .minute >div > h1{
-    font-size: 100px !important;
+    /* font-size: 100px !important; */
     line-height: 85px !important;
 }
 .men.car div>div>img{
@@ -394,6 +394,10 @@
     .men .men_count .number_panel h1{
         font-size: 100px !important;
         line-height: 85px !important;
+    }
+    .right_panel > div .hour >div, .right_panel > div .minute >div{
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
 }
 
