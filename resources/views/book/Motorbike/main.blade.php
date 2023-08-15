@@ -153,6 +153,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="distance" class="text-center"></div>
                         <div class="map-content-wrapper">
                             <div class="content pb-3">
                                 <p>Your Reference</p>
@@ -983,11 +984,19 @@ function initMap() {
       origin: position1,
       destination: position2,
       travelMode: google.maps.TravelMode.DRIVING, // You can change the travel mode (DRIVING, WALKING, etc.)
+      unitSystem: google.maps.UnitSystem.IMPERIAL 
+
     };
 
     directionsService.route(request, function (response, status) {
       if (status === "OK") {
         directionsRenderer.setDirections(response);
+        var route = response.routes[0];
+        var distance = route.legs[0].distance.text;
+        var duration = route.legs[0].duration.text;
+        console.log('Distance: ' + distance);
+        console.log('Duration: ' + duration);
+        $('#distance').text(distance + "le - " + duration)
       } else {
         console.error("Error:", status);
       }
