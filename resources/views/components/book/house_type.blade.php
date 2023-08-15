@@ -37,7 +37,7 @@
                     
                     <div class="dropdown col-md-6">
                         
-                        <button class="dropdown-toggle" type="button" id="pickup_type" data-toggle="dropdown" >
+                        <button class=" btn dropdown-toggle" type="button" id="pickup_type" data-toggle="dropdown" >
                             Select Property Type  
                         </button>
                         <div class="dropdown-menu from " >

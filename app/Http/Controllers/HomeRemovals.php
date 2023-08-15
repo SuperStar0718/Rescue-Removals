@@ -184,6 +184,14 @@ class HomeRemovals extends Controller
         $van = VanType::where('id', $result->van)->first();
         return view('book.HomeRemovals.main', compact('component','job_type','result','van'));
     }
+    public function view_item(){
+        $component = "HomeRemovals.ViewItems";
+        $email = session()->get('email');
+        $result = HomeRemovalsCart::where('email', $email)->first();
+        $job_type = "Home Removals";
+        $van = VanType::where('id', $result->van)->first();
+        return view('book.HomeRemovals.main', compact('component','result'));
+    }
     public function price_page(){
         $component = "HomeRemovals.price_page";
         $email = session()->get('email');

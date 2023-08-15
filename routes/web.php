@@ -232,6 +232,7 @@ Route::group(['prefix'=>'HomeRemovals'], function (){
     Route::post('final_calculation', [HomeRemovals::class, 'final_calculation_post'])->name('HomeRemovals.final_calculation_post');
     Route::get('price_page', [HomeRemovals::class, 'price_page'])->name('HomeRemovals.price_page');
     Route::get('billing', [HomeRemovals::class, 'billing'])->name('HomeRemovals.billing');
+    Route::get('view_item', [HomeRemovals::class, 'view_item'])->name('HomeRemovals.ViewItem');
     Route::post('get_email', [HomeRemovals::class, 'get_email'])->name('HomeRemovals.get_email');
     
     Route::post('update_cart', [HomeRemovals::class, 'update_cart'])->name('HomeRemovals.cart.update.cart');

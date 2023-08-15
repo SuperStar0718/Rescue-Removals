@@ -69,6 +69,11 @@
                         @php($next = "HomeRemovals.hours_need")
                         @php( $previous = "HomeRemovals.house_type")
                         @break
+                    @case('HomeRemovals.ViewItems')
+                        @include('components.book.ViewItems')
+                        @php($next = "HomeRemovals.hours_need")
+                        @php( $previous = "HomeRemovals.house_type")
+                        @break
                     @case('HomeRemovals.hours_need')
                         @include('components.book.hour')
                         @php($next = "HomeRemovals.men")
@@ -128,7 +133,13 @@
                     @default
                         
                 @endswitch
-
+                @if($component == 'HomeRemovals.ViewItems')
+                    <div class="d-flex justify-content-center pt-1">
+                            <button type="button" class="btn py-3 px-5 bg-primary-light text-white" onclick="window.history.back()" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Back</h5>
+                            </button>
+                    </div>
+                @else
                 <div class="d-flex justify-content-between py-50 py123 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
@@ -141,6 +152,7 @@
                         </button>
                     </a>
                 </div>
+                @endif
                 @if($component=="HomeRemovals.final_calculation")
                     </form>
                 @endif
@@ -233,8 +245,7 @@
                 @else
                     <div class="cart_panel shadow-effect p-4" style="background-color: white; border-radius: 0rem 3rem 3rem 0rem;"> 
                         <h5 class="btn-text-primary-light">My List (<span class="cart_amount">0</span>)</h5>
-                        <div class="carts">
-                    </div>
+                        <div class="carts"></div>
                 @endif
                 </div>                
             </div>
@@ -244,7 +255,7 @@
                     <div class="turst_img">
                         <img src="{{asset('images/trustpilot.png')}}" alt="">
                     </div>
-                    <div class="view_item">
+                    <div class="view_item" onclick="window.location.assign('{{route('HomeRemovals.ViewItem')}}')">
                         <i><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16.588" height="16.589" viewBox="0 0 16.588 16.589">
                             <defs>
                               <clipPath id="clip-path">
@@ -258,7 +269,7 @@
                             </g>
                           </svg>
                           </i>
-                        View Item
+                        View Items
                     </div>
                 </div>
             </div>
@@ -1112,6 +1123,36 @@ function initMap() {
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&libraries=places&callback=initMap" async defer></script>
 
 @endif
+
+@if($component=='HomeRemovals.ViewItems')
+<script>
+    $(document).ready(function(){
+        var lists = @json($result->cart_list);
+        if(lists!=null){
+            lists = JSON.parse(lists)
+            console.log(lists)
+            const keys = Object.keys(lists);
+            console.log(keys)
+            var index=1
+            var total_carts=0
+
+            keys.forEach(key=>{
+                if(lists[key]=='0')
+                    return;
+                
+                var content = '<div class="left-title">'+lists[key]+' '+key+'</div><div class="remove-right">(remove)</div>';
+                var element = $('<div class="d-flex justify-content-between">').html(content);
+                $('.cart-list').append(element);
+                $(".remove-right").click(function(e){
+                    $(this).parent().parent().remove()
+                })
+            
+            })
+        }
+    })
+</script>
+@endif
+
 <script>
 
 (function () {

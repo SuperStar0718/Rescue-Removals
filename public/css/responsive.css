@@ -1,4 +1,8 @@
 @media only screen and (max-width: 771px) {
+    .removals_items button span{
+          padding-left: 50px;
+          text-align: left;
+      }
     .congestion .button{
         margin-bottom: 10px !important;
         font-size: 15px !important;
@@ -67,7 +71,7 @@
         padding-right: 0px !important;
     }
     .removals_items button>div{
-        justify-content: center;
+        justify-content: space-between;
     }
     .col-md-72{
         flex: none;
@@ -556,7 +560,7 @@ header .menu.show{
 .main_content .categories .category h6{
     font-family: "Helvetica Neue", Arial, sans-serif;
     font-size: 18px;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #8B8B8B;
 }
 .main_content .categories .category{
@@ -677,4 +681,20 @@ color: white;
 }
 .bottom-buttons{
     position: relative;
+}
+
+.removals_items .cart-list .left-title{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #353DA3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap:nowrap;
+    padding-right: 10px;
+}
+.removals_items .cart-list .remove-right{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    color: #D80000;
 }
