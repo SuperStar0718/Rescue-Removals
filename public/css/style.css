@@ -4819,6 +4819,8 @@ a.close.disabled {
     margin: -1rem -1rem -1rem auto; }
 
 .modal-title {
+  font-size: 25px;
+  color: #8B8B8B;
   margin-bottom: 0;
   line-height: 1.5; }
 
@@ -8220,7 +8222,7 @@ a {
   /* border: 1px solid #707070; */
 }
 .calendar_content div {
-  width: 12%;
+  width: 100%;
   border: 1px solid transparent;
   float: left;
   position: relative;

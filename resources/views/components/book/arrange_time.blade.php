@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-center py-5">
                 <div class="text-center py-510 hour">                                
                     <i class="fa fa-play pointer up" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(-90deg);"></i>                                
-                    <div class="bg-primary-light px-5 py-4 my-3" style="padding-left: 3rem !important; border-radius: 2.5rem;"><h1 class="text-white" style="font-size: 80px">{{sprintf("%02d", $result->arrange_hour)}}</h1></div>
+                    <div class="bg-primary-light px-5 py-4 my-3" style="border-radius: 2.5rem;"><h1 class="text-white" style="font-size: 80px">{{sprintf("%02d", $result->arrange_hour)}}</h1></div>
                     <i class="fa fa-play pointer down" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(90deg);"></i>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-center px-3">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="text-center py-510 minute">
                     <i class="fa fa-play pointer up" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(-90deg);"></i>
-                    <div class="bg-primary-light px-5 py-4 my-3" style="padding-left: 3rem !important; border-radius: 2.5rem;"><h1 class="text-white" style="font-size: 80px">{{sprintf("%02d", $result->arrange_minute)}}</h1></div>
+                    <div class="bg-primary-light px-5 py-4 my-3" style="border-radius: 2.5rem;"><h1 class="text-white" style="font-size: 80px">{{sprintf("%02d", $result->arrange_minute)}}</h1></div>
                     <i class="fa fa-play pointer down" style="color: white; background-color:#353EA3; border-radius:50%; padding:10px; transform: rotate(90deg);"></i>                          
                 </div>
             </div>

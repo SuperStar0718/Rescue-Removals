@@ -11,7 +11,17 @@ class HomeRemovals extends Controller
     //
     public function index(){
         $component = "HomeRemovals.house_type";
-        return view('book.HomeRemovals.main',compact('component'));
+        $quote_ref = $this->generate_quote_ref();
+        return view('book.HomeRemovals.main',compact('component', 'quote_ref'));
+    }
+    public function generate_quote_ref(){
+        $microtime = microtime(true); // Current timestamp with microseconds
+        $hash = hash('sha256', $microtime); // Hash the timestamp
+        
+        // Take the first 7 characters of the hash and convert to an integer
+        $uniqueNumber = intval(substr($hash, 0, 7), 16);
+        
+        return $uniqueNumber;
     }
     public function place_details(){
         $component = "HomeRemovals.place_details";
@@ -35,6 +45,7 @@ class HomeRemovals extends Controller
         $delivery_address = $request->delivery_address;
         $pick_address_type = $request->pick_address_type;
         $delivery_address_type = $request->delivery_address_type;
+        $quote_ref = $request->quote_ref;
         session()->put('email',$email );
         $result = HomeRemovalsCart::where('email', $email)->first();
 
@@ -44,13 +55,14 @@ class HomeRemovals extends Controller
             $result->to = $delivery_address;
             $result->from_type = $pick_address_type;
             $result->to_type = $delivery_address_type;
+            $result->reference_id = $quote_ref;
             $result->save();
         }
         else{
 
             $eBaycart = new HomeRemovalsCart();
             $eBaycart->userid = 1;
-            $eBaycart->reference_id = 1887654;
+            $eBaycart->reference_id = $quote_ref;
             $eBaycart->email = $email;
             $eBaycart->phone_number = strval($mobile);
             $eBaycart->from = $pickup_address;
@@ -63,6 +75,64 @@ class HomeRemovals extends Controller
 
 
         return redirect()->route('HomeRemovals.cart');
+    }
+    public function booking_details_post(Request $request){
+        $name = $request->name;
+        $email_new = $request->email;
+        $number = $request->number;
+        $email = session()->get('email');
+
+        $result = HomeRemovalsCart::where('email', $email)->first();
+
+        if($result){
+            $result->phone_number = strval($number);
+            $result->username = $name;
+            $result->phone_number= $number;
+            $result->email = $email_new;
+            $result->save();
+        }
+
+        return redirect()->route('HomeRemovals.PickupDetails');
+    }
+    public function pickup_details_post(Request $request){
+        $postcode = $request->postcode;
+        $address_1 = $request->address_1;
+        $address_2 = $request->address_2;
+        $city = $request->city;
+        $contact_name_pickup = $request->contact_name_pickup;
+        $email = session()->get('email');
+
+        $result = HomeRemovalsCart::where('email', $email)->first();
+
+        if($result){
+            $result->pickup_address1 = $address_1;
+            $result->pickup_address2= $address_2;
+            $result->pickup_county = $city;
+            $result->pickup_name = $contact_name_pickup;
+            $result->save();
+        }
+
+        return redirect()->route('HomeRemovals.DeliveryDetails');
+    }
+    public function delivery_details_post(Request $request){
+        $postcode = $request->postcode;
+        $address_1 = $request->address_1;
+        $address_2 = $request->address_2;
+        $city = $request->city;
+        $contact_name_pickup = $request->contact_name_delivery;
+        $email = session()->get('email');
+
+        $result = HomeRemovalsCart::where('email', $email)->first();
+
+        if($result){
+            $result->delivery_address1 = $address_1;
+            $result->delivery_address2= $address_2;
+            $result->delivery_city = $city;
+            $result->delivery_name = $contact_name_pickup;
+            $result->save();
+        }
+
+        return redirect()->route('HomeRemovals.price_page');
     }
     public function cart(){
         $component = "HomeRemovals.cart";
@@ -188,8 +258,30 @@ class HomeRemovals extends Controller
         $component = "HomeRemovals.ViewItems";
         $email = session()->get('email');
         $result = HomeRemovalsCart::where('email', $email)->first();
-        $job_type = "Home Removals";
-        $van = VanType::where('id', $result->van)->first();
+        return view('book.HomeRemovals.main', compact('component','result'));
+    }
+    public function booking_details(){
+        $component = "HomeRemovals.BookingDetails";
+        $email = session()->get('email');
+        $result = HomeRemovalsCart::where('email', $email)->first();
+        return view('book.HomeRemovals.main', compact('component','result'));
+    }
+    public function pickup_details(){
+        $component = "HomeRemovals.PickupDetails";
+        $email = session()->get('email');
+        $result = HomeRemovalsCart::where('email', $email)->first();
+        return view('book.HomeRemovals.main', compact('component','result'));
+    }
+    public function delivery_details(){
+        $component = "HomeRemovals.DeliveryDetails";
+        $email = session()->get('email');
+        $result = HomeRemovalsCart::where('email', $email)->first();
+        return view('book.HomeRemovals.main', compact('component','result'));
+    }
+    public function payment_details(){
+        $component = "HomeRemovals.PaymentDetails";
+        $email = session()->get('email');
+        $result = HomeRemovalsCart::where('email', $email)->first();
         return view('book.HomeRemovals.main', compact('component','result'));
     }
     public function price_page(){
@@ -203,12 +295,14 @@ class HomeRemovals extends Controller
         $name = $request->name;
         $email = $request->email;
         $phone = $request->phone;
+        $pickup_postcode = $request->pickup_postcode;
         $pickup_add1 = $request->pickup_add1;
         $pickup_add2 = $request->pickup_add2;
         $pickup_city = $request->pickup_city;
         $pickup_county = $request->pickup_county;
         $pickup_contact_name = $request->pickup_contact_name;
         $pickup_contact_number = $request->pickup_contact_number;
+        $delivery_postcode = $request->delivery_postcode;
         $delivery_add1 = $request->delivery_add1;
         $delivery_add2 = $request->delivery_add2;
         $delivery_city = $request->delivery_city;
@@ -222,12 +316,14 @@ class HomeRemovals extends Controller
             $result->username = $name;
             $result->email = $email;
             $result->phone_number = $phone;
+            $result->pickup_postcode = $pickup_postcode;
             $result->pickup_address1 = $pickup_add1;
             $result->pickup_address2 = $pickup_add2;
             $result->pickup_city = $pickup_city;
             $result->pickup_county = $pickup_county;
             $result->pickup_name = $pickup_contact_name;
             $result->pickup_phone = $pickup_contact_number;
+            $result->delivery_postcode = $delivery_postcode;
             $result->delivery_address1 = $delivery_add1;
             $result->delivery_address2 = $delivery_add2;
             $result->delivery_city = $delivery_city;

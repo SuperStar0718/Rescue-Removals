@@ -5,7 +5,7 @@
                 <h3 class="text-white px-3">Select how many<br>Vans you need?</h3>
             </div>                        
         </div>
-        <div class="col-md-8 men car">
+        <div class="col-md-8 men car right_panel">
             <div class="d-flex justify-content-center ">
                 <div class="text-center men_image z-indx-1" style="padding-top: 90px;">                                
                     <img src="{{asset($van->image)}}" />

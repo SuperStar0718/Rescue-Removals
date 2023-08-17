@@ -16,7 +16,7 @@
                 @include('components.book.BillingModal')
                 @php($next = "main")
                 @php( $previous = "HomeRemovals.final_calculation")
-                <div class="d-flex justify-content-between py-50 py123 button-group">
+                <div class="d-flex justify-content-between py-50 py123 button-group display-none-sm">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -27,6 +27,20 @@
                             <h5 class="mb-0">Next</h5>
                         </button>
                     </a>
+                </div>
+                <div class="display-sm">
+                    <div class="d-flex justify-content-between py-50 py123 button-group">
+                        <a class="previous_button" href="{{route('HomeRemovals.DeliveryDetails')}}"  id="quote_url">
+                            <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Previous</h5>
+                            </button>
+                        </a>
+                        <a href="{{route('HomeRemovals.PaymentDetails')}}" class="" id="quote_url">
+                            <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Next</h5>
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
             @elseif($component=="HomeRemovals.house_type")
@@ -119,6 +133,26 @@
                         @php($next = "HomeRemovals.final_calculation")
                         @php( $previous = "HomeRemovals.pick_date")
                         @break
+                    @case('HomeRemovals.BookingDetails')
+                        @include('components.book.BookingDetails')
+                        @php($next = "HomeRemovals.PickupDetails")
+                        @php( $previous = "HomeRemovals.arrange_time")
+                        @break
+                    @case('HomeRemovals.PickupDetails')
+                        @include('components.book.PickupDetails')
+                        @php($next = "HomeRemovals.DeliveryDetails")
+                        @php( $previous = "HomeRemovals.BookingDetails")
+                        @break
+                    @case('HomeRemovals.DeliveryDetails')
+                        @include('components.book.DeliveryDetails')
+                        @php($next = "HomeRemovals.final_calculation")
+                        @php( $previous = "HomeRemovals.PickupDetails")
+                        @break
+                    @case('HomeRemovals.PaymentDetails')
+                        @include('components.book.PaymentDetails')
+                        @php($next = "main")
+                        @php( $previous = "HomeRemovals.price_page")
+                        @break
                     @case('HomeRemovals.final_calculation')
                         @include('components.book.final_calculation')
                         @php($next = "HomeRemovals.price_page")
@@ -134,8 +168,8 @@
                         
                 @endswitch
                 @if($component == 'HomeRemovals.ViewItems')
-                    <div class="d-flex justify-content-center pt-1">
-                            <button type="button" class="btn py-3 px-5 bg-primary-light text-white" onclick="window.history.back()" style="border-radius: 0.5rem;">
+                    <div class="d-flex justify-content-center " style="padding-top: 26px">
+                            <button type="button" class="btn bg-primary-light text-white" onclick="window.history.back()" style="min-width:100px;  border-radius: 0.5rem; padding:12px; ">
                                 <h5 class="mb-0">Back</h5>
                             </button>
                     </div>
@@ -146,11 +180,24 @@
                             <h5 class="mb-0">Previous</h5>
                         </button>
                     </a>
-                    <a href="{{route($next)}}" class="next_button" id="quote_url">
-                        <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
-                            <h5 class="mb-0">Next</h5>
-                        </button>
-                    </a>
+                    @if($component == 'HomeRemovals.arrange_time')
+                        <a href="{{route($next)}}" class="next_button display-none-sm" id="quote_url">
+                            <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Next</h5>
+                            </button>
+                        </a>
+                        <a href="{{route('HomeRemovals.BookingDetails')}}" class="next_button display-sm" id="quote_url">
+                            <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Next</h5>
+                            </button>
+                        </a>
+                    @else
+                        <a href="{{route($next)}}" class="next_button" id="quote_url">
+                            <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Next</h5>
+                            </button>
+                        </a>
+                    @endif
                 </div>
                 @endif
                 @if($component=="HomeRemovals.final_calculation")
@@ -162,7 +209,7 @@
                     <div>
                         <h6 class="mb-0" style="    font-size: 21px;line-height: 20px;">Prefer to get a price over the phone?</h6>
                         <h1 class="btn-text-primary-light mb-0" style="font-size: 51px;">0208 090 6151</h1>
-                        <h6 style="    margin-top: -6px;" >Quote Ref: 1887654</h6>
+                        <h6 style="    margin-top: -6px;" >Quote Ref: <span class="quote_refer">{{ isset($quote_ref) ? $quote_ref : $result->reference_id}}</span></h6>
                     </div>                    
                 </div>
                 @if($component=="HomeRemovals.final_calculation" || $component=="HomeRemovals.billing" )  
@@ -250,6 +297,7 @@
                 </div>                
             </div>
             @endif
+            @if($component != 'HomeRemovals.house_type' && $component!= 'HomeRemovals.ViewItems')
             <div class="display-sm">
                 <div class="bottom-buttons">
                     <div class="turst_img">
@@ -273,6 +321,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
     <!--------------- end section 1 --------------->
@@ -640,6 +689,14 @@ $(document).ready(function(){
 </script>
 @endif
 
+@if($component=="HomeRemovals.BookingDetails" || $component=="HomeRemovals.PickupDetails" || $component=="HomeRemovals.DeliveryDetails" )
+<script>
+    $('.next_button').click(function(e){
+        e.preventDefault();
+        $('.submit_hidden').click()
+    })
+</script>
+@endif
 @if($component=="HomeRemovals.number_of_car")
 <script>
     function update_number_of_car(count){
@@ -1027,7 +1084,179 @@ $(document).ready(function(){
 </script>
 @endif
 @if($component=="HomeRemovals.final_calculation" || $component=="HomeRemovals.billing" )
+
+<script src="https://cdn.getaddress.io/scripts/getaddress-find-2.0.0.min.js">
+</script>
+
+<!-- after your form -->
 <script>
+    getAddress.find(
+        'postcode_pickup',
+        'XbNq62VtXUeQbSArk1PLTQ40157',
+        /*options*/{
+          output_fields:{
+                formatted_address_0:'formatted_address_0_pickup',  /* The id of the element bound to 'formatted_address[0]' */
+                formatted_address_1:'formatted_address_1_pickup',  /* The id of the element bound to 'formatted_address[1]' */
+                formatted_address_2:'formatted_address_2',  /* The id of the element bound to 'formatted_address[2]' */
+                formatted_address_3:'formatted_address_3',  /* The id of the element bound to 'formatted_address[3]' */
+                formatted_address_4:'formatted_address_4',  /* The id of the element bound to 'formatted_address[4]' */
+                line_1:'line_1',  /* The id of the element bound to 'line_1' */
+                line_2:'line_2',  /* The id of the element bound to 'line_2' */
+                line_3:'line_3',  /* The id of the element bound to 'line_3' */
+                line_4:'line_4',  /* The id of the element bound to 'line_4' */
+                latitude:'latitude',  /* The id of the element bound to 'latitude' */
+                longitude:'longitude',  /* The id of the element bound to 'longitude' */
+                building_number:'building_number',  /* The id of the element bound to 'building_number' */
+                building_name:'building_name',  /* The id of the element bound to 'building_name' */
+                sub_building_number:'sub_building_number',  /* The id of the element bound to 'sub_building_number' */
+                sub_building_name:'sub_building_name',  /* The id of the element bound to 'sub_building_name' */
+                thoroughfare:'thoroughfare',  /* The id of the element bound to 'thoroughfare' */
+                town_or_city: 'town_or_city_pickup',  /* The id of the element bound to 'town_or_city' */
+                county:'county_pickup',  /* The id of the element bound to 'county' */
+                country:'country',  /* The id of the element bound to 'country' */
+                district:'district',  /* The id of the element bound to 'district' */
+                locality:'locality',  /* The id of the element bound to 'locality' */
+                postcode:'postcode',  /* The id of the element bound to 'postcode' */
+                residential:'residential'  /* The id of the element bound to 'residential' */
+          },
+          input:{
+                id:'getaddress_input_pickup',  /* The id of the textbox' */
+                name:'pickup_postcode',  /* The name of the textbox' */
+                class:'form-control getaddress_input',  /* The class of the textbox' */
+                label:''  /* The label of the textbox' */
+          },
+          button:{
+                id:'getaddress_button_pickup',  /* The id of the botton' */
+                class:'getaddress_button',  /* The class of the botton' */
+                label:'Search',  /* The label of the botton' */
+                disabled_message:'disabled message'  /* The disabled message of the botton' */
+          },
+          dropdown:{
+                id:'getaddress_dropdown',  /* The id of the dropdown' */
+                class:'dropdown-toggle',  /* The class of the dropdown' */
+                select_message:'Select your Address',  /* The select message of the dropdown' */
+                template:''  /* The suggestion template of the dropdown' (see Autocomplete API)*/
+          },
+          error_message:{
+                id:'getaddress_error_message',  /* The id of the error message' */
+                class:'',  /* The class of the error message' */
+                not_found:'Address not found',  /* The 'not found' message of the error message' */
+          },
+          endpoints:{
+                autocomplete_url:undefined,  /* Local alterative autocomplete url (when API key is not used) */
+                get_url:undefined /* Local alterative get url (when API key is not used) */
+          }
+    });
+    getAddress.find(
+        'postcode_delivery',
+        'XbNq62VtXUeQbSArk1PLTQ40157',
+        /*options*/{
+          output_fields:{
+                formatted_address_0:'formatted_address_0_delivery',  /* The id of the element bound to 'formatted_address[0]' */
+                formatted_address_1:'formatted_address_1_delivery',  /* The id of the element bound to 'formatted_address[1]' */
+                formatted_address_2:'formatted_address_2',  /* The id of the element bound to 'formatted_address[2]' */
+                formatted_address_3:'formatted_address_3',  /* The id of the element bound to 'formatted_address[3]' */
+                formatted_address_4:'formatted_address_4',  /* The id of the element bound to 'formatted_address[4]' */
+                line_1:'line_1',  /* The id of the element bound to 'line_1' */
+                line_2:'line_2',  /* The id of the element bound to 'line_2' */
+                line_3:'line_3',  /* The id of the element bound to 'line_3' */
+                line_4:'line_4',  /* The id of the element bound to 'line_4' */
+                latitude:'latitude',  /* The id of the element bound to 'latitude' */
+                longitude:'longitude',  /* The id of the element bound to 'longitude' */
+                building_number:'building_number',  /* The id of the element bound to 'building_number' */
+                building_name:'building_name',  /* The id of the element bound to 'building_name' */
+                sub_building_number:'sub_building_number',  /* The id of the element bound to 'sub_building_number' */
+                sub_building_name:'sub_building_name',  /* The id of the element bound to 'sub_building_name' */
+                thoroughfare:'thoroughfare',  /* The id of the element bound to 'thoroughfare' */
+                town_or_city: 'town_or_city_delivery',  /* The id of the element bound to 'town_or_city' */
+                county:'county_delivery',  /* The id of the element bound to 'county' */
+                country:'country',  /* The id of the element bound to 'country' */
+                district:'district',  /* The id of the element bound to 'district' */
+                locality:'locality',  /* The id of the element bound to 'locality' */
+                postcode:'postcode',  /* The id of the element bound to 'postcode' */
+                residential:'residential'  /* The id of the element bound to 'residential' */
+          },
+          input:{
+                id:'getaddress_input_delivery',  /* The id of the textbox' */
+                name:'delivery_postcode',  /* The name of the textbox' */
+                class:'form-control getaddress_input',  /* The class of the textbox' */
+                label:''  /* The label of the textbox' */
+          },
+          button:{
+                id:'getaddress_button_delivery',  /* The id of the botton' */
+                class:'getaddress_button',  /* The class of the botton' */
+                label:'Search',  /* The label of the botton' */
+                disabled_message:'disabled message'  /* The disabled message of the botton' */
+          },
+          dropdown:{
+                id:'getaddress_dropdown',  /* The id of the dropdown' */
+                class:'dropdown-toggle',  /* The class of the dropdown' */
+                select_message:'Select your Address',  /* The select message of the dropdown' */
+                template:''  /* The suggestion template of the dropdown' (see Autocomplete API)*/
+          },
+          error_message:{
+                id:'getaddress_error_message',  /* The id of the error message' */
+                class:'',  /* The class of the error message' */
+                not_found:'Address not found',  /* The 'not found' message of the error message' */
+          },
+          endpoints:{
+                autocomplete_url:undefined,  /* Local alterative autocomplete url (when API key is not used) */
+                get_url:undefined /* Local alterative get url (when API key is not used) */
+          }
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.getaddress_button').hide()
+        $(".getaddress_input").attr("required", true);
+        $("#getaddress_input_pickup").val("{{$result->getPostCodeFrom()}}");
+        $("#getaddress_input_delivery").val("{{$result->getPostCodeTo()}}");
+        $(".getaddress_input").after("<span class='placeholder'>Search Postcode</span>");
+        $("#getaddress_button_pickup").click();
+        $("#getaddress_button_delivery").click();
+        $("#getaddress_input_delivery").keypress(function(event) {
+            // Check if the pressed key is Enter (key code 13)
+            event.preventDefault()
+            if (event.keyCode === 13) {
+                // Simulate a click on the button
+                $("#getaddress_button_delivery").click();
+                
+            }
+        });
+        $("#getaddress_input_pickup").keypress(function(event) {
+            // Check if the pressed key is Enter (key code 13)
+            event.preventDefault()
+            if (event.keyCode === 13) {
+                // Simulate a click on the button
+                $("#getaddress_button_pickup").click();
+                
+            }
+        });
+
+
+        document.addEventListener("getaddress-find-suggestions", function(e){
+            console.log(e.suggestions);
+        })
+
+        document.addEventListener("getaddress-find-suggestions-failed", function(e){
+            console.log(e.status);
+            console.log(e.message);
+        })
+
+        document.addEventListener("getaddress-find-address-selected", function(e){
+            if($('#formatted_address_1_delivery').val() !== "")
+                $('#formatted_address_1_delivery').addClass('active')
+            if($('#formatted_address_1_pickup').val() !== "")
+                $('#formatted_address_1_pickup').addClass('active')
+            console.log(e.address);
+        })
+
+        document.addEventListener("getaddress-find-address-selected-failed", function(e){
+            console.log(e.status);
+            console.log(e.message);
+        })
+    })
 
     $('#pickup_use').change(function() {
         var name = $('#name').val()
@@ -1140,11 +1369,13 @@ function initMap() {
                 if(lists[key]=='0')
                     return;
                 
-                var content = '<div class="left-title">'+lists[key]+' '+key+'</div><div class="remove-right">(remove)</div>';
+                var content = '<div class="left-title">'+lists[key]+' '+ '<span class="cart_title">'+  key + '</span>'+'</div><div class="remove-right">(remove)</div>';
                 var element = $('<div class="d-flex justify-content-between">').html(content);
                 $('.cart-list').append(element);
                 $(".remove-right").click(function(e){
-                    $(this).parent().parent().remove()
+                    $(this).parent().remove()
+                    var title = $(this).parent().children('div.left-title').children('span.cart_title').text()
+                    update_cart(title, 0)
                 })
             
             })

@@ -6,7 +6,7 @@
                 Items!
             </div>
             <div class="row removals_items">
-                <div class="cart-list d-flex justify-content-between w-100 flex-column">
+                <div class="cart-list height-350 w-100">
                     
                 </div>                                   
             </div>

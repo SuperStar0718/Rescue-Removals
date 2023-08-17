@@ -13,7 +13,7 @@
             <div class="header_text_right">
                 <h6 class="mb-0">Prefer to get a price over the phone?</h6>
                 <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
-                <h6 >Quote Ref: 1887654</h6>
+                <h6 >Quote Ref: <span class="quote_refer">{{$quote_ref}}</span></h6>
             </div>                    
         </div>
     </div>

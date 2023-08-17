@@ -61,7 +61,7 @@
                     <div>
                         <h6 class="mb-0">Prefer to get a price over the phone?</h6>
                         <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
-                        <h6 >Quote Ref: 1887654</h6>
+                        <h6 >Quote Ref: {{ isset($quote_ref) ? $quote_ref : $result->reference_id}}</h6>
                     </div>                    
                 </div>
                 <div class="cart_panel shadow-effect my-3 p-4" style="background-color: white; border-radius: 0rem 2rem 2rem 0rem;">   
