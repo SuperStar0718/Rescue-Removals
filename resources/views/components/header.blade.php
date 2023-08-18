@@ -1,4 +1,4 @@
-<header class=" @if(Route::currentRouteName()=='main' || Route::currentRouteName()=='login' || Route::currentRouteName()=='forgot_password' || Route::currentRouteName()=='register' || Route::currentRouteName()=='service'  )  bg-primary-light  @else bg-white-mobile @endif p-3" style="margin-bottom: 5px;">
+<header class=" @if(Route::currentRouteName()=='main' || Route::currentRouteName()=='login' || Route::currentRouteName()=='forgot_password' || Route::currentRouteName()=='register' || Route::currentRouteName()=='service'  )  bg-primary-light  @else bg-white-mobile @endif p-3" @if(Route::currentRoutename()=='main') style="margin-bottom: 0px;" @endif >
         <div class="display-none-sm d-flex justify-content-between align-items-center container-content text-white">
             <div class="d-flex align-items-center">
                 <a href="{{ url('/') }}">
@@ -22,8 +22,6 @@
                     @else
                         <div class="pointer">0208 090 6151</div>
                         <div class="pointer pl-5 login">
-
-
                             @guest
                                 <a href="">
                                     <img src="{{asset('images/person.svg')}}" alt="person" style="width: 30px;">
@@ -62,7 +60,7 @@
             <div class="menu">
                 <a href="{{ url('/ourservices') }}" class="text-white">OUR SERVICES</a>
                 <a href="{{ url('/aboutus') }}" class="text-white">ABOUT US</a>
-                <a href="{{ url('/contactus') }}" class="text-white">CONTACT</a>
+            <a href="{{ url('/contactus') }}" class="text-white">CONTACT</a>
                 <a href="" class="text-white">LOGIN</a>
             </div>
             <div class="header-logo">

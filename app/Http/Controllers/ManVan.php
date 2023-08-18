@@ -11,21 +11,17 @@ class ManVan extends Controller
     //
     public function index(){
         $component = "ManVan";
-                $email = session()->get('email');
-        $result = ManVanCart::where('email', $email)->first();
-        if($result)
-            $cart_list =  $result->cart_list;
-        else
-        {
-            $ManVanCart = new ManVanCart();
-            $ManVanCart->userid = 1;
-            $ManVanCart->reference_id = 1887654;
-            $ManVanCart->cart_list = 'asdf';
-            $ManVanCart->save();
-                    $email = session()->get('email');
-        $result = ManVanCart::where('email', $email)->first();
-        }
-        return view('book.ManVan.main',compact('component', 'result'));
+        $quote_ref = $this->generate_quote_ref();
+        return view('book.ManVan.main',compact('component', 'quote_ref'));
+    }
+    public function generate_quote_ref(){
+        $microtime = microtime(true); // Current timestamp with microseconds
+        $hash = hash('sha256', $microtime); // Hash the timestamp
+        
+        // Take the first 7 characters of the hash and convert to an integer
+        $uniqueNumber = intval(substr($hash, 0, 7), 16);
+        
+        return $uniqueNumber;
     }
     public function hours_need(){
         $component = "ManVan.hours_need";
@@ -92,12 +88,14 @@ class ManVan extends Controller
         $name = $request->name;
         $email = $request->email;
         $phone = $request->phone;
+        $pickup_postcode = $request->pickup_postcode;
         $pickup_add1 = $request->pickup_add1;
         $pickup_add2 = $request->pickup_add2;
         $pickup_city = $request->pickup_city;
         $pickup_county = $request->pickup_county;
         $pickup_contact_name = $request->pickup_contact_name;
         $pickup_contact_number = $request->pickup_contact_number;
+        $delivery_postcode = $request->delivery_postcode;
         $delivery_add1 = $request->delivery_add1;
         $delivery_add2 = $request->delivery_add2;
         $delivery_city = $request->delivery_city;
@@ -111,12 +109,14 @@ class ManVan extends Controller
             $result->username = $name;
             $result->email = $email;
             $result->phone_number = $phone;
+            $result->pickup_postcode = $pickup_postcode;
             $result->pickup_address1 = $pickup_add1;
             $result->pickup_address2 = $pickup_add2;
             $result->pickup_city = $pickup_city;
             $result->pickup_county = $pickup_county;
             $result->pickup_name = $pickup_contact_name;
             $result->pickup_phone = $pickup_contact_number;
+            $result->delivery_postcode = $delivery_postcode;
             $result->delivery_address1 = $delivery_add1;
             $result->delivery_address2 = $delivery_add2;
             $result->delivery_city = $delivery_city;
@@ -142,20 +142,22 @@ class ManVan extends Controller
         $cart_list = $request->cart_list;
         $pickup_address = $request->pickup_address;
         $delivery_address = $request->delivery_address;
+        $quote_ref = $request->quote_ref;
         session()->put('email',$email );
         $result = ManVanCart::where('email', $email)->first();
         if($result){
             $result->phone_number = strval($mobile);
             $result->from = $pickup_address;
             $result->to = $delivery_address;
-            $result->cart_list = $cart_list;    
+            $result->cart_list = $cart_list;  
+            $result->reference_id = $quote_ref;  
             $result->save();
         }
         else{
 
             $eBaycart = new ManVanCart();
             $eBaycart->userid = 1;
-            $eBaycart->reference_id = 1887654;
+            $eBaycart->reference_id = $quote_ref;
             $eBaycart->email = $email;
             $eBaycart->phone_number = strval($mobile);
             $eBaycart->from = $pickup_address;

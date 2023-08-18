@@ -232,7 +232,15 @@ Route::group(['prefix'=>'HomeRemovals'], function (){
     Route::post('final_calculation', [HomeRemovals::class, 'final_calculation_post'])->name('HomeRemovals.final_calculation_post');
     Route::get('price_page', [HomeRemovals::class, 'price_page'])->name('HomeRemovals.price_page');
     Route::get('billing', [HomeRemovals::class, 'billing'])->name('HomeRemovals.billing');
+    Route::get('view_item', [HomeRemovals::class, 'view_item'])->name('HomeRemovals.ViewItem');
+    Route::get('booking_details', [HomeRemovals::class, 'booking_details'])->name('HomeRemovals.BookingDetails');
+    Route::get('pickup_details', [HomeRemovals::class, 'pickup_details'])->name('HomeRemovals.PickupDetails');
+    Route::get('delivery_details', [HomeRemovals::class, 'delivery_details'])->name('HomeRemovals.DeliveryDetails');
+    Route::get('payment_details', [HomeRemovals::class, 'payment_details'])->name('HomeRemovals.PaymentDetails');
     Route::post('get_email', [HomeRemovals::class, 'get_email'])->name('HomeRemovals.get_email');
+    Route::post('booking_details', [HomeRemovals::class, 'booking_details_post'])->name('HomeRemovals.BookingDetails_POST');
+    Route::post('pickup_details', [HomeRemovals::class, 'pickup_details_post'])->name('HomeRemovals.PickupDetails_POST');
+    Route::post('delivery_details', [HomeRemovals::class, 'delivery_details_post'])->name('HomeRemovals.DeliveryDetails_POST');
     
     Route::post('update_cart', [HomeRemovals::class, 'update_cart'])->name('HomeRemovals.cart.update.cart');
     Route::post('update_time', [HomeRemovals::class, 'update_time'])->name('HomeRemovals.cart.update.time');

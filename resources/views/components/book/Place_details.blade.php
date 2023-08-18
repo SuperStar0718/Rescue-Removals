@@ -13,7 +13,7 @@
             <div class="header_text_right">
                 <h6 class="mb-0">Prefer to get a price over the phone?</h6>
                 <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
-                <h6 >Quote Ref: 1887654</h6>
+                <h6 >Quote Ref: {{ isset($quote_ref) ? $quote_ref : $result->reference_id}}</h6>
             </div>                    
         </div>
     </div>
@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-4 bg-primary-light d-flex justify-content-center align-items-center" style="border-radius: 2rem 0rem 0rem 2rem;">
             <div class="d-flex justify-content-center align-items-center">
-                <h3 class="text-white px-3">Where are you moving from and to?</h3>
+                <h3 class="text-white description">Where are you moving from and to?</h3>
             </div>                        
         </div>
         <div class="col-md-8 stairs right_panel">

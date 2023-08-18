@@ -190,6 +190,6 @@ class Furniture_ApplianceCart extends Model
                 break;
         }
 
-        return $price;
+        return number_format($price,2);
     }
 }

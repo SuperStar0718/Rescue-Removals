@@ -1,81 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Google Maps Postal Code Example</title>
-  <style>
-    #map {
-      height: 400px;
-      width: 100%;
-    }
-  </style>
+    <title>Calculate Distance and Time</title>
 </head>
 <body>
-  <div id="map"></div>
-  <script>
-    // Step 1: Geocoding - Convert postal code to coordinates
-    function geocodePostalCode(postalCode, callback) {
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ address: postalCode }, function (results, status) {
-        if (status === "OK") {
-          if (results[0]) {
-            callback(results[0].geometry.location);
-          } else {
-            console.log("No results found");
+<!-- container -->
+<div id="postcode_pickup"></div>
+
+<label>First Address Line</label>
+<input id="formatted_address_0" type="text"> 
+
+<label>Second Address Line</label>
+<input id="formatted_address_1" type="text">   
+
+<label>Third Address Line</label>
+<input id="formatted_address_2" type="text">  
+
+<label>Town</label>
+<input id="town_or_city" type="text">
+
+<label>County</label>
+<input id="county" type="text">
+
+<label>Postcode</label>
+<input id="postcode" type="text">
+    
+<script src="https://cdn.getaddress.io/scripts/getaddress-find-2.0.0.min.js">
+</script>
+
+<script>
+
+    getAddress.find(
+        'postcode_pickup',
+        'XbNq62VtXUeQbSArk1PLTQ40157',
+        {
+          output_fields:{
+                formatted_address_0:'formatted_address_0',  /* The id of the element bound to 'formatted_address[0]' */
+                formatted_address_1:'formatted_address_1',  /* The id of the element bound to 'formatted_address[1]' */
+                formatted_address_2:'formatted_address_2',  /* The id of the element bound to 'formatted_address[2]' */
+                formatted_address_3:'formatted_address_3',  /* The id of the element bound to 'formatted_address[3]' */
+                formatted_address_4:'formatted_address_4',  /* The id of the element bound to 'formatted_address[4]' */
+                line_1:'line_1',  /* The id of the element bound to 'line_1' */
+                line_2:'line_2',  /* The id of the element bound to 'line_2' */
+                line_3:'line_3',  /* The id of the element bound to 'line_3' */
+                line_4:'line_4',  /* The id of the element bound to 'line_4' */
+                latitude:'latitude',  /* The id of the element bound to 'latitude' */
+                longitude:'longitude',  /* The id of the element bound to 'longitude' */
+                building_number:'building_number',  /* The id of the element bound to 'building_number' */
+                building_name:'building_name',  /* The id of the element bound to 'building_name' */
+                sub_building_number:'sub_building_number',  /* The id of the element bound to 'sub_building_number' */
+                sub_building_name:'sub_building_name',  /* The id of the element bound to 'sub_building_name' */
+                thoroughfare:'thoroughfare',  /* The id of the element bound to 'thoroughfare' */
+                county:'county',  /* The id of the element bound to 'county' */
+                country:'country',  /* The id of the element bound to 'country' */
+                district:'district',  /* The id of the element bound to 'district' */
+                locality:'locality',  /* The id of the element bound to 'locality' */
+                postcode:'postcode',  /* The id of the element bound to 'postcode' */
+                residential:'residential'  /* The id of the element bound to 'residential' */
+          },
+          input:{
+                id:'getaddress_input',  /* The id of the textbox' */
+                name:'getaddress_input',  /* The name of the textbox' */
+                class:'',  /* The class of the textbox' */
+                label:'Enter your Postcode'  /* The label of the textbox' */
+          },
+          button:{
+                id:'getaddress_button',  /* The id of the botton' */
+                class:'',  /* The class of the botton' */
+                label:'Search',  /* The label of the botton' */
+                disabled_message:'disabled message'  /* The disabled message of the botton' */
+          },
+          dropdown:{
+                id:'getaddress_dropdown',  /* The id of the dropdown' */
+                class:'',  /* The class of the dropdown' */
+                select_message:'Select your Address',  /* The select message of the dropdown' */
+                template:''  /* The suggestion template of the dropdown' (see Autocomplete API)*/
+          },
+          error_message:{
+                id:'getaddress_error_message',  /* The id of the error message' */
+                class:'',  /* The class of the error message' */
+                not_found:'Address not found',  /* The 'not found' message of the error message' */
+          },
+          endpoints:{
+                autocomplete_url:undefined,  /* Local alterative autocomplete url (when API key is not used) */
+                get_url:undefined /* Local alterative get url (when API key is not used) */
           }
-        } else {
-          console.log("Geocode was not successful for the following reason: " + status);
-        }
-      });
-    }
+    });
 
-    // Step 2: Reverse geocoding - Get address details for coordinates
-    function reverseGeocode(latlng, callback) {
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ location: latlng }, function (results, status) {
-        if (status === "OK") {
-          if (results[0]) {
-            callback(results[0]);
-          } else {
-            console.log("No results found");
-          }
-        } else {
-          console.log("Geocode was not successful for the following reason: " + status);
-        }
-      });
-    }
+    $(document).ready(function(){
+        document.addEventListener("getaddress-find-suggestions", function(e){
+            console.log(e.suggestions);
+        })
 
-    function initMap() {
-      var map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 51.4062365, lng: -0.6755624 },
-        zoom: 8,
-      });
+        document.addEventListener("getaddress-find-suggestions-failed", function(e){
+            console.log(e.status);
+            console.log(e.message);
+        })
 
-      var postalCode = "SL5 9PT"; // Replace with the desired postal code
+        document.addEventListener("getaddress-find-address-selected", function(e){
+            console.log(e.address);
+        })
 
-      geocodePostalCode(postalCode, function (location) {
-        reverseGeocode(location, function (result) {
-          // Access the required data (flat, house number, etc.) from the result object
-          console.log(result);
-
-          // Example: Display the formatted address on the map
-          var marker = new google.maps.Marker({
-            position: result.geometry.location,
-            map: map,
-          });
-
-          var infowindow = new google.maps.InfoWindow({
-            content: result.formatted_address,
-          });
-
-          marker.addListener("click", function () {
-            infowindow.open(map, marker);
-          });
-
-          map.setCenter(result.geometry.location);
-        });
-      });
-    }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU&callback=initMap" async defer></script>
+        document.addEventListener("getaddress-find-address-selected-failed", function(e){
+            console.log(e.status);
+            console.log(e.message);
+        })
+    })
+  
+    </script>
+    
 </body>
 </html>

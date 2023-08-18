@@ -188,6 +188,6 @@ class HomeRemovalsCart extends Model
                 break;
         }
 
-        return $price;
+        return number_format($price,2);
     }
 }

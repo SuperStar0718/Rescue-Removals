@@ -50,14 +50,14 @@ img {
 }
 @media only screen and (max-width: 940px) {
   .shadow-effect{
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
   .shadow-effect>.panel_row{
     padding: 5px !important;
   }
   .container-content {
-    padding: 0 2rem !important;
+    padding: 0 19% !important;
     width: 100% !important;
   }
 
@@ -198,7 +198,7 @@ img {
   font-size: 12px;
 }
 div.men.car>div{
-  padding: 4rem 0px;
+  /* padding: 4rem 0px; */
 }
 div.men{
   display: flex;
@@ -338,7 +338,7 @@ div.car_title_section{
 }
 .select_month .dropdown button.dropdown-toggle::after{
   position: absolute;
-  left: 120px;
+  left: 111px;
   top: 30px;
   transform: rotate(-45deg);
   border-top: 0.4em solid;
@@ -519,9 +519,22 @@ div.car_title_section{
   background: none;
   pointer-events: none;
 }
+.content-wrapper div.input-block input.optional:valid ~ span.placeholder{
+  transform: none;
 
-.content-wrapper div.input-block input:valid + span.placeholder,
-.content-wrapper div.input-block input:focus + span.placeholder {
+}
+.content-wrapper div.input-block input.optional.active:valid ~ span.placeholder{
+  transform: scale(0.8) translateY(-24px);
+
+}
+
+.content-wrapper div.input-block input.optional:focus ~ span.placeholder{
+  transform: scale(0.8) translateY(-24px) !important;
+}
+
+.content-wrapper div.input-block input.active ~ span.placeholder,
+.content-wrapper div.input-block input:valid ~ span.placeholder,
+.content-wrapper div.input-block input:focus ~ span.placeholder {
 transform: scale(0.8) translateY(-24px);
 background: #fff;
 }
@@ -590,7 +603,6 @@ color: #284B63;
   font-size: 32px;
 }
 .price_page .price_panel{
-  width: 50%;
     color: white;
     background-color: #353EA3;
     border-radius: 3rem;
@@ -600,6 +612,7 @@ color: #284B63;
     align-items: center;
     justify-content: center;
     padding: 0px 35px 35px 35px;
+    min-width: 60%;
 }
 .price_page .price_panel .price{
   font-size: 90px;
@@ -627,7 +640,8 @@ button.modal_button{
   padding: 1rem 15px;
 }
 .modal-body .price{
-  color: black;
+  color: #3B3B3B;
+  font-size: 15px;
   padding-top: 2rem;
 }
 .price .price_number{
@@ -1068,6 +1082,8 @@ color: #000000;
   border: 1px solid #353EA3;
   border-radius: 18px;
   margin-top: 10px;
+  left: auto !important;
+  right: 0px !important;
 }
 .dropdown_widget .drop_item{
   padding: 20px;
@@ -1108,9 +1124,9 @@ color: #000000;
   border-bottom-right-radius: 0px;
   border-bottom: 0px;
   margin: auto;
-  max-width: 820px;
-  min-width: 730px;
-  padding: 4rem;
+  max-width: 560px;
+  min-width: 500px;
+  padding: 2rem;
   padding-bottom: 10px;
   font-size: 15px;
   font-weight: bold;
@@ -1240,7 +1256,7 @@ color: #434343;
   /* gap: 10px; */
 }
 .modal-footer button{
-  padding: 1rem 1.3rem !important;
+  padding: 1rem 0px !important;
   border-radius: 8px;
 }
 .right_context{
@@ -1281,6 +1297,8 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-left: 5px;
   overflow: hidden;
     text-overflow: ellipsis;
+    width: 100%;
+    text-align: left;
 }
 .our-services-context{
   margin-bottom: 10rem;
@@ -1306,7 +1324,7 @@ h5 a{
   gap: 15px;
 }
 .modal-footer.modal-content{
-  padding: 2rem 4rem;
+  padding: 2rem;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 1rem;
@@ -1327,7 +1345,43 @@ h5 a{
   align-items: center;
   line-height: 15px;
   display: grid;
-  grid-template-columns: 40% 30% 30%;
+  grid-template-columns: 35% 25% 25%;
   gap: 15px;
   width: 100%;
+  justify-content: center;
+}
+.select_month .dropdown{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.calendar .calendar_content{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  justify-items: center;
+  padding: 5px;
+}
+.w-1000{
+  width: 100%;
+}
+.address-form .dropdown-toggle{
+  height: 55px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #495055;
+  padding: 0.7rem 0.75rem;
+  border-radius: 8px;
+  border: 0.5px solid #707070;
+  width: 100%;
+}
+.get_price_modal .modal-content{
+  max-width: 760px;
+}
+.postalcode{
+  display: grid;
+  grid-template-columns: 49% 49%;
+  justify-content: space-between;
+}
+.description{
+  padding: 0px 1rem;
 }

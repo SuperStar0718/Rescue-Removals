@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4 bg-primary-light d-flex justify-content-center align-items-center" style="border-radius: 2rem 0rem 0rem 2rem;">
             <div class="d-flex justify-content-center align-items-center">
-                <h3 class="text-white px-3">Select how many flights of stairs our team will need to climb?</h3>
+                <h3 class="text-white description">Select how many flights of stairs our team will need to climb?</h3>
             </div>                        
         </div>
         <div class="col-md-8 stairs right_panel">

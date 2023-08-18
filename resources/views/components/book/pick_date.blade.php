@@ -3,16 +3,16 @@
         @if($component=="OfficeRemovals.pick_date")
         <div class="col-md-4 bg-primary-light d-flex justify-content-center align-items-center" style="border-radius: 2rem 0rem 0rem 2rem;">
             <div class="d-flex justify-content-center align-items-center">
-                <h3 class="text-white px-3">Select the date that you would like to move?</h3>
+                <h3 class="text-white description">Select the date that you would like to move?</h3>
             </div>                        
         </div>
         <div class="col-md-8 men car pick_date right_panel">
         @else
         <div class="col-md-12 pick_date right_panel">
         @endif
-            <div class=" container py-3">
+            <div class=" container">
                 <div class="select_month py-2 row">
-                    <div class="dropdown col-md-2">
+                    <div class="dropdown">
                         <button class="btn month  dropdown-toggle month" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">July</button>
                         <div class="dropdown-menu month" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">January</a>
@@ -29,7 +29,7 @@
                             <a class="dropdown-item" href="#">December</a>
                         </div>
                     </div>
-                    <div class="dropdown col-md-2">
+                    <div class="dropdown">
                         <button class="btn year dropdown-toggle year" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">2023</button>
                         <div class="dropdown-menu year" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">2020</a>
