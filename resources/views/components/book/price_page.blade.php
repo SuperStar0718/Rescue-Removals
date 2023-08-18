@@ -1,5 +1,5 @@
-<div class="row display-none-sm">
-    <div class="col-md-8 ">
+<div class="row">
+    <div class="col-md-8">
         <div class="d-flex justify-content-start align-items-center">
             <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
             <div class="ml-2 header_text">
@@ -13,12 +13,12 @@
             <div  class="header_text_right">
                 <h6 class="mb-0">Prefer to get a price over the phone?</h6>
                 <h1 class="btn-text-primary-light mb-0">0208 090 6151</h1>
-                <h6 >Quote Ref: {{ isset($quote_ref) ? $quote_ref : $result->reference_id}}</h6>
+                <h6 >Quote Ref: 1887654</h6>
             </div>                    
         </div>
     </div>
 </div>
-<div class="shadow-effect display-none-sm" style="background-color: white; border-radius: 2rem;">
+<div class="shadow-effect" style="background-color: white; border-radius: 2rem;">
     <div class="row">
         <div class="col-md-12 price_page">
             <div class="d-flex ">
@@ -31,26 +31,6 @@
                     </div>
                     <div>
                         Your Price
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="display-sm height-350" style="background-color: white; border-radius: 2rem;">
-    <div class="display-sm select-item-text" style="padding-bottom: 70px">
-        Your Price!
-    </div>
-    <div class="row">
-        <div class="col-md-12 price_page">
-            <div class="d-flex ">
-                
-                <div class="title">
-                    Your Reference No. {{$result->reference_id}}
-                </div>
-                <div class="price_panel">
-                    <div class="price">
-                        £{{$result->getPrice()}}
                     </div>
                 </div>
             </div>

@@ -1,85 +1,11 @@
 @media only screen and (max-width: 771px) {
-    .address-form .dropdown-toggle{
-        text-align: center;
-        border-radius: 11px;
-        color: #353DA3;
-        border-color: #353DA3;
-    }
-    select.dropdown-toggle option{
-        width: 100% !important;
-    }
-    .postalcode{
-        grid-template-columns: 100%;
-        gap: 10px;
-    }
-    .select_month{
-        margin: 0px -30px;
-    }
-    .calendar.calendar-first{
-        margin: 0px -40px;
-    }
-    .description{
-        margin: 0px -83px;
-    }
-    .select_car_mobile{
-        padding-right: 0px !important;
-        padding-left: 0px !important;
-    }
-    .right_panel > div .hour >div > p, .right_panel > div .minute >div > p{
-        top: 150px !important;
-    }
-    header{
-        margin-bottom: 5px;
-    }
-    .content-wrapper div.input-block span{
-        color: #353DA3 !important;
-    }
-    .content-wrapper div.input-block input{
-        text-align: center;
-        border-radius: 11px;
-        color: #353DA3;
-        border-color: #353DA3;
-    }
-    div.men.car>div{
-        padding: 1rem 0px;
-    }
-    .price_page .price_panel{
-        height: 100%;
-        padding: 22px 41px;
-        border-radius: 30px;
-    }
-    .price_page .price_panel .price{
-        font-size: 60px;
-        line-height: 60px;
-        font-weight: bold;
-        height: auto;
-    }
-    .pick_date .container{
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }
-    .select_month .dropdown button.dropdown-toggle::after{
-        left: 113px;
-    }
-    .pick_date{
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-
-    }
-    .removals_items button span{
-          padding-left: 20px;
-          text-align: left;
-      }
     .congestion .button{
-        border-radius: 11px;
         margin-bottom: 10px !important;
         font-size: 15px !important;
     }
     .men .men_count .number_panel{
-        padding-left: 40px !important;
-        padding-right: 40px !important;
-        padding-top: 40px !important;
-        padding-bottom: 40px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
     .men .men_count .number_panel h1{
         font-size: 100px !important;
@@ -128,7 +54,6 @@
     }
     .removals_items{
         justify-content: center;
-        min-height: 300px;
     }
     .removals_items .item_button{
         border-color: #353DA3 !important;
@@ -137,11 +62,12 @@
         font-weight: bold;
     }
     .removals_items > div{
+        max-width: 350px;
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
     .removals_items button>div{
-        justify-content: space-between;
+        justify-content: center;
     }
     .col-md-72{
         flex: none;
@@ -212,22 +138,22 @@
         transform: translateY(54px) !important;
     }
     .button-group{
-        max-width: 250px;
+        max-width: 350px;
         margin:auto;
         padding-top: 26px !important;
         /* padding-left: 3rem; */
         /* padding-right: 3rem; */
         display: grid !important;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 10px;
     }
-    .button-group > a > button > h5, button > h5{
+    .button-group > a > button > h5{
         font-size: 11px;
         font-weight: bold;
     }
     .button-group > a > button{
-        padding: 10px !important;
         width: 100%;
+        padding: 12px !important;
     }
     .dropdown button.dropdown-toggle span{
         font-size: 15px;
@@ -235,7 +161,6 @@
     }
     .dropdown button.dropdown-toggle{
         justify-content: center;
-        border-radius: 11px;
         font-size: 15px;
     }
     .location_input{
@@ -263,13 +188,9 @@
     .house_type .shadow-effect{
         box-shadow: none;
     }
-    .car_text_mobile{
-        padding-right: 19% !important;
-        padding-left: 19% !important;
-    }
     .house_type .shadow-effect> div.row > div > div >h3{
-        padding-right: 0px ;
-        padding-left: 0px ;
+        padding-right: 0px !important;
+        padding-left: 0px !important;
         text-align: center;
         font-size: 25px;
         font-weight: bold;
@@ -426,16 +347,15 @@
     padding-right: 15px;
 }
 .right_panel > div .hour >div > p, .right_panel > div .minute >div > p{
-    top: 150px !important;
-    left: 30px;
+    top: 167px !important;
 
 }
 .right_panel > div .hour >div > h1, .right_panel > div .minute >div > h1{
     /* font-size: 100px !important; */
-    line-height: 100px !important;
+    line-height: 85px !important;
 }
 .men.car div>div>img{
-    width: 250px !important;
+    width: 270px !important;
 }
 .header_text h2{
     font-size: 25px !important;
@@ -462,20 +382,14 @@
 
 }
 
-@media only screen and (min-width: 1170px) and (max-width: 1240px) {
-    .men .men_count .number_panel p{
-        top: 155px;
-        left: 30px;
-    }
-}
 @media only screen and (min-width: 771px) and (max-width: 1240px) {
     #quote_btn{
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
     .men .men_count .number_panel{
-        padding-left: 40px !important; 
-        padding-right: 40px !important;
+        padding-left: 20px !important; 
+        padding-right: 20px !important;
     }
     .men .men_count .number_panel h1{
         font-size: 100px !important;
@@ -642,7 +556,7 @@ header .menu.show{
 .main_content .categories .category h6{
     font-family: "Helvetica Neue", Arial, sans-serif;
     font-size: 18px;
-    /* font-weight: bold; */
+    font-weight: bold;
     color: #8B8B8B;
 }
 .main_content .categories .category{
@@ -671,7 +585,9 @@ width: 100%;
     
 }
 
-
+header{
+    margin-bottom: 5px;
+}
 .top-content{
     background-color: #353da3;
     color: white;
@@ -749,11 +665,10 @@ color: white;
     display: flex;
     justify-content: center;
 }
-
 .bottom-buttons .view_item{
     position: absolute;
     bottom: 6px;
-    right: -19%;
+    right: 0px;
     background-color: #353DA3;
     padding: 7px;
     font-size: 12px;
@@ -762,60 +677,4 @@ color: white;
 }
 .bottom-buttons{
     position: relative;
-}
-
-.removals_items .cart-list .left-title{
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-    color: #353DA3;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-wrap:nowrap;
-    padding-right: 10px;
-}
-.removals_items .cart-list .remove-right{
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 15px;
-    color: #D80000;
-}
-.booking_details .content-wrapper{
-    padding: 0px !important;
-    max-width: 350px;
-}
-
-.booking_details .content-wrapper >div{
-    margin-bottom: 10px;
-}
-.display-sm .price_page{
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-}
-.display-sm .price_page .title{
-    margin: 0px -60px;
-    font-weight: normal;
-    font-size: 22px;
-}
-.height-350{
-    min-height: 350px;
-}
-.price_panel_mobile .price_text{
-    font-size: 11px;
-}
-.price_panel_mobile .price_number{
-    font-size: 23px;
-    font-weight: bold;
-}
-.price_panel_mobile{
-    display: flex;
-    justify-content: space-around;
-    background-color: #353DA3;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 11px;
-    align-items: center;
-}
-.display-sm .button-group a{
-    display: flex;
-    justify-content: center;
 }

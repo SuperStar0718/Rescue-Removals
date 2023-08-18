@@ -426,6 +426,58 @@
 
 
 
+// Replace with your API key and desired postcode
+const apiKey = 'AIzaSyCdwK0YxzP31-BE703RBfLYC8WESqH9FUU';
+const postcode = "LU5 4UH";
+
+// Perform a geocoding request using Google Geocoding API
+// Perform a geocoding request using Google Geocoding API
+// Perform a geocoding request using Google Geocoding API
+const geocoder = new google.maps.Geocoder();
+geocoder.geocode(
+  {
+    address: postcode,
+    componentRestrictions: { country: 'UK' }, // Adjust the country as needed
+  },
+  (results, status) => {
+    if (status === google.maps.GeocoderStatus.OK) {
+      const flatNumbers = [];
+
+      results.forEach((result) => {
+        const addressComponents = result.address_components || [];
+
+        // Find and collect flat number components
+        const flatNumber = addressComponents.find(
+          (component) => component.types.includes('subpremise')
+        );
+
+        if (flatNumber) {
+          flatNumbers.push(flatNumber.long_name);
+        }
+      });
+
+      // Display the collected flat numbers
+      if (flatNumbers.length > 0) {
+        console.log('Available Flat Numbers:', flatNumbers.join(', '));
+      } else {
+        console.log('No flat numbers found in the given postcode.');
+      }
+    }
+  }
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -524,8 +576,6 @@
             console.log('No address selected or not found.');
             }
         });
-
-        
     }
 
         $(document).ready(function(){

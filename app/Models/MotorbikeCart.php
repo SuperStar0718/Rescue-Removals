@@ -190,6 +190,6 @@ class MotorbikeCart extends Model
                 break;
         }
 
-        return number_format($price,2);
+        return $price;
     }
 }
