@@ -10,22 +10,14 @@ class eBayDeliveries extends Controller
     //
     public function index(){
         $component = "eBay";
-        $quote_ref = $this->generate_quote_ref();
-        return view('book.eBayDelivery.main',compact('component', 'quote_ref'));
-    }
-    public function generate_quote_ref(){
-        $microtime = microtime(true); // Current timestamp with microseconds
-        $hash = hash('sha256', $microtime); // Hash the timestamp
-        
-        // Take the first 7 characters of the hash and convert to an integer
-        $uniqueNumber = intval(substr($hash, 0, 7), 16);
-        
-        return $uniqueNumber;
+       
+        return view('book.eBayDelivery.main',compact('component'));
     }
     public function hours_need(){
         $component = "eBay.hours_need";
         $email = session()->get('email');
         $result = eBayCart::where('email', $email)->first();
+        $result = eBayCart::where('userid', 1)->first();
         return view('book.eBayDelivery.main', compact('component','result'));
     }
     public function men(){
@@ -87,14 +79,12 @@ class eBayDeliveries extends Controller
         $name = $request->name;
         $email = $request->email;
         $phone = $request->phone;
-        $pickup_postcode = $request->pickup_postcode;
         $pickup_add1 = $request->pickup_add1;
         $pickup_add2 = $request->pickup_add2;
         $pickup_city = $request->pickup_city;
         $pickup_county = $request->pickup_county;
         $pickup_contact_name = $request->pickup_contact_name;
         $pickup_contact_number = $request->pickup_contact_number;
-        $delivery_postcode = $request->delivery_postcode;
         $delivery_add1 = $request->delivery_add1;
         $delivery_add2 = $request->delivery_add2;
         $delivery_city = $request->delivery_city;
@@ -108,14 +98,12 @@ class eBayDeliveries extends Controller
             $result->username = $name;
             $result->email = $email;
             $result->phone_number = $phone;
-            $result->pickup_postcode = $pickup_postcode;
             $result->pickup_address1 = $pickup_add1;
             $result->pickup_address2 = $pickup_add2;
             $result->pickup_city = $pickup_city;
             $result->pickup_county = $pickup_county;
             $result->pickup_name = $pickup_contact_name;
             $result->pickup_phone = $pickup_contact_number;
-            $result->delivery_postcode = $delivery_postcode;
             $result->delivery_address1 = $delivery_add1;
             $result->delivery_address2 = $delivery_add2;
             $result->delivery_city = $delivery_city;
@@ -147,23 +135,20 @@ class eBayDeliveries extends Controller
         $cart_list = $request->cart_list;
         $pickup_address = $request->pickup_address;
         $delivery_address = $request->delivery_address;
-        $quote_ref = $request->quote_ref;
         session()->put('email',$email );
         $result = eBayCart::where('email', $email)->first();
         if($result){
             $result->phone_number = strval($mobile);
             $result->from = $pickup_address;
             $result->to = $delivery_address;
-            $result->cart_list = $cart_list;  
-            $result->reference_id = $quote_ref;
-
+            $result->cart_list = $cart_list;    
             $result->save();
         }
         else{
 
             $eBaycart = new eBayCart();
             $eBaycart->userid = 1;
-            $eBaycart->reference_id = $quote_ref;
+            $eBaycart->reference_id = 1887654;
             $eBaycart->email = $email;
             $eBaycart->phone_number = strval($mobile);
             $eBaycart->from = $pickup_address;

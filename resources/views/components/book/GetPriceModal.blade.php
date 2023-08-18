@@ -6,7 +6,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog house_type get_price_modal" role="document">
+<div class="modal-dialog house_type" role="document">
     <div class="modal-content">
         <div class="section">
             <img src="{{asset('images/logo_blue.svg')}}" alt="">
@@ -31,7 +31,6 @@
                             Enter your Mobile Number
                         </span>
                     </div>
-                    <input type="text" value="{{$quote_ref}}" name="quote_ref" hidden>
                 </div>
                     <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                         <h5 class="mb-0">Get Prices Now</h5>

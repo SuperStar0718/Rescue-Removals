@@ -55,15 +55,6 @@
             }
         });
     })
-    
-
-    $('.input-block input').on('keyup', function(event) {
-        var text = $(this).val()
-        if(text.length>0)
-            $(this).addClass('active')
-        else
-            $(this).removeClass('active')
-    });
 
 </script>
 

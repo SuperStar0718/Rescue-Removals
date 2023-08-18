@@ -38,16 +38,14 @@ return new class extends Migration
             $table->string('username')->default("");
             $table->string('phone_number')->default("");
             $table->string('phone_number_2')->default("");
-            $table->string('pickup_postcode')->default("");
             $table->string('pickup_address1')->default("");
-            $table->string('pickup_address2')->default("")->nullable();
+            $table->string('pickup_address2')->default("");
             $table->string('pickup_city')->default("");
             $table->string('pickup_county')->default("");
             $table->string('pickup_name')->default("");
             $table->string('pickup_phone')->default("");
-            $table->string('delivery_postcode')->default("");
             $table->string('delivery_address1')->default("");
-            $table->string('delivery_address2')->default("")->nullable();
+            $table->string('delivery_address2')->default("");
             $table->string('delivery_city')->default("");
             $table->string('delivery_county')->default("");
             $table->string('delivery_name')->default("");
