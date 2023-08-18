@@ -50,14 +50,14 @@ img {
 }
 @media only screen and (max-width: 940px) {
   .shadow-effect{
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
   .shadow-effect>.panel_row{
     padding: 5px !important;
   }
   .container-content {
-    padding: 0 2rem !important;
+    padding: 0 19% !important;
     width: 100% !important;
   }
 
@@ -1381,4 +1381,7 @@ h5 a{
   display: grid;
   grid-template-columns: 49% 49%;
   justify-content: space-between;
+}
+.description{
+  padding: 0px 1rem;
 }

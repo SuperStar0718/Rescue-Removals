@@ -95,7 +95,7 @@ class HomeRemovals extends Controller
         return redirect()->route('HomeRemovals.PickupDetails');
     }
     public function pickup_details_post(Request $request){
-        $postcode = $request->postcode;
+        $postcode = $request->pickup_postcode;
         $address_1 = $request->address_1;
         $address_2 = $request->address_2;
         $city = $request->city;
@@ -105,6 +105,7 @@ class HomeRemovals extends Controller
         $result = HomeRemovalsCart::where('email', $email)->first();
 
         if($result){
+            $result->pickup_postcode = $postcode;
             $result->pickup_address1 = $address_1;
             $result->pickup_address2= $address_2;
             $result->pickup_county = $city;
@@ -115,7 +116,7 @@ class HomeRemovals extends Controller
         return redirect()->route('HomeRemovals.DeliveryDetails');
     }
     public function delivery_details_post(Request $request){
-        $postcode = $request->postcode;
+        $postcode = $request->delivery_postcode;
         $address_1 = $request->address_1;
         $address_2 = $request->address_2;
         $city = $request->city;
@@ -125,6 +126,7 @@ class HomeRemovals extends Controller
         $result = HomeRemovalsCart::where('email', $email)->first();
 
         if($result){
+            $result->delivery_postcode = $postcode;
             $result->delivery_address1 = $address_1;
             $result->delivery_address2= $address_2;
             $result->delivery_city = $city;

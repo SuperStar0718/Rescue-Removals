@@ -2,7 +2,7 @@
     <div class="row" style="">
         <div class="col-md-4 bg-primary-light d-flex justify-content-center align-items-center" style="border-radius: 2rem 0rem 0rem 2rem;">
             <div class="d-flex justify-content-center align-items-center">
-                <h3 class="text-white px-3">Do you require Packing Services?</h3>
+                <h3 class="text-white description">Do you require Packing Services?</h3>
             </div>                        
         </div>
         <div class="col-md-8 congestion right_panel">

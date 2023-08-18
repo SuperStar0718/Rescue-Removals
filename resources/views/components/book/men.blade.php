@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4 bg-primary-light d-flex justify-content-center align-items-center" style="border-radius: 2rem 0rem 0rem 2rem;">
             <div class="d-flex justify-content-center align-items-center">
-                <h3 class="text-white px-3">Select how many<br>Men you would like to help you?</h3>
+                <h3 class="text-white  description">Select how many<br>Men you would like to help you?</h3>
             </div>                        
         </div>
         <div class="col-md-8 men right_panel car">

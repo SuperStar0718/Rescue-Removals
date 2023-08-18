@@ -12,28 +12,23 @@
                 <form  class="needs-validation w-100" novalidate method="POST" action="{{route('HomeRemovals.PickupDetails_POST')}}">
                     @csrf
                     <div class="booking_details my-5 d-flex align-items-center flex-column">
-                        <div class="content-wrapper w-1000">
+                        <div class="content-wrapper address-form w-1000">
             
-                            <div class="input-block" >
-                                <input type="text" name="postcode" class="form-control" value="{{$result->getPostCodeFrom()}}"   required >
-                                <span class="placeholder">
-                                    PostCode
-                                </span>
-                            </div>
+                            <div class="input-block postalcode" id="postcode_pickup"></div>
                             <div class="input-block">
-                                <input type="text" name="address_1" class="form-control"  required  >
+                                <input type="text" name="address_1" id="formatted_address_0_pickup" class="form-control"  required  >
                                 <span class="placeholder">
                                     Address Line 1
                                 </span>
                             </div>
                             <div class="input-block">
-                                <input type="text" name="address_2" class="form-control"  required  >
+                                <input type="text" name="address_2" id="formatted_address_1_pickup" class="form-control optional"  >
                                 <span class="placeholder">
                                     Address Line 2
                                 </span>
                             </div>
                             <div class="input-block">
-                                <input type="text" name="city" class="form-control"  required  >
+                                <input type="text" name="city" class="form-control" id="town_or_city_pickup"  required  >
                                 <span class="placeholder">
                                     City
                                 </span>

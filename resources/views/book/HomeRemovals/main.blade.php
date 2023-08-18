@@ -8,7 +8,7 @@
 
     <!--------------- section 1 --------------->
     <div class="bg-warning-light2 pt-3">
-        <div class="container-content mar5">
+        <div class="container-content mar5 @if($component =="HomeRemovals.select_car")select_car_mobile @endif" >
             @if($component=="HomeRemovals.price_page")
             <div class="row">
             <div class="col-md-12">
@@ -221,10 +221,9 @@
                             </div>
                         </div>
                         <div id="distance" class="text-center"></div>
-                        <div id="distance" class="text-center"></div>
                         <div class="map-content-wrapper">
                             <div class="content pb-3">
-                                <p>Your Reference</p>
+                                <p>Your Rddeference</p>
                                 <span>{{$result->reference_id}}</span>
                             </div>
                             <div class="content pb-3">
@@ -1083,6 +1082,231 @@ $(document).ready(function(){
 })
 </script>
 @endif
+
+@if($component == "HomeRemovals.PickupDetails" || $component == "HomeRemovals.DeliveryDetails")
+
+
+<script src="https://cdn.getaddress.io/scripts/getaddress-find-2.0.0.min.js">
+</script>
+
+<!-- after your form -->
+<script>
+    getAddress.find(
+        'postcode_pickup',
+        'XbNq62VtXUeQbSArk1PLTQ40157',
+        /*options*/{
+          output_fields:{
+                formatted_address_0:'formatted_address_0_pickup',  /* The id of the element bound to 'formatted_address[0]' */
+                formatted_address_1:'formatted_address_1_pickup',  /* The id of the element bound to 'formatted_address[1]' */
+                formatted_address_2:'formatted_address_2',  /* The id of the element bound to 'formatted_address[2]' */
+                formatted_address_3:'formatted_address_3',  /* The id of the element bound to 'formatted_address[3]' */
+                formatted_address_4:'formatted_address_4',  /* The id of the element bound to 'formatted_address[4]' */
+                line_1:'line_1',  /* The id of the element bound to 'line_1' */
+                line_2:'line_2',  /* The id of the element bound to 'line_2' */
+                line_3:'line_3',  /* The id of the element bound to 'line_3' */
+                line_4:'line_4',  /* The id of the element bound to 'line_4' */
+                latitude:'latitude',  /* The id of the element bound to 'latitude' */
+                longitude:'longitude',  /* The id of the element bound to 'longitude' */
+                building_number:'building_number',  /* The id of the element bound to 'building_number' */
+                building_name:'building_name',  /* The id of the element bound to 'building_name' */
+                sub_building_number:'sub_building_number',  /* The id of the element bound to 'sub_building_number' */
+                sub_building_name:'sub_building_name',  /* The id of the element bound to 'sub_building_name' */
+                thoroughfare:'thoroughfare',  /* The id of the element bound to 'thoroughfare' */
+                town_or_city: 'town_or_city_pickup',  /* The id of the element bound to 'town_or_city' */
+                county:'county_pickup',  /* The id of the element bound to 'county' */
+                country:'country',  /* The id of the element bound to 'country' */
+                district:'district',  /* The id of the element bound to 'district' */
+                locality:'locality',  /* The id of the element bound to 'locality' */
+                postcode:'postcode',  /* The id of the element bound to 'postcode' */
+                residential:'residential'  /* The id of the element bound to 'residential' */
+          },
+          input:{
+                id:'getaddress_input_pickup',  /* The id of the textbox' */
+                name:'pickup_postcode',  /* The name of the textbox' */
+                class:'form-control getaddress_input',  /* The class of the textbox' */
+                label:''  /* The label of the textbox' */
+          },
+          button:{
+                id:'getaddress_button_pickup',  /* The id of the botton' */
+                class:'getaddress_button',  /* The class of the botton' */
+                label:'Search',  /* The label of the botton' */
+                disabled_message:'disabled message'  /* The disabled message of the botton' */
+          },
+          dropdown:{
+                id:'getaddress_dropdown',  /* The id of the dropdown' */
+                class:'dropdown-toggle',  /* The class of the dropdown' */
+                select_message:'Select your Address',  /* The select message of the dropdown' */
+                template:' {line_1}'  /* The suggestion template of the dropdown' (see Autocomplete API)*/
+          },
+          error_message:{
+                id:'getaddress_error_message',  /* The id of the error message' */
+                class:'',  /* The class of the error message' */
+                not_found:'Address not found',  /* The 'not found' message of the error message' */
+          },
+          endpoints:{
+                autocomplete_url:undefined,  /* Local alterative autocomplete url (when API key is not used) */
+                get_url:undefined /* Local alterative get url (when API key is not used) */
+          }
+    });
+    getAddress.find(
+        'postcode_delivery',
+        'XbNq62VtXUeQbSArk1PLTQ40157',
+        /*options*/{
+          output_fields:{
+                formatted_address_0:'formatted_address_0_delivery',  /* The id of the element bound to 'formatted_address[0]' */
+                formatted_address_1:'formatted_address_1_delivery',  /* The id of the element bound to 'formatted_address[1]' */
+                formatted_address_2:'formatted_address_2',  /* The id of the element bound to 'formatted_address[2]' */
+                formatted_address_3:'formatted_address_3',  /* The id of the element bound to 'formatted_address[3]' */
+                formatted_address_4:'formatted_address_4',  /* The id of the element bound to 'formatted_address[4]' */
+                line_1:'line_1',  /* The id of the element bound to 'line_1' */
+                line_2:'line_2',  /* The id of the element bound to 'line_2' */
+                line_3:'line_3',  /* The id of the element bound to 'line_3' */
+                line_4:'line_4',  /* The id of the element bound to 'line_4' */
+                latitude:'latitude',  /* The id of the element bound to 'latitude' */
+                longitude:'longitude',  /* The id of the element bound to 'longitude' */
+                building_number:'building_number',  /* The id of the element bound to 'building_number' */
+                building_name:'building_name',  /* The id of the element bound to 'building_name' */
+                sub_building_number:'sub_building_number',  /* The id of the element bound to 'sub_building_number' */
+                sub_building_name:'sub_building_name',  /* The id of the element bound to 'sub_building_name' */
+                thoroughfare:'thoroughfare',  /* The id of the element bound to 'thoroughfare' */
+                town_or_city: 'town_or_city_delivery',  /* The id of the element bound to 'town_or_city' */
+                county:'county_delivery',  /* The id of the element bound to 'county' */
+                country:'country',  /* The id of the element bound to 'country' */
+                district:'district',  /* The id of the element bound to 'district' */
+                locality:'locality',  /* The id of the element bound to 'locality' */
+                postcode:'postcode',  /* The id of the element bound to 'postcode' */
+                residential:'residential'  /* The id of the element bound to 'residential' */
+          },
+          input:{
+                id:'getaddress_input_delivery',  /* The id of the textbox' */
+                name:'delivery_postcode',  /* The name of the textbox' */
+                class:'form-control getaddress_input',  /* The class of the textbox' */
+                label:''  /* The label of the textbox' */
+          },
+          button:{
+                id:'getaddress_button_delivery',  /* The id of the botton' */
+                class:'getaddress_button',  /* The class of the botton' */
+                label:'Search',  /* The label of the botton' */
+                disabled_message:'disabled message'  /* The disabled message of the botton' */
+          },
+          dropdown:{
+                id:'getaddress_dropdown',  /* The id of the dropdown' */
+                class:'dropdown-toggle',  /* The class of the dropdown' */
+                select_message:'Select your Address',  /* The select message of the dropdown' */
+                template:' {line_1}'  /* The suggestion template of the dropdown' (see Autocomplete API)*/
+          },
+          error_message:{
+                id:'getaddress_error_message',  /* The id of the error message' */
+                class:'',  /* The class of the error message' */
+                not_found:'Address not found',  /* The 'not found' message of the error message' */
+          },
+          endpoints:{
+                autocomplete_url:undefined,  /* Local alterative autocomplete url (when API key is not used) */
+                get_url:undefined /* Local alterative get url (when API key is not used) */
+          }
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.getaddress_button').hide()
+        $(".getaddress_input").attr("required", true);
+        $("#getaddress_input_pickup").val("{{$result->getPostCodeFrom()}}");
+        $("#getaddress_input_delivery").val("{{$result->getPostCodeTo()}}");
+        $(".getaddress_input").after("<span class='placeholder'>Search Postcode</span>");
+        $("#getaddress_button_pickup").click();
+        $("#getaddress_button_delivery").click();
+        $("#getaddress_input_delivery").keypress(function(event) {
+            // Check if the pressed key is Enter (key code 13)
+            if (event.keyCode === 13) {
+                event.preventDefault()
+                // Simulate a click on the button
+                $("#getaddress_button_delivery").click();
+                
+            }
+        });
+        $("#getaddress_input_pickup").keypress(function(event) {
+            // Check if the pressed key is Enter (key code 13)
+            if (event.keyCode === 13) {
+                event.preventDefault()
+                // Simulate a click on the button
+                $("#getaddress_button_pickup").click();
+                
+            }
+        });
+
+
+        document.addEventListener("getaddress-find-suggestions", function(e){
+            console.log(e.suggestions);
+        })
+
+        document.addEventListener("getaddress-find-suggestions-failed", function(e){
+            console.log(e.status);
+            console.log(e.message);
+        })
+
+        document.addEventListener("getaddress-find-address-selected", function(e){
+            if($('#formatted_address_1_delivery').val() !== "")
+                $('#formatted_address_1_delivery').addClass('active')
+            if($('#formatted_address_1_pickup').val() !== "")
+                $('#formatted_address_1_pickup').addClass('active')
+            console.log(e.address);
+        })
+
+        document.addEventListener("getaddress-find-address-selected-failed", function(e){
+            console.log(e.status);
+            console.log(e.message);
+        })
+    })
+
+    $('#pickup_use').change(function() {
+        var name = $('#name').val()
+        var phone = $('#phone').val()
+        if ($(this).is(':checked')) {
+            $('#pickup_contact_name').val(name)
+            $('#pickup_phone').val(phone)
+        } else {
+            $('#pickup_contact_name').val('')
+            $('#pickup_phone').val('')
+        }
+    });
+    $('#deliver_info').change(function() {
+        var name = $('#name').val()
+        var phone = $('#phone').val()
+        if ($(this).is(':checked')) {
+            $('#delivery_name').val(name)
+            $('#delivery_phone').val(phone)
+        } else {
+            $('#delivery_name').val('')
+            $('#delivery_phone').val('')
+        }
+    });
+
+    $('#name, #phone').on('keyup',function(){
+        var name = $('#name').val()
+        var phone = $('#phone').val()
+        if(name.length>0 && phone.length>0){
+            $('.useContact').show()
+        }
+        else{
+            $('.useContact').hide()
+        }
+    })
+
+$('div.phone_number.first button').click(function(){
+    var content = " <div class='row py-3 second_phone' style='flex-direction:row-reverse;'><div class='col-6'><div class='input-block phone_number'><input type='text' name ='input-text' required ><span class='placeholder'>Phone Number</span><button>-</button></div></div></div>"
+    if($('div.second_phone').length<1)
+    {
+        $('.booking-form').append(content)
+        $('.second_phone button').click(function(){
+            $(this).parent().parent().parent().remove()
+        })
+    }
+})
+</script>
+@endif
+
+
 @if($component=="HomeRemovals.final_calculation" || $component=="HomeRemovals.billing" )
 
 <script src="https://cdn.getaddress.io/scripts/getaddress-find-2.0.0.min.js">
@@ -1192,7 +1416,7 @@ $(document).ready(function(){
                 id:'getaddress_dropdown',  /* The id of the dropdown' */
                 class:'dropdown-toggle',  /* The class of the dropdown' */
                 select_message:'Select your Address',  /* The select message of the dropdown' */
-                template:''  /* The suggestion template of the dropdown' (see Autocomplete API)*/
+                template:'' /* The suggestion template of the dropdown' (see Autocomplete API)*/
           },
           error_message:{
                 id:'getaddress_error_message',  /* The id of the error message' */
@@ -1217,8 +1441,8 @@ $(document).ready(function(){
         $("#getaddress_button_delivery").click();
         $("#getaddress_input_delivery").keypress(function(event) {
             // Check if the pressed key is Enter (key code 13)
-            event.preventDefault()
             if (event.keyCode === 13) {
+                event.preventDefault()
                 // Simulate a click on the button
                 $("#getaddress_button_delivery").click();
                 
@@ -1226,8 +1450,8 @@ $(document).ready(function(){
         });
         $("#getaddress_input_pickup").keypress(function(event) {
             // Check if the pressed key is Enter (key code 13)
-            event.preventDefault()
             if (event.keyCode === 13) {
+                event.preventDefault()
                 // Simulate a click on the button
                 $("#getaddress_button_pickup").click();
                 
