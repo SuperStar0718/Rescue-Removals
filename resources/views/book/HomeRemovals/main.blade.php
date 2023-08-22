@@ -296,13 +296,13 @@
                 </div>                
             </div>
             @endif
-            @if($component != 'HomeRemovals.house_type' && $component!= 'HomeRemovals.ViewItems')
             <div class="display-sm">
                 <div class="bottom-buttons">
                     <div class="turst_img">
                         <img src="{{asset('images/trustpilot.png')}}" alt="">
                     </div>
-                    <div class="view_item" onclick="window.location.assign('{{route('HomeRemovals.ViewItem')}}')">
+                    @if($component != 'HomeRemovals.house_type' && $component!= 'HomeRemovals.ViewItems')
+                    <div class="view_item @if($component =='HomeRemovals.select_car') select_car_veiw_item @endif" onclick="window.location.assign('{{route('HomeRemovals.ViewItem')}}')">
                         <i><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16.588" height="16.589" viewBox="0 0 16.588 16.589">
                             <defs>
                               <clipPath id="clip-path">
@@ -318,9 +318,9 @@
                           </i>
                         View Items
                     </div>
+                    @endif
                 </div>
             </div>
-            @endif
         </div>
     </div>
     <!--------------- end section 1 --------------->

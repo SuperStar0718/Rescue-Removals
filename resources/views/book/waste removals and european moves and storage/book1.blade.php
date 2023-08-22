@@ -6,7 +6,7 @@
 
 @section('content')
     <!--------------- section 1 --------------->
-    <div class="container-content pt-5 mar5" style="padding-top: 3rem !important">
+    <div class="container-content pt-5 mar5 display-none-sm" style="padding-top: 3rem !important">
         <div class="row">
             <div class="col-md-6 left_image">
                 <img src="{{asset('images/Login/login.png')}}" style="width:100%">
@@ -63,6 +63,26 @@
         </div>
     </div>
     <!--------------- end section 2 --------------->
+    <div class="display-sm other-services height-350 ">
+        <div class="d-flex justify-content align-items-center flex-column text-context" >
+            <div class="text">
+                We need some details about what you would like to store.
+            </div>
+            <div class="text-2 text">
+                Please give us a call and a member of our team will get a price for you right away.
+            </div>
+            <div class="call-btn">
+                CALL
+            </div>
+        </div>
+        <div class="display-sm">
+            <div class="bottom-buttons">
+                <div class="turst_img">
+                    <img src="{{asset('images/trustpilot.png')}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
    

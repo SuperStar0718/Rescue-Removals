@@ -8,15 +8,15 @@
 
     <!--------------- section 1 --------------->
     <div class="bg-warning-light pt-3">
-        <div class="container-content mar5">
+        <div class="container-content mar5 @if($component =="eBay.select_car")select_car_mobile @endif">
             @if($component=="eBay.price_page")
             <div class="row">
             <div class="col-md-12">
                 @include('components.book.price_page')
                 @include('components.book.BillingModal')
-                @php($next = "eBay.billing")
+                @php($next = "main")
                 @php( $previous = "eBay.final_calculation")
-                <div class="d-flex justify-content-between py-50 button-group">
+                <div class="d-flex justify-content-between py-50 py123 button-group display-none-sm">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -27,6 +27,20 @@
                             <h5 class="mb-0">Next</h5>
                         </button>
                     </a>
+                </div>
+                <div class="display-sm">
+                    <div class="d-flex justify-content-between py-50 py123 button-group">
+                        <a class="previous_button" href="{{route('eBay.DeliveryDetails')}}"  id="quote_url">
+                            <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Previous</h5>
+                            </button>
+                        </a>
+                        <a href="{{route('eBay.PaymentDetails')}}" class="" id="quote_url">
+                            <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Next</h5>
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
             @else
@@ -49,6 +63,11 @@
                         @include('components.book.GetPriceModal', ['url'=> 'eBay.get_email'])
                         @php($next = "eBay.hours_need")
                         @php( $previous = "main")
+                        @break
+                    @case('eBay.ViewItems')
+                        @include('components.book.ViewItems')
+                        @php($next = "eBay")
+                        @php( $previous = "eBay")
                         @break
                     @case('eBay.hours_need')
                         @include('components.book.hour')
@@ -90,6 +109,26 @@
                         @php($next = "eBay.final_calculation")
                         @php( $previous = "eBay.pick_date")
                         @break
+                    @case('eBay.BookingDetails')
+                        @include('components.book.BookingDetails')
+                        @php($next = "eBay.PickupDetails")
+                        @php( $previous = "eBay.arrange_time")
+                        @break
+                    @case('eBay.PickupDetails')
+                        @include('components.book.PickupDetails')
+                        @php($next = "eBay.DeliveryDetails")
+                        @php( $previous = "eBay.BookingDetails")
+                        @break
+                    @case('eBay.DeliveryDetails')
+                        @include('components.book.DeliveryDetails')
+                        @php($next = "eBay.final_calculation")
+                        @php( $previous = "eBay.PickupDetails")
+                        @break
+                    @case('eBay.PaymentDetails')
+                        @include('components.book.PaymentDetails')
+                        @php($next = "main")
+                        @php( $previous = "eBay.price_page")
+                        @break
                     @case('eBay.final_calculation')
                         @include('components.book.final_calculation')
                         @php($next = "eBay.price_page")
@@ -104,24 +143,45 @@
                     @default
                         
                 @endswitch
-
+                @if($component == 'eBay.ViewItems')
+                    <div class="d-flex justify-content-center " style="padding-top: 26px">
+                            <button type="button" class="btn bg-primary-light text-white" onclick="window.history.back()" style="min-width:100px;  border-radius: 0.5rem; padding:12px; ">
+                                <h5 class="mb-0">Back</h5>
+                            </button>
+                    </div>
+                @else
                 <div class="d-flex justify-content-between py-50 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
                         </button>
                     </a>
+                    @if($component == 'eBay.arrange_time')
+                        <a href="{{route($next)}}" class="next_button display-none-sm" id="quote_url">
+                            <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Next</h5>
+                            </button>
+                        </a>
+                        <a href="{{route('eBay.BookingDetails')}}" class="next_button display-sm" id="quote_url">
+                            <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
+                                <h5 class="mb-0">Next</h5>
+                            </button>
+                        </a>
+                    @else
                     <a href="{{route($next)}}" class="next_button" id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Next</h5>
                         </button>
                     </a>
+                    @endif
                 </div>
+                @endif
                 @if($component=="eBay.final_calculation")
                     </form>
                 @endif
             </div>
-            <div class="col-md-28 col header_text_right display-none-sm">
+            <div class="col-md-28 col header_text_right display-none-sm ">
+                @if($component != "eBay.ViewItems")
                 <div class="d-flex justify-content-end align-items-center pt-3" style="height:179px;">
                     <div>
                         <h6 class="mb-0">Prefer to get a price over the phone?</h6>
@@ -129,6 +189,7 @@
                         <h6 >Quote Ref: {{ isset($quote_ref) ? $quote_ref : $result->reference_id}}</h6>
                     </div>                    
                 </div>
+                @endif
                 @if($component=="eBay.final_calculation" || $component=="eBay.billing" )  
                     <div class="map-wrapper shadow-effect">
                         <div id="googleMap">
@@ -172,15 +233,25 @@
                             </div>
                             <div class="content pb-3">
                                 <p>Floors</p>
-                                <span>Ground Floor to 1st Floor</span>
+                                <span>{{$result->from_stair}} to {{$result->to_stair}}</span>
                             </div>
                             <div class="content pb-3">
                                 <p>Congestion Zone</p>
                                 <span>{{$result->congestion ? "Yes" : "No"}} </span>
                             </div>
+                            @if(isset($result->packing_service))
+                            <div class="content pb-3">
+                                <p>Packaging Service</p>
+                                <span>{{$result->packing_service ? "Yes" : "No"}} </span>
+                            </div>
+                            @endif
                             <div class="content pb-3">
                                 <p>Date</p>
                                 <span>{{$result->getDateInfo()}}</span>
+                            </div>
+                            <div class="content pb-3">
+                                <p>Start Time</p>
+                                <span>{{$result->arrange_hour}}:{{$result->arrange_minute}}</span>
                             </div>
                             <div class="content pb-3">
                                 <p>Pick Up Location</p>
@@ -210,7 +281,8 @@
                     <div class="turst_img">
                         <img src="{{asset('images/trustpilot.png')}}" alt="">
                     </div>
-                    <div class="view_item">
+                    @if($component!= 'eBay.ViewItems' && $component!= 'eBay')
+                    <div class="view_item @if($component =='eBay.select_car') select_car_veiw_item @endif" onclick="window.location.assign('{{route('eBay.ViewItem')}}')">
                         <i><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16.588" height="16.589" viewBox="0 0 16.588 16.589">
                             <defs>
                               <clipPath id="clip-path">
@@ -224,8 +296,9 @@
                             </g>
                           </svg>
                           </i>
-                        View Item
+                        View Items
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -233,7 +306,7 @@
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div class="container-content book_now_btn display-none-sm" style="margin-bottom: -100px;">
+    <div class="container-content book_now_btn display-none-sm " style="margin-bottom: -104px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="d-flex justify-content-center align-items-center ">
                 <div>
@@ -254,10 +327,11 @@
 
 @section('script')
 <script>
-    @if($component!='eBay')
+    @if($component!='eBay' && isset($result))
 $(document).ready(function(){
     var lists =  @json($result->cart_list)  
     if(lists!=null){
+
         lists = JSON.parse(lists)
         console.log(lists)
         const keys = Object.keys(lists);
@@ -275,7 +349,6 @@ $(document).ready(function(){
             $(".cart_panel .carts .cart."+ (index) +" .operation .minus").click(function(e){
                 var amount = parseInt($(this).parent().children('.amount').text());
                 var title = $(this).parent().parent().children('.title').text();
-                update_cart(title, amount-1)
                 if(amount==1)
                     $(this).parent().parent().remove();
                 
@@ -288,7 +361,6 @@ $(document).ready(function(){
             $(".cart_panel .carts .cart."+ (index) +" .operation .plus").click(function(){
                 var amount = parseInt($(this).parent().children('.amount').text());
                 var title = $(this).parent().parent().children('.title').text();
-                update_cart(title, amount+1)
                 $(this).parent().children('.amount').text(amount+1)
                 var cart_amount = parseInt($(".cart_panel .cart_amount").text());
                 $(".cart_panel .cart_amount").text(cart_amount+1);
@@ -297,7 +369,6 @@ $(document).ready(function(){
         })
         $(".cart_panel .cart_amount").text(total_carts);
     }
-
 })
 @endif
  $(document).ready(function(){
@@ -447,6 +518,18 @@ $(document).ready(function(){
         $(this).append($('<input>').attr('type', 'hidden').attr('name', 'delivery_address').val(delivery_address));
         $(this).append($('<input>').attr('type', 'hidden').attr('name', 'cart_list').val(cart_list));
     })
+</script>  
+@endif
+@if($component=='eBay.price_page')
+<script>
+
+$(document).ready(function(){
+    $('.next_button').click(function(e){
+        e.preventDefault()
+        $('button.modal_button').trigger('click');
+
+    })
+})
 
 </script>  
 @endif
@@ -520,20 +603,6 @@ $(document).ready(function(){
     })
 </script>
 @endif
-@if($component=='eBay.price_page')
-<script>
-
-$(document).ready(function(){
-    $('.next_button').click(function(e){
-        e.preventDefault()
-        $('button.modal_button').trigger('click');
-
-    })
-})
-
-</script>
-
-@endif
 @if($component=="eBay.select_car")
 <script>
     function update_car(car){
@@ -581,6 +650,270 @@ $(document).ready(function(){
     })
 </script>
 @endif
+
+@if($component=="eBay.BookingDetails" || $component=="eBay.PickupDetails" || $component=="eBay.DeliveryDetails" )
+<script>
+    $('.next_button').click(function(e){
+        e.preventDefault();
+        $('.submit_hidden').click()
+    })
+</script>
+@endif
+
+@if($component=='eBay.ViewItems')
+<script>
+    $(document).ready(function(){
+        var lists = @json($result->cart_list);
+        if(lists!=null){
+            lists = JSON.parse(lists)
+            console.log(lists)
+            const keys = Object.keys(lists);
+            console.log(keys)
+            var index=1
+            var total_carts=0
+
+            keys.forEach(key=>{
+                if(lists[key]=='0')
+                    return;
+                
+                var content = '<div class="left-title">'+lists[key]+' '+ '<span class="cart_title">'+  key + '</span>'+'</div><div class="remove-right">(remove)</div>';
+                var element = $('<div class="d-flex justify-content-between">').html(content);
+                $('.cart-list').append(element);
+                $(".remove-right").click(function(e){
+                    $(this).parent().remove()
+                    var title = $(this).parent().children('div.left-title').children('span.cart_title').text()
+                    update_cart(title, 0)
+                })
+            
+            })
+        }
+    })
+</script>
+@endif
+
+@if($component == "eBay.PickupDetails" || $component == "eBay.DeliveryDetails")
+
+
+<script src="https://cdn.getaddress.io/scripts/getaddress-find-2.0.0.min.js">
+</script>
+
+<!-- after your form -->
+<script>
+    getAddress.find(
+        'postcode_pickup',
+        'XbNq62VtXUeQbSArk1PLTQ40157',
+        /*options*/{
+          output_fields:{
+                formatted_address_0:'formatted_address_0_pickup',  /* The id of the element bound to 'formatted_address[0]' */
+                formatted_address_1:'formatted_address_1_pickup',  /* The id of the element bound to 'formatted_address[1]' */
+                formatted_address_2:'formatted_address_2',  /* The id of the element bound to 'formatted_address[2]' */
+                formatted_address_3:'formatted_address_3',  /* The id of the element bound to 'formatted_address[3]' */
+                formatted_address_4:'formatted_address_4',  /* The id of the element bound to 'formatted_address[4]' */
+                line_1:'line_1',  /* The id of the element bound to 'line_1' */
+                line_2:'line_2',  /* The id of the element bound to 'line_2' */
+                line_3:'line_3',  /* The id of the element bound to 'line_3' */
+                line_4:'line_4',  /* The id of the element bound to 'line_4' */
+                latitude:'latitude',  /* The id of the element bound to 'latitude' */
+                longitude:'longitude',  /* The id of the element bound to 'longitude' */
+                building_number:'building_number',  /* The id of the element bound to 'building_number' */
+                building_name:'building_name',  /* The id of the element bound to 'building_name' */
+                sub_building_number:'sub_building_number',  /* The id of the element bound to 'sub_building_number' */
+                sub_building_name:'sub_building_name',  /* The id of the element bound to 'sub_building_name' */
+                thoroughfare:'thoroughfare',  /* The id of the element bound to 'thoroughfare' */
+                town_or_city: 'town_or_city_pickup',  /* The id of the element bound to 'town_or_city' */
+                county:'county_pickup',  /* The id of the element bound to 'county' */
+                country:'country',  /* The id of the element bound to 'country' */
+                district:'district',  /* The id of the element bound to 'district' */
+                locality:'locality',  /* The id of the element bound to 'locality' */
+                postcode:'postcode',  /* The id of the element bound to 'postcode' */
+                residential:'residential'  /* The id of the element bound to 'residential' */
+          },
+          input:{
+                id:'getaddress_input_pickup',  /* The id of the textbox' */
+                name:'pickup_postcode',  /* The name of the textbox' */
+                class:'form-control getaddress_input',  /* The class of the textbox' */
+                label:''  /* The label of the textbox' */
+          },
+          button:{
+                id:'getaddress_button_pickup',  /* The id of the botton' */
+                class:'getaddress_button',  /* The class of the botton' */
+                label:'Search',  /* The label of the botton' */
+                disabled_message:'disabled message'  /* The disabled message of the botton' */
+          },
+          dropdown:{
+                id:'getaddress_dropdown',  /* The id of the dropdown' */
+                class:'dropdown-toggle',  /* The class of the dropdown' */
+                select_message:'Select your Address',  /* The select message of the dropdown' */
+                template:' {line_1}'  /* The suggestion template of the dropdown' (see Autocomplete API)*/
+          },
+          error_message:{
+                id:'getaddress_error_message',  /* The id of the error message' */
+                class:'',  /* The class of the error message' */
+                not_found:'Address not found',  /* The 'not found' message of the error message' */
+          },
+          endpoints:{
+                autocomplete_url:undefined,  /* Local alterative autocomplete url (when API key is not used) */
+                get_url:undefined /* Local alterative get url (when API key is not used) */
+          }
+    });
+    getAddress.find(
+        'postcode_delivery',
+        'XbNq62VtXUeQbSArk1PLTQ40157',
+        /*options*/{
+          output_fields:{
+                formatted_address_0:'formatted_address_0_delivery',  /* The id of the element bound to 'formatted_address[0]' */
+                formatted_address_1:'formatted_address_1_delivery',  /* The id of the element bound to 'formatted_address[1]' */
+                formatted_address_2:'formatted_address_2',  /* The id of the element bound to 'formatted_address[2]' */
+                formatted_address_3:'formatted_address_3',  /* The id of the element bound to 'formatted_address[3]' */
+                formatted_address_4:'formatted_address_4',  /* The id of the element bound to 'formatted_address[4]' */
+                line_1:'line_1',  /* The id of the element bound to 'line_1' */
+                line_2:'line_2',  /* The id of the element bound to 'line_2' */
+                line_3:'line_3',  /* The id of the element bound to 'line_3' */
+                line_4:'line_4',  /* The id of the element bound to 'line_4' */
+                latitude:'latitude',  /* The id of the element bound to 'latitude' */
+                longitude:'longitude',  /* The id of the element bound to 'longitude' */
+                building_number:'building_number',  /* The id of the element bound to 'building_number' */
+                building_name:'building_name',  /* The id of the element bound to 'building_name' */
+                sub_building_number:'sub_building_number',  /* The id of the element bound to 'sub_building_number' */
+                sub_building_name:'sub_building_name',  /* The id of the element bound to 'sub_building_name' */
+                thoroughfare:'thoroughfare',  /* The id of the element bound to 'thoroughfare' */
+                town_or_city: 'town_or_city_delivery',  /* The id of the element bound to 'town_or_city' */
+                county:'county_delivery',  /* The id of the element bound to 'county' */
+                country:'country',  /* The id of the element bound to 'country' */
+                district:'district',  /* The id of the element bound to 'district' */
+                locality:'locality',  /* The id of the element bound to 'locality' */
+                postcode:'postcode',  /* The id of the element bound to 'postcode' */
+                residential:'residential'  /* The id of the element bound to 'residential' */
+          },
+          input:{
+                id:'getaddress_input_delivery',  /* The id of the textbox' */
+                name:'delivery_postcode',  /* The name of the textbox' */
+                class:'form-control getaddress_input',  /* The class of the textbox' */
+                label:''  /* The label of the textbox' */
+          },
+          button:{
+                id:'getaddress_button_delivery',  /* The id of the botton' */
+                class:'getaddress_button',  /* The class of the botton' */
+                label:'Search',  /* The label of the botton' */
+                disabled_message:'disabled message'  /* The disabled message of the botton' */
+          },
+          dropdown:{
+                id:'getaddress_dropdown',  /* The id of the dropdown' */
+                class:'dropdown-toggle',  /* The class of the dropdown' */
+                select_message:'Select your Address',  /* The select message of the dropdown' */
+                template:' {line_1}'  /* The suggestion template of the dropdown' (see Autocomplete API)*/
+          },
+          error_message:{
+                id:'getaddress_error_message',  /* The id of the error message' */
+                class:'',  /* The class of the error message' */
+                not_found:'Address not found',  /* The 'not found' message of the error message' */
+          },
+          endpoints:{
+                autocomplete_url:undefined,  /* Local alterative autocomplete url (when API key is not used) */
+                get_url:undefined /* Local alterative get url (when API key is not used) */
+          }
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.getaddress_button').hide()
+        $(".getaddress_input").attr("required", true);
+        $("#getaddress_input_pickup").val("{{$result->getPostCodeFrom()}}");
+        $("#getaddress_input_delivery").val("{{$result->getPostCodeTo()}}");
+        $(".getaddress_input").after("<span class='placeholder'>Search Postcode</span>");
+        $("#getaddress_button_pickup").click();
+        $("#getaddress_button_delivery").click();
+        $("#getaddress_input_delivery").keypress(function(event) {
+            // Check if the pressed key is Enter (key code 13)
+            if (event.keyCode === 13) {
+                event.preventDefault()
+                // Simulate a click on the button
+                $("#getaddress_button_delivery").click();
+                
+            }
+        });
+        $("#getaddress_input_pickup").keypress(function(event) {
+            // Check if the pressed key is Enter (key code 13)
+            if (event.keyCode === 13) {
+                event.preventDefault()
+                // Simulate a click on the button
+                $("#getaddress_button_pickup").click();
+                
+            }
+        });
+
+
+        document.addEventListener("getaddress-find-suggestions", function(e){
+            console.log(e.suggestions);
+        })
+
+        document.addEventListener("getaddress-find-suggestions-failed", function(e){
+            console.log(e.status);
+            console.log(e.message);
+        })
+
+        document.addEventListener("getaddress-find-address-selected", function(e){
+            if($('#formatted_address_1_delivery').val() !== "")
+                $('#formatted_address_1_delivery').addClass('active')
+            if($('#formatted_address_1_pickup').val() !== "")
+                $('#formatted_address_1_pickup').addClass('active')
+            console.log(e.address);
+        })
+
+        document.addEventListener("getaddress-find-address-selected-failed", function(e){
+            console.log(e.status);
+            console.log(e.message);
+        })
+    })
+
+    $('#pickup_use').change(function() {
+        var name = $('#name').val()
+        var phone = $('#phone').val()
+        if ($(this).is(':checked')) {
+            $('#pickup_contact_name').val(name)
+            $('#pickup_phone').val(phone)
+        } else {
+            $('#pickup_contact_name').val('')
+            $('#pickup_phone').val('')
+        }
+    });
+    $('#deliver_info').change(function() {
+        var name = $('#name').val()
+        var phone = $('#phone').val()
+        if ($(this).is(':checked')) {
+            $('#delivery_name').val(name)
+            $('#delivery_phone').val(phone)
+        } else {
+            $('#delivery_name').val('')
+            $('#delivery_phone').val('')
+        }
+    });
+
+    $('#name, #phone').on('keyup',function(){
+        var name = $('#name').val()
+        var phone = $('#phone').val()
+        if(name.length>0 && phone.length>0){
+            $('.useContact').show()
+        }
+        else{
+            $('.useContact').hide()
+        }
+    })
+
+$('div.phone_number.first button').click(function(){
+    var content = " <div class='row py-3 second_phone' style='flex-direction:row-reverse;'><div class='col-6'><div class='input-block phone_number'><input type='text' name ='input-text' required ><span class='placeholder'>Phone Number</span><button>-</button></div></div></div>"
+    if($('div.second_phone').length<1)
+    {
+        $('.booking-form').append(content)
+        $('.second_phone button').click(function(){
+            $(this).parent().parent().parent().remove()
+        })
+    }
+})
+</script>
+@endif
+
 @if($component=="eBay.men")
 <script>
  $(document).ready(function(){

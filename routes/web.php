@@ -86,6 +86,14 @@ Route::group(['prefix'=>'eBaydelivery'], function (){
     Route::get('price_page', [eBayDeliveries::class, 'price_page'])->name('eBay.price_page');
     Route::get('billing', [eBayDeliveries::class, 'billing'])->name('eBay.billing');
     Route::post('get_email', [eBayDeliveries::class, 'get_email'])->name('eBay.get_email');
+    Route::get('view_item', [eBayDeliveries::class, 'view_item'])->name('eBay.ViewItem');
+    Route::get('booking_details', [eBayDeliveries::class, 'booking_details'])->name('eBay.BookingDetails');
+    Route::get('pickup_details', [eBayDeliveries::class, 'pickup_details'])->name('eBay.PickupDetails');
+    Route::get('delivery_details', [eBayDeliveries::class, 'delivery_details'])->name('eBay.DeliveryDetails');
+    Route::get('payment_details', [eBayDeliveries::class, 'payment_details'])->name('eBay.PaymentDetails');
+    Route::post('booking_details', [eBayDeliveries::class, 'booking_details_post'])->name('eBay.BookingDetails_POST');
+    Route::post('pickup_details', [eBayDeliveries::class, 'pickup_details_post'])->name('eBay.PickupDetails_POST');
+    Route::post('delivery_details', [eBayDeliveries::class, 'delivery_details_post'])->name('eBay.DeliveryDetails_POST');
 
     
     Route::post('update_cart', [eBayDeliveries::class, 'update_cart'])->name('eBay.cart.update.cart');
@@ -121,6 +129,14 @@ Route::group(['prefix'=>'Furniture_Appliance'], function (){
     Route::get('price_page', [Furniture_Appliance::class, 'price_page'])->name('Furniture_Appliance.price_page');
     Route::get('billing', [Furniture_Appliance::class, 'billing'])->name('Furniture_Appliance.billing');
     Route::post('get_email', [Furniture_Appliance::class, 'get_email'])->name('Furniture_Appliance.get_email');
+    Route::get('view_item', [Furniture_Appliance::class, 'view_item'])->name('Furniture_Appliance.ViewItem');
+    Route::get('booking_details', [Furniture_Appliance::class, 'booking_details'])->name('Furniture_Appliance.BookingDetails');
+    Route::get('pickup_details', [Furniture_Appliance::class, 'pickup_details'])->name('Furniture_Appliance.PickupDetails');
+    Route::get('delivery_details', [Furniture_Appliance::class, 'delivery_details'])->name('Furniture_Appliance.DeliveryDetails');
+    Route::get('payment_details', [Furniture_Appliance::class, 'payment_details'])->name('Furniture_Appliance.PaymentDetails');
+    Route::post('booking_details', [Furniture_Appliance::class, 'booking_details_post'])->name('Furniture_Appliance.BookingDetails_POST');
+    Route::post('pickup_details', [Furniture_Appliance::class, 'pickup_details_post'])->name('Furniture_Appliance.PickupDetails_POST');
+    Route::post('delivery_details', [Furniture_Appliance::class, 'delivery_details_post'])->name('Furniture_Appliance.DeliveryDetails_POST');
 
 
     Route::post('update_cart', [Furniture_Appliance::class, 'update_cart'])->name('Furniture_Appliance.cart.update.cart');
@@ -156,6 +172,15 @@ Route::group(['prefix'=>'ManVan'], function (){
     Route::get('price_page', [ManVan::class, 'price_page'])->name('ManVan.price_page');
     Route::get('billing', [ManVan::class, 'billing'])->name('ManVan.billing');
     Route::post('get_email', [ManVan::class, 'get_email'])->name('ManVan.get_email');
+    Route::get('view_item', [ManVan::class, 'view_item'])->name('ManVan.ViewItem');
+    Route::get('booking_details', [ManVan::class, 'booking_details'])->name('ManVan.BookingDetails');
+    Route::get('pickup_details', [ManVan::class, 'pickup_details'])->name('ManVan.PickupDetails');
+    Route::get('delivery_details', [ManVan::class, 'delivery_details'])->name('ManVan.DeliveryDetails');
+    Route::get('payment_details', [ManVan::class, 'payment_details'])->name('ManVan.PaymentDetails');
+    Route::post('booking_details', [ManVan::class, 'booking_details_post'])->name('ManVan.BookingDetails_POST');
+    Route::post('pickup_details', [ManVan::class, 'pickup_details_post'])->name('ManVan.PickupDetails_POST');
+    Route::post('delivery_details', [ManVan::class, 'delivery_details_post'])->name('ManVan.DeliveryDetails_POST');
+    
 
 
     Route::post('update_cart', [ManVan::class, 'update_cart'])->name('ManVan.cart.update.cart');
@@ -192,6 +217,13 @@ Route::group(['prefix'=>'OfficeRemoval'], function (){
     Route::get('price_page', [OfficeRemovals::class, 'price_page'])->name('OfficeRemovals.price_page');
     Route::get('billing', [OfficeRemovals::class, 'billing'])->name('OfficeRemovals.billing');
     Route::post('get_email', [OfficeRemovals::class, 'get_email'])->name('OfficeRemovals.get_email');
+    Route::get('booking_details', [OfficeRemovals::class, 'booking_details'])->name('OfficeRemovals.BookingDetails');
+    Route::get('pickup_details', [OfficeRemovals::class, 'pickup_details'])->name('OfficeRemovals.PickupDetails');
+    Route::get('delivery_details', [OfficeRemovals::class, 'delivery_details'])->name('OfficeRemovals.DeliveryDetails');
+    Route::get('payment_details', [OfficeRemovals::class, 'payment_details'])->name('OfficeRemovals.PaymentDetails');
+    Route::post('booking_details', [OfficeRemovals::class, 'booking_details_post'])->name('OfficeRemovals.BookingDetails_POST');
+    Route::post('pickup_details', [OfficeRemovals::class, 'pickup_details_post'])->name('OfficeRemovals.PickupDetails_POST');
+    Route::post('delivery_details', [OfficeRemovals::class, 'delivery_details_post'])->name('OfficeRemovals.DeliveryDetails_POST');
 
     
     Route::post('update_cart', [OfficeRemovals::class, 'update_cart'])->name('OfficeRemovals.cart.update.cart');
@@ -281,6 +313,13 @@ Route::group(['prefix'=>'Motorbike'], function (){
     Route::get('price_page', [Motorbike::class, 'price_page'])->name('Motorbike.price_page');
     Route::get('billing', [Motorbike::class, 'billing'])->name('Motorbike.billing');
     Route::post('get_email', [Motorbike::class, 'get_email'])->name('Motorbike.get_email');
+    Route::get('booking_details', [Motorbike::class, 'booking_details'])->name('Motorbike.BookingDetails');
+    Route::get('pickup_details', [Motorbike::class, 'pickup_details'])->name('Motorbike.PickupDetails');
+    Route::get('delivery_details', [Motorbike::class, 'delivery_details'])->name('Motorbike.DeliveryDetails');
+    Route::get('payment_details', [Motorbike::class, 'payment_details'])->name('Motorbike.PaymentDetails');
+    Route::post('booking_details', [Motorbike::class, 'booking_details_post'])->name('Motorbike.BookingDetails_POST');
+    Route::post('pickup_details', [Motorbike::class, 'pickup_details_post'])->name('Motorbike.PickupDetails_POST');
+    Route::post('delivery_details', [Motorbike::class, 'delivery_details_post'])->name('Motorbike.DeliveryDetails_POST');
 
     
     Route::post('update_cart', [Motorbike::class, 'update_cart'])->name('Motorbike.cart.update.cart');

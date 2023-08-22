@@ -1385,3 +1385,33 @@ h5 a{
 .description{
   padding: 0px 1rem;
 }
+.other-services .text{
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #353DA3;
+  text-align: center;
+  padding: 25px;
+  line-height: 25px;
+
+}
+.other-services .text-2 {
+  padding-top: 0px;
+}
+.other-services .call-btn{
+  line-height: 42px;
+  color: white;
+  font-size: 30px;
+  padding: 16px 45px;
+  background-color: #353DA3;
+  width: fit-content;
+  border-radius: 19px;
+  font-family: "Arial Black";
+font-size: 30px;
+font-weight: normal;
+font-style: normal;
+}
+.other-services .text-context{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}

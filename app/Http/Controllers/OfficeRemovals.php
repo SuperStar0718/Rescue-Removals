@@ -189,6 +189,90 @@ class OfficeRemovals extends Controller
 
         return redirect()->route('OfficeRemovals.men');
     }
+    public function booking_details(){
+        $component = "OfficeRemovals.BookingDetails";
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
+        return view('book.OfficeRemovals.main', compact('component','result'));
+    }
+    public function pickup_details(){
+        $component = "OfficeRemovals.PickupDetails";
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
+        return view('book.OfficeRemovals.main', compact('component','result'));
+    }
+    public function delivery_details(){
+        $component = "OfficeRemovals.DeliveryDetails";
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
+        return view('book.OfficeRemovals.main', compact('component','result'));
+    }
+    public function payment_details(){
+        $component = "OfficeRemovals.PaymentDetails";
+        $email = session()->get('email');
+        $result = OfficeRemovalsCart::where('email', $email)->first();
+        return view('book.OfficeRemovals.main', compact('component','result'));
+    }
+    public function booking_details_post(Request $request){
+        $name = $request->name;
+        $email_new = $request->email;
+        $number = $request->number;
+        $email = session()->get('email');
+
+        $result = OfficeRemovalsCart::where('email', $email)->first();
+
+        if($result){
+            $result->phone_number = strval($number);
+            $result->username = $name;
+            $result->phone_number= $number;
+            $result->email = $email_new;
+            $result->save();
+        }
+
+        return redirect()->route('OfficeRemovals.PickupDetails');
+    }
+    public function pickup_details_post(Request $request){
+        $postcode = $request->pickup_postcode;
+        $address_1 = $request->address_1;
+        $address_2 = $request->address_2;
+        $city = $request->city;
+        $contact_name_pickup = $request->contact_name_pickup;
+        $email = session()->get('email');
+
+        $result = OfficeRemovalsCart::where('email', $email)->first();
+
+        if($result){
+            $result->pickup_postcode = $postcode;
+            $result->pickup_address1 = $address_1;
+            $result->pickup_address2= $address_2;
+            $result->pickup_county = $city;
+            $result->pickup_name = $contact_name_pickup;
+            $result->save();
+        }
+
+        return redirect()->route('OfficeRemovals.DeliveryDetails');
+    }
+    public function delivery_details_post(Request $request){
+        $postcode = $request->delivery_postcode;
+        $address_1 = $request->address_1;
+        $address_2 = $request->address_2;
+        $city = $request->city;
+        $contact_name_pickup = $request->contact_name_delivery;
+        $email = session()->get('email');
+
+        $result = OfficeRemovalsCart::where('email', $email)->first();
+
+        if($result){
+            $result->delivery_postcode = $postcode;
+            $result->delivery_address1 = $address_1;
+            $result->delivery_address2= $address_2;
+            $result->delivery_city = $city;
+            $result->delivery_name = $contact_name_pickup;
+            $result->save();
+        }
+
+        return redirect()->route('OfficeRemovals.price_page');
+    }
     public function price_page(){
         $component = "OfficeRemovals.price_page";
         $email = session()->get('email');

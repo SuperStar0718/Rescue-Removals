@@ -1,4 +1,18 @@
 @media only screen and (max-width: 771px) {
+    .house_type .col-md-12{
+        padding-left: 0px;
+        padding-right: 0px;
+
+    }
+    .select_car_veiw_item{
+        right: 10px !important;
+    }
+    .carousel-item{
+        min-height: 220px;
+    }
+    .car_title{
+        font-size: 8px;
+    }
     .address-form .dropdown-toggle{
         text-align: center;
         border-radius: 11px;
@@ -19,7 +33,7 @@
         margin: 0px -40px;
     }
     .description{
-        margin: 0px -83px;
+        margin: 0px -73px;
     }
     .select_car_mobile{
         padding-right: 0px !important;
@@ -85,7 +99,7 @@
         font-size: 100px !important;
     }
     div.car_title_section{
-        width: 200px !important;
+        width: 160px !important;
     }
     .men.car div>div>img{
         width: 250px;

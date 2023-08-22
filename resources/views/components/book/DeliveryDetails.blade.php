@@ -9,7 +9,7 @@
                 Delivery Address & Contact Details!
             </div>
             <div class="row removals_items">
-                <form  class="needs-validation w-100" novalidate method="POST" action="{{route('HomeRemovals.DeliveryDetails_POST')}}">
+                <form  class="needs-validation w-100" novalidate method="POST">
                     @csrf
                     <div class="booking_details my-5 d-flex align-items-center flex-column">
                         <div class="content-wrapper  address-form w-1000">

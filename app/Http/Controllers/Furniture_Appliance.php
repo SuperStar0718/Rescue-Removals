@@ -137,6 +137,96 @@ class Furniture_Appliance extends Controller
         $van = VanType::where('id', $result->van)->first();
         return view('book.Furniture_Appliance.main', compact('component','job_type','result','van'));
     }
+    public function view_item(){
+        $component = "Furniture_Appliance.ViewItems";
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
+        return view('book.Furniture_Appliance.main', compact('component','result'));
+    }
+    public function booking_details(){
+        $component = "Furniture_Appliance.BookingDetails";
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
+        return view('book.Furniture_Appliance.main', compact('component','result'));
+    }
+    public function pickup_details(){
+        $component = "Furniture_Appliance.PickupDetails";
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
+        return view('book.Furniture_Appliance.main', compact('component','result'));
+    }
+    public function delivery_details(){
+        $component = "Furniture_Appliance.DeliveryDetails";
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
+        return view('book.Furniture_Appliance.main', compact('component','result'));
+    }
+    public function payment_details(){
+        $component = "Furniture_Appliance.PaymentDetails";
+        $email = session()->get('email');
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
+        return view('book.Furniture_Appliance.main', compact('component','result'));
+    }
+    public function booking_details_post(Request $request){
+        $name = $request->name;
+        $email_new = $request->email;
+        $number = $request->number;
+        $email = session()->get('email');
+
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
+
+        if($result){
+            $result->phone_number = strval($number);
+            $result->username = $name;
+            $result->phone_number= $number;
+            $result->email = $email_new;
+            $result->save();
+        }
+
+        return redirect()->route('Furniture_Appliance.PickupDetails');
+    }
+    public function pickup_details_post(Request $request){
+        $postcode = $request->pickup_postcode;
+        $address_1 = $request->address_1;
+        $address_2 = $request->address_2;
+        $city = $request->city;
+        $contact_name_pickup = $request->contact_name_pickup;
+        $email = session()->get('email');
+
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
+
+        if($result){
+            $result->pickup_postcode = $postcode;
+            $result->pickup_address1 = $address_1;
+            $result->pickup_address2= $address_2;
+            $result->pickup_county = $city;
+            $result->pickup_name = $contact_name_pickup;
+            $result->save();
+        }
+
+        return redirect()->route('Furniture_Appliance.DeliveryDetails');
+    }
+    public function delivery_details_post(Request $request){
+        $postcode = $request->delivery_postcode;
+        $address_1 = $request->address_1;
+        $address_2 = $request->address_2;
+        $city = $request->city;
+        $contact_name_pickup = $request->contact_name_delivery;
+        $email = session()->get('email');
+
+        $result = Furniture_ApplianceCart::where('email', $email)->first();
+
+        if($result){
+            $result->delivery_postcode = $postcode;
+            $result->delivery_address1 = $address_1;
+            $result->delivery_address2= $address_2;
+            $result->delivery_city = $city;
+            $result->delivery_name = $contact_name_pickup;
+            $result->save();
+        }
+
+        return redirect()->route('Furniture_Appliance.price_page');
+    }
     public function get_email(Request $request){
         $email = $request->email;
         $mobile = $request->mobile;
