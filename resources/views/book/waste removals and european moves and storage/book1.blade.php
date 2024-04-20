@@ -6,7 +6,7 @@
 
 @section('content')
     <!--------------- section 1 --------------->
-    <div class="container-content pt-5">
+    <div class="container-content pt-5 mar5" style="padding-top: 3rem !important">
         <div class="row">
             <div class="col-md-6 left_image">
                 <img src="{{asset('images/Login/login.png')}}" style="width:100%">
@@ -36,7 +36,7 @@
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div class="container-content book_now_btn" style="margin-bottom: -120px;">
+    <div class="container-content book_now_btn display-none-sm " style="margin-bottom: -120px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="row">
                 <div class="col-md-7">

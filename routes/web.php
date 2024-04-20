@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\eBayDeliveries;
 use App\Http\Controllers\Furniture_Appliance;
+use App\Http\Controllers\MailSenderController;
 use App\Http\Controllers\ManVan;
 use App\Http\Controllers\OfficeRemovals;
 use App\Http\Controllers\HomeRemovals;
@@ -33,7 +34,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
-Route::get('/forgot_password', function () { return view('authentication/forgot_password');});
+Route::get('/forgot_password', function () { return view('authentication/forgot_password');})->name('forgot_password');
 
 
 Route::get('auth/google', [LoginController::class, 'redirectToGoogle']);
@@ -42,16 +43,16 @@ Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallbac
 //--------------------------------------------Our Services routes--------------------------------------------------------
 // Route::group(['middleware'=>['auth']], function(){
 
-    Route::get('/ourservices', function () { return view('our_services');});
-    Route::get('/service_home_removals', function () { return view('service/home_removals');});
-    Route::get('/service_office_removals', function () { return view('service/office_removals');});
-    Route::get('/service_waste_removals', function () { return view('service/waste_removals');});
-    Route::get('/service_eBay_deliveries', function () { return view('service/eBay_deliveries');});
-    Route::get('/service_man&van', function () { return view('service/man&van');});
-    Route::get('/service_furniture&appliance', function () { return view('service/furniture&appliance');});
-    Route::get('/service_motorbikes', function () { return view('service/motorbikes');});
-    Route::get('/service_european_moves', function () { return view('service/european_moves');});
-    Route::get('/service_storage', function () { return view('service/storage');});
+    Route::get('/ourservices', function () { return view('our_services');})->name('service');
+    Route::get('/service_home_removals', function () { return view('service/home_removals');})->name('service');
+    Route::get('/service_office_removals', function () { return view('service/office_removals');})->name('service');
+    Route::get('/service_waste_removals', function () { return view('service/waste_removals');})->name('service');
+    Route::get('/service_eBay_deliveries', function () { return view('service/eBay_deliveries');})->name('service');
+    Route::get('/service_man&van', function () { return view('service/man&van');})->name('service');
+    Route::get('/service_furniture&appliance', function () { return view('service/furniture&appliance');})->name('service');
+    Route::get('/service_motorbikes', function () { return view('service/motorbikes');})->name('service');
+    Route::get('/service_european_moves', function () { return view('service/european_moves');})->name('service');
+    Route::get('/service_storage', function () { return view('service/storage');})->name('service');
 // });
 
 
@@ -323,7 +324,8 @@ Route::get('/Storage/book', function () { return view('book/waste removals and e
 
 
 //--------------------------------------------About Us routes--------------------------------------------------------
-Route::get('/aboutus', function () { return view('about_us');});
+Route::get('/aboutus', function () { return view('about_us');})->name('service');
 
 //--------------------------------------------Contact Us routes--------------------------------------------------------
-Route::get('/contactus', function () { return view('contact_us');});
+Route::get('/contactus', function () { return view('contact_us');})->name('service');
+Route::post('/contact_us', [MailSenderController::class, 'contact_us'])->name('contact');

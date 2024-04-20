@@ -9,14 +9,15 @@
     <!--------------- section 1 --------------->
     <div class="bg-warning-light pt-3">
         <div class="container-content mar5">
-        <div class="row">
             
             @if($component=="ManVan.price_page")
+            <div class="row">
             <div class="col-md-12">
                 @include('components.book.price_page')
+                @include('components.book.BillingModal')
                 @php($next = "ManVan.billing")
                 @php( $previous = "ManVan.final_calculation")
-                <div class="d-flex justify-content-between py-50">
+                <div class="d-flex justify-content-between py-50 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -30,8 +31,9 @@
                 </div>
             </div>
             @else
-            <div class="col-md-72 col">
-                <div class="d-flex justify-content-start align-items-center">
+            <div class="main-grid">
+            <div class="col-md-72  house_type">
+                <div class="d-flex justify-content-start align-items-center  display-none-sm">
                     <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
                     <div class="ml-2 header_text">
                         <h2 class="mb-0">Final Step-Tell us what you're moving</h2>
@@ -104,7 +106,7 @@
                         
                 @endswitch
 
-                <div class="d-flex justify-content-between py-50">
+                <div class="d-flex justify-content-between py-50 button-group">
                     <a class="previous_button" href="{{route($previous)}}"  id="quote_url">
                         <button type="submit" class="btn py-3 px-5 bg-primary-light text-white" style="border-radius: 0.5rem;">
                             <h5 class="mb-0">Previous</h5>
@@ -120,7 +122,7 @@
                     </form>
                 @endif
             </div>
-            <div class="col-md-28 col header_text_right">
+            <div class="col-md-28  header_text_right display-none-sm ">
                 <div class="d-flex justify-content-end align-items-center pt-3" style="height:179px;">
                     <div>
                         <h6 class="mb-0">Prefer to get a price over the phone?</h6>
@@ -213,12 +215,35 @@
                 </div>                
             </div>
             @endif
+            <div class="display-sm">
+                <div class="bottom-buttons">
+                    <div class="turst_img">
+                        <img src="{{asset('images/trustpilot.png')}}" alt="">
+                    </div>
+                    <div class="view_item">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16.588" height="16.589" viewBox="0 0 16.588 16.589">
+                            <defs>
+                              <clipPath id="clip-path">
+                                <rect id="Rectangle_834" data-name="Rectangle 834" width="16.588" height="16.589" fill="#fff"/>
+                              </clipPath>
+                            </defs>
+                            <g id="Group_869" data-name="Group 869" clip-path="url(#clip-path)">
+                              <path id="Path_353" data-name="Path 353" d="M16.588,8.283A8.295,8.295,0,1,1,8,0a8.284,8.284,0,0,1,8.592,8.278m-8.2,7.275A7.262,7.262,0,1,0,1.032,8.323a7.263,7.263,0,0,0,7.357,7.234" transform="translate(0 0.001)" fill="#fff"/>
+                              <path id="Path_354" data-name="Path 354" d="M49.465,53.235c-.152.138-.307.272-.455.414a.281.281,0,0,1-.392.038.289.289,0,0,1-.079-.309,2.7,2.7,0,0,1,.568-1.129,2.8,2.8,0,0,1,.824-.723,1.369,1.369,0,0,1,1.077-.168,1.191,1.191,0,0,1,.859,1.16q0,1.715,0,3.431v.114l.025.016c.129-.113.255-.229.387-.339a.689.689,0,0,1,.225-.157.252.252,0,0,1,.32.3,2.428,2.428,0,0,1-.163.519A3.058,3.058,0,0,1,51.5,57.749a1.484,1.484,0,0,1-.96.252,1.184,1.184,0,0,1-1.044-1.159q0-1.766,0-3.531v-.054l-.03-.023" transform="translate(-42.383 -44.815)" fill="#fff"/>
+                              <path id="Path_355" data-name="Path 355" d="M53.234,28.081a1.254,1.254,0,1,1,1.236,1.256,1.249,1.249,0,0,1-1.236-1.256" transform="translate(-46.495 -23.431)" fill="#fff"/>
+                            </g>
+                          </svg>
+                          </i>
+                        View Item
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!--------------- end section 1 --------------->
 
     <!--------------- section 2 --------------->
-    <div class="container-content book_now_btn" style="margin-bottom: -104px;">
+    <div class="container-content book_now_btn  display-none-sm" style="margin-bottom: -104px;">
         <div class="moving-home bg-white position-relative p-5">
             <div class="d-flex justify-content-center align-items-center ">
                 <div>
@@ -472,7 +497,7 @@ $(document).ready(function(){
     $('.hour i.down').click(function(){
         var hour = parseInt($(this).parent().children('div').children('h1').text())-1
         var minute = parseInt($(this).parent().parent().children('div.minute').children('div').children('h1').text())
-        if(hour>-1){
+        if(hour>0){
             $(this).parent().children('div').children('h1').text(hour.toString().padStart(2, '0'));
             update_time(hour,minute)
         }
@@ -480,7 +505,10 @@ $(document).ready(function(){
     $('.minute i.up').click(function(){
         var minute = parseInt($(this).parent().children('div').children('h1').text())+30
         var hour = parseInt($(this).parent().parent().children('div.hour').children('div').children('h1').text())
-        if(hour<24){
+        hour = hour+ Math.floor(minute/60)
+
+        if(hour<24)
+        {
             hour = hour+ Math.floor(minute/60)
             minute = minute%60
             $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
@@ -491,13 +519,13 @@ $(document).ready(function(){
     $('.minute i.down').click(function(){
         var hour = parseInt($(this).parent().parent().children('div.hour').children('div').children('h1').text())
         var minute = parseInt($(this).parent().children('div').children('h1').text())-30
-        if(hour>2){
+        if(hour>0){
             hour = hour+ Math.floor(minute/60)
+            minute = (minute+60)%60
+            $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
+            $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
+            update_time(hour,minute)
         }
-        minute = (minute+60)%60
-        $(this).parent().children('div').children('h1').text(minute.toString().padStart(2, '0'));
-        $(this).parent().parent().children('div.hour').children('div').children('h1').text(hour.toString().padStart(2, '0'))
-        update_time(hour,minute)
     })
 </script>
 @endif
@@ -547,6 +575,20 @@ $(document).ready(function(){
         })
     })
 </script>
+@endif
+@if($component=='ManVan.price_page')
+<script>
+
+$(document).ready(function(){
+    $('.next_button').click(function(e){
+        e.preventDefault()
+        $('button.modal_button').trigger('click');
+
+    })
+})
+
+</script>
+
 @endif
 @if($component=="ManVan.men")
 <script>

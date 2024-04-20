@@ -9,8 +9,8 @@
     <!--------------- section 1 --------------->
     <div class="bg-warning-light2 pt-3">
         <div class="container-content">
-        <div class="row">
-            <div class="col-md-72 col">
+        <div class="main-grid">
+            <div class="col-md-72 ">
                 <div class="d-flex justify-content-start align-items-center">
                     <img src="{{asset('images/book-courier.png')}}" alt="courier" style="width: 210px;">
                     <div class="ml-2 header_text">
